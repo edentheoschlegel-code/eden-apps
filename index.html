@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local Apps — Private tools that stay on your device</title>
+<meta name="description" content="A small family of privacy-first apps that run entirely in your browser. No account, no tracking, nothing ever leaves your device. Snowball, Local PDF, Local Invoice, and LocalResume.">
+<link rel="canonical" href="https://localapps.com/">
+<meta property="og:title" content="Local Apps — Private tools that stay on your device">
+<meta property="og:description" content="A small family of privacy-first apps that run entirely in your browser. No account, no tracking, nothing ever leaves your device.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#fbfbfd; --surface:#ffffff; --ink:#14152a; --muted:#5b6472; --faint:#8a93a3;
+    --line:#e9eaf0; --line-strong:#dfe1ea; --shadow:20px 40px 80px -40px rgba(20,21,42,.18);
+    --sb:#0e7490; --sb-soft:#e6f6fa;
+    --lp:#e11d48; --lp-soft:#fdeaef;
+    --li:#4338ca; --li-soft:#ecebfb;
+    --lr:#047857; --lr-soft:#e5f5ee;
+    --radius:22px;
+    --maxw:1080px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#79818f;
+      --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
+      --sb-soft:#0c2a31; --lp-soft:#33121c; --li-soft:#1a1840; --lr-soft:#0b2a1e;
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink); font-family:var(--font);
+    line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+
+  /* ---- header ---- */
+  header{padding:26px 0 8px}
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:16px}
+  .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:-.02em; font-size:19px}
+  .logo{width:30px; height:30px; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:3px}
+  .logo i{border-radius:5px; display:block}
+  .logo i:nth-child(1){background:var(--sb)} .logo i:nth-child(2){background:var(--lp)}
+  .logo i:nth-child(3){background:var(--li)} .logo i:nth-child(4){background:var(--lr)}
+  .pill{display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; color:var(--muted);
+    border:1px solid var(--line-strong); border-radius:999px; padding:7px 13px; background:var(--surface)}
+  .pill .dot{width:7px; height:7px; border-radius:50%; background:#22c55e; box-shadow:0 0 0 3px rgba(34,197,94,.18)}
+
+  /* ---- hero ---- */
+  .hero{padding:72px 0 48px; text-align:center; max-width:760px; margin:0 auto}
+  .eyebrow{font-size:13px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); margin:0 0 20px}
+  h1{font-size:clamp(38px,6vw,62px); line-height:1.04; letter-spacing:-.035em; font-weight:800; margin:0 0 22px}
+  h1 .grad{background:linear-gradient(115deg,var(--sb),var(--li) 55%,var(--lr)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .lede{font-size:clamp(17px,2.3vw,20px); color:var(--muted); margin:0 auto; max-width:560px}
+
+  /* ---- app grid ---- */
+  .apps{display:grid; grid-template-columns:1fr 1fr; gap:20px; padding:8px 0 20px}
+  @media (max-width:720px){ .apps{grid-template-columns:1fr} }
+  .card{
+    position:relative; background:var(--surface); border:1px solid var(--line);
+    border-radius:var(--radius); padding:28px; display:flex; flex-direction:column; gap:16px;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s, border-color .25s;
+    overflow:hidden;
+  }
+  .card::before{content:""; position:absolute; inset:0 0 auto 0; height:4px; background:var(--ac)}
+  .card:hover{transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--ac)}
+  .card .top{display:flex; align-items:center; gap:15px}
+  .card .icon{width:58px; height:58px; border-radius:15px; flex:none; box-shadow:0 6px 18px -8px rgba(20,21,42,.4)}
+  .card .name{font-size:21px; font-weight:800; letter-spacing:-.02em; margin:0}
+  .card .kicker{font-size:13px; font-weight:650; color:var(--ac); margin:3px 0 0; letter-spacing:.01em}
+  .card .desc{color:var(--muted); font-size:15.5px; margin:0; flex:1}
+  .card .foot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:4px}
+  .price{font-size:13px; font-weight:600; color:var(--faint)}
+  .price b{color:var(--ink); font-weight:700}
+  .open{display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:14.5px; color:#fff;
+    background:var(--ac); padding:10px 17px; border-radius:11px; transition:gap .2s, filter .2s}
+  .open:hover{gap:11px; filter:brightness(1.06)}
+  .card.sb{--ac:var(--sb)} .card.lp{--ac:var(--lp)} .card.li{--ac:var(--li)} .card.lr{--ac:var(--lr)}
+
+  /* ---- promise strip ---- */
+  .promise{margin:34px 0 10px; padding:34px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius)}
+  .promise h2{font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); text-align:center; margin:0 0 26px}
+  .points{display:grid; grid-template-columns:repeat(3,1fr); gap:26px}
+  @media (max-width:720px){ .points{grid-template-columns:1fr; gap:22px} }
+  .point{text-align:center}
+  .point .ico{width:44px; height:44px; margin:0 auto 14px; border-radius:13px; background:var(--sb-soft); color:var(--sb);
+    display:grid; place-items:center}
+  .point:nth-child(2) .ico{background:var(--li-soft); color:var(--li)}
+  .point:nth-child(3) .ico{background:var(--lr-soft); color:var(--lr)}
+  .point h3{font-size:16.5px; font-weight:750; margin:0 0 6px; letter-spacing:-.01em}
+  .point p{font-size:14.5px; color:var(--muted); margin:0}
+  .point svg{width:22px; height:22px; stroke-width:2}
+
+  /* ---- footer ---- */
+  footer{border-top:1px solid var(--line); margin-top:44px; padding:32px 0 48px}
+  .frow{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
+  .fbrand{display:flex; align-items:center; gap:10px; font-weight:700}
+  .fbrand .logo{width:22px; height:22px}
+  .fnote{color:var(--muted); font-size:13.5px}
+  .flinks{display:flex; gap:20px; font-size:13.5px; color:var(--muted)}
+  .flinks a:hover{color:var(--ink)}
+  @media (max-width:560px){ .frow{flex-direction:column; align-items:flex-start; gap:14px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="bar">
+      <div class="brand"><span class="logo"><i></i><i></i><i></i><i></i></span>Local Apps</div>
+      <span class="pill"><span class="dot"></span>Everything runs on your device</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">A small family of private tools</p>
+    <h1>Useful apps that <span class="grad">never leave your device</span>.</h1>
+    <p class="lede">No account. No uploads. No tracking. Just fast, focused tools that do the work right in your browser — and keep your data yours.</p>
+  </section>
+
+  <main>
+    <section class="apps" aria-label="Our apps">
+
+      <a class="card sb" href="https://mysnowballapp.com" target="_blank" rel="noopener">
+        <div class="top">
+          <img class="icon" src="assets/snowball.png" alt="Snowball icon" width="58" height="58">
+          <div>
+            <p class="name">Snowball</p>
+            <p class="kicker">Debt payoff planner</p>
+          </div>
+        </div>
+        <p class="desc">See your debt-free date and the smartest order to clear your balances — snowball, avalanche, or your own plan.</p>
+        <div class="foot">
+          <span class="price">Free · Pro <b>$9.99</b> once</span>
+          <span class="open">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card lp" href="https://localpdfapp.com" target="_blank" rel="noopener">
+        <div class="top">
+          <img class="icon" src="assets/localpdf.png" alt="Local PDF icon" width="58" height="58">
+          <div>
+            <p class="name">Local PDF</p>
+            <p class="kicker">PDF toolkit</p>
+          </div>
+        </div>
+        <p class="desc">Merge, split, compress, convert, sign and redact — a full set of PDF tools that runs entirely in your browser.</p>
+        <div class="foot">
+          <span class="price">Free · Pro <b>$9.99</b> once</span>
+          <span class="open">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card li" href="https://localinvoiceapp.com" target="_blank" rel="noopener">
+        <div class="top">
+          <img class="icon" src="assets/localinvoice.png" alt="Local Invoice icon" width="58" height="58">
+          <div>
+            <p class="name">Local Invoice</p>
+            <p class="kicker">Invoice maker</p>
+          </div>
+        </div>
+        <p class="desc">Create clean, professional invoices in minutes — add your logo, brand colors, and payment details, then export a polished PDF.</p>
+        <div class="foot">
+          <span class="price">Free · Pro <b>$12.99</b> once</span>
+          <span class="open">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card lr" href="https://localresumeapp.com" target="_blank" rel="noopener">
+        <div class="top">
+          <img class="icon" src="assets/localresume.png" alt="LocalResume icon" width="58" height="58">
+          <div>
+            <p class="name">LocalResume</p>
+            <p class="kicker">Resume builder</p>
+          </div>
+        </div>
+        <p class="desc">Build a standout resume and score it against any job description — beat the bots and land the interview.</p>
+        <div class="foot">
+          <span class="price">Free · Pro <b>$12.99</b> once</span>
+          <span class="open">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+    </section>
+
+    <section class="promise">
+      <h2>The same promise in every app</h2>
+      <div class="points">
+        <div class="point">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Runs on your device</h3>
+          <p>Your files and numbers are processed right in your browser. Nothing is ever uploaded.</p>
+        </div>
+        <div class="point">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg></div>
+          <h3>No account needed</h3>
+          <p>No sign-up, no password, no email required. Open the app and start — that's it.</p>
+        </div>
+        <div class="point">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+          <h3>No tracking</h3>
+          <p>No analytics, no ads, no data collection. What you do in the app stays with you.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="frow">
+      <div class="fbrand"><span class="logo"><i></i><i></i><i></i><i></i></span>Local Apps</div>
+      <span class="fnote">Private tools that stay on your device.</span>
+      <div class="flinks">
+        <a href="mailto:support@localinvoiceapp.com">Support</a>
+        <a href="https://localinvoiceapp.com/privacy.html" target="_blank" rel="noopener">Privacy</a>
+      </div>
+    </div>
+    <p class="fnote" style="margin:22px 0 0; font-size:12.5px; color:var(--faint)">© 2026 Local Apps</p>
+  </footer>
+
+</div>
+</body>
+</html>
