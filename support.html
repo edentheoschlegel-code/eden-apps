@@ -37,6 +37,19 @@
   footer{border-top:1px solid var(--line)}
   .frow{display:flex;gap:18px;flex-wrap:wrap;align-items:center;padding:24px 0 48px;color:var(--faint);font-size:13.5px}
   .frow a{color:var(--muted)}
+  /* Report-an-issue form */
+  .ticket{margin:6px 0 10px;padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+  .ticket h2{margin:0 0 4px}
+  .ticket .sub{margin:0 0 18px;color:var(--muted);font-size:15px}
+  .field{margin:0 0 14px}
+  .field label{display:block;font-size:14px;font-weight:650;color:var(--ink);margin:0 0 6px}
+  .field input,.field select,.field textarea{width:100%;padding:11px 13px;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px}
+  .field textarea{resize:vertical;min-height:120px}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--li);outline-offset:1px;border-color:var(--li)}
+  .ticket button{appearance:none;border:0;background:var(--li);color:#fff;font:inherit;font-weight:700;font-size:15px;padding:12px 24px;border-radius:11px;cursor:pointer}
+  .ticket button:hover{filter:brightness(1.06)}
+  .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+  .sent-banner{display:none;margin:0 0 26px;padding:15px 18px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--lr);border-radius:12px;color:var(--ink);font-weight:600}
 </style>
 </head>
 <body>
@@ -45,9 +58,42 @@
   <h1>Support</h1>
   <p class="updated">We're a small team building Snowball, Local PDF, Local Invoice, and LocalResume.</p>
 
+  <div class="sent-banner" id="sentBanner">✓ Ticket received — thanks! We'll get back to you at the email you gave us, usually within 1–2 business days.</div>
+
+  <div class="ticket" id="report">
+    <h2>Report an issue</h2>
+    <p class="sub">Something not working, or an app acting up? Send us a ticket and we'll take care of it.</p>
+    <form action="https://formsubmit.co/support@edenapps.app" method="POST">
+      <input type="hidden" name="_subject" value="New Eden Apps support ticket">
+      <input type="hidden" name="_next" value="https://edenapps.app/support.html?sent=1">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="field">
+        <label for="f-email">Your email</label>
+        <input id="f-email" type="email" name="email" required placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="f-app">Which app?</label>
+        <select id="f-app" name="app">
+          <option>Snowball</option>
+          <option>Local PDF</option>
+          <option>Local Invoice</option>
+          <option>LocalResume</option>
+          <option>Not sure / other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-msg">What's happening?</label>
+        <textarea id="f-msg" name="message" required placeholder="Describe the issue — what you did, what you expected, and what went wrong."></textarea>
+      </div>
+      <button type="submit">Send ticket</button>
+    </form>
+  </div>
+
   <div class="contact">
-    <p class="big">Email us</p>
-    <p style="margin:0;color:var(--muted)"><a href="mailto:support@localinvoiceapp.com">support@localinvoiceapp.com</a> — we reply within 1–2 business days.</p>
+    <p class="big">Prefer email?</p>
+    <p style="margin:0;color:var(--muted)"><a href="mailto:support@edenapps.app">support@edenapps.app</a> — we reply within 1–2 business days.</p>
   </div>
 
   <div class="faq">
@@ -68,5 +114,11 @@
   </div>
 </div></main>
 <footer><div class="wrap frow"><span>© 2026 Eden Apps</span><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></div></footer>
+<script>
+  if (new URLSearchParams(location.search).get('sent') === '1') {
+    var b = document.getElementById('sentBanner');
+    if (b) { b.style.display = 'block'; b.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  }
+</script>
 </body>
 </html>
