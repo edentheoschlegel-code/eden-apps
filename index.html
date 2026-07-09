@@ -55,6 +55,19 @@
   .themebtn{display:inline-grid; place-items:center; width:38px; height:38px; flex:none; border:1px solid var(--line-strong); border-radius:999px; background:var(--surface); color:var(--ink); cursor:pointer; padding:0; transition:border-color .2s, color .2s}
   .themebtn:hover{border-color:var(--li); color:var(--li)}
   .themebtn svg{width:17px; height:17px}
+  /* email signup */
+  .subscribe{margin-top:20px; padding:38px 28px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); text-align:center}
+  .subscribe h3{margin:0 0 7px; font-size:23px; letter-spacing:-.02em}
+  .subscribe .sub{margin:0 auto 22px; color:var(--muted); font-size:15px; max-width:460px}
+  .subform{display:flex; gap:10px; max-width:450px; margin:0 auto}
+  @media(max-width:520px){ .subform{flex-direction:column} }
+  .subform input[type=email]{flex:1; min-width:0; padding:12px 15px; font:inherit; font-size:15px; color:var(--ink); background:var(--bg); border:1px solid var(--line-strong); border-radius:12px}
+  .subform input[type=email]:focus{outline:2px solid var(--li); outline-offset:1px; border-color:var(--li)}
+  .subform button{appearance:none; border:0; background:var(--li); color:#fff; font:inherit; font-weight:700; font-size:15px; padding:12px 22px; border-radius:12px; cursor:pointer; white-space:nowrap}
+  .subform button:hover{filter:brightness(1.08)}
+  .subnote{margin:12px 0 0; font-size:12.5px; color:var(--faint)}
+  .subok{display:none; margin:4px auto 0; max-width:460px; color:var(--lr); font-weight:650}
+  .hp{position:absolute!important; left:-9999px!important; width:1px; height:1px; overflow:hidden}
 
   /* hero */
   .hero{padding:64px 0 40px; text-align:center; max-width:800px; margin:0 auto}
@@ -229,6 +242,22 @@
         </div>
       </div>
     </section>
+
+    <section class="subscribe" id="stay">
+      <h3>Be the first to know</h3>
+      <p class="sub">Drop your email and I'll let you know when a new Eden Apps app launches. Just the launches — no spam, unsubscribe anytime.</p>
+      <form class="subform" action="https://formsubmit.co/support@edenapps.app" method="POST">
+        <input type="hidden" name="_subject" value="New Eden Apps subscriber">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://edenapps.app/?subscribed=1#stay">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="email" name="email" required placeholder="you@example.com" aria-label="Your email">
+        <button type="submit">Notify me</button>
+      </form>
+      <p class="subnote">One email per launch, nothing else. Your address stays private.</p>
+      <p class="subok" id="subOk">✓ You're on the list — I'll email you when the next app drops.</p>
+    </section>
   </main>
 
   <footer>
@@ -261,6 +290,12 @@
     r.setAttribute('data-theme', next);
     try{ localStorage.setItem('ea-theme', next); }catch(e){}
   });
+  if(location.search.indexOf('subscribed=1') > -1){
+    var f=document.querySelector('.subform'), note=document.querySelector('.subnote'), ok=document.getElementById('subOk');
+    if(f) f.style.display='none';
+    if(note) note.style.display='none';
+    if(ok) ok.style.display='block';
+  }
 })();
 </script>
 </body>
