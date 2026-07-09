@@ -7,16 +7,23 @@
 <meta name="description" content="The terms for using Eden Apps — Snowball, Local PDF, Local Invoice, and LocalResume.">
 <link rel="canonical" href="https://edenapps.app/terms.html">
 <link rel="icon" href="assets/eden-logo.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/eden-logo.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Terms of Service — Eden Apps">
+<meta property="og:description" content="The terms for using Eden Apps — Snowball, Local PDF, Local Invoice, and LocalResume.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edenapps.app/terms.html">
+<meta property="og:image" content="https://edenapps.app/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://edenapps.app/assets/og-image.jpg">
 <style>
   :root{--bg:#fbfbfd;--surface:#fff;--ink:#14152a;--muted:#525b6a;--faint:#616c7e;--line:#e9eaf0;
-    --sb:#0e7490;--lp:#e11d48;--li:#4338ca;--lr:#047857;
+    --sb:#0e7490;--lp:#e11d48;--li:#4338ca;--lr:#047857;--li-tx:#4338ca;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  :root[data-theme="dark"]{--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f}
-  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f}}
+  :root[data-theme="dark"]{--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#8b83f0}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#8b83f0}}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
-  a{color:var(--li)}a:hover{text-decoration:underline}
+  a{color:var(--li-tx)}a:hover{text-decoration:underline}
   .wrap{max-width:740px;margin:0 auto;padding:0 24px}
   header{padding:24px 0;border-bottom:1px solid var(--line)}
   .brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em;font-size:17px;color:var(--ink);text-decoration:none}
@@ -38,10 +45,14 @@
   .wm{display:inline-flex;gap:.28em}
   .wm-e{background:linear-gradient(120deg,#dbb066,#c69340);-webkit-background-clip:text;background-clip:text;color:transparent}
   .wm-a{background:linear-gradient(120deg,#82638a,#5d4672);-webkit-background-clip:text;background-clip:text;color:transparent}
+  :root[data-theme="dark"] .wm-e{background:linear-gradient(120deg,#e6c07f,#d3a458);-webkit-background-clip:text;background-clip:text}
+  :root[data-theme="dark"] .wm-a{background:linear-gradient(120deg,#b7a1c0,#9d83aa);-webkit-background-clip:text;background-clip:text}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .wm-e{background:linear-gradient(120deg,#e6c07f,#d3a458);-webkit-background-clip:text;background-clip:text}:root:not([data-theme="light"]) .wm-a{background:linear-gradient(120deg,#b7a1c0,#9d83aa);-webkit-background-clip:text;background-clip:text}}
   header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .themebtn{display:inline-grid;place-items:center;width:36px;height:36px;flex:none;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer;padding:0;transition:border-color .2s,color .2s}
-  .themebtn:hover{border-color:#4338ca;color:#4338ca}
+  .themebtn{display:inline-grid;place-items:center;width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer;padding:0;transition:border-color .2s,color .2s}
+  .themebtn:hover{border-color:var(--li-tx);color:var(--li-tx)}
   .themebtn svg{width:16px;height:16px}
+  .themebtn:focus-visible,.frow a:focus-visible,.brand:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
 </style>
 <script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>

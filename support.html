@@ -7,16 +7,23 @@
 <meta name="description" content="Get help with Snowball, Local PDF, Local Invoice, and LocalResume. Common questions and how to reach us.">
 <link rel="canonical" href="https://edenapps.app/support.html">
 <link rel="icon" href="assets/eden-logo.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/eden-logo.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Support — Eden Apps">
+<meta property="og:description" content="Get help with Snowball, Local PDF, Local Invoice, and LocalResume.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edenapps.app/support.html">
+<meta property="og:image" content="https://edenapps.app/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://edenapps.app/assets/og-image.jpg">
 <style>
   :root{--bg:#fbfbfd;--surface:#fff;--ink:#14152a;--muted:#525b6a;--faint:#616c7e;--line:#e9eaf0;
-    --sb:#0e7490;--lp:#e11d48;--li:#4338ca;--lr:#047857;
+    --sb:#0e7490;--lp:#e11d48;--li:#4338ca;--lr:#047857;--li-tx:#4338ca;--lp-tx:#e11d48;--lr-tx:#047857;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  :root[data-theme="dark"]{--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f}
-  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f}}
+  :root[data-theme="dark"]{--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#8b83f0;--lp-tx:#fb7185;--lr-tx:#34d399}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#8b83f0;--lp-tx:#fb7185;--lr-tx:#34d399}}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
-  a{color:var(--li)}a:hover{text-decoration:underline}
+  a{color:var(--li-tx)}a:hover{text-decoration:underline}
   .wrap{max-width:740px;margin:0 auto;padding:0 24px}
   header{padding:24px 0;border-bottom:1px solid var(--line)}
   .brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em;font-size:17px;color:var(--ink);text-decoration:none}
@@ -47,7 +54,7 @@
   .field label{display:block;font-size:14px;font-weight:650;color:var(--ink);margin:0 0 6px}
   .field input,.field select,.field textarea{width:100%;padding:11px 13px;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px}
   .field textarea{resize:vertical;min-height:120px}
-  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--li);outline-offset:1px;border-color:var(--li)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--li-tx);outline-offset:1px;border-color:var(--li-tx)}
   .ticket button{appearance:none;border:0;background:var(--li);color:#fff;font:inherit;font-weight:700;font-size:15px;padding:12px 24px;border-radius:11px;cursor:pointer}
   .ticket button:hover{filter:brightness(1.06)}
   .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
@@ -55,10 +62,14 @@
   .wm{display:inline-flex;gap:.28em}
   .wm-e{background:linear-gradient(120deg,#dbb066,#c69340);-webkit-background-clip:text;background-clip:text;color:transparent}
   .wm-a{background:linear-gradient(120deg,#82638a,#5d4672);-webkit-background-clip:text;background-clip:text;color:transparent}
+  :root[data-theme="dark"] .wm-e{background:linear-gradient(120deg,#e6c07f,#d3a458);-webkit-background-clip:text;background-clip:text}
+  :root[data-theme="dark"] .wm-a{background:linear-gradient(120deg,#b7a1c0,#9d83aa);-webkit-background-clip:text;background-clip:text}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .wm-e{background:linear-gradient(120deg,#e6c07f,#d3a458);-webkit-background-clip:text;background-clip:text}:root:not([data-theme="light"]) .wm-a{background:linear-gradient(120deg,#b7a1c0,#9d83aa);-webkit-background-clip:text;background-clip:text}}
   header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .themebtn{display:inline-grid;place-items:center;width:36px;height:36px;flex:none;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer;padding:0;transition:border-color .2s,color .2s}
-  .themebtn:hover{border-color:#4338ca;color:#4338ca}
+  .themebtn{display:inline-grid;place-items:center;width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer;padding:0;transition:border-color .2s,color .2s}
+  .themebtn:hover{border-color:var(--li-tx);color:var(--li-tx)}
   .themebtn svg{width:16px;height:16px}
+  .themebtn:focus-visible,.ticket button:focus-visible,.frow a:focus-visible,.brand:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
 </style>
 <script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
@@ -66,9 +77,9 @@
 <header><div class="wrap"><a class="brand" href="index.html"><img class="logo" src="assets/eden-logo.png" alt="Eden Apps logo" width="27" height="27"><span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span></a><button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button></div></header>
 <main><div class="wrap">
   <h1>Support</h1>
-  <p class="updated">Hit a snag or have a question? Send a ticket below and we'll get back to you — usually within a day or two.</p>
+  <p class="updated">Hit a snag or have a question? Send a ticket below and we'll get back to you — usually within 1–2 business days.</p>
 
-  <div class="sent-banner" id="sentBanner">✓ Ticket received — thanks! We'll get back to you at the email you gave us, usually within 1–2 business days.</div>
+  <div class="sent-banner" id="sentBanner" role="status" aria-live="polite" tabindex="-1">✓ Ticket received — thanks! We'll get back to you at the email you gave us, usually within 1–2 business days.</div>
 
   <div class="ticket" id="report">
     <h2>Report an issue</h2>
@@ -77,6 +88,7 @@
       <input type="hidden" name="access_key" value="87831490-3a72-4bc5-9d84-6c527a6495e7">
       <input type="hidden" name="subject" value="New Eden Apps support ticket">
       <input type="hidden" name="from_name" value="Eden Apps support form">
+      <input type="hidden" name="redirect" value="https://edenapps.app/support.html?sent=1">
       <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <div class="field">
         <label for="f-email">Your email</label>
@@ -130,14 +142,14 @@
   if(tbtn) tbtn.addEventListener('click',function(){var next=current()==='dark'?'light':'dark';r.setAttribute('data-theme',next);try{localStorage.setItem('ea-theme',next);}catch(e){}});
 
   var banner=document.getElementById('sentBanner');
-  function showBanner(){ if(banner){ banner.style.display='block'; banner.scrollIntoView({behavior:'smooth',block:'center'}); } }
+  function showBanner(){ if(banner){ banner.style.display='block'; banner.scrollIntoView({behavior:'smooth',block:'center'}); try{ banner.focus(); }catch(e){} } }
   if (new URLSearchParams(location.search).get('sent') === '1') showBanner();
 
   var tform=document.querySelector('.ticket form');
   if(tform) tform.addEventListener('submit', function(e){
     e.preventDefault();
     var bot=tform.querySelector('[name="botcheck"]'); if(bot && bot.checked) return;
-    var data={ access_key:'87831490-3a72-4bc5-9d84-6c527a6495e7', subject:'New Eden Apps support ticket', from_name:'Eden Apps support form' };
+    var data={ access_key:'87831490-3a72-4bc5-9d84-6c527a6495e7', subject:'New Eden Apps support ticket', from_name:'Eden Apps support form', botcheck:!!(bot && bot.checked) };
     ['email','app','message'].forEach(function(n){ var el=tform.querySelector('[name="'+n+'"]'); if(el) data[n]=el.value; });
     var btn=tform.querySelector('button[type=submit]'), lbl=btn.textContent;
     btn.disabled=true; btn.textContent='Sending…';
@@ -147,7 +159,7 @@
       .catch(function(){
         btn.disabled=false; btn.textContent=lbl;
         var err=document.getElementById('ticketErr');
-        if(!err){ err=document.createElement('p'); err.id='ticketErr'; err.style.cssText='margin:12px 0 0;color:var(--lp);font-weight:600;font-size:14px'; tform.appendChild(err); }
+        if(!err){ err=document.createElement('p'); err.id='ticketErr'; err.setAttribute('role','alert'); err.style.cssText='margin:12px 0 0;color:var(--lp-tx);font-weight:600;font-size:14px'; tform.appendChild(err); }
         err.textContent="Couldn't send just now — please email support@edenapps.app directly.";
       });
   });
