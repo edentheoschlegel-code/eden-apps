@@ -120,10 +120,14 @@
   .slide{min-width:100%; display:grid; grid-template-columns:1.32fr 1fr; gap:32px; align-items:center; padding:4px}
   .slide.sb{--ac:var(--sb)} .slide.lp{--ac:var(--lp)} .slide.li{--ac:var(--li)} .slide.lr{--ac:var(--lr)}
   .frame{border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); background:var(--surface)}
-  .frame .bar{display:flex; align-items:center; height:34px; padding:0 13px; border-bottom:1px solid var(--line); background:var(--bg)}
+  .frame .bar{position:relative; display:flex; align-items:center; height:34px; padding:0 13px; border-bottom:1px solid var(--line); background:var(--bg)}
   .frame .bar .d{width:10px; height:10px; border-radius:50%; background:var(--line-strong); margin-right:6px}
-  .frame .bar .url{margin-left:8px; font-size:12px; font-weight:600; color:var(--faint)}
+  .frame .bar .url{position:absolute; left:50%; transform:translateX(-50%); font-size:12px; font-weight:600; color:var(--faint)}
   .frame img{display:block; width:100%; height:auto}
+  .frame .shot-dark{display:none}
+  :root[data-theme="dark"] .frame .shot-light{display:none}
+  :root[data-theme="dark"] .frame .shot-dark{display:block}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .frame .shot-light{display:none} :root:not([data-theme="light"]) .frame .shot-dark{display:block} }
   .meta .mhead{display:flex; align-items:center; gap:14px; margin:0 0 15px}
   .meta .icon{width:48px; height:48px; border-radius:13px; box-shadow:0 6px 18px -8px rgba(20,21,42,.4)}
   .meta .name{font-size:23px; font-weight:800; letter-spacing:-.02em; margin:0}
@@ -135,7 +139,7 @@
   .meta .foot{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
   .arrow{flex:none; width:42px; height:42px; border-radius:50%; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); font-size:22px; line-height:1; cursor:pointer; display:grid; place-items:center; transition:border-color .2s, color .2s}
   .arrow:hover{border-color:var(--li); color:var(--li)}
-  .tabs{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:22px}
+  .tabs{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:0 0 22px}
   .tab{display:inline-flex; align-items:center; gap:8px; font:inherit; font-size:14px; font-weight:700; color:var(--muted); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:6px 15px 6px 7px; cursor:pointer; transition:color .2s, background .2s, border-color .2s}
   .tab img{width:22px; height:22px; border-radius:6px}
   .tab.sb{--ac:var(--sb)} .tab.lp{--ac:var(--lp)} .tab.li{--ac:var(--li)} .tab.lr{--ac:var(--lr)}
@@ -192,7 +196,7 @@
   </header>
 
   <section class="hero">
-    <p class="eyebrow">A growing family of apps</p>
+    <p class="eyebrow">Made by Eden</p>
     <h1>Private apps for your <span class="grad">money, documents &amp; career</span>.</h1>
     <p class="lede">Small, focused tools — thoughtfully built, fairly priced, and made with care. Every one runs on your device.</p>
   </section>
@@ -205,6 +209,12 @@
     <p class="sec-note">Each one is free to try, with an optional one-time Pro unlock. The button opens the app on its own site, in a new tab.</p>
 
     <section class="showcase" aria-roledescription="carousel" aria-label="Featured Eden Apps">
+      <div class="tabs" role="tablist" aria-label="Choose an app">
+        <button class="tab sb" role="tab" type="button" data-i="0" aria-selected="true"><img src="assets/snowball.png" alt="" width="22" height="22">Snowball</button>
+        <button class="tab lp" role="tab" type="button" data-i="1" aria-selected="false"><img src="assets/localpdf.png" alt="" width="22" height="22">Local PDF</button>
+        <button class="tab li" role="tab" type="button" data-i="2" aria-selected="false"><img src="assets/localinvoice.png" alt="" width="22" height="22">Local Invoice</button>
+        <button class="tab lr" role="tab" type="button" data-i="3" aria-selected="false"><img src="assets/localresume.png" alt="" width="22" height="22">LocalResume</button>
+      </div>
       <div class="stage">
         <button class="arrow prev" type="button" aria-label="Previous app">&#8249;</button>
         <div class="viewport">
@@ -212,7 +222,7 @@
         <article class="slide sb" role="group" aria-roledescription="slide" aria-label="Snowball, 1 of 4">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">mysnowballapp.com</span></div>
-            <a href="https://mysnowballapp.com" target="_blank" rel="noopener" aria-label="Open Snowball"><img src="assets/hero-snowball.jpg" alt="Snowball app screenshot" loading="lazy" width="1280" height="818"></a>
+            <a href="https://mysnowballapp.com" target="_blank" rel="noopener" aria-label="Open Snowball"><img class="shot shot-light" src="assets/hero-snowball.jpg" alt="Snowball app screenshot" loading="lazy" width="1280" height="818"><img class="shot shot-dark" src="assets/hero-snowball-dark.jpg" alt="" loading="lazy" width="1280" height="818"></a>
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/snowball.png" alt="" width="48" height="48"><div><p class="name"><a href="https://mysnowballapp.com" target="_blank" rel="noopener">Snowball</a></p><p class="kicker">Debt payoff planner</p></div></div>
@@ -228,7 +238,7 @@
         <article class="slide lp" role="group" aria-roledescription="slide" aria-label="Local PDF, 2 of 4">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localpdfapp.com</span></div>
-            <a href="https://localpdfapp.com" target="_blank" rel="noopener" aria-label="Open Local PDF"><img src="assets/hero-localpdf.jpg" alt="Local PDF app screenshot" loading="lazy" width="1280" height="818"></a>
+            <a href="https://localpdfapp.com" target="_blank" rel="noopener" aria-label="Open Local PDF"><img class="shot shot-light" src="assets/hero-localpdf.jpg" alt="Local PDF app screenshot" loading="lazy" width="1280" height="818"><img class="shot shot-dark" src="assets/hero-localpdf-dark.jpg" alt="" loading="lazy" width="1280" height="818"></a>
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/localpdf.png" alt="" width="48" height="48"><div><p class="name"><a href="https://localpdfapp.com" target="_blank" rel="noopener">Local PDF</a></p><p class="kicker">PDF toolkit</p></div></div>
@@ -244,7 +254,7 @@
         <article class="slide li" role="group" aria-roledescription="slide" aria-label="Local Invoice, 3 of 4">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localinvoiceapp.com</span></div>
-            <a href="https://localinvoiceapp.com" target="_blank" rel="noopener" aria-label="Open Local Invoice"><img src="assets/hero-localinvoice.jpg" alt="Local Invoice app screenshot" loading="lazy" width="1280" height="818"></a>
+            <a href="https://localinvoiceapp.com" target="_blank" rel="noopener" aria-label="Open Local Invoice"><img class="shot shot-light" src="assets/hero-localinvoice.jpg" alt="Local Invoice app screenshot" loading="lazy" width="1280" height="818"><img class="shot shot-dark" src="assets/hero-localinvoice-dark.jpg" alt="" loading="lazy" width="1280" height="818"></a>
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/localinvoice.png" alt="" width="48" height="48"><div><p class="name"><a href="https://localinvoiceapp.com" target="_blank" rel="noopener">Local Invoice</a></p><p class="kicker">Invoice maker</p></div></div>
@@ -260,7 +270,7 @@
         <article class="slide lr" role="group" aria-roledescription="slide" aria-label="LocalResume, 4 of 4">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localresumeapp.com</span></div>
-            <a href="https://localresumeapp.com" target="_blank" rel="noopener" aria-label="Open LocalResume"><img src="assets/hero-localresume.jpg" alt="LocalResume app screenshot" loading="lazy" width="1280" height="818"></a>
+            <a href="https://localresumeapp.com" target="_blank" rel="noopener" aria-label="Open LocalResume"><img class="shot shot-light" src="assets/hero-localresume.jpg" alt="LocalResume app screenshot" loading="lazy" width="1280" height="818"><img class="shot shot-dark" src="assets/hero-localresume-dark.jpg" alt="" loading="lazy" width="1280" height="818"></a>
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/localresume.png" alt="" width="48" height="48"><div><p class="name"><a href="https://localresumeapp.com" target="_blank" rel="noopener">LocalResume</a></p><p class="kicker">Resume builder</p></div></div>
@@ -276,12 +286,6 @@
           </div>
         </div>
         <button class="arrow next" type="button" aria-label="Next app">&#8250;</button>
-      </div>
-      <div class="tabs" role="tablist" aria-label="Choose an app">
-        <button class="tab sb" role="tab" type="button" data-i="0" aria-selected="true"><img src="assets/snowball.png" alt="" width="22" height="22">Snowball</button>
-        <button class="tab lp" role="tab" type="button" data-i="1" aria-selected="false"><img src="assets/localpdf.png" alt="" width="22" height="22">Local PDF</button>
-        <button class="tab li" role="tab" type="button" data-i="2" aria-selected="false"><img src="assets/localinvoice.png" alt="" width="22" height="22">Local Invoice</button>
-        <button class="tab lr" role="tab" type="button" data-i="3" aria-selected="false"><img src="assets/localresume.png" alt="" width="22" height="22">LocalResume</button>
       </div>
     </section>
 
