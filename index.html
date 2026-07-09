@@ -90,6 +90,7 @@
     transition:transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s, border-color .25s}
   .card::before{content:""; position:absolute; inset:0 0 auto 0; height:4px; background:var(--ac)}
   .card:hover{transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--ac)}
+  .card .shot{display:block; width:calc(100% + 52px); margin:-26px -26px 4px; aspect-ratio:16/9; object-fit:cover; object-position:top center; border-bottom:1px solid var(--line); background:var(--bg)}
   .card .top{display:flex; align-items:center; gap:15px}
   .card .icon{width:56px; height:56px; border-radius:15px; flex:none; box-shadow:0 6px 18px -8px rgba(20,21,42,.4)}
   .card .name{font-size:20px; font-weight:800; letter-spacing:-.02em; margin:0}
@@ -155,8 +156,8 @@
 
   <section class="hero">
     <p class="eyebrow">A growing family of apps</p>
-    <h1>Useful apps — <span class="grad">made with care</span>.</h1>
-    <p class="lede">A growing collection of apps for your money, documents, and career — each one thoughtfully built, fairly priced, and private by design.</p>
+    <h1>Private apps for your <span class="grad">money, documents &amp; career</span>.</h1>
+    <p class="lede">Small, focused tools — thoughtfully built, fairly priced, and made with care. Every one runs on your device.</p>
   </section>
 
   <main>
@@ -169,6 +170,7 @@
     <section class="apps" aria-label="Apps">
 
       <div class="card sb">
+        <img class="shot" src="assets/shot-snowball.jpg" alt="Snowball app — debt payoff planner" loading="lazy" width="820" height="461">
         <div class="top">
           <img class="icon" src="assets/snowball.png" alt="Snowball icon" width="56" height="56">
           <div><p class="name"><a href="https://mysnowballapp.com" target="_blank" rel="noopener">Snowball</a></p><p class="kicker">Debt payoff planner</p></div>
@@ -183,6 +185,7 @@
       </div>
 
       <div class="card lp">
+        <img class="shot" src="assets/shot-localpdf.jpg" alt="Local PDF app — PDF toolkit" loading="lazy" width="820" height="461">
         <div class="top">
           <img class="icon" src="assets/localpdf.png" alt="Local PDF icon" width="56" height="56">
           <div><p class="name"><a href="https://localpdfapp.com" target="_blank" rel="noopener">Local PDF</a></p><p class="kicker">PDF toolkit</p></div>
@@ -197,6 +200,7 @@
       </div>
 
       <div class="card li">
+        <img class="shot" src="assets/shot-localinvoice.jpg" alt="Local Invoice app — invoice dashboard" loading="lazy" width="820" height="461">
         <div class="top">
           <img class="icon" src="assets/localinvoice.png" alt="Local Invoice icon" width="56" height="56">
           <div><p class="name"><a href="https://localinvoiceapp.com" target="_blank" rel="noopener">Local Invoice</a></p><p class="kicker">Invoice maker</p></div>
@@ -211,6 +215,7 @@
       </div>
 
       <div class="card lr">
+        <img class="shot" src="assets/shot-localresume.jpg" alt="LocalResume app — resume editor" loading="lazy" width="820" height="461">
         <div class="top">
           <img class="icon" src="assets/localresume.png" alt="LocalResume icon" width="56" height="56">
           <div><p class="name"><a href="https://localresumeapp.com" target="_blank" rel="noopener">LocalResume</a></p><p class="kicker">Resume builder</p></div>
