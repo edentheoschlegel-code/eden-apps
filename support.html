@@ -73,12 +73,11 @@
   <div class="ticket" id="report">
     <h2>Report an issue</h2>
     <p class="sub">Something not working, or an app acting up? Send a ticket and I'll take care of it.</p>
-    <form action="https://formsubmit.co/support@edenapps.app" method="POST">
-      <input type="hidden" name="_subject" value="New Eden Apps support ticket">
-      <input type="hidden" name="_next" value="https://edenapps.app/support.html?sent=1">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="87831490-3a72-4bc5-9d84-6c527a6495e7">
+      <input type="hidden" name="subject" value="New Eden Apps support ticket">
+      <input type="hidden" name="from_name" value="Eden Apps support form">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <div class="field">
         <label for="f-email">Your email</label>
         <input id="f-email" type="email" name="email" required placeholder="you@example.com">
@@ -137,14 +136,14 @@
   var tform=document.querySelector('.ticket form');
   if(tform) tform.addEventListener('submit', function(e){
     e.preventDefault();
-    var hp=tform.querySelector('[name="_honey"]'); if(hp && hp.value) return;
-    var data={ _subject:'New Eden Apps support ticket', _template:'table' };
+    var bot=tform.querySelector('[name="botcheck"]'); if(bot && bot.checked) return;
+    var data={ access_key:'87831490-3a72-4bc5-9d84-6c527a6495e7', subject:'New Eden Apps support ticket', from_name:'Eden Apps support form' };
     ['email','app','message'].forEach(function(n){ var el=tform.querySelector('[name="'+n+'"]'); if(el) data[n]=el.value; });
     var btn=tform.querySelector('button[type=submit]'), lbl=btn.textContent;
     btn.disabled=true; btn.textContent='Sending…';
-    fetch('https://formsubmit.co/ajax/support@edenapps.app',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-      .then(function(res){ if(!res.ok) throw 0; return res.json(); })
-      .then(function(){ tform.style.display='none'; showBanner(); })
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(res){ return res.json(); })
+      .then(function(r){ if(r && r.success){ tform.style.display='none'; showBanner(); } else { throw 0; } })
       .catch(function(){
         btn.disabled=false; btn.textContent=lbl;
         var err=document.getElementById('ticketErr');
