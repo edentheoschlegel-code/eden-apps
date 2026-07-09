@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eden Apps — a small studio making useful apps</title>
-<meta name="description" content="Eden Apps is a small indie studio making useful, honest apps — planners, document tools, and more. Thoughtfully built, fairly priced, and many run 100% on your device.">
+<title>Eden Apps — private apps for your money, documents &amp; career</title>
+<meta name="description" content="Eden Apps is a solo indie studio making private, on-device apps for your money, documents, and career — thoughtfully built, fairly priced, one-time unlock. No accounts, no tracking.">
 <link rel="canonical" href="https://edenapps.app/">
 <link rel="icon" href="assets/eden-logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/eden-logo.png">
-<meta property="og:title" content="Eden Apps — a small studio making useful apps">
-<meta property="og:description" content="A growing collection of useful, honest apps by Eden. Thoughtfully built, fairly priced, many 100% private.">
+<meta property="og:title" content="Eden Apps — private apps for your money, documents &amp; career">
+<meta property="og:description" content="A growing collection of private, on-device apps by Eden — thoughtfully built, fairly priced, one-time unlock. No accounts, no tracking.">
 <meta property="og:type" content="website">
 <style>
   :root{
-    --bg:#fbfbfd; --surface:#ffffff; --ink:#14152a; --muted:#5b6472; --faint:#8a93a3;
+    --bg:#fbfbfd; --surface:#ffffff; --ink:#14152a; --muted:#5b6472; --faint:#616c7e;
     --line:#e9eaf0; --line-strong:#dfe1ea; --shadow:20px 40px 80px -40px rgba(20,21,42,.18);
     --sb:#0e7490; --sb-soft:#e6f6fa;
     --lp:#e11d48; --lp-soft:#fdeaef;
@@ -23,13 +23,13 @@
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   :root[data-theme="dark"]{
-      --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#79818f;
+      --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#8b93a1;
       --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
       --sb-soft:#0c2a31; --lp-soft:#33121c; --li-soft:#1a1840; --lr-soft:#0b2a1e;
   }
   @media (prefers-color-scheme:dark){
     :root:not([data-theme="light"]){
-      --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#79818f;
+      --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#8b93a1;
       --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
       --sb-soft:#0c2a31; --lp-soft:#33121c; --li-soft:#1a1840; --lr-soft:#0b2a1e;
     }
@@ -61,9 +61,10 @@
   .subscribe .sub{margin:0 auto 22px; color:var(--muted); font-size:15px; max-width:460px}
   .subform{display:flex; gap:10px; max-width:450px; margin:0 auto}
   @media(max-width:520px){ .subform{flex-direction:column} }
-  .subform input[type=email]{flex:1; min-width:0; padding:12px 15px; font:inherit; font-size:15px; color:var(--ink); background:var(--bg); border:1px solid var(--line-strong); border-radius:12px}
+  .subform input[type=email]{flex:1; min-width:0; padding:12px 15px; font:inherit; font-size:16px; color:var(--ink); background:var(--bg); border:1px solid var(--line-strong); border-radius:12px}
   .subform input[type=email]:focus{outline:2px solid var(--li); outline-offset:1px; border-color:var(--li)}
-  .subform button{appearance:none; border:0; background:var(--li); color:#fff; font:inherit; font-weight:700; font-size:15px; padding:12px 22px; border-radius:12px; cursor:pointer; white-space:nowrap}
+  .subform button{appearance:none; border:0; background:var(--li); color:#fff; font:inherit; font-weight:700; font-size:16px; padding:12px 22px; border-radius:12px; cursor:pointer; white-space:nowrap}
+  .subform button[disabled]{opacity:.6; cursor:default}
   .subform button:hover{filter:brightness(1.08)}
   .subnote{margin:12px 0 0; font-size:12.5px; color:var(--faint)}
   .subok{display:none; margin:4px auto 0; max-width:460px; color:var(--lr); font-weight:650}
@@ -98,12 +99,16 @@
   .tag{font-size:12px; font-weight:650; color:var(--muted); background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:4px 10px}
   .tag.lock{color:var(--lr); border-color:transparent; background:var(--lr-soft)}
   .foot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:2px}
-  .price{font-size:13px; font-weight:600; color:var(--faint)}
+  .price{font-size:14px; font-weight:600; color:var(--muted)}
   .price b{color:var(--ink); font-weight:700}
   .open{display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:14px; color:#fff;
     background:var(--ac); padding:10px 17px; border-radius:11px; transition:gap .2s, filter .2s}
   .open:hover{gap:11px; filter:brightness(1.06)}
   .card.sb{--ac:var(--sb)} .card.lp{--ac:var(--lp)} .card.li{--ac:var(--li)} .card.lr{--ac:var(--lr)}
+  .card .name a{color:inherit} .card .name a:hover{color:var(--ac)}
+  .split{font-size:12.5px; color:var(--muted); margin:0; line-height:1.5}
+  .split b{color:var(--ink); font-weight:700}
+  .sec-note{font-size:13.5px; color:var(--muted); margin:-4px 0 20px}
 
   /* coming soon */
 
@@ -151,7 +156,7 @@
   <section class="hero">
     <p class="eyebrow">A growing family of apps</p>
     <h1>Useful apps — <span class="grad">made with care</span>.</h1>
-    <p class="lede">Eden Apps is a growing collection of apps — each one thoughtfully built and fairly priced, including many that run 100% on your device.</p>
+    <p class="lede">A growing collection of apps for your money, documents, and career — each one thoughtfully built, fairly priced, and private by design.</p>
   </section>
 
   <main>
@@ -159,60 +164,65 @@
       <h2>The apps</h2>
       <span class="count">4 live · more on the way</span>
     </div>
+    <p class="sec-note">Each one is free to try, with an optional one-time Pro unlock. The button opens the app on its own site, in a new tab.</p>
 
     <section class="apps" aria-label="Apps">
 
-      <a class="card sb" href="https://mysnowballapp.com" target="_blank" rel="noopener">
+      <div class="card sb">
         <div class="top">
           <img class="icon" src="assets/snowball.png" alt="Snowball icon" width="56" height="56">
-          <div><p class="name">Snowball</p><p class="kicker">Debt payoff planner</p></div>
+          <div><p class="name"><a href="https://mysnowballapp.com" target="_blank" rel="noopener">Snowball</a></p><p class="kicker">Debt payoff planner</p></div>
         </div>
         <p class="desc">See your debt-free date and the smartest order to clear your balances — snowball, avalanche, or your own plan.</p>
-        <div class="tags"><span class="tag">Money</span><span class="tag lock">🔒 100% Local</span></div>
+        <div class="tags"><span class="tag">Money</span><span class="tag lock">🔒 On your device</span></div>
+        <p class="split"><b>Free:</b> plan up to 4 debts · <b>Pro:</b> every debt, PDF export &amp; more</p>
         <div class="foot">
           <span class="price">Free · Pro <b>$9.99</b> once</span>
-          <span class="open">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="open" href="https://mysnowballapp.com" target="_blank" rel="noopener" title="Opens Snowball on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-      </a>
+      </div>
 
-      <a class="card lp" href="https://localpdfapp.com" target="_blank" rel="noopener">
+      <div class="card lp">
         <div class="top">
           <img class="icon" src="assets/localpdf.png" alt="Local PDF icon" width="56" height="56">
-          <div><p class="name">Local PDF</p><p class="kicker">PDF toolkit</p></div>
+          <div><p class="name"><a href="https://localpdfapp.com" target="_blank" rel="noopener">Local PDF</a></p><p class="kicker">PDF toolkit</p></div>
         </div>
         <p class="desc">Merge, split, compress, convert, sign and redact — a full set of PDF tools that runs entirely in your browser.</p>
-        <div class="tags"><span class="tag">Documents</span><span class="tag lock">🔒 100% Local</span></div>
+        <div class="tags"><span class="tag">Documents</span><span class="tag lock">🔒 On your device</span></div>
+        <p class="split"><b>Free:</b> merge, split, compress, sign, redact · <b>Pro:</b> batch &amp; ZIP export</p>
         <div class="foot">
           <span class="price">Free · Pro <b>$9.99</b> once</span>
-          <span class="open">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="open" href="https://localpdfapp.com" target="_blank" rel="noopener" title="Opens Local PDF on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-      </a>
+      </div>
 
-      <a class="card li" href="https://localinvoiceapp.com" target="_blank" rel="noopener">
+      <div class="card li">
         <div class="top">
           <img class="icon" src="assets/localinvoice.png" alt="Local Invoice icon" width="56" height="56">
-          <div><p class="name">Local Invoice</p><p class="kicker">Invoice maker</p></div>
+          <div><p class="name"><a href="https://localinvoiceapp.com" target="_blank" rel="noopener">Local Invoice</a></p><p class="kicker">Invoice maker</p></div>
         </div>
-        <p class="desc">Create clean, professional invoices in minutes — add your logo, brand colors and payment details, then export a polished PDF.</p>
-        <div class="tags"><span class="tag">Business</span><span class="tag lock">🔒 100% Local</span></div>
+        <p class="desc">Create clean, professional invoices and estimates in minutes, then export a polished, watermark-free PDF.</p>
+        <div class="tags"><span class="tag">Business</span><span class="tag lock">🔒 On your device</span></div>
+        <p class="split"><b>Free:</b> unlimited invoices &amp; PDFs · <b>Pro:</b> your logo &amp; payment details</p>
         <div class="foot">
           <span class="price">Free · Pro <b>$12.99</b> once</span>
-          <span class="open">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="open" href="https://localinvoiceapp.com" target="_blank" rel="noopener" title="Opens Local Invoice on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-      </a>
+      </div>
 
-      <a class="card lr" href="https://localresumeapp.com" target="_blank" rel="noopener">
+      <div class="card lr">
         <div class="top">
           <img class="icon" src="assets/localresume.png" alt="LocalResume icon" width="56" height="56">
-          <div><p class="name">LocalResume</p><p class="kicker">Resume builder</p></div>
+          <div><p class="name"><a href="https://localresumeapp.com" target="_blank" rel="noopener">LocalResume</a></p><p class="kicker">Resume builder</p></div>
         </div>
-        <p class="desc">Build a standout resume and score it against any job description — beat the bots and land the interview.</p>
-        <div class="tags"><span class="tag">Career</span><span class="tag lock">🔒 100% Local</span></div>
+        <p class="desc">Build a clean resume and score it against any job description — right in your browser — then tighten it for the keywords that get past ATS filters.</p>
+        <div class="tags"><span class="tag">Career</span><span class="tag lock">🔒 On your device</span></div>
+        <p class="split"><b>Free:</b> resume, PDF export &amp; match score · <b>Pro:</b> Word, cover letter &amp; tailoring</p>
         <div class="foot">
           <span class="price">Free · Pro <b>$12.99</b> once</span>
-          <span class="open">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="open" href="https://localresumeapp.com" target="_blank" rel="noopener" title="Opens LocalResume on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-      </a>
+      </div>
 
     </section>
 
@@ -227,12 +237,12 @@
         <div class="point">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
           <h3>Honest pricing</h3>
-          <p>Clear, upfront prices — often a one-time unlock, and never a hidden fee.</p>
+          <p>Every app is a one-time unlock — no subscriptions, no hidden fees. Secure checkout by Stripe, with a 30-day money-back guarantee.</p>
         </div>
         <div class="point">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Private when it matters</h3>
-          <p>Many apps run 100% on your device — nothing uploaded. Look for the <strong>🔒 100% Local</strong> badge.</p>
+          <h3>Private by default</h3>
+          <p>Every app runs 100% on your device — the info you enter is never uploaded. Only payment goes online, handled securely by Stripe.</p>
         </div>
       </div>
     </section>
@@ -260,7 +270,7 @@
         <img class="mark" src="assets/eden-logo.png" alt="" width="22" height="22">
         <span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span>
       </div>
-      <span class="fnote">Useful apps — made with care.</span>
+      <span class="fnote">Made by Eden — a solo indie maker.</span>
       <div class="flinks">
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy</a>
@@ -284,12 +294,32 @@
     r.setAttribute('data-theme', next);
     try{ localStorage.setItem('ea-theme', next); }catch(e){}
   });
-  if(location.search.indexOf('subscribed=1') > -1){
+
+  function showSubOk(){
     var f=document.querySelector('.subform'), note=document.querySelector('.subnote'), ok=document.getElementById('subOk');
     if(f) f.style.display='none';
     if(note) note.style.display='none';
     if(ok) ok.style.display='block';
   }
+  if(location.search.indexOf('subscribed=1') > -1) showSubOk();
+
+  var sform=document.querySelector('.subform');
+  if(sform) sform.addEventListener('submit', function(e){
+    e.preventDefault();
+    var input=sform.querySelector('input[type=email]'), b=sform.querySelector('button');
+    if(!input.value){ input.focus(); return; }
+    b.disabled=true; var label=b.textContent; b.textContent='Sending…';
+    fetch('https://formsubmit.co/ajax/support@edenapps.app', {
+      method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({ email: input.value, _subject:'New Eden Apps subscriber', _template:'table' })
+    }).then(function(res){ if(!res.ok) throw 0; return res.json(); })
+      .then(function(){ showSubOk(); })
+      .catch(function(){
+        b.disabled=false; b.textContent=label;
+        var note=document.querySelector('.subnote');
+        if(note){ note.style.color='var(--lp)'; note.textContent="Couldn't reach the server just now — please email support@edenapps.app and we'll add you."; }
+      });
+  });
 })();
 </script>
 </body>
