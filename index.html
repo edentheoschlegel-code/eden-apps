@@ -111,6 +111,42 @@
   .split b{color:var(--ink); font-weight:700}
   .sec-note{font-size:13.5px; color:var(--muted); margin:-4px 0 20px}
 
+  /* featured carousel */
+  .showcase{margin-bottom:4px}
+  .stage{position:relative; display:flex; align-items:center; gap:10px}
+  .viewport{overflow:hidden; flex:1}
+  .track{display:flex; transition:transform .55s cubic-bezier(.4,0,.2,1)}
+  @media (prefers-reduced-motion:reduce){ .track{transition:none} }
+  .slide{min-width:100%; display:grid; grid-template-columns:1.32fr 1fr; gap:32px; align-items:center; padding:4px}
+  .slide.sb{--ac:var(--sb)} .slide.lp{--ac:var(--lp)} .slide.li{--ac:var(--li)} .slide.lr{--ac:var(--lr)}
+  .frame{border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); background:var(--surface)}
+  .frame .bar{display:flex; align-items:center; height:34px; padding:0 13px; border-bottom:1px solid var(--line); background:var(--bg)}
+  .frame .bar .d{width:10px; height:10px; border-radius:50%; background:var(--line-strong); margin-right:6px}
+  .frame .bar .url{margin-left:8px; font-size:12px; font-weight:600; color:var(--faint)}
+  .frame img{display:block; width:100%; height:auto}
+  .meta .mhead{display:flex; align-items:center; gap:14px; margin:0 0 15px}
+  .meta .icon{width:48px; height:48px; border-radius:13px; box-shadow:0 6px 18px -8px rgba(20,21,42,.4)}
+  .meta .name{font-size:23px; font-weight:800; letter-spacing:-.02em; margin:0}
+  .meta .name a{color:inherit} .meta .name a:hover{color:var(--ac)}
+  .meta .kicker{font-size:13.5px; font-weight:650; color:var(--ac); margin:3px 0 0}
+  .meta .desc{color:var(--muted); font-size:15.5px; margin:0 0 15px}
+  .meta .tags{margin-bottom:11px}
+  .meta .split{margin:0 0 20px}
+  .meta .foot{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
+  .arrow{flex:none; width:42px; height:42px; border-radius:50%; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); font-size:22px; line-height:1; cursor:pointer; display:grid; place-items:center; transition:border-color .2s, color .2s}
+  .arrow:hover{border-color:var(--li); color:var(--li)}
+  .tabs{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:22px}
+  .tab{display:inline-flex; align-items:center; gap:8px; font:inherit; font-size:14px; font-weight:700; color:var(--muted); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:6px 15px 6px 7px; cursor:pointer; transition:color .2s, background .2s, border-color .2s}
+  .tab img{width:22px; height:22px; border-radius:6px}
+  .tab.sb{--ac:var(--sb)} .tab.lp{--ac:var(--lp)} .tab.li{--ac:var(--li)} .tab.lr{--ac:var(--lr)}
+  .tab[aria-selected="true"]{color:#fff; background:var(--ac); border-color:var(--ac)}
+  .tab:hover{border-color:var(--ac)}
+  @media (max-width:760px){
+    .slide{grid-template-columns:1fr; gap:20px; padding:0}
+    .arrow{display:none}
+    .tab{font-size:13px}
+  }
+
   /* coming soon */
 
   /* promise */
@@ -167,68 +203,85 @@
     </div>
     <p class="sec-note">Each one is free to try, with an optional one-time Pro unlock. The button opens the app on its own site, in a new tab.</p>
 
-    <section class="apps" aria-label="Apps">
-
-      <div class="card sb">
-        <img class="shot" src="assets/shot-snowball.jpg" alt="Snowball app — debt payoff planner" loading="lazy" width="820" height="461">
-        <div class="top">
-          <img class="icon" src="assets/snowball.png" alt="Snowball icon" width="56" height="56">
-          <div><p class="name"><a href="https://mysnowballapp.com" target="_blank" rel="noopener">Snowball</a></p><p class="kicker">Debt payoff planner</p></div>
+    <section class="showcase" aria-roledescription="carousel" aria-label="Featured Eden Apps">
+      <div class="stage">
+        <button class="arrow prev" type="button" aria-label="Previous app">&#8249;</button>
+        <div class="viewport">
+          <div class="track" id="eaTrack">
+        <article class="slide sb" role="group" aria-roledescription="slide" aria-label="Snowball, 1 of 4">
+          <div class="frame">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">mysnowballapp.com</span></div>
+            <a href="https://mysnowballapp.com" target="_blank" rel="noopener" aria-label="Open Snowball"><img src="assets/hero-snowball.jpg" alt="Snowball app screenshot" loading="lazy" width="1280" height="818"></a>
+          </div>
+          <div class="meta">
+            <div class="mhead"><img class="icon" src="assets/snowball.png" alt="" width="48" height="48"><div><p class="name"><a href="https://mysnowballapp.com" target="_blank" rel="noopener">Snowball</a></p><p class="kicker">Debt payoff planner</p></div></div>
+            <p class="desc">See your debt-free date and the smartest order to clear your balances — snowball, avalanche, or your own plan.</p>
+            <div class="tags"><span class="tag">Money</span><span class="tag lock">🔒 On your device</span></div>
+            <p class="split"><b>Free:</b> plan up to 4 debts · <b>Pro:</b> every debt, PDF export &amp; more</p>
+            <div class="foot">
+              <span class="price">Free · Pro <b>$9.99</b> once</span>
+              <a class="open" href="https://mysnowballapp.com" target="_blank" rel="noopener" title="Opens Snowball on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="slide lp" role="group" aria-roledescription="slide" aria-label="Local PDF, 2 of 4">
+          <div class="frame">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localpdfapp.com</span></div>
+            <a href="https://localpdfapp.com" target="_blank" rel="noopener" aria-label="Open Local PDF"><img src="assets/hero-localpdf.jpg" alt="Local PDF app screenshot" loading="lazy" width="1280" height="818"></a>
+          </div>
+          <div class="meta">
+            <div class="mhead"><img class="icon" src="assets/localpdf.png" alt="" width="48" height="48"><div><p class="name"><a href="https://localpdfapp.com" target="_blank" rel="noopener">Local PDF</a></p><p class="kicker">PDF toolkit</p></div></div>
+            <p class="desc">Merge, split, compress, convert, sign and redact — a full set of PDF tools that runs entirely in your browser.</p>
+            <div class="tags"><span class="tag">Documents</span><span class="tag lock">🔒 On your device</span></div>
+            <p class="split"><b>Free:</b> merge, split, compress, sign, redact · <b>Pro:</b> batch &amp; ZIP export</p>
+            <div class="foot">
+              <span class="price">Free · Pro <b>$9.99</b> once</span>
+              <a class="open" href="https://localpdfapp.com" target="_blank" rel="noopener" title="Opens Local PDF on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="slide li" role="group" aria-roledescription="slide" aria-label="Local Invoice, 3 of 4">
+          <div class="frame">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localinvoiceapp.com</span></div>
+            <a href="https://localinvoiceapp.com" target="_blank" rel="noopener" aria-label="Open Local Invoice"><img src="assets/hero-localinvoice.jpg" alt="Local Invoice app screenshot" loading="lazy" width="1280" height="818"></a>
+          </div>
+          <div class="meta">
+            <div class="mhead"><img class="icon" src="assets/localinvoice.png" alt="" width="48" height="48"><div><p class="name"><a href="https://localinvoiceapp.com" target="_blank" rel="noopener">Local Invoice</a></p><p class="kicker">Invoice maker</p></div></div>
+            <p class="desc">Create clean, professional invoices and estimates in minutes, then export a polished, watermark-free PDF.</p>
+            <div class="tags"><span class="tag">Business</span><span class="tag lock">🔒 On your device</span></div>
+            <p class="split"><b>Free:</b> unlimited invoices &amp; PDFs · <b>Pro:</b> your logo &amp; payment details</p>
+            <div class="foot">
+              <span class="price">Free · Pro <b>$12.99</b> once</span>
+              <a class="open" href="https://localinvoiceapp.com" target="_blank" rel="noopener" title="Opens Local Invoice on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="slide lr" role="group" aria-roledescription="slide" aria-label="LocalResume, 4 of 4">
+          <div class="frame">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localresumeapp.com</span></div>
+            <a href="https://localresumeapp.com" target="_blank" rel="noopener" aria-label="Open LocalResume"><img src="assets/hero-localresume.jpg" alt="LocalResume app screenshot" loading="lazy" width="1280" height="818"></a>
+          </div>
+          <div class="meta">
+            <div class="mhead"><img class="icon" src="assets/localresume.png" alt="" width="48" height="48"><div><p class="name"><a href="https://localresumeapp.com" target="_blank" rel="noopener">LocalResume</a></p><p class="kicker">Resume builder</p></div></div>
+            <p class="desc">Build a clean resume and score it against any job description — right in your browser — then tighten it for the keywords that get past ATS filters.</p>
+            <div class="tags"><span class="tag">Career</span><span class="tag lock">🔒 On your device</span></div>
+            <p class="split"><b>Free:</b> resume, PDF export &amp; match score · <b>Pro:</b> Word, cover letter &amp; tailoring</p>
+            <div class="foot">
+              <span class="price">Free · Pro <b>$12.99</b> once</span>
+              <a class="open" href="https://localresumeapp.com" target="_blank" rel="noopener" title="Opens LocalResume on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+          </div>
         </div>
-        <p class="desc">See your debt-free date and the smartest order to clear your balances — snowball, avalanche, or your own plan.</p>
-        <div class="tags"><span class="tag">Money</span><span class="tag lock">🔒 On your device</span></div>
-        <p class="split"><b>Free:</b> plan up to 4 debts · <b>Pro:</b> every debt, PDF export &amp; more</p>
-        <div class="foot">
-          <span class="price">Free · Pro <b>$9.99</b> once</span>
-          <a class="open" href="https://mysnowballapp.com" target="_blank" rel="noopener" title="Opens Snowball on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
+        <button class="arrow next" type="button" aria-label="Next app">&#8250;</button>
       </div>
-
-      <div class="card lp">
-        <img class="shot" src="assets/shot-localpdf.jpg" alt="Local PDF app — PDF toolkit" loading="lazy" width="820" height="461">
-        <div class="top">
-          <img class="icon" src="assets/localpdf.png" alt="Local PDF icon" width="56" height="56">
-          <div><p class="name"><a href="https://localpdfapp.com" target="_blank" rel="noopener">Local PDF</a></p><p class="kicker">PDF toolkit</p></div>
-        </div>
-        <p class="desc">Merge, split, compress, convert, sign and redact — a full set of PDF tools that runs entirely in your browser.</p>
-        <div class="tags"><span class="tag">Documents</span><span class="tag lock">🔒 On your device</span></div>
-        <p class="split"><b>Free:</b> merge, split, compress, sign, redact · <b>Pro:</b> batch &amp; ZIP export</p>
-        <div class="foot">
-          <span class="price">Free · Pro <b>$9.99</b> once</span>
-          <a class="open" href="https://localpdfapp.com" target="_blank" rel="noopener" title="Opens Local PDF on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
+      <div class="tabs" role="tablist" aria-label="Choose an app">
+        <button class="tab sb" role="tab" type="button" data-i="0" aria-selected="true"><img src="assets/snowball.png" alt="" width="22" height="22">Snowball</button>
+        <button class="tab lp" role="tab" type="button" data-i="1" aria-selected="false"><img src="assets/localpdf.png" alt="" width="22" height="22">Local PDF</button>
+        <button class="tab li" role="tab" type="button" data-i="2" aria-selected="false"><img src="assets/localinvoice.png" alt="" width="22" height="22">Local Invoice</button>
+        <button class="tab lr" role="tab" type="button" data-i="3" aria-selected="false"><img src="assets/localresume.png" alt="" width="22" height="22">LocalResume</button>
       </div>
-
-      <div class="card li">
-        <img class="shot" src="assets/shot-localinvoice.jpg" alt="Local Invoice app — invoice dashboard" loading="lazy" width="820" height="461">
-        <div class="top">
-          <img class="icon" src="assets/localinvoice.png" alt="Local Invoice icon" width="56" height="56">
-          <div><p class="name"><a href="https://localinvoiceapp.com" target="_blank" rel="noopener">Local Invoice</a></p><p class="kicker">Invoice maker</p></div>
-        </div>
-        <p class="desc">Create clean, professional invoices and estimates in minutes, then export a polished, watermark-free PDF.</p>
-        <div class="tags"><span class="tag">Business</span><span class="tag lock">🔒 On your device</span></div>
-        <p class="split"><b>Free:</b> unlimited invoices &amp; PDFs · <b>Pro:</b> your logo &amp; payment details</p>
-        <div class="foot">
-          <span class="price">Free · Pro <b>$12.99</b> once</span>
-          <a class="open" href="https://localinvoiceapp.com" target="_blank" rel="noopener" title="Opens Local Invoice on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </div>
-
-      <div class="card lr">
-        <img class="shot" src="assets/shot-localresume.jpg" alt="LocalResume app — resume editor" loading="lazy" width="820" height="461">
-        <div class="top">
-          <img class="icon" src="assets/localresume.png" alt="LocalResume icon" width="56" height="56">
-          <div><p class="name"><a href="https://localresumeapp.com" target="_blank" rel="noopener">LocalResume</a></p><p class="kicker">Resume builder</p></div>
-        </div>
-        <p class="desc">Build a clean resume and score it against any job description — right in your browser — then tighten it for the keywords that get past ATS filters.</p>
-        <div class="tags"><span class="tag">Career</span><span class="tag lock">🔒 On your device</span></div>
-        <p class="split"><b>Free:</b> resume, PDF export &amp; match score · <b>Pro:</b> Word, cover letter &amp; tailoring</p>
-        <div class="foot">
-          <span class="price">Free · Pro <b>$12.99</b> once</span>
-          <a class="open" href="https://localresumeapp.com" target="_blank" rel="noopener" title="Opens LocalResume on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </div>
-
     </section>
 
     <section class="promise">
@@ -325,6 +378,38 @@
         if(note){ note.style.color='var(--lp)'; note.textContent="Couldn't reach the server just now — please email support@edenapps.app and we'll add you."; }
       });
   });
+})();
+</script>
+<script>
+(function(){
+  var track=document.getElementById('eaTrack');
+  if(!track) return;
+  var n=track.children.length;
+  var tabs=[].slice.call(document.querySelectorAll('.showcase .tab'));
+  var i=0, timer=null;
+  var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function go(x){
+    i=(x%n+n)%n;
+    track.style.transform='translateX(-'+(i*100)+'%)';
+    tabs.forEach(function(t,k){ t.setAttribute('aria-selected', k===i?'true':'false'); });
+  }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  function start(){ if(!reduce && !timer) timer=setInterval(function(){ go(i+1); }, 6000); }
+  function restart(){ stop(); start(); }
+  var nb=document.querySelector('.showcase .next'), pb=document.querySelector('.showcase .prev');
+  if(nb) nb.addEventListener('click', function(){ go(i+1); restart(); });
+  if(pb) pb.addEventListener('click', function(){ go(i-1); restart(); });
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ go(+t.getAttribute('data-i')); restart(); }); });
+  var stage=document.querySelector('.showcase .stage');
+  if(stage){ stage.addEventListener('mouseenter', stop); stage.addEventListener('mouseleave', start); stage.addEventListener('focusin', stop); stage.addEventListener('focusout', start); }
+  var vp=document.querySelector('.showcase .viewport'), x0=null;
+  if(vp){
+    vp.addEventListener('touchstart', function(e){ x0=e.touches[0].clientX; stop(); }, {passive:true});
+    vp.addEventListener('touchend', function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40){ go(dx<0?i+1:i-1); } x0=null; start(); }, {passive:true});
+  }
+  var sc=document.querySelector('.showcase');
+  if(sc) sc.addEventListener('keydown', function(e){ if(e.key==='ArrowRight'){ go(i+1); restart(); } else if(e.key==='ArrowLeft'){ go(i-1); restart(); } });
+  go(0); start();
 })();
 </script>
 </body>
