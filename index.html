@@ -313,17 +313,14 @@
     <section class="subscribe" id="stay">
       <h3>Be the first to know</h3>
       <p class="sub">Drop your email and we'll let you know when a new Eden Apps app launches. No spam, unsubscribe anytime.</p>
-      <form class="subform" action="https://formsubmit.co/support@edenapps.app" method="POST">
-        <input type="hidden" name="_subject" value="New Eden Apps subscriber">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://edenapps.app/?subscribed=1#stay">
-        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <form class="subform" action="https://buttondown.com/api/emails/embed-subscribe/edenapps" method="post" target="ea-bd-iframe">
+        <input type="hidden" name="embed" value="1">
         <input type="email" name="email" required placeholder="you@example.com" aria-label="Your email">
         <button type="submit">Notify me</button>
       </form>
+      <iframe name="ea-bd-iframe" title="Newsletter subscribe" style="display:none" aria-hidden="true"></iframe>
       <p class="subnote">One email per launch, nothing else. Your address stays private.</p>
-      <p class="subok" id="subOk">✓ You're on the list — we'll email you when the next app drops.</p>
+      <p class="subok" id="subOk">✓ Almost there — check your inbox to confirm your subscription.</p>
     </section>
   </main>
 
@@ -367,21 +364,11 @@
   if(location.search.indexOf('subscribed=1') > -1) showSubOk();
 
   var sform=document.querySelector('.subform');
-  if(sform) sform.addEventListener('submit', function(e){
-    e.preventDefault();
-    var input=sform.querySelector('input[type=email]'), b=sform.querySelector('button');
-    if(!input.value){ input.focus(); return; }
-    b.disabled=true; var label=b.textContent; b.textContent='Sending…';
-    fetch('https://formsubmit.co/ajax/support@edenapps.app', {
-      method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify({ email: input.value, _subject:'New Eden Apps subscriber', _template:'table' })
-    }).then(function(res){ if(!res.ok) throw 0; return res.json(); })
-      .then(function(){ showSubOk(); })
-      .catch(function(){
-        b.disabled=false; b.textContent=label;
-        var note=document.querySelector('.subnote');
-        if(note){ note.style.color='var(--lp)'; note.textContent="Couldn't reach the server just now — please email support@edenapps.app and we'll add you."; }
-      });
+  if(sform) sform.addEventListener('submit', function(){
+    var input=sform.querySelector('input[type=email]');
+    if(!input || !input.value) return;   // native 'required' blocks empty submits
+    // the form POSTs to the hidden iframe (Buttondown) without leaving the page; show inline confirmation
+    setTimeout(showSubOk, 200);
   });
 })();
 </script>
