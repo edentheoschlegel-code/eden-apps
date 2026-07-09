@@ -12,7 +12,8 @@
   :root{--bg:#fbfbfd;--surface:#fff;--ink:#14152a;--muted:#525b6a;--faint:#8a93a3;--line:#e9eaf0;
     --sb:#0e7490;--lp:#e11d48;--li:#4338ca;--lr:#047857;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  @media(prefers-color-scheme:dark){:root{--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#79818f;--line:#23252f}}
+  :root[data-theme="dark"]{--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#79818f;--line:#23252f}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#79818f;--line:#23252f}}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
   a{color:var(--li)}a:hover{text-decoration:underline}
@@ -51,10 +52,18 @@
   .ticket button:hover{filter:brightness(1.06)}
   .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
   .sent-banner{display:none;margin:0 0 26px;padding:15px 18px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--lr);border-radius:12px;color:var(--ink);font-weight:600}
+  .wm{display:inline-flex;gap:.28em}
+  .wm-e{background:linear-gradient(125deg,#f6a98f,#e76a86);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .wm-a{background:linear-gradient(125deg,#2f6fe6,#6a3fd6 52%,#a63cc0);-webkit-background-clip:text;background-clip:text;color:transparent}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .themebtn{display:inline-grid;place-items:center;width:36px;height:36px;flex:none;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer;padding:0;transition:border-color .2s,color .2s}
+  .themebtn:hover{border-color:#4338ca;color:#4338ca}
+  .themebtn svg{width:16px;height:16px}
 </style>
+<script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="index.html"><img class="logo" src="assets/eden-logo.png" alt="Eden Apps logo" width="27" height="27">Eden Apps</a></div></header>
+<header><div class="wrap"><a class="brand" href="index.html"><img class="logo" src="assets/eden-logo.png" alt="Eden Apps logo" width="27" height="27"><span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span></a><button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button></div></header>
 <main><div class="wrap">
   <h1>Support</h1>
   <p class="updated">We're a small team building Snowball, Local PDF, Local Invoice, and LocalResume.</p>
@@ -120,6 +129,13 @@
     var b = document.getElementById('sentBanner');
     if (b) { b.style.display = 'block'; b.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
   }
+</script>
+<script>
+(function(){
+  var r=document.documentElement, btn=document.getElementById('themeToggle');
+  function current(){var t=r.getAttribute('data-theme');if(t==='dark'||t==='light')return t;return (window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}
+  if(btn) btn.addEventListener('click',function(){var next=current()==='dark'?'light':'dark';r.setAttribute('data-theme',next);try{localStorage.setItem('ea-theme',next);}catch(e){}});
+})();
 </script>
 </body>
 </html>

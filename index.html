@@ -22,8 +22,13 @@
     --radius:22px; --maxw:1080px;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
+  :root[data-theme="dark"]{
+      --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#79818f;
+      --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
+      --sb-soft:#0c2a31; --lp-soft:#33121c; --li-soft:#1a1840; --lr-soft:#0b2a1e;
+  }
   @media (prefers-color-scheme:dark){
-    :root{
+    :root:not([data-theme="light"]){
       --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#79818f;
       --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
       --sb-soft:#0c2a31; --lp-soft:#33121c; --li-soft:#1a1840; --lr-soft:#0b2a1e;
@@ -44,6 +49,12 @@
   .topnav{display:flex; align-items:center; gap:13px}
   .topnav .support{font-size:14px; font-weight:700; color:var(--ink); padding:8px 16px; border:1px solid var(--line-strong); border-radius:999px; background:var(--surface); white-space:nowrap}
   .topnav .support:hover{border-color:var(--li); color:var(--li)}
+  .wm{display:inline-flex; gap:.28em}
+  .wm-e{background:linear-gradient(125deg,#f6a98f,#e76a86); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .wm-a{background:linear-gradient(125deg,#2f6fe6,#6a3fd6 52%,#a63cc0); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .themebtn{display:inline-grid; place-items:center; width:38px; height:38px; flex:none; border:1px solid var(--line-strong); border-radius:999px; background:var(--surface); color:var(--ink); cursor:pointer; padding:0; transition:border-color .2s, color .2s}
+  .themebtn:hover{border-color:var(--li); color:var(--li)}
+  .themebtn svg{width:17px; height:17px}
 
   /* hero */
   .hero{padding:64px 0 40px; text-align:center; max-width:800px; margin:0 auto}
@@ -111,6 +122,7 @@
   .flinks a:hover{color:var(--ink)}
   @media (max-width:560px){ .frow{flex-direction:column; align-items:flex-start; gap:14px} }
 </style>
+<script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
 <div class="wrap">
@@ -119,10 +131,11 @@
     <div class="bar">
       <a class="brand" href="index.html">
         <img class="mark" src="assets/eden-logo.png" alt="Eden Apps logo" width="30" height="30">
-        Eden Apps
+        <span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span>
       </a>
       <nav class="topnav">
         <a class="support" href="support.html">Support</a>
+        <button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
       </nav>
     </div>
   </header>
@@ -233,7 +246,7 @@
     <div class="frow">
       <div class="fbrand">
         <img class="mark" src="assets/eden-logo.png" alt="" width="22" height="22">
-        Eden Apps
+        <span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span>
       </div>
       <span class="fnote">Useful apps — made with care.</span>
       <div class="flinks">
@@ -246,5 +259,20 @@
   </footer>
 
 </div>
+<script>
+(function(){
+  var r=document.documentElement, btn=document.getElementById('themeToggle');
+  function current(){
+    var t=r.getAttribute('data-theme');
+    if(t==='dark'||t==='light') return t;
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches) ? 'dark' : 'light';
+  }
+  if(btn) btn.addEventListener('click', function(){
+    var next = current()==='dark' ? 'light' : 'dark';
+    r.setAttribute('data-theme', next);
+    try{ localStorage.setItem('ea-theme', next); }catch(e){}
+  });
+})();
+</script>
 </body>
 </html>
