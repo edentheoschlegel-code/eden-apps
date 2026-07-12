@@ -61,6 +61,7 @@
   .topnav{display:flex; align-items:center; gap:13px}
   .topnav .support{display:inline-flex; align-items:center; min-height:44px; font-size:14px; font-weight:700; color:var(--ink); padding:8px 16px; border:1px solid var(--line-strong); border-radius:999px; background:var(--surface); white-space:nowrap}
   .topnav .support:hover{border-color:var(--li-tx); color:var(--li-tx)}
+  @media(max-width:520px){.bar{flex-wrap:wrap}.topnav{margin-left:auto}}
   .wm{display:inline-flex; gap:.28em}
   .wm-e{color:#bf8f2b}
   .wm-a{color:#0a8f5c}
@@ -221,7 +222,7 @@
         <span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span>
       </a>
       <nav class="topnav">
-        <a class="support" href="support.html">Support</a>
+        <a class="support" href="extensions.html">Extensions</a>
         <button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
       </nav>
     </div>
