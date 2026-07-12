@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'">
+<title>Chrome Extensions — Privacy · Eden Apps</title>
+<meta name="description" content="How Eden Apps' Chrome extensions handle your data — the short version: everything runs in your browser, and nothing you do is uploaded, tracked, or sold. Written to match the actual code.">
+<link rel="canonical" href="https://edenapps.app/extensions-privacy.html">
+<link rel="icon" href="assets/eden-logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Chrome Extensions — Privacy · Eden Apps">
+<meta property="og:description" content="Everything runs in your browser. Nothing you do is uploaded, tracked, or sold.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edenapps.app/extensions-privacy.html">
+<meta property="og:image" content="https://edenapps.app/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://edenapps.app/assets/og-image.jpg">
+<style>
+  :root{--bg:#fbfbfd;--surface:#fff;--ink:#14152a;--muted:#525b6a;--faint:#616c7e;--line:#e9eaf0;
+    --sb:#0e7490;--lp:#e11d48;--li:#4338ca;--lr:#047857;--li-tx:#4338ca;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  :root[data-theme="dark"]{--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#8b83f0}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#8b83f0}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--li-tx)}a:hover{text-decoration:underline}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  header{padding:24px 0;border-bottom:1px solid var(--line)}
+  .brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em;font-size:17px;color:var(--ink);text-decoration:none}
+  .logo{width:27px;height:27px;display:block;object-fit:contain}
+  main{padding:46px 0 60px}
+  h1{font-size:clamp(28px,5vw,36px);letter-spacing:-.03em;margin:0 0 8px;color:var(--ink)}
+  .updated{color:var(--faint);font-size:14px;margin:0 0 30px}
+  h2{font-size:19px;letter-spacing:-.01em;margin:34px 0 6px;color:var(--ink);scroll-margin-top:20px}
+  h2 .kv{display:block;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--faint);margin-top:3px}
+  p,li{color:var(--muted);font-size:16px}
+  p{margin:0 0 14px}
+  ul{margin:0 0 14px;padding-left:20px}li{margin:0 0 8px}
+  strong{color:var(--ink);font-weight:650}
+  .lead{font-size:17.5px;color:var(--ink)}
+  .toc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:22px 0 8px}
+  .toc b{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);font-weight:700}
+  .toc-list{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px;padding:0;list-style:none}
+  .toc-list li{margin:0;font-size:14.5px}
+  .ext{border-top:1px solid var(--line);padding-top:6px}
+  .ext:first-of-type{border-top:0}
+  .rule{border:0;border-top:1px solid var(--line);margin:34px 0}
+  footer{border-top:1px solid var(--line)}
+  .frow{display:flex;gap:18px;flex-wrap:wrap;align-items:center;padding:24px 0 48px;color:var(--faint);font-size:13.5px}
+  .frow a{color:var(--muted)}
+  .wm{display:inline-flex;gap:.28em}
+  .wm-e{color:#bf8f2b}.wm-a{color:#0a8f5c}
+  :root[data-theme="dark"] .wm-e{color:#e8c06f}:root[data-theme="dark"] .wm-a{color:#34d399}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .wm-e{color:#e8c06f}:root:not([data-theme="light"]) .wm-a{color:#34d399}}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .themebtn{display:inline-grid;place-items:center;width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer;padding:0;transition:border-color .2s,color .2s}
+  .themebtn:hover{border-color:var(--li-tx);color:var(--li-tx)}
+  .themebtn svg{width:16px;height:16px}
+  .themebtn:focus-visible,.frow a:focus-visible,.brand:focus-visible,.toc-list a:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
+</style>
+<script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html"><img class="logo" src="assets/eden-logo.png" alt="Eden Apps logo" width="27" height="27"><span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span></a><button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button></div></header>
+<main><div class="wrap">
+  <h1>Chrome Extensions — Privacy</h1>
+  <p class="updated">Last updated: July 12, 2026</p>
+
+  <p class="lead">Eden Apps makes a family of Chrome extensions. This policy explains how they handle your information — and it's written to match what the code actually does. The short version: <strong>they run in your browser, and what you do with them isn't uploaded, tracked, or sold.</strong></p>
+
+  <h2 style="margin-top:26px">What's true of every Eden Apps extension</h2>
+  <ul>
+    <li><strong>On your device.</strong> Your settings, saved items, and history live in your browser's local storage. There are no accounts, and no server we run receives what you do.</li>
+    <li><strong>No tracking.</strong> No analytics, no advertising, no tracking pixels, no selling or sharing of your data — in any of them.</li>
+    <li><strong>Payments are handled by others.</strong> Some extensions offer an optional <strong>$3/month Premium</strong>. That's processed by <a href="https://extensionpay.com" target="_blank" rel="noopener">ExtensionPay</a> using <a href="https://stripe.com" target="_blank" rel="noopener">Stripe</a> — you enter your email and card on their hosted page, and the extension never sees or stores your card number. To know whether you're on Free or Premium, an extension makes an <strong>anonymous plan check</strong> to ExtensionPay that carries no personal information. ExtensionPay keeps a small anonymous plan record in Chrome's synced storage, which can sync across your signed-in browsers — that record never includes anything you do in the extension.</li>
+    <li><strong>Reading pages.</strong> Some of these extensions need to read the page you're on to do their job (a summarizer has to read the text; a cookie-banner blocker has to see the banner). Where that's the case it's spelled out per extension below — and in every case the reading happens in your browser and the content is never sent anywhere.</li>
+  </ul>
+  <p>Below, each extension in plain terms.</p>
+
+  <div class="toc">
+    <b>Jump to an extension</b>
+    <ul class="toc-list">
+      <li><a href="#tab-manager">Tab Manager</a></li>
+      <li><a href="#ai-summarizer">AI Summarizer</a></li>
+      <li><a href="#focus-mode">Focus Mode</a></li>
+      <li><a href="#price-tracker">Price Tracker</a></li>
+      <li><a href="#video-summaries">Video Summaries for YouTube</a></li>
+      <li><a href="#tab-snoozer">Tab Snoozer</a></li>
+      <li><a href="#recipe-extractor">Recipe Extractor</a></li>
+      <li><a href="#cookie-killer">Cookie Killer</a></li>
+      <li><a href="#form-draft-guard">Form Draft Guard</a></li>
+    </ul>
+  </div>
+
+  <hr class="rule">
+
+  <div class="ext">
+    <h2 id="tab-manager">Tab Manager: Group Tabs &amp; Save Sessions <span class="kv">Free · reads only tab titles &amp; URLs · fully local</span></h2>
+    <p>Tab Manager runs entirely on your device. When you click <em>Group All Tabs</em> or <em>Save Session</em> it reads only your tabs' URLs, titles, and site icons — never the content of the pages themselves (it requests no page access and injects no scripts). Saved sessions and settings live solely in your browser's local storage; nothing is uploaded, there is no account, and the extension makes no network requests that send or collect your data. There's no tracking, analytics, advertising, or third-party sharing, and it's free with no in-app purchase.</p>
+  </div>
+
+  <div class="ext">
+    <h2 id="ai-summarizer">AI Summarizer — Instant Page Summaries <span class="kv">Reads page text on click · summarizes on-device · $3/mo Premium</span></h2>
+    <p>AI Summarizer reads a page's text only at the moment you click <em>Summarize</em>, and it builds the summary entirely on your device using a built-in text-ranking algorithm — the page content and the summaries it produces are never uploaded to any server. Your saved summaries, daily usage counts, and preferences are stored locally in your browser. Its only network connection is the anonymous plan check to ExtensionPay to see whether you're on Premium; checkout is handled by Stripe on ExtensionPay's own page, so the extension never sees your card number or email. There is no analytics, tracking, advertising, or sale of your data.</p>
+  </div>
+
+  <div class="ext">
+    <h2 id="focus-mode">Focus Mode — Pomodoro &amp; Site Blocker <span class="kv">Never reads page content · blocks by redirect · $3/mo Premium</span></h2>
+    <p>Focus Mode keeps your focus data — your block list, timer settings, and session statistics — on your own device, with no account and no server of ours ever receiving it. It contains no analytics, ads, or tracking, and it never reads the content of the pages you visit; blocking works by redirecting only the domains you've chosen to a local block page. The one outside contact is the anonymous plan check with ExtensionPay that runs for every user — free or paid — to tell whether you're on Free or Premium; it sends only an anonymous identifier. If you choose the optional $3/month upgrade, your email and card are handled directly by ExtensionPay and Stripe, and the extension never sees or stores your card number.</p>
+  </div>
+
+  <div class="ext">
+    <h2 id="price-tracker">Price Tracker — Smart Price Monitoring <span class="kv">Reads price/title on 10 shopping sites · re-checks retailer pages every 6h · $3/mo Premium</span></h2>
+    <p>Price Tracker stores your tracked products and their price history on your own device; the developer never receives that data because it's never sent to any server we operate. It reads only the price, title, and image on the ten supported shopping sites you visit, and it uses no analytics, cookies, ad trackers, or data sales. <strong>Two things do leave your browser:</strong> to refresh prices, the extension re-fetches the retailer product pages <em>you chose to track</em> directly from those retailers about every six hours; and the optional $3/month Premium is handled by ExtensionPay and Stripe, which check your plan and (only if you upgrade) collect your email and payment details on their side.</p>
+  </div>
+
+  <div class="ext">
+    <h2 id="video-summaries">Video Summaries for YouTube <span class="kv">Reads the transcript of videos you summarize · on-device · $3/mo Premium</span></h2>
+    <p>Video Summaries creates its summaries entirely on your device using a built-in summarizer — there is no AI server, no account, and no analytics or ad tracking. It reads only the caption/transcript and title of the YouTube video you actively choose to summarize, and your summaries, saved items, daily usage count, and settings all stay in your browser's local storage. It contacts ExtensionPay for the anonymous Free-vs-Premium plan check and, if you upgrade, processes your email and card through Stripe — the extension itself never sees your payment details. To read a transcript it may also fetch caption data directly from YouTube, the site you're already on; it sends none of your personal data anywhere.</p>
+  </div>
+
+  <div class="ext">
+    <h2 id="tab-snoozer">Tab Snoozer <span class="kv">Never reads page content · saves only the tab to reopen · $3/mo Premium</span></h2>
+    <p>Tab Snoozer works entirely in your browser and never reads the content of the web pages you visit — it has no access to the sites you browse. When you snooze a tab it saves only that tab's address, title, and site icon locally on your device, so it can reopen it on schedule; it stores nothing about the pages themselves. It sends no tabs, addresses, or browsing data to us or anyone. The only network activity is ExtensionPay's anonymous plan check, your browser fetching snoozed sites' icons, and — only if you upgrade — ExtensionPay and Stripe handling your $3/month subscription. No tracking, no analytics, no ads, and no data is ever sold.</p>
+  </div>
+
+  <div class="ext">
+    <h2 id="recipe-extractor">Recipe Extractor — Skip to the Recipe <span class="kv">Reads recipe markup on click · fully local · $3/mo Premium</span></h2>
+    <p>Recipe Extractor works entirely on your device. It reads a page only at the moment you click the extension there — pulling just the recipe markup the site already publishes — and it has no standing access to the sites you browse and no background reading. Your saved recipes and plan status live locally in your browser and are never uploaded; there's no recipe server, no AI service, and no analytics, tracking, ads, or data sales. The only network contact is the anonymous plan check with ExtensionPay, which sends just an anonymous identifier — nothing about the recipes or pages you read; if you upgrade, payment is handled by ExtensionPay and Stripe, and the extension never sees your card information.</p>
+  </div>
+
+  <div class="ext">
+    <h2 id="cookie-killer">Cookie Killer — Auto Reject Cookie Banners <span class="kv">Reads pages in-memory to click "reject" · stores nothing about them · $3/mo Premium</span></h2>
+    <p>Cookie Killer runs entirely on your device. It reads the pages you visit only in-memory, to find and click a cookie banner's <em>reject</em> / <em>decline</em> button (it never clicks accept), and nothing about the pages you view — no content, no browsing history, no list of sites — is ever stored or sent anywhere. The only data kept is local: your on/off and cleanup settings, the sites you chose to pause, any hide rules you created, and a simple "banners handled" counter. There's no analytics, advertising, tracking, or data sale; the sole outside connection is ExtensionPay (with Stripe) for the optional $3/month Premium, which uses your payment email to verify your subscription — Cookie Killer never sees your card details.</p>
+  </div>
+
+  <div class="ext">
+    <h2 id="form-draft-guard">Form Draft Guard — Never Lose What You Typed <span class="kv">Saves your drafts locally · refuses passwords &amp; sensitive fields · $3/mo Premium</span></h2>
+    <p>Form Draft Guard keeps your drafts on your device. As you type in comment boxes, editors, and form fields, it auto-saves the text to your browser's local storage so a crash or misclick can't erase it — nothing you type is ever sent to a server, and there's no draft account, no analytics, no ads, and no tracking. It deliberately refuses password fields outright and is built to skip payment, card, CVV, one-time-code, PIN, SSN, bank, API-key, and recovery-phrase fields, and you can pause, delete any draft, or clear everything at any time. The only network contact is the payment provider's anonymous plan check (ExtensionPay, with Stripe for the optional $3/month upgrade); it sends no personal information and nothing about what you type.</p>
+  </div>
+
+  <hr class="rule">
+  <h2>Your controls</h2>
+  <p>Because everything is stored in your browser, you're in control: clear an extension's data from its own settings or your browser's, and uninstalling an extension removes its local data. For Premium, you can cancel anytime — and we're never holding your content, because none of it was ever sent to us.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about any of these extensions? Email <a href="mailto:support@edenapps.app">support@edenapps.app</a>. If we ever change this policy, we'll update the date at the top.</p>
+</div></main>
+<footer><div class="wrap frow"><span>© 2026 Eden Apps</span><a href="index.html">Home</a><a href="extensions.html">Extensions</a><a href="privacy.html">Apps Privacy</a><a href="support.html">Support</a></div></footer>
+<script>
+(function(){
+  var r=document.documentElement, btn=document.getElementById('themeToggle');
+  function current(){var t=r.getAttribute('data-theme');if(t==='dark'||t==='light')return t;return (window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}
+  if(btn) btn.addEventListener('click',function(){var next=current()==='dark'?'light':'dark';r.setAttribute('data-theme',next);try{localStorage.setItem('ea-theme',next);}catch(e){}});
+})();
+</script>
+</body>
+</html>
