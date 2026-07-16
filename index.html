@@ -208,6 +208,72 @@
   .skip{position:absolute; left:-9999px; top:8px; z-index:100; background:var(--surface); color:var(--ink); border:1px solid var(--line-strong); border-radius:9px; padding:10px 16px; font-weight:700; font-size:14px}
   .skip:focus{left:16px}
   @media (max-width:560px){ .frow{flex-direction:column; align-items:flex-start; gap:14px} }
+  .plink{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--ac-tx,var(--li-tx));background:var(--surface);border:1.5px solid var(--line-strong);border-radius:999px;padding:8px 15px;white-space:nowrap;transition:border-color .2s,color .2s,background .2s}
+  .plink:hover{border-color:var(--ac,var(--li));text-decoration:none}
+  .plink:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
+  /* extensions grid — a different rhythm from the apps showcase */
+  .ext-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:6px}
+  @media(max-width:920px){.ext-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.ext-grid{grid-template-columns:1fr}}
+  .card.xc{padding:22px;gap:11px}
+  .card.xc .icon{width:46px;height:46px;border-radius:13px}
+  .card.xc .name{font-size:17.5px}
+  .card.xc .kicker{color:var(--ac-tx,var(--ac))}
+  .card.xc .desc{font-size:13.8px;line-height:1.55}
+  .card.xc .split{font-size:12.5px}
+  .card.xc .price{margin:0;font-size:13.5px}
+  .foot2{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:2px}
+  .card.xc .open{padding:9px 14px;font-size:13px;gap:6px}
+  .card.xc .plink{padding:7px 13px;font-size:12.5px}
+  .card.vs{--ac:#d97706;--ac-tx:#b45309} .card.pt{--ac:#059669;--ac-tx:#047857} .card.tm{--ac:#0284c7;--ac-tx:#0369a1}
+  .card.fm{--ac:#7c3aed;--ac-tx:#7c3aed} .card.as{--ac:#ea580c;--ac-tx:#c2410c} .card.ts{--ac:#4f46e5;--ac-tx:#4f46e5}
+  .card.re{--ac:#ca8a04;--ac-tx:#a16207} .card.fd{--ac:#2563eb;--ac-tx:#2563eb} .card.ck{--ac:#dc2626;--ac-tx:#dc2626}
+  :root[data-theme="dark"] .card.vs{--ac-tx:#fbbf24} :root[data-theme="dark"] .card.pt{--ac-tx:#6ee7b7} :root[data-theme="dark"] .card.tm{--ac-tx:#7dd3fc}
+  :root[data-theme="dark"] .card.fm{--ac-tx:#c4b5fd} :root[data-theme="dark"] .card.as{--ac-tx:#fdba74} :root[data-theme="dark"] .card.ts{--ac-tx:#a5b4fc}
+  :root[data-theme="dark"] .card.re{--ac-tx:#fcd34d} :root[data-theme="dark"] .card.fd{--ac-tx:#93c5fd} :root[data-theme="dark"] .card.ck{--ac-tx:#fca5a5}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .card.vs{--ac-tx:#fbbf24} :root:not([data-theme="light"]) .card.pt{--ac-tx:#6ee7b7} :root:not([data-theme="light"]) .card.tm{--ac-tx:#7dd3fc} :root:not([data-theme="light"]) .card.fm{--ac-tx:#c4b5fd} :root:not([data-theme="light"]) .card.as{--ac-tx:#fdba74} :root:not([data-theme="light"]) .card.ts{--ac-tx:#a5b4fc} :root:not([data-theme="light"]) .card.re{--ac-tx:#fcd34d} :root:not([data-theme="light"]) .card.fd{--ac-tx:#93c5fd} :root:not([data-theme="light"]) .card.ck{--ac-tx:#fca5a5} }
+  /* extensions filter */
+  .ext-filter{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 18px}
+  .ext-filter button{font:inherit;font-size:13.5px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
+  .ext-filter button:hover{border-color:var(--li-tx);color:var(--li-tx)}
+  .ext-filter button[aria-pressed="true"]{color:#fff;background:var(--li);border-color:var(--li)}
+  .ext-filter button[aria-pressed="true"]:hover{color:#fff}
+  .ext-filter button:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
+  /* each filter wears its own color */
+  .ext-filter button[data-f="all"]:hover{border-color:#eab308;color:#a16207}
+  .ext-filter button[data-f="all"][aria-pressed="true"]{background:#eab308;border-color:#eab308;color:#2b2004}
+  .ext-filter button[data-f="all"][aria-pressed="true"]:hover{color:#2b2004}
+  .ext-filter button[data-f="productivity"]:hover{border-color:#4f46e5;color:#4f46e5}
+  .ext-filter button[data-f="productivity"][aria-pressed="true"]{background:#4f46e5;border-color:#4f46e5;color:#fff}
+  .ext-filter button[data-f="reading"]:hover{border-color:#ea580c;color:#c2410c}
+  .ext-filter button[data-f="reading"][aria-pressed="true"]{background:#ea580c;border-color:#ea580c;color:#fff}
+  .ext-filter button[data-f="everyday"]:hover{border-color:#059669;color:#047857}
+  .ext-filter button[data-f="everyday"][aria-pressed="true"]{background:#059669;border-color:#059669;color:#fff}
+  :root[data-theme="dark"] .ext-filter button[data-f="all"]:hover{color:#fcd34d}
+  :root[data-theme="dark"] .ext-filter button[data-f="productivity"]:hover{color:#a5b4fc}
+  :root[data-theme="dark"] .ext-filter button[data-f="reading"]:hover{color:#fdba74}
+  :root[data-theme="dark"] .ext-filter button[data-f="everyday"]:hover{color:#6ee7b7}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .ext-filter button[data-f="all"]:hover{color:#fcd34d} :root:not([data-theme="light"]) .ext-filter button[data-f="productivity"]:hover{color:#a5b4fc} :root:not([data-theme="light"]) .ext-filter button[data-f="reading"]:hover{color:#fdba74} :root:not([data-theme="light"]) .ext-filter button[data-f="everyday"]:hover{color:#6ee7b7} }
+  /* show six, keep the rest behind a gentle door */
+  .ext-grid.limited article[data-extra]{display:none!important}
+  .more-card{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:center;gap:11px;padding:19px 22px;border:1.5px solid var(--line-strong);background:transparent;box-shadow:none;color:var(--muted);font-weight:700;font-size:14.5px}
+  .more-card::before{display:none}
+  .more-card:hover{border-color:var(--li-tx);color:var(--li-tx);transform:none;box-shadow:none}
+  .more-card .mc-plus{display:inline-grid;place-items:center;min-width:32px;height:32px;padding:0 9px;border-radius:999px;background:var(--li-soft);color:var(--li-tx);font-size:13px;font-weight:800}
+  .more-card:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
+  /* in-card "see it in use" slide */
+  .cbody{position:relative;display:flex;flex-direction:column;gap:11px;flex:1;min-height:0}
+  .card.xc .top{padding-right:38px}
+  .cface-shot{position:absolute;inset:-8px;opacity:0;pointer-events:none;transition:opacity .25s ease;background:var(--surface);border-radius:12px;display:flex;align-items:center;justify-content:center;z-index:2}
+  .card.flip .cface-shot{opacity:1;pointer-events:auto}
+  .cface-shot img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px}
+  @media (prefers-reduced-motion:reduce){ .cface-shot{transition:none} }
+  .peek{position:absolute;right:15px;top:17px;z-index:3;display:inline-grid;place-items:center;width:34px;height:34px;border:1.5px solid var(--line-strong);border-radius:999px;background:var(--surface);color:var(--muted);cursor:pointer;padding:0;transition:border-color .2s,color .2s}
+  .peek:hover{border-color:var(--ac,var(--li));color:var(--ac-tx,var(--li-tx))}
+  .peek:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
+  .peek .i2{display:none}
+  .card.flip .peek .i1{display:none}
+  .card.flip .peek .i2{display:grid}
 </style>
 <script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
@@ -321,6 +387,170 @@
         <button class="arrow next" type="button" aria-label="Next app">&#8250;</button>
       </div>
       <div class="carousel-ctl"><button class="playpause" id="eaPlay" type="button" aria-pressed="false"><span id="eaPlayIco" aria-hidden="true">&#10073;&#10073;</span> <span id="eaPlayLabel">Pause</span></button></div>
+    </section>
+
+
+    <div class="sec-head" id="extensions">
+      <h2>The extensions</h2>
+      <span class="count">9 · free to try</span>
+    </div>
+    <p class="sec-note">Small browser tools with the same promise as the apps — free to use, private by design, and Pro is a <b>one-time unlock</b>, never a subscription. Each installs free from the Chrome Web Store.</p>
+
+    <div class="ext-filter" id="extFilter" role="group" aria-label="Filter extensions">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="productivity" aria-pressed="false">Productivity</button>
+      <button type="button" data-f="reading" aria-pressed="false">Reading &amp; video</button>
+      <button type="button" data-f="everyday" aria-pressed="false">Everyday browsing</button>
+    </div>
+    <section class="ext-grid limited" aria-label="Eden Apps Chrome extensions">
+      <article data-cat="reading" class="card xc vs">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Video Summaries in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+        <div class="top"><img class="icon" src="assets/ext-video-summaries.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/video-summaries-for-youtu/ekhdoohngaeajhgjhmoacmcjmoagcaph" target="_blank" rel="noopener">Video Summaries</a></h3><p class="kicker">YouTube summaries</p></div></div>
+        <p class="desc">Turn any YouTube video into key points with clickable timestamps — summarized on your device.</p>
+        <p class="split"><b>Free:</b> 3 videos a day · <b>Pro:</b> unlimited, chapters &amp; export</p>
+        <p class="price">Free · Pro <b>$8.99</b> once</p>
+
+          <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-video-summaries.jpg" alt="Video Summaries popup in use" loading="lazy" width="500" height="628"></div>
+        </div>
+        <div class="foot2">
+          <a class="open" href="https://chromewebstore.google.com/detail/video-summaries-for-youtu/ekhdoohngaeajhgjhmoacmcjmoagcaph" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="plink" href="ext-privacy-video-summaries.html" title="Privacy policy for Video Summaries"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
+        </div>
+      </article>
+
+      <article data-cat="everyday" class="card xc pt">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Price Tracker in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+        <div class="top"><img class="icon" src="assets/ext-price-tracker.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/price-tracker-%E2%80%94-smart-pri/kambpllckipopnbanjkjgipdcinhlplh" target="_blank" rel="noopener">Price Tracker</a></h3><p class="kicker">Price alerts</p></div></div>
+        <p class="desc">Track prices across ten major shopping sites and get a gentle alert the moment something drops.</p>
+        <p class="split"><b>Free:</b> track 5 products · <b>Pro:</b> unlimited tracking</p>
+        <p class="price">Free · Pro <b>$8.99</b> once</p>
+
+          <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-price-tracker.jpg" alt="Price Tracker popup in use" loading="lazy" width="500" height="628"></div>
+        </div>
+        <div class="foot2">
+          <a class="open" href="https://chromewebstore.google.com/detail/price-tracker-%E2%80%94-smart-pri/kambpllckipopnbanjkjgipdcinhlplh" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="plink" href="ext-privacy-price-tracker.html" title="Privacy policy for Price Tracker"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
+        </div>
+      </article>
+
+      <article data-cat="productivity" class="card xc tm">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Tab Manager in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+        <div class="top"><img class="icon" src="assets/ext-tab-manager.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/tab-manager-group-tabs-sa/chlgclchldoppenblmlodeifgngoihid" target="_blank" rel="noopener">Tab Manager</a></h3><p class="kicker">Tab groups &amp; sessions</p></div></div>
+        <p class="desc">Group your open tabs into color-coded groups in one click, and save them as sessions to reopen anytime.</p>
+        <p class="split"><b>Free:</b> unlimited groups &amp; sessions · <b>Pro:</b> custom rules &amp; backup</p>
+        <p class="price">Free · Pro <b>$8.99</b> once</p>
+
+          <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-tab-manager.jpg" alt="Tab Manager popup in use" loading="lazy" width="500" height="628"></div>
+        </div>
+        <div class="foot2">
+          <a class="open" href="https://chromewebstore.google.com/detail/tab-manager-group-tabs-sa/chlgclchldoppenblmlodeifgngoihid" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="plink" href="ext-privacy-tab-manager.html" title="Privacy policy for Tab Manager"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
+        </div>
+      </article>
+
+      <article data-cat="productivity" class="card xc fm">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Focus Mode in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+        <div class="top"><img class="icon" src="assets/ext-focus-mode.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/focus-mode-%E2%80%94-pomodoro-sit/mmojkajohniicnkkmjohcplbljhjnmkp" target="_blank" rel="noopener">Focus Mode</a></h3><p class="kicker">Pomodoro &amp; site blocker</p></div></div>
+        <p class="desc">A focus timer paired with automatic site blocking — distracting sites simply stop loading during a session.</p>
+        <p class="split"><b>Free:</b> timer + 5 custom sites · <b>Pro:</b> unlimited sites</p>
+        <p class="price">Free · Pro <b>$5.99</b> once</p>
+
+          <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-focus-mode.jpg" alt="Focus Mode popup in use" loading="lazy" width="500" height="628"></div>
+        </div>
+        <div class="foot2">
+          <a class="open" href="https://chromewebstore.google.com/detail/focus-mode-%E2%80%94-pomodoro-sit/mmojkajohniicnkkmjohcplbljhjnmkp" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="plink" href="ext-privacy-focus-mode.html" title="Privacy policy for Focus Mode"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
+        </div>
+      </article>
+
+      <article data-cat="reading" class="card xc as">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See AI Summarizer in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+        <div class="top"><img class="icon" src="assets/ext-ai-summarizer.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/ai-summarizer-%E2%80%94-instant-p/enhflmnilfmaibpohaoapnlnjbdjbipb" target="_blank" rel="noopener">AI Summarizer</a></h3><p class="kicker">Page summaries</p></div></div>
+        <p class="desc">Condense any article into a few clear key points with one click — summarized right on your device.</p>
+        <p class="split"><b>Free:</b> 10 summaries a day · <b>Pro:</b> unlimited + detailed view</p>
+        <p class="price">Free · Pro <b>$5.99</b> once</p>
+
+          <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-ai-summarizer.jpg" alt="AI Summarizer popup in use" loading="lazy" width="500" height="628"></div>
+        </div>
+        <div class="foot2">
+          <a class="open" href="https://chromewebstore.google.com/detail/ai-summarizer-%E2%80%94-instant-p/enhflmnilfmaibpohaoapnlnjbdjbipb" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="plink" href="ext-privacy-ai-summarizer.html" title="Privacy policy for AI Summarizer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
+        </div>
+      </article>
+
+      <article data-cat="productivity" class="card xc ts">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Tab Snoozer in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+        <div class="top"><img class="icon" src="assets/ext-tab-snoozer.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/tab-snoozer/ciohooaomfljpbhjecfdjcondkeadode" target="_blank" rel="noopener">Tab Snoozer</a></h3><p class="kicker">Tab scheduler</p></div></div>
+        <p class="desc">Hide a tab until you need it — snooze it and it reopens itself on the schedule you pick, even after a restart.</p>
+        <p class="split"><b>Free:</b> 3 snoozed at once · <b>Pro:</b> unlimited, custom times &amp; repeat</p>
+        <p class="price">Free · Pro <b>$8.99</b> once</p>
+
+          <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-tab-snoozer.jpg" alt="Tab Snoozer popup in use" loading="lazy" width="500" height="628"></div>
+        </div>
+        <div class="foot2">
+          <a class="open" href="https://chromewebstore.google.com/detail/tab-snoozer/ciohooaomfljpbhjecfdjcondkeadode" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="plink" href="ext-privacy-tab-snoozer.html" title="Privacy policy for Tab Snoozer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
+        </div>
+      </article>
+
+      <article data-cat="reading" data-extra="" class="card xc re">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Recipe Extractor in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+        <div class="top"><img class="icon" src="assets/ext-recipe-extractor.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/recipe-extractor-%E2%80%94-skip-t/fhdgipnhnlfldofapdjpbmbacmgddgmd" target="_blank" rel="noopener">Recipe Extractor</a></h3><p class="kicker">Recipe cleaner</p></div></div>
+        <p class="desc">Skip the life story and jump straight to the recipe — ingredients and steps, cleanly pulled from the page.</p>
+        <p class="split"><b>Free:</b> clean recipe &amp; cook-along · <b>Pro:</b> scaling, save &amp; export</p>
+        <p class="price">Free · Pro <b>$8.99</b> once</p>
+
+          <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-recipe-extractor.jpg" alt="Recipe Extractor popup in use" loading="lazy" width="500" height="628"></div>
+        </div>
+        <div class="foot2">
+          <a class="open" href="https://chromewebstore.google.com/detail/recipe-extractor-%E2%80%94-skip-t/fhdgipnhnlfldofapdjpbmbacmgddgmd" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="plink" href="ext-privacy-recipe-extractor.html" title="Privacy policy for Recipe Extractor"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
+        </div>
+      </article>
+
+      <article data-cat="everyday" data-extra="" class="card xc fd">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Form Draft Guard in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+        <div class="top"><img class="icon" src="assets/ext-form-draft-guard.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/form-draft-guard/ehdccipfboaojjifllomihhjcjgebnec" target="_blank" rel="noopener">Form Draft Guard</a></h3><p class="kicker">Draft protection</p></div></div>
+        <p class="desc">Auto-saves what you type in comment boxes and forms, so a crash or misclick never wipes your words.</p>
+        <p class="split"><b>Free:</b> 15 drafts, kept 7 days · <b>Pro:</b> unlimited + version history</p>
+        <p class="price">Free · Pro <b>$5.99</b> once</p>
+
+          <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-form-draft-guard.jpg" alt="Form Draft Guard popup in use" loading="lazy" width="500" height="628"></div>
+        </div>
+        <div class="foot2">
+          <a class="open" href="https://chromewebstore.google.com/detail/form-draft-guard/ehdccipfboaojjifllomihhjcjgebnec" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="plink" href="ext-privacy-form-draft-guard.html" title="Privacy policy for Form Draft Guard"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
+        </div>
+      </article>
+
+      <article data-cat="everyday" data-extra="" class="card xc ck">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Cookie Cutter in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+        <div class="top"><img class="icon" src="assets/ext-cookie-killer.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/cookie-cutter/gijjdeegadokkaffkhfnjiekfeppcdfc" target="_blank" rel="noopener">Cookie Cutter</a></h3><p class="kicker">Cookie banner auto-decline</p></div></div>
+        <p class="desc">Automatically declines cookie banners on the sites you visit — it clicks decline, never accept.</p>
+        <p class="split"><b>Free:</b> auto-decline forever · <b>Pro:</b> deep cleanup &amp; element hider</p>
+        <p class="price">Free · Pro <b>$5.99</b> once</p>
+
+          <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-cookie-cutter.jpg" alt="Cookie Cutter popup in use" loading="lazy" width="500" height="628"></div>
+        </div>
+        <div class="foot2">
+          <a class="open" href="https://chromewebstore.google.com/detail/cookie-cutter/gijjdeegadokkaffkhfnjiekfeppcdfc" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="plink" href="ext-privacy-cookie-cutter.html" title="Privacy policy for Cookie Cutter"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
+        </div>
+      </article>
+      <a class="card more-card" id="extMore" href="extensions.html" title="See all extensions">
+        <span class="mc-plus">+3</span>
+        <span>More extensions — see the whole collection</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </section>
 
     <section class="promise">
@@ -473,6 +703,37 @@
   if(sc) sc.addEventListener('keydown', function(e){ if(e.key==='ArrowRight'){ go(i+1); restart(); } else if(e.key==='ArrowLeft'){ go(i-1); restart(); } });
 
   go(0); start();
+})();
+</script>
+<script>
+(function(){
+  var bar=document.getElementById('extFilter'); if(!bar) return;
+  var btns=[].slice.call(bar.querySelectorAll('button'));
+  var cards=[].slice.call(document.querySelectorAll('[data-cat]'));
+  var grid=document.querySelector('.ext-grid');
+  var more=document.getElementById('extMore');
+  btns.forEach(function(b){ b.addEventListener('click', function(){
+    btns.forEach(function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
+    var f=b.getAttribute('data-f');
+    var all=(f==='all');
+    if(grid) grid.classList.toggle('limited', all);   // a chosen filter reveals its whole group
+    if(more) more.style.display=all?'':'none';
+    cards.forEach(function(c){ c.style.display=(all||c.getAttribute('data-cat')===f)?'':'none'; });
+  });});
+})();
+</script>
+<script>
+(function(){
+  [].slice.call(document.querySelectorAll('.card .peek')).forEach(function(b){
+    b.addEventListener('click',function(){
+      var c=b.closest('.card');
+      var on=c.classList.toggle('flip');
+      b.setAttribute('aria-pressed',on?'true':'false');
+      b.setAttribute('title',on?'Back to details':'See it in use');
+      var sh=c.querySelector('.cface-shot');
+      if(sh) sh.setAttribute('aria-hidden',on?'false':'true');
+    });
+  });
 })();
 </script>
 </body>
