@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'">
+<title>Apps — Eden Apps</title>
+<meta name="description" content="Private, on-device apps by Eden for your money, documents, and career — free to try, one-time Pro unlock, no accounts and no tracking.">
+<link rel="canonical" href="https://edenapps.app/apps.html">
+<link rel="icon" href="assets/eden-logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Apps — Eden Apps">
+<meta property="og:description" content="Private, on-device apps for your money, documents, and career. Free to try, one-time Pro unlock, no accounts.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edenapps.app/apps.html">
+<meta property="og:image" content="https://edenapps.app/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://edenapps.app/assets/og-image.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --surface:#ffffff; --ink:#14152a; --muted:#5b6472; --faint:#616c7e;
+    --line:#e9eaf0; --line-strong:#dfe1ea; --shadow:20px 40px 80px -40px rgba(20,21,42,.16);
+    --li:#4338ca; --li-soft:#ecebfb; --li-tx:#4338ca;
+    --lr:#047857; --lr-soft:#e5f5ee; --lr-tx:#047857;
+    --lp:#e11d48; --lp-soft:#fdeaef; --lp-tx:#e11d48;
+    --sb:#0e7490; --sb-soft:#e6f6fa; --sb-tx:#0e7490;
+    --radius:22px; --maxw:1080px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  :root[data-theme="dark"]{
+    --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#8b93a1;
+    --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
+    --li-soft:#1a1840; --lr-soft:#0b2a1e; --lp-soft:#33121c; --sb-soft:#0c2a31;
+    --li-tx:#8b83f0; --lr-tx:#34d399; --lp-tx:#fb7185; --sb-tx:#38bdf8;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#8b93a1;
+    --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
+    --li-soft:#1a1840; --lr-soft:#0b2a1e; --lp-soft:#33121c; --sb-soft:#0c2a31;
+    --li-tx:#8b83f0; --lr-tx:#34d399; --lp-tx:#fb7185; --sb-tx:#38bdf8;
+  }}
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--font);
+    line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden}
+  a{color:inherit; text-decoration:none}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+
+  header{padding:24px 0 8px}
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:16px}
+  .brand{display:flex; align-items:center; gap:11px; font-weight:800; letter-spacing:-.02em; font-size:19px}
+  .brand .mark{width:31px; height:31px; display:block; object-fit:contain}
+  .topnav{display:flex; align-items:center; gap:22px}
+  .topnav .catlink{display:inline-flex; align-items:center; gap:6px; min-height:44px; font-size:14.5px; font-weight:700; color:var(--muted); white-space:nowrap; text-decoration:none; transition:color .2s}
+  .topnav a.catlink:hover{color:var(--ink)}
+  .topnav .catlink[aria-current="page"]{color:var(--li-tx)}
+  .topnav .catlink.soon{color:var(--faint); cursor:default}
+  .topnav .soontag{font-size:10.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--li-tx)}
+  @media(max-width:560px){ .topnav{gap:16px} .topnav .catlink{font-size:13.5px} }
+  .wm{display:inline-flex; gap:.28em}
+  .wm-e{color:#bf8f2b}
+  .wm-a{color:#0a8f5c}
+  :root[data-theme="dark"] .wm-e{color:#e8c06f}
+  :root[data-theme="dark"] .wm-a{color:#34d399}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .wm-e{color:#e8c06f} :root:not([data-theme="light"]) .wm-a{color:#34d399} }
+  .themebtn{display:inline-grid; place-items:center; width:44px; height:44px; flex:none; border:1px solid var(--line-strong); border-radius:999px; background:var(--surface); color:var(--ink); cursor:pointer; padding:0; transition:border-color .2s, color .2s}
+  .themebtn:hover{border-color:var(--li-tx); color:var(--li-tx)}
+  .themebtn svg{width:17px; height:17px}
+
+  .hero{padding:60px 0 22px; text-align:center; max-width:760px; margin:0 auto}
+  .eyebrow{font-size:13px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--faint); margin:0 0 20px}
+  h1{font-size:clamp(32px,5.4vw,52px); line-height:1.06; letter-spacing:-.035em; font-weight:800; margin:0 0 22px}
+  h1 .g-money{color:var(--sb-tx)} h1 .g-docs{color:var(--li-tx)} h1 .g-career{color:var(--lr-tx)}
+  .lede{font-size:clamp(17px,2.3vw,20px); color:var(--muted); margin:0 auto; max-width:600px}
+  @media (max-width:600px){ .hero{padding:34px 0 18px} }
+
+  .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:34px 0 6px}
+  .sec-head h2{font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); margin:0}
+  .sec-head .count{font-size:13px; color:var(--faint)}
+  .sec-note{font-size:13.5px; color:var(--muted); margin:0 0 22px; max-width:640px}
+
+  .agrid{display:grid; grid-template-columns:1fr 1fr; gap:20px; padding-bottom:8px}
+  @media (max-width:720px){ .agrid{grid-template-columns:1fr} }
+  .acard{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 24px 22px;
+    display:flex; flex-direction:column; transition:border-color .2s, transform .2s, box-shadow .2s}
+  .acard:hover{border-color:var(--acc); transform:translateY(-2px); box-shadow:var(--shadow)}
+  .acard.li{--acc:var(--li-tx); --acc-soft:var(--li-soft)}
+  .acard.lr{--acc:var(--lr-tx); --acc-soft:var(--lr-soft)}
+  .acard.lp{--acc:var(--lp-tx); --acc-soft:var(--lp-soft)}
+  .acard.sb{--acc:var(--sb-tx); --acc-soft:var(--sb-soft)}
+  .ahead{display:flex; align-items:center; gap:14px}
+  .aicon{width:52px; height:52px; border-radius:14px; flex:none; object-fit:cover; box-shadow:0 1px 0 rgba(20,21,42,.04)}
+  .aname{font-size:20px; font-weight:800; letter-spacing:-.015em; margin:0; line-height:1.1}
+  .aname a:hover{color:var(--acc)}
+  .akicker{font-size:13px; font-weight:700; color:var(--acc); margin:3px 0 0}
+  .adesc{color:var(--muted); font-size:15px; line-height:1.5; margin:16px 0 0}
+  .atags{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0}
+  .atag{font-size:12.5px; font-weight:650; color:var(--acc); background:var(--acc-soft); padding:5px 11px; border-radius:999px}
+  .atag.lock{color:var(--faint); background:transparent; border:1px solid var(--line-strong)}
+  .afoot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:20px}
+  .aprice{font-size:13.5px; color:var(--faint)}
+  .aprice b{color:var(--ink); font-weight:750}
+  .aopen{display:inline-flex; align-items:center; gap:7px; min-height:40px; font-size:14px; font-weight:700; color:var(--ink);
+    padding:8px 16px; border:1px solid var(--line-strong); border-radius:999px; background:var(--surface); white-space:nowrap; transition:border-color .2s, color .2s, gap .2s}
+  .aopen:hover{border-color:var(--acc); color:var(--acc); gap:10px}
+  .aopen svg{width:14px; height:14px}
+
+  footer{margin-top:52px; border-top:1px solid var(--line); padding:34px 0 56px}
+  .frow{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
+  .fbrand{display:flex; align-items:center; gap:9px; font-weight:800; letter-spacing:-.02em; font-size:15px}
+  .fbrand .mark{width:22px; height:22px; object-fit:contain}
+  .fnote{color:var(--faint); font-size:13px}
+  .flinks{display:flex; gap:18px; margin-left:auto; flex-wrap:wrap}
+  .flinks a{color:var(--muted); font-size:13.5px}
+  .flinks a:hover{color:var(--ink)}
+  .themebtn:focus-visible,.aopen:focus-visible,.brand:focus-visible,.catlink:focus-visible,.flinks a:focus-visible,.aname a:focus-visible{outline:2px solid var(--li-tx); outline-offset:3px}
+</style>
+<script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="bar">
+      <a class="brand" href="index.html">
+        <img class="mark" src="assets/eden-logo.png" alt="Eden Apps logo" width="31" height="31">
+        <span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span>
+      </a>
+      <nav class="topnav">
+        <a class="catlink" href="apps.html" aria-current="page">Apps</a>
+        <a class="catlink" href="extensions.html">Extensions</a>
+        <span class="catlink soon" aria-disabled="true" title="Mac tools — coming soon">Mac Tools <span class="soontag">Soon</span></span>
+        <button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">The apps</p>
+    <h1>Private apps for your <span class="g-money">money</span>, <span class="g-docs">documents</span> &amp; <span class="g-career">career.</span></h1>
+    <p class="lede">Tools that do one thing well — thoughtfully built and made with care. Every one runs on your device.</p>
+  </section>
+
+  <main id="main">
+    <div class="sec-head">
+      <h2>All apps</h2>
+      <span class="count">4 live · more on the way</span>
+    </div>
+    <p class="sec-note">Each one is free to try — no account or signup — with an optional one-time Pro unlock and a 30-day money-back guarantee. Every button opens the app on its own site, in a new tab.</p>
+
+    <div class="agrid">
+
+      <article class="acard li">
+        <div class="ahead">
+          <img class="aicon" src="assets/localinvoice.png" alt="" width="52" height="52">
+          <div><h3 class="aname"><a href="https://localinvoiceapp.com" target="_blank" rel="noopener">Local Invoice</a></h3><p class="akicker">Invoice maker</p></div>
+        </div>
+        <p class="adesc">Create clean, professional invoices and estimates in minutes, then export a polished, watermark-free PDF.</p>
+        <div class="atags"><span class="atag">Business</span><span class="atag lock">🔒 On your device</span></div>
+        <div class="afoot">
+          <span class="aprice">Free · Pro <b>$12.99</b> once</span>
+          <a class="aopen" href="https://localinvoiceapp.com" target="_blank" rel="noopener" title="Opens Local Invoice on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="acard lr">
+        <div class="ahead">
+          <img class="aicon" src="assets/localresume.png" alt="" width="52" height="52">
+          <div><h3 class="aname"><a href="https://localresumeapp.com" target="_blank" rel="noopener">LocalResume</a></h3><p class="akicker">Resume builder</p></div>
+        </div>
+        <p class="adesc">Build a clean resume and score it against any job description — right in your browser — then see the keywords ATS filters look for.</p>
+        <div class="atags"><span class="atag">Career</span><span class="atag lock">🔒 On your device</span></div>
+        <div class="afoot">
+          <span class="aprice">Free · Pro <b>$12.99</b> once</span>
+          <a class="aopen" href="https://localresumeapp.com" target="_blank" rel="noopener" title="Opens LocalResume on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="acard lp">
+        <div class="ahead">
+          <img class="aicon" src="assets/localpdf.png" alt="" width="52" height="52">
+          <div><h3 class="aname"><a href="https://localpdfapp.com" target="_blank" rel="noopener">Local PDF</a></h3><p class="akicker">PDF toolkit</p></div>
+        </div>
+        <p class="adesc">Merge, split, compress, convert, sign and redact — a full set of PDF tools that runs entirely in your browser.</p>
+        <div class="atags"><span class="atag">Documents</span><span class="atag lock">🔒 On your device</span></div>
+        <div class="afoot">
+          <span class="aprice">Free · Pro <b>$9.99</b> once</span>
+          <a class="aopen" href="https://localpdfapp.com" target="_blank" rel="noopener" title="Opens Local PDF on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="acard sb">
+        <div class="ahead">
+          <img class="aicon" src="assets/snowball.png" alt="" width="52" height="52">
+          <div><h3 class="aname"><a href="https://mysnowballapp.com" target="_blank" rel="noopener">My Snowball</a></h3><p class="akicker">Debt payoff planner</p></div>
+        </div>
+        <p class="adesc">See your debt-free date and the smartest order to clear your balances — snowball, avalanche, or your own plan.</p>
+        <div class="atags"><span class="atag">Money</span><span class="atag lock">🔒 On your device</span></div>
+        <div class="afoot">
+          <span class="aprice">Free · Pro <b>$9.99</b> once</span>
+          <a class="aopen" href="https://mysnowballapp.com" target="_blank" rel="noopener" title="Opens My Snowball on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="frow">
+      <div class="fbrand">
+        <img class="mark" src="assets/eden-logo.png" alt="" width="22" height="22">
+        <span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span>
+      </div>
+      <span class="fnote">Runs on your device. Answers to you.</span>
+      <div class="flinks">
+        <a href="extensions.html">Extensions</a>
+        <a href="help.html">Help</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+    <p class="fnote" style="margin:22px 0 0; font-size:12.5px; color:var(--faint)">© 2026 Eden Apps</p>
+  </footer>
+</div>
+<script>
+(function(){
+  var r=document.documentElement, btn=document.getElementById('themeToggle');
+  function current(){var t=r.getAttribute('data-theme');if(t==='dark'||t==='light')return t;return (window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}
+  if(btn) btn.addEventListener('click',function(){var next=current()==='dark'?'light':'dark';r.setAttribute('data-theme',next);try{localStorage.setItem('ea-theme',next);}catch(e){}});
+})();
+</script>
+</body>
+</html>
