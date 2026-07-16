@@ -58,9 +58,14 @@
   .bar{display:flex; align-items:center; justify-content:space-between; gap:16px}
   .brand{display:flex; align-items:center; gap:11px; font-weight:800; letter-spacing:-.02em; font-size:19px}
   .brand .mark{width:31px; height:31px; display:block; object-fit:contain}
-  .topnav{display:flex; align-items:center; gap:13px}
+  .topnav{display:flex; align-items:center; gap:10px}
   .topnav .support{display:inline-flex; align-items:center; min-height:44px; font-size:14px; font-weight:700; color:var(--ink); padding:8px 16px; border:1px solid var(--line-strong); border-radius:999px; background:var(--surface); white-space:nowrap}
   .topnav .support:hover{border-color:var(--li-tx); color:var(--li-tx)}
+  .topnav .catlink{display:inline-flex; align-items:center; gap:7px; min-height:44px; font-size:14px; font-weight:700; color:var(--ink); padding:8px 15px; border:1px solid var(--line-strong); border-radius:999px; background:var(--surface); white-space:nowrap; text-decoration:none; transition:border-color .2s, color .2s}
+  .topnav a.catlink:hover{border-color:var(--li-tx); color:var(--li-tx)}
+  .topnav .catlink.soon{color:var(--faint); border-style:dashed; cursor:default}
+  .topnav .soontag{font-size:10.5px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--li-tx); background:var(--li-soft); padding:2px 7px; border-radius:999px; line-height:1.6}
+  @media(max-width:560px){ .topnav{gap:7px} .topnav .catlink{padding:8px 12px; font-size:13px} .topnav .soontag{font-size:10px; padding:2px 6px} }
   @media(max-width:520px){.bar{flex-wrap:wrap}.topnav{margin-left:auto}}
   .wm{display:inline-flex; gap:.28em}
   .wm-e{color:#bf8f2b}
@@ -288,7 +293,9 @@
         <span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span>
       </a>
       <nav class="topnav">
-        <a class="support" href="extensions.html">Extensions</a>
+        <a class="catlink" href="#apps">Apps</a>
+        <a class="catlink" href="extensions.html">Extensions</a>
+        <span class="catlink soon" aria-disabled="true" title="Mac tools — coming soon">Mac Tools <span class="soontag">Soon</span></span>
         <button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
       </nav>
     </div>
@@ -301,7 +308,7 @@
   </section>
 
   <main id="main">
-    <div class="sec-head">
+    <div class="sec-head" id="apps">
       <h2>The apps</h2>
       <span class="count">4 live · more on the way</span>
     </div>
@@ -598,7 +605,7 @@
       <span class="fnote">Runs on your device. Answers to you.</span>
       <div class="flinks">
         <a href="extensions.html">Extensions</a>
-        <a href="support.html">Support</a>
+        <a href="help.html">Help</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
       </div>
