@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'">
+<title>Privacy Policy — Tab Manager · Eden Apps</title>
+<meta name="description" content="Privacy policy for the Tab Manager Chrome extension by Eden Apps — private by design, runs on your device.">
+<link rel="canonical" href="https://edenapps.app/ext-privacy-tab-manager.html">
+<link rel="icon" href="assets/eden-logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+  :root{--bg:#fbfbfd;--surface:#fff;--ink:#14152a;--muted:#525b6a;--faint:#616c7e;--line:#e9eaf0;
+    --sb:#0e7490;--lp:#e11d48;--li:#4338ca;--lr:#047857;--li-tx:#4338ca;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  :root[data-theme="dark"]{--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#8b83f0}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#8b83f0}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--li-tx)}a:hover{text-decoration:underline}
+  .wrap{max-width:740px;margin:0 auto;padding:0 24px}
+  header{padding:24px 0;border-bottom:1px solid var(--line)}
+  .brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em;font-size:17px;color:var(--ink);text-decoration:none}
+  .logo{width:27px;height:27px;display:block;object-fit:contain}
+  main{padding:46px 0 60px}
+  .kick{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:0 0 8px}
+  h1{font-size:clamp(28px,5vw,36px);letter-spacing:-.03em;margin:0 0 8px;color:var(--ink)}
+  .updated{color:var(--faint);font-size:14px;margin:0 0 34px}
+  h2{font-size:19px;letter-spacing:-.01em;margin:34px 0 10px;color:var(--ink)}
+  p,li{color:var(--muted);font-size:16px}
+  p{margin:0 0 14px}
+  ul{margin:0 0 14px;padding-left:20px}li{margin:0 0 8px}
+  strong{color:var(--ink);font-weight:650}
+  .lead{font-size:17.5px;color:var(--ink)}
+  footer{border-top:1px solid var(--line)}
+  .frow{display:flex;gap:18px;flex-wrap:wrap;align-items:center;padding:24px 0 48px;color:var(--faint);font-size:13.5px}
+  .frow a{color:var(--muted)}
+  .wm{display:inline-flex;gap:.28em}.wm-e{color:#bf8f2b}.wm-a{color:#0a8f5c}
+  :root[data-theme="dark"] .wm-e{color:#e8c06f}:root[data-theme="dark"] .wm-a{color:#34d399}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .wm-e{color:#e8c06f}:root:not([data-theme="light"]) .wm-a{color:#34d399}}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .themebtn{display:inline-grid;place-items:center;width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer;padding:0;transition:border-color .2s,color .2s}
+  .themebtn:hover{border-color:var(--li-tx);color:var(--li-tx)}
+  .themebtn svg{width:16px;height:16px}
+  .themebtn:focus-visible,.frow a:focus-visible,.brand:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
+</style>
+<script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html"><img class="logo" src="assets/eden-logo.png" alt="Eden Apps logo" width="27" height="27"><span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span></a><button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button></div></header>
+<main><div class="wrap">
+  <p class="kick">Chrome Extension</p>
+  <h1>Privacy Policy — Tab Manager</h1>
+  <p class="updated">Last updated: July 12, 2026</p>
+  <p class="lead">Tab Manager ("the Extension") is a Chrome browser extension that groups your open tabs into color-coded categories and saves browsing sessions you can reopen later. This Privacy Policy explains what data the Extension handles and how.</p>
+  <h2>Summary</h2>
+  <p>Your tabs, sessions, rules, and settings stay <strong>on your device</strong>. The Extension does <strong>not</strong> upload your browsing data, does <strong>not</strong> require an account, does <strong>not</strong> use analytics or advertising, and does <strong>not</strong> share or sell information. The only time it contacts the internet is an anonymous check of whether you've purchased the optional one-time Pro upgrade (and, only if you choose to upgrade, the secure checkout).</p>
+  <h2>What data the Extension handles</h2>
+  <p>The Extension stores the following on your device only (using Chrome's local storage):</p>
+  <ul>
+    <li>The sessions you choose to save — for each saved session, the tab titles and URLs in that session</li>
+    <li>Any custom grouping rules you create (Pro)</li>
+    <li>Your settings and preferences</li>
+  </ul>
+  <p>That is the entire dataset, and it is never uploaded to us. We never receive it, because it never leaves your browser.</p>
+  <h2>How it works</h2>
+  <p>When you click "Group All Tabs," the Extension reads the title and address (URL) of your open tabs to sort them into categories using built-in, rule-based matching — entirely on your device, in the moment. When you click "Save Session," it stores the current set of tabs locally so you can reopen them later. The Extension has no permission to read the *content* of the pages you visit.</p>
+  <h2>Payments (optional Pro upgrade)</h2>
+  <p>Tab Manager is free to use. It offers an optional one-time <strong>Pro</strong> upgrade that unlocks backup/restore and custom grouping rules. Payments are handled by <strong>ExtensionPay</strong> (a third-party service) using <strong>Stripe</strong>:</p>
+  <ul>
+    <li>To know whether you're on Free or Pro, the Extension makes an <strong>anonymous plan check</strong> to ExtensionPay. This check carries no personal information and nothing about your tabs, sessions, or browsing.</li>
+    <li>If you choose to upgrade, you enter your email and card details on ExtensionPay's secure hosted checkout page. <strong>The Extension never sees or stores your card number.</strong> ExtensionPay and Stripe process the payment on their side.</li>
+    <li>ExtensionPay keeps a small, anonymous record of your plan status so your Pro access works across your signed-in browsers. That record never includes anything you do inside the Extension.</li>
+  </ul>
+  <h2>What the Extension does NOT do</h2>
+  <ul>
+    <li>Does not collect your name, email, or account information (payment details go directly to ExtensionPay/Stripe, never to us).</li>
+    <li>Does not upload your tabs, sessions, rules, or browsing history.</li>
+    <li>Does not share or sell data to third parties.</li>
+    <li>Does not use cookies, analytics, or advertising services.</li>
+    <li>Does not track your browsing across the web.</li>
+    <li>Does not read the content of the pages you visit.</li>
+  </ul>
+  <h2>Permissions explained</h2>
+  <ul>
+    <li><strong>tabs</strong> — to read the title and URL of your open tabs so they can be grouped by category and saved into a session.</li>
+    <li><strong>tabGroups</strong> — to create and color the native Chrome tab groups that grouping produces.</li>
+    <li><strong>storage</strong> — to save your sessions, rules, and settings locally on your device.</li>
+    <li><strong>host access (`<a href="https://extensionpay.com/*`" target="_blank" rel="noopener">https://extensionpay.com/*`</a>)</strong> — used only by the ExtensionPay payment integration to confirm your Pro status and (if you upgrade) process the one-time purchase. It is not used to access any website you browse.</li>
+  </ul>
+  <h2>Data retention and deletion</h2>
+  <p>Your data remains in your browser until you delete it inside the Extension or uninstall the Extension. Uninstalling removes all data the Extension has stored on your device. We have no copy of it, because none was ever sent to us. Any payment record is held by ExtensionPay/Stripe under their own terms.</p>
+  <h2>Children's privacy</h2>
+  <p>The Extension is not directed at children under 13 and does not knowingly collect data from anyone.</p>
+  <h2>Changes to this policy</h2>
+  <p>If this policy is updated, the new version will be posted at the same public URL with a revised "Last updated" date.</p>
+  <h2>Contact</h2>
+  <h2>Questions can be sent to: <strong><a href="mailto:extensions@edenapps.app">extensions@edenapps.app</a></strong></h2>
+</div></main>
+<footer><div class="wrap frow"><span>© 2026 Eden Apps</span><a href="index.html">Home</a><a href="extensions.html">Extensions</a><a href="support.html">Support</a><a href="terms.html">Terms</a></div></footer>
+<script>
+(function(){var r=document.documentElement,btn=document.getElementById('themeToggle');function current(){var t=r.getAttribute('data-theme');if(t==='dark'||t==='light')return t;return (window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}if(btn)btn.addEventListener('click',function(){var n=current()==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('ea-theme',n);}catch(e){}});})();
+</script>
+</body>
+</html>
