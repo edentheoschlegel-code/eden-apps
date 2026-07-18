@@ -286,6 +286,12 @@
   .peek .i2{display:none}
   .card.flip .peek .i1{display:none}
   .card.flip .peek .i2{display:grid}
+
+  /* subtle scroll-reveal — content settles in gently as it enters view.
+     Fully guarded: no motion (and always visible) when reduced-motion is set. */
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1)}
+  .reveal.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none} }
 </style>
 <script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
@@ -734,7 +740,10 @@
     var all=(f==='all');
     if(grid) grid.classList.toggle('limited', all);   // a chosen filter reveals its whole group
     if(more) more.style.display=all?'':'none';
-    cards.forEach(function(c){ c.style.display=(all||c.getAttribute('data-cat')===f)?'':'none'; });
+    cards.forEach(function(c){
+      c.style.display=(all||c.getAttribute('data-cat')===f)?'':'none';
+      if(c.style.display!=='none') c.classList.add('in');   // a card shown by filtering must not stay hidden by the reveal transition
+    });
   });});
 })();
 </script>
@@ -750,6 +759,71 @@
       if(sh) sh.setAttribute('aria-hidden',on?'false':'true');
     });
   });
+})();
+</script>
+<script>
+/* Subtle scroll-reveal. Robust by design: a scroll/resize sweep is the primary
+   driver (so nothing depends on IntersectionObserver firing), an observer adds
+   smoothness where available, and a hard failsafe guarantees every element ends
+   up visible. Motion is skipped entirely under prefers-reduced-motion. */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  // groups: [selector, per-item stagger in ms]
+  var groups=[
+    ['.sec-head', 0],
+    ['.sec-note', 40],
+    ['.showcase', 0],
+    ['.ext-filter', 0],
+    ['.ext-grid > *', 55],
+    ['.promise', 0],
+    ['.point', 90],
+    ['.subscribe', 0]
+  ];
+  var revealed=[];
+  groups.forEach(function(g){
+    [].slice.call(document.querySelectorAll(g[0])).forEach(function(el,idx){
+      el.classList.add('reveal');
+      el.dataset._delay = String(idx * g[1]);
+      revealed.push(el);
+    });
+  });
+
+  // no motion or no observer support: show everything immediately
+  if(reduce || !('IntersectionObserver' in window)){
+    revealed.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+
+  function reveal(el){
+    if(el.classList.contains('in')) return;
+    var d=parseInt(el.dataset._delay||'0',10);
+    setTimeout(function(){ el.classList.add('in'); }, d);
+  }
+  function onscreen(el){
+    var r=el.getBoundingClientRect();
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    return r.top < vh*0.94 && r.bottom > 0;
+  }
+  function sweep(){
+    for(var k=revealed.length-1;k>=0;k--){
+      if(onscreen(revealed[k])){ reveal(revealed[k]); revealed.splice(k,1); }
+    }
+  }
+  var tick=false;
+  window.addEventListener('scroll', function(){ if(!tick){ tick=true; requestAnimationFrame(function(){ sweep(); tick=false; }); } }, {passive:true});
+  window.addEventListener('resize', sweep);
+  try{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ reveal(e.target); io.unobserve(e.target); } });
+    }, {threshold:0.08, rootMargin:'0px 0px -5% 0px'});
+    revealed.slice().forEach(function(el){ io.observe(el); });
+  }catch(e){}
+
+  sweep();                                   // reveal whatever is already in view on load
+  setTimeout(function(){                       // hard failsafe: nothing stays hidden
+    revealed.forEach(function(el){ el.classList.add('in'); });
+  }, 2500);
 })();
 </script>
 </body>
