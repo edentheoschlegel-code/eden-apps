@@ -802,12 +802,21 @@
     });
   });
 
+  // The critical gate: nothing may flip to .in until the browser has painted the
+  // opacity:0 start-state at least once. Without this, the IntersectionObserver's
+  // first callback (which fires before paint) adds .in in the same frame as
+  // .reveal, so those items snap in with no transition while only the
+  // stagger-delayed ones animate. `ready` opens after a double rAF.
+  var ready=false;
   function reveal(el){
     if(el.classList.contains('in') || el.dataset._queued) return;
     el.dataset._queued='1';
-    var d=parseInt(el.dataset._stagger||'0',10) * parseInt(el.dataset._idx||'0',10);
-    setTimeout(function(){ el.classList.add('in'); }, d);
+    var base=parseInt(el.dataset._stagger||'0',10) * parseInt(el.dataset._idx||'0',10);
+    function go(){ el.classList.add('in'); }
+    if(ready) setTimeout(go, base);
+    else nextFrame(function(){ setTimeout(go, base); });   // wait for the hidden state to paint
   }
+  function nextFrame(fn){ requestAnimationFrame(function(){ requestAnimationFrame(fn); }); }
   function onscreen(el){
     var r=el.getBoundingClientRect();
     var vh=window.innerHeight||document.documentElement.clientHeight;
@@ -828,9 +837,8 @@
     revealed.slice().forEach(function(el){ io.observe(el); });
   }catch(e){}
 
-  // Reveal whatever is already in view — but on the next frame, so the opacity:0
-  // start-state is committed first and above-fold items animate in too (not snap).
-  requestAnimationFrame(function(){ requestAnimationFrame(sweep); });
+  // Open the gate once the hidden state has painted, then reveal what's in view.
+  nextFrame(function(){ ready=true; sweep(); });
   setTimeout(function(){                       // hard failsafe: nothing stays hidden
     revealed.forEach(function(el){ el.classList.add('in'); });
   }, 2500);
