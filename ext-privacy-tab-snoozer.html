@@ -53,11 +53,11 @@
   <h1>Privacy Policy — Tab Snoozer</h1>
   <p class="updated">Last updated: July 13, 2026</p>
   <p class="lead">Tab Snoozer is built to respect your privacy. Here is exactly what it does and does not do with your data.</p>
-  <h2>SUMMARY</h2>
+  <h2>Summary</h2>
   <p>Everything happens in your browser. Tab Snoozer never reads the content of any web page you browse — it has no access to the sites you visit. It only remembers which tabs you chose to snooze, so it can bring them back on time. Its only site access is the payment provider's own page (extensionpay.com), where ExtensionPay's bundled script runs to handle plan checks and the optional one-time Pro upgrade via Stripe. The plan check is anonymous, runs for all users, and sends no personal data.</p>
-  <h2>HOW IT WORKS</h2>
+  <h2>How it works</h2>
   <p>When you snooze a tab, the extension notes that tab's address (URL), title, and site icon, sets an alarm for the time you chose, and closes the tab. When that time comes, it reopens the tab — quietly in the background by default. Your sleeping tabs live on your device until they wake or you take them off the list. There is no account and no login.</p>
-  <h2>WHAT DATA THE EXTENSION HANDLES</h2>
+  <h2>What data the Extension handles</h2>
   <p>Everything the extension itself stores lives in your browser via chrome.storage.local:</p>
   <ul>
     <li>Your snoozed tabs (address, title, site icon, wake time, and repeat setting if any). Each entry is removed when its tab wakes or when you take it off the list.</li>
@@ -66,7 +66,7 @@
   </ul>
   <p>The bundled ExtensionPay payment library additionally keeps its own small plan record (an anonymous identifier and install date). Unlike the extension's own data above — which stays strictly on this device — ExtensionPay stores its record in Chrome's synced extension storage, so if you are signed in to Chrome, that record is synced across your browsers via your Google account.</p>
   <p>You can clear all of this at any time by removing the extension or clearing the extension's storage in your browser.</p>
-  <h2>WHAT TAB SNOOZER DOES NOT DO</h2>
+  <h2>What Tab Snoozer does NOT do</h2>
   <ul>
     <li>It does not read the content of the pages you visit — there is no content script on any site you browse. (The only content script the extension carries runs on extensionpay.com, the payment provider's own page, as ExtensionPay requires.)</li>
     <li>It does not collect your browsing history, page content, or other tabs' activity.</li>
@@ -78,26 +78,26 @@
     <li>The payment provider's plan check. The extension contacts ExtensionPay (extensionpay.com) to check your plan status (Free or Pro) using an anonymous identifier. This runs for all users, including free ones — at install, at browser startup, and periodically while the extension runs — and sends no personal information: no email, no card details, and nothing about your tabs.</li>
     <li>Site icons in the popup. The popup shows each snoozed tab's site icon; your browser fetches those icons from the sites themselves (sites you already chose to snooze). No other information is sent to them.</li>
   </ul>
-  <h2>PAYMENTS (OPTIONAL PRO)</h2>
+  <h2>Payments (optional Pro)</h2>
   <p>Pro is a one-time purchase — a single payment, not a subscription. It is handled by ExtensionPay, which uses Stripe for secure payment processing. If you buy Pro, ExtensionPay handles your email address and payment details solely to complete and remember that purchase. We never see or store your card information. If you do not buy the upgrade, no payment data is collected.</p>
   <ul>
     <li>ExtensionPay: <a href="https://extensionpay.com/privacy" target="_blank" rel="noopener">https://extensionpay.com/privacy</a></li>
     <li>Stripe: <a href="https://stripe.com/privacy" target="_blank" rel="noopener">https://stripe.com/privacy</a></li>
   </ul>
-  <h2>PERMISSIONS, EXPLAINED</h2>
+  <h2>Permissions, explained</h2>
   <ul>
     <li>storage — to remember your snoozed tabs, settings, and plan locally.</li>
     <li>alarms — to wake your tabs at the times you chose.</li>
     <li>tabs — to read the address and title of a tab when you snooze it, close it, and reopen it later. Not used to monitor browsing.</li>
     <li>host access to extensionpay.com (<code>https://extensionpay.com/*</code>) — required by ExtensionPay to check your plan and handle the optional one-time Pro purchase.</li>
   </ul>
-  <h2>DATA RETENTION</h2>
+  <h2>Data retention</h2>
   <p>Your snoozed tabs and settings stay on your device until the tab wakes, you remove the entry, or you clear the extension's storage. Removing the extension clears its local data. ExtensionPay retains only what it needs to remember your purchase; see its policy linked above.</p>
-  <h2>CHILDREN</h2>
+  <h2>Children</h2>
   <p>Tab Snoozer is a general-audience productivity tool. It is not directed to children under 13 and does not knowingly collect personal information from them.</p>
-  <h2>CHANGES</h2>
+  <h2>Changes</h2>
   <p>If this policy ever changes, the updated version will be posted here with a new "Last updated" date.</p>
-  <h2>CONTACT</h2>
+  <h2>Contact</h2>
   <p>Questions can be sent to: <a href="mailto:extensions@edenapps.app">extensions@edenapps.app</a></p>
 </div></main>
 <footer><div class="wrap frow"><span>© 2026 Eden Apps</span><a href="index.html">Home</a><a href="extensions.html">Extensions</a><a href="help.html">Help</a><a href="terms.html">Terms</a></div></footer>

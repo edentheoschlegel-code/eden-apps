@@ -80,7 +80,7 @@
   <h2>Permissions explained</h2>
   <ul>
     <li><strong>storage</strong> — saves your settings, paused sites, per-site rules, and the banners-handled counter locally.</li>
-    <li><strong>all-sites content script (`&lt;all_urls&gt;` in `content_scripts`)</strong> — required so the Extension can find and click the decline button of a cookie banner on any site you visit. It uses this access only to dismiss banners and to apply rules you created; it does not read or transmit page content.</li>
+    <li><strong>all-sites content script (<code>&lt;all_urls&gt;</code> in <code>content_scripts</code>)</strong> — required so the Extension can find and click the decline button of a cookie banner on any site you visit. It uses this access only to dismiss banners and to apply rules you created; it does not read or transmit page content.</li>
     <li><strong>activeTab</strong> — lets the popup read the address of the tab you are currently viewing (only when you open the popup) so the per-site pause toggle and saved-rules list can show the right site.</li>
     <li><strong>host access (<code>https://extensionpay.com/*</code>)</strong> — used only by the ExtensionPay payment integration to confirm your Pro status.</li>
   </ul>

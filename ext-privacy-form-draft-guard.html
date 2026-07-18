@@ -53,11 +53,11 @@
   <h1>Privacy Policy — Form Draft Guard</h1>
   <p class="updated">Last updated: July 13, 2026</p>
   <p class="lead">Form Draft Guard exists to protect your words, and protecting your privacy is part of the same promise. Here is exactly what it does and does not do — please read the "What it leaves alone" section especially.</p>
-  <h2>THE SHORT VERSION</h2>
+  <h2>The short version</h2>
   <p>Your drafts never leave your device. Form Draft Guard auto-saves what you type in comment boxes and long text fields to your browser's local storage, so a crash or a misclick can't erase it. It has no server, sends nothing to us or anyone, and contains no analytics or tracking. The only network contact the extension makes is the payment provider's anonymous plan check (ExtensionPay), which runs for all users and sends no personal data — plus the optional one-time Pro upgrade via Stripe (see Payments below).</p>
-  <h2>HOW IT WORKS</h2>
+  <h2>How it works</h2>
   <p>As you type in a qualifying comment box or text field, the extension saves your text locally, in the background, and lets you restore it later with one click from the popup. Drafts are grouped by the page they came from and expire on their own. Everything happens inside your browser.</p>
-  <h2>WHAT IT LEAVES ALONE</h2>
+  <h2>What it leaves alone</h2>
   <p>This is the important part. Form Draft Guard is deliberately narrow:</p>
   <ul>
     <li>It never saves password fields. Any password-type input is turned away outright — this is a hard rule, not a guess.</li>
@@ -65,7 +65,7 @@
     <li>It only saves long-form text fields — text areas, rich-text/comment editors, and plain text/search/URL inputs — and only between about 25 and 100,000 characters. It skips checkboxes, dropdowns, and email/phone/number-typed fields.</li>
   </ul>
   <p>No automatic detector is perfect, so Form Draft Guard also gives you full control: you can pause auto-save at any time, delete any saved draft, and clear everything in one click. If you ever notice something you'd rather not have saved, one click removes it — and nothing ever leaves your device regardless.</p>
-  <h2>WHAT IT STORES, AND WHERE</h2>
+  <h2>What it stores, and where</h2>
   <p>Everything is stored on your device via chrome.storage.local — local storage that Chrome does not sync to any server or other device:</p>
   <ul>
     <li>Your drafts — the text you typed, the field it came from (its page address and a field identifier so it can be restored), and a short label such as the field's name. Pro keeps a few recent versions per field; Free keeps the latest.</li>
@@ -73,28 +73,28 @@
   </ul>
   <p>Drafts expire on their own — after 7 days on Free, 30 days on Pro — and you can delete any draft, or clear all of them, from the popup at any time.</p>
   <p>The bundled ExtensionPay payment library keeps its own small, anonymous plan record. Unlike your drafts (which stay strictly local to this device), ExtensionPay stores that record in Chrome's synced extension storage, so if you're signed in to Chrome it syncs across your browsers via your Google account.</p>
-  <h2>WHAT WE SEND ANYWHERE</h2>
+  <h2>What we send anywhere</h2>
   <p>Your drafts, and everything about the pages you type on, are never transmitted — not to us, not to any third party. There is no draft server. Capture and storage happen entirely in your browser.</p>
   <p>The one network contact the extension makes is with ExtensionPay (extensionpay.com), the payment provider: it checks your plan status (Free or Pro) using an anonymous identifier — at install, at browser startup, and periodically while the extension runs. It sends no personal information and nothing about what you type.</p>
-  <h2>PAYMENTS (OPTIONAL PRO)</h2>
+  <h2>Payments (optional Pro)</h2>
   <p>Pro is a one-time purchase — a single payment of $5.99, not a subscription, and nothing recurring. It is handled by ExtensionPay (<a href="https://extensionpay.com" target="_blank" rel="noopener">https://extensionpay.com</a>), which uses Stripe for secure payment processing. If you upgrade, ExtensionPay handles your email and payment details solely to complete that one-time purchase and remember that you own Pro. We never see or store your card information. If you don't upgrade, no payment data is collected.</p>
   <ul>
     <li>ExtensionPay: <a href="https://extensionpay.com/privacy" target="_blank" rel="noopener">https://extensionpay.com/privacy</a></li>
     <li>Stripe: <a href="https://stripe.com/privacy" target="_blank" rel="noopener">https://stripe.com/privacy</a></li>
   </ul>
-  <h2>PERMISSIONS, EXPLAINED</h2>
+  <h2>Permissions, explained</h2>
   <ul>
     <li>storage — to keep your drafts and settings on your device.</li>
     <li>content script on the sites you visit (http / https) — this is how the extension can auto-save your text where you type it. The script runs locally in the page, applies the "what it leaves alone" rules above, talks only to this extension's own local storage, reads nothing beyond what you type into a qualifying field, and sends nothing to the network. It is not injected on extensionpay.com beyond the payment library's own page.</li>
     <li>host access to extensionpay.com (<code>https://extensionpay.com/*</code>) — required by ExtensionPay to confirm your plan and handle the optional one-time Pro upgrade.</li>
   </ul>
-  <h2>DATA RETENTION</h2>
+  <h2>Data retention</h2>
   <p>Drafts expire on their own — after 7 days on Free and 30 days on Pro — and are cleared automatically as you keep using the extension. You can delete any single draft, or clear all of them, at any time from the popup. Uninstalling the extension removes all locally stored drafts and settings.</p>
-  <h2>CHILDREN</h2>
+  <h2>Children</h2>
   <p>Form Draft Guard is a general-purpose utility and is not directed at children under 13. It collects no personal information from anyone.</p>
-  <h2>CHANGES</h2>
+  <h2>Changes</h2>
   <p>If this policy ever changes, the updated version will be posted here with a new "Last updated" date.</p>
-  <h2>CONTACT</h2>
+  <h2>Contact</h2>
   <p>Questions can be sent to: <a href="mailto:extensions@edenapps.app">extensions@edenapps.app</a></p>
 </div></main>
 <footer><div class="wrap frow"><span>© 2026 Eden Apps</span><a href="index.html">Home</a><a href="extensions.html">Extensions</a><a href="help.html">Help</a><a href="terms.html">Terms</a></div></footer>

@@ -65,7 +65,7 @@
 <header><div class="wrap"><a class="brand" href="index.html"><img class="logo" src="assets/eden-logo.png" alt="Eden Apps logo" width="27" height="27"><span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span></a><button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button></div></header>
 <main><div class="wrap">
   <h1>Chrome Extensions — Privacy</h1>
-  <p class="updated">Last updated: July 12, 2026</p>
+  <p class="updated">Last updated: July 17, 2026</p>
 
   <p class="lead">Eden Apps makes a family of Chrome extensions. This policy explains how they handle your information — and it's written to match what the code actually does. The short version: <strong>they run in your browser, and what you do with them isn't uploaded, tracked, or sold.</strong></p>
 
@@ -73,7 +73,7 @@
   <ul>
     <li><strong>On your device.</strong> Your settings, saved items, and history live in your browser's local storage. There are no accounts, and no server we run receives what you do.</li>
     <li><strong>No tracking.</strong> No analytics, no advertising, no tracking pixels, no selling or sharing of your data — in any of them.</li>
-    <li><strong>Payments are handled by others.</strong> Some extensions offer an optional <strong>Pro</strong> upgrade — a <strong>one-time purchase</strong> — not a subscription, nothing to renew — shown before you pay. That's processed by <a href="https://extensionpay.com" target="_blank" rel="noopener">ExtensionPay</a> using <a href="https://stripe.com" target="_blank" rel="noopener">Stripe</a> — you enter your email and card on their hosted page, and the extension never sees or stores your card number. To know whether you're on Free or Pro, an extension makes an <strong>anonymous plan check</strong> to ExtensionPay that carries no personal information. ExtensionPay keeps an anonymous plan record in Chrome's synced storage, which can sync across your signed-in browsers — that record never includes anything you do in the extension.</li>
+    <li><strong>Payments are handled by others.</strong> Some extensions offer an optional <strong>Pro</strong> upgrade — a <strong>one-time purchase</strong> (not a subscription, nothing to renew), with the price shown before you pay. That's processed by <a href="https://extensionpay.com" target="_blank" rel="noopener">ExtensionPay</a> using <a href="https://stripe.com" target="_blank" rel="noopener">Stripe</a> — you enter your email and card on their hosted page, and the extension never sees or stores your card number. To know whether you're on Free or Pro, an extension makes an <strong>anonymous plan check</strong> to ExtensionPay that carries no personal information. ExtensionPay keeps an anonymous plan record in Chrome's synced storage, which can sync across your signed-in browsers — that record never includes anything you do in the extension.</li>
     <li><strong>Reading pages.</strong> Some of these extensions need to read the page you're on to do their job (a summarizer has to read the text; a cookie-banner blocker has to see the banner). Where that's the case it's spelled out per extension below — and in every case the reading happens in your browser and the content is never sent anywhere.</li>
   </ul>
   <p>Below, each extension in plain terms.</p>
@@ -96,18 +96,18 @@
   <hr class="rule">
 
   <div class="ext">
-    <h2 id="tab-manager">Tab Manager: Group Tabs &amp; Save Sessions <span class="kv">No purchase · reads only tab titles &amp; URLs · fully local</span></h2>
-    <p>Tab Manager runs entirely on your device. When you click <em>Group All Tabs</em> or <em>Save Session</em> it reads only your tabs' URLs, titles, and site icons — never the content of the pages themselves (it requests no page access and injects no scripts). Saved sessions and settings live solely in your browser's local storage; nothing is uploaded, there is no account, and the extension makes no network requests that send or collect your data. There's no tracking, analytics, advertising, or third-party sharing, and there's no in-app purchase — nothing to buy.</p>
+    <h2 id="tab-manager">Tab Manager: Group Tabs &amp; Save Sessions <span class="kv">optional Pro · reads only tab titles &amp; URLs · fully local</span></h2>
+    <p>Tab Manager runs on your device. When you click <em>Group All Tabs</em> or <em>Save Session</em> it reads only your tabs' URLs, titles, and site icons — never the content of the pages themselves (it requests no page access and injects no scripts). Saved sessions and settings live in your browser's local storage; nothing you do is uploaded, and there is no account. There's no tracking, analytics, advertising, or third-party sharing. Tab Manager offers an optional one-time Pro upgrade (custom rules and session backup), handled by ExtensionPay with Stripe; to tell whether you're on the base or Pro plan it makes an anonymous plan check to ExtensionPay that carries no personal information.</p>
   </div>
 
   <div class="ext">
     <h2 id="ai-summarizer">AI Summarizer — Instant Page Summaries <span class="kv">Reads page text on click · summarizes on-device · optional Pro</span></h2>
-    <p>AI Summarizer reads a page's text only at the moment you click <em>Summarize</em>, and it builds the summary entirely on your device using a built-in text-ranking algorithm — the page content and the summaries it produces are never uploaded to any server. Your saved summaries, daily usage counts, and preferences are stored locally in your browser. Its only network connection is the anonymous plan check to ExtensionPay to see whether you're on Pro; checkout is handled by Stripe on ExtensionPay's own page, so the extension never sees your card number or email. There is no analytics, tracking, advertising, or sale of your data.</p>
+    <p>AI Summarizer reads a page's text only at the moment you click <em>Summarize</em>, and it builds the summary on your device using a built-in text-ranking algorithm — the page content and the summaries it produces are never uploaded to any server. Your saved summaries, daily usage counts, and preferences are stored locally in your browser. Its only network connection is the anonymous plan check to ExtensionPay to see whether you're on Pro; checkout is handled by Stripe on ExtensionPay's own page, so the extension never sees your card number or email. There is no analytics, tracking, advertising, or sale of your data.</p>
   </div>
 
   <div class="ext">
     <h2 id="focus-mode">Focus Mode — Pomodoro &amp; Site Blocker <span class="kv">Never reads page content · blocks by redirect · optional Pro</span></h2>
-    <p>Focus Mode keeps your focus data — your block list, timer settings, and session statistics — on your own device, with no account and no server of ours ever receiving it. It contains no analytics, ads, or tracking, and it never reads the content of the pages you visit; blocking works by redirecting only the domains you've chosen to a local block page. The one outside contact is the anonymous plan check with ExtensionPay that runs for every user — free or paid — to tell whether you're on Free or Pro; it sends only an anonymous identifier. If you choose the optional Pro upgrade, your email and card are handled directly by ExtensionPay and Stripe, and the extension never sees or stores your card number.</p>
+    <p>Focus Mode keeps your focus data — your block list, timer settings, and session statistics — on your own device, with no account and no server of ours ever receiving it. It contains no analytics, ads, or tracking, and it never reads the content of the pages you visit; blocking works by redirecting only the domains you've chosen to a local block page. The one outside contact is the anonymous plan check with ExtensionPay that runs for every user to tell whether you're on Free or Pro; it sends only an anonymous identifier. If you choose the optional Pro upgrade, your email and card are handled directly by ExtensionPay and Stripe, and the extension never sees or stores your card number.</p>
   </div>
 
   <div class="ext">
@@ -117,22 +117,22 @@
 
   <div class="ext">
     <h2 id="video-summaries">Video Summaries for YouTube <span class="kv">Reads the transcript of videos you summarize · on-device · optional Pro</span></h2>
-    <p>Video Summaries creates its summaries entirely on your device using a built-in summarizer — there is no AI server, no account, and no analytics or ad tracking. It reads only the caption/transcript and title of the YouTube video you actively choose to summarize, and your summaries, saved items, daily usage count, and settings all stay in your browser's local storage. It contacts ExtensionPay for the anonymous Free-vs-Pro plan check and, if you upgrade, processes your email and card through Stripe — the extension itself never sees your payment details. To read a transcript it may also fetch caption data directly from YouTube, the site you're already on; it sends none of your personal data anywhere.</p>
+    <p>Video Summaries creates its summaries on your device using a built-in summarizer — there is no AI server, no account, and no analytics or ad tracking. It reads only the caption/transcript and title of the YouTube video you actively choose to summarize, and your summaries, saved items, daily usage count, and settings all stay in your browser's local storage. It contacts ExtensionPay for the anonymous Free-vs-Pro plan check and, if you upgrade, processes your email and card through Stripe — the extension itself never sees your payment details. To read a transcript it may also fetch caption data directly from YouTube, the site you're already on; it sends none of your personal data anywhere.</p>
   </div>
 
   <div class="ext">
     <h2 id="tab-snoozer">Tab Snoozer <span class="kv">Never reads page content · saves only the tab to reopen · optional Pro</span></h2>
-    <p>Tab Snoozer works entirely in your browser and never reads the content of the web pages you visit — it has no access to the sites you browse. When you snooze a tab it saves only that tab's address, title, and site icon locally on your device, so it can reopen it on schedule; it stores nothing about the pages themselves. It sends no tabs, addresses, or browsing data to us or anyone. The only network activity is ExtensionPay's anonymous plan check, your browser fetching snoozed sites' icons, and — only if you upgrade — ExtensionPay and Stripe handling your one-time Pro upgrade. No tracking, no analytics, no ads, and no data is ever sold.</p>
+    <p>Tab Snoozer works in your browser and never reads the content of the web pages you visit — it has no access to the sites you browse. When you snooze a tab it saves only that tab's address, title, and site icon locally on your device, so it can reopen it on schedule; it stores nothing about the pages themselves. It sends no tabs, addresses, or browsing data to us or anyone. The only network activity is ExtensionPay's anonymous plan check, your browser fetching snoozed sites' icons, and — only if you upgrade — ExtensionPay and Stripe handling your one-time Pro upgrade. No tracking, no analytics, no ads, and no data is ever sold.</p>
   </div>
 
   <div class="ext">
     <h2 id="recipe-extractor">Recipe Extractor — Skip to the Recipe <span class="kv">Reads recipe markup on click · fully local · optional Pro</span></h2>
-    <p>Recipe Extractor works entirely on your device. It reads a page only at the moment you click the extension there — pulling just the recipe markup the site already publishes — and it has no standing access to the sites you browse and no background reading. Your saved recipes and plan status live locally in your browser and are never uploaded; there's no recipe server, no AI service, and no analytics, tracking, ads, or data sales. The only network contact is the anonymous plan check with ExtensionPay, which sends just an anonymous identifier — nothing about the recipes or pages you read; if you upgrade, payment is handled by ExtensionPay and Stripe, and the extension never sees your card information.</p>
+    <p>Recipe Extractor works on your device. It reads a page only at the moment you click the extension there — pulling just the recipe markup the site already publishes — and it has no standing access to the sites you browse and no background reading. Your saved recipes and plan status live locally in your browser and are never uploaded; there's no recipe server, no AI service, and no analytics, tracking, ads, or data sales. The only network contact is the anonymous plan check with ExtensionPay, which sends just an anonymous identifier — nothing about the recipes or pages you read; if you upgrade, payment is handled by ExtensionPay and Stripe, and the extension never sees your card information.</p>
   </div>
 
   <div class="ext">
     <h2 id="cookie-cutter">Cookie Cutter — Auto-Decline Cookie Banners <span class="kv">Reads pages in-memory to click "reject" · stores nothing about them · optional Pro</span></h2>
-    <p>Cookie Cutter runs entirely on your device. It reads the pages you visit only in-memory, to find and click a cookie banner's <em>reject</em> / <em>decline</em> button (it never clicks accept), and nothing about the pages you view — no content, no browsing history, no list of sites — is ever stored or sent anywhere. The only data kept is local: your on/off and cleanup settings, the sites you chose to pause, any hide rules you created, and a simple "banners handled" counter. There's no analytics, advertising, tracking, or data sale; the sole outside connection is ExtensionPay (with Stripe) for the optional one-time Pro upgrade, which uses your payment email to verify your purchase — Cookie Cutter never sees your card details.</p>
+    <p>Cookie Cutter runs on your device. It reads the pages you visit only in-memory, to find and click a cookie banner's <em>reject</em> / <em>decline</em> button (it never clicks accept), and nothing about the pages you view — no content, no browsing history, no list of sites — is ever stored or sent anywhere. The only data kept is local: your on/off and cleanup settings, the sites you chose to pause, any hide rules you created, and a simple "banners handled" counter. There's no analytics, advertising, tracking, or data sale; the sole outside connection is ExtensionPay (with Stripe) for the optional one-time Pro upgrade, which uses your payment email to verify your purchase — Cookie Cutter never sees your card details.</p>
   </div>
 
   <div class="ext">
@@ -142,12 +142,12 @@
 
   <hr class="rule">
   <h2>Your controls</h2>
-  <p>Because everything is stored in your browser, you're in control: clear an extension's data from its own settings or your browser's, and uninstalling an extension removes its local data. For Pro, you can cancel anytime — and we're never holding your content, because none of it was ever sent to us.</p>
+  <p>Because everything is stored in your browser, you're in control: clear an extension's data from its own settings or your browser's, and uninstalling an extension removes its local data. For Pro there's nothing to cancel — it's a one-time unlock. And we're not holding your content, because none of it was sent to us.</p>
 
   <h2>Contact</h2>
   <p>Questions about any of these extensions? Email <a href="mailto:extensions@edenapps.app">extensions@edenapps.app</a>. If we ever change this policy, we'll update the date at the top.</p>
 </div></main>
-<footer><div class="wrap frow"><span>© 2026 Eden Apps</span><a href="index.html">Home</a><a href="privacy.html">Apps Privacy</a><a href="help.html">Help</a></div></footer>
+<footer><div class="wrap frow"><span>© 2026 Eden Apps</span><a href="index.html">Home</a><a href="extensions.html">Extensions</a><a href="privacy.html">Apps Privacy</a><a href="help.html">Help</a><a href="terms.html">Terms</a></div></footer>
 <script>
 (function(){
   var r=document.documentElement, btn=document.getElementById('themeToggle');

@@ -52,44 +52,44 @@
   <p class="kick">Chrome Extension</p>
   <h1>Privacy Policy — Recipe Extractor</h1>
   <p class="updated">Last updated: July 13, 2026</p>
-  <h2>SUMMARY</h2>
+  <h2>Summary</h2>
   <p>Recipe Extractor is built to respect your privacy. Everything happens in your browser. The extension reads a recipe page only at the moment you click it, pulls the recipe out on your device, and keeps your recipe box on your device. It cannot see your browsing and has no standing access to any site you visit. Its only site access is the payment provider's own page (extensionpay.com), where ExtensionPay's bundled script handles the anonymous plan check and the optional one-time Pro upgrade through Stripe. Pro is a single one-time purchase — not a subscription. If you never buy Pro, no payment information is ever collected.</p>
-  <h2>HOW IT WORKS</h2>
+  <h2>How it works</h2>
   <p>Open a recipe page and click the extension. It reads that page's recipe markup — the standard schema.org data that recipe sites publish — and turns it into a clean card of ingredients and steps. This happens through Chrome's activeTab grant: access exists only for that one tab, only after your click, and does not persist. The extension has no content scripts on the sites you browse and cannot read any page in the background. (The one content script it carries runs only on extensionpay.com, the payment provider's own page, as ExtensionPay requires.)</p>
-  <h2>WHAT DATA THE EXTENSION STORES</h2>
+  <h2>What data the Extension stores</h2>
   <p>Everything the extension itself stores lives in your browser through chrome.storage.local:</p>
   <ul>
     <li>Your saved recipes — the contents of the recipe card: title, ingredients, steps, servings/yield, times, the recipe's image address, the author name the site published, and the page address it came from. Each entry stays until you remove it.</li>
     <li>Your plan record — whether you are on Free or Pro, so the extension knows which features to turn on.</li>
   </ul>
   <p>The bundled ExtensionPay library additionally keeps its own small plan record (an anonymous identifier and an install date). Unlike the extension's own data above — which stays strictly on your device — ExtensionPay keeps its record in Chrome's synced extension storage, so if you are signed in to Chrome, that record may sync across your browsers through your Google account.</p>
-  <h2>WHAT IT DOES NOT DO</h2>
+  <h2>What it does NOT do</h2>
   <ul>
     <li>It does not transmit your recipes, the pages you read, or any personal information to us or to anyone else.</li>
     <li>It does not read your browsing history, your other tabs, or your keystrokes.</li>
     <li>It runs no tracking, no analytics, and no advertising.</li>
     <li>Extraction runs entirely on your machine — there is no recipe server and no AI service involved.</li>
   </ul>
-  <h2>PAYMENTS (OPTIONAL PRO)</h2>
+  <h2>Payments (optional Pro)</h2>
   <p>Pro is an optional one-time purchase — a single payment, not a subscription. It is handled by ExtensionPay (extensionpay.com), which uses Stripe for secure payment processing. If you buy Pro, ExtensionPay and Stripe handle your email address and payment details only to complete and remember that purchase. We never see or store your card information. If you do not buy Pro, no payment data is collected.</p>
   <ul>
     <li>ExtensionPay: <a href="https://extensionpay.com/privacy" target="_blank" rel="noopener">https://extensionpay.com/privacy</a></li>
     <li>Stripe: <a href="https://stripe.com/privacy" target="_blank" rel="noopener">https://stripe.com/privacy</a></li>
   </ul>
-  <h2>PERMISSIONS, EXPLAINED</h2>
+  <h2>Permissions, explained</h2>
   <ul>
     <li>storage — to keep your recipe box and plan record on your device.</li>
     <li>activeTab — to read the recipe markup of the page you clicked on, at that moment only.</li>
     <li>scripting — to run the one-time reader in that page when you click. It gathers the page's recipe markup and nothing else.</li>
     <li>Host access to <code>https://extensionpay.com/*</code> — used by ExtensionPay to run the anonymous plan check and to handle the optional Pro purchase. The extension has no host access to any recipe site or to any other site you visit.</li>
   </ul>
-  <h2>DATA RETENTION</h2>
+  <h2>Data retention</h2>
   <p>Your recipes and plan record stay in your browser until you remove them. You can clear everything at any time by deleting your saved recipes, clearing the extension's storage, or removing the extension. Removing the extension deletes its local data.</p>
-  <h2>CHILDREN</h2>
+  <h2>Children</h2>
   <p>Recipe Extractor is a general-audience cooking tool and is not directed to children. It does not knowingly collect any personal information from anyone, including children.</p>
-  <h2>CHANGES</h2>
+  <h2>Changes</h2>
   <p>If this policy ever changes, the updated version will be posted here with a new "Last updated" date.</p>
-  <h2>CONTACT</h2>
+  <h2>Contact</h2>
   <p>Questions are welcome at: <a href="mailto:extensions@edenapps.app">extensions@edenapps.app</a></p>
 </div></main>
 <footer><div class="wrap frow"><span>© 2026 Eden Apps</span><a href="index.html">Home</a><a href="extensions.html">Extensions</a><a href="help.html">Help</a><a href="terms.html">Terms</a></div></footer>
