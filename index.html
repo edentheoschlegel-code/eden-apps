@@ -195,9 +195,13 @@
   .points{display:grid; grid-template-columns:repeat(3,1fr); gap:26px}
   @media (max-width:720px){ .points{grid-template-columns:1fr; gap:22px} }
   .point{text-align:center}
-  .point .ico{width:44px; height:44px; margin:0 auto 14px; border-radius:13px; background:var(--sb-soft); color:var(--sb-tx); display:grid; place-items:center}
-  .point:nth-child(2) .ico{background:var(--li-soft); color:var(--li-tx)}
-  .point:nth-child(3) .ico{background:var(--lr-soft); color:var(--lr-tx)}
+  .point .ico{width:44px; height:44px; margin:0 auto 14px; border-radius:13px; background:#fbe6f0; color:#c73f8a; display:grid; place-items:center}
+  .point:nth-child(2) .ico{background:#edeff3; color:#5c6675}
+  .point:nth-child(3) .ico{background:#e6effc; color:#2f6fbf}
+  :root[data-theme="dark"] .point .ico{background:#2c1622; color:#f0a0cd}
+  :root[data-theme="dark"] .point:nth-child(2) .ico{background:#22252d; color:#aeb6c4}
+  :root[data-theme="dark"] .point:nth-child(3) .ico{background:#132437; color:#7db3ec}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .point .ico{background:#2c1622; color:#f0a0cd} :root:not([data-theme="light"]) .point:nth-child(2) .ico{background:#22252d; color:#aeb6c4} :root:not([data-theme="light"]) .point:nth-child(3) .ico{background:#132437; color:#7db3ec}}
   .point h3{font-size:16.5px; font-weight:750; margin:0 0 6px; letter-spacing:-.01em}
   .point p{font-size:14.5px; color:var(--muted); margin:0}
   .point svg{width:22px; height:22px; stroke-width:2}
@@ -572,12 +576,12 @@
           <p>We build focused apps that respect your time and attention — designed with intention, crafted with care.</p>
         </div>
         <div class="point">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82Z"/><path d="M7 7h.01"/></svg></div>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></div>
           <h3>Fair and transparent</h3>
           <p>No subscriptions. No hidden fees. Just honest, one-time pricing and a 30-day money-back guarantee on web purchases.</p>
         </div>
         <div class="point">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
           <h3>Yours, completely</h3>
           <p>Your data stays on your device. We don't track it, upload it, or sell it. It's yours alone.</p>
         </div>
