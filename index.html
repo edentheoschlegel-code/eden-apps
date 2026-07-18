@@ -288,12 +288,17 @@
   .card.flip .peek .i2{display:grid}
 
   /* subtle scroll-reveal — content settles in gently as it enters view.
-     Fully guarded: no motion (and always visible) when reduced-motion is set. */
-  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1)}
-  .reveal.in{opacity:1; transform:none}
-  @media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none} }
+     The hidden start-state only applies when JS is active (html.js-anim), so
+     no-JS users always see content. Fully skipped under reduced-motion. */
+  .js-anim .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1)}
+  .js-anim .reveal.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion:reduce){ .js-anim .reveal{opacity:1; transform:none; transition:none} }
 </style>
-<script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}
+  // Mark that JS is active BEFORE first paint, so the scroll-reveal hidden state
+  // applies from the very first frame (no snap/flash) — and never for no-JS users.
+  try{ var m=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches; if(!m) document.documentElement.className+=' js-anim'; }catch(e){}
+})();</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
@@ -762,10 +767,12 @@
 })();
 </script>
 <script>
-/* Subtle scroll-reveal. Robust by design: a scroll/resize sweep is the primary
-   driver (so nothing depends on IntersectionObserver firing), an observer adds
-   smoothness where available, and a hard failsafe guarantees every element ends
-   up visible. Motion is skipped entirely under prefers-reduced-motion. */
+/* Subtle scroll-reveal. The hidden start-state is set pre-paint (html.js-anim,
+   added in the <head>) so above-fold content animates in consistently instead of
+   snapping. A scroll/resize sweep is the primary driver (nothing depends on
+   IntersectionObserver firing), an observer adds smoothness where available, and
+   a hard failsafe guarantees every element ends visible. Skipped entirely under
+   prefers-reduced-motion and when JS is unavailable. */
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
@@ -780,24 +787,25 @@
     ['.point', 90],
     ['.subscribe', 0]
   ];
+  // Only animate when the pre-paint flag is set (html.js-anim). If it isn't
+  // (reduced-motion, or the head script didn't run), leave content fully visible.
+  var animate = document.documentElement.classList.contains('js-anim') && !reduce && ('IntersectionObserver' in window);
+  if(!animate) return;
+
   var revealed=[];
   groups.forEach(function(g){
     [].slice.call(document.querySelectorAll(g[0])).forEach(function(el,idx){
-      el.classList.add('reveal');
-      el.dataset._delay = String(idx * g[1]);
+      el.classList.add('reveal');            // .js-anim .reveal is opacity:0 from first paint
+      el.dataset._stagger = String(g[1]);    // per-item stagger for this group
+      el.dataset._idx = String(idx);
       revealed.push(el);
     });
   });
 
-  // no motion or no observer support: show everything immediately
-  if(reduce || !('IntersectionObserver' in window)){
-    revealed.forEach(function(el){ el.classList.add('in'); });
-    return;
-  }
-
   function reveal(el){
-    if(el.classList.contains('in')) return;
-    var d=parseInt(el.dataset._delay||'0',10);
+    if(el.classList.contains('in') || el.dataset._queued) return;
+    el.dataset._queued='1';
+    var d=parseInt(el.dataset._stagger||'0',10) * parseInt(el.dataset._idx||'0',10);
     setTimeout(function(){ el.classList.add('in'); }, d);
   }
   function onscreen(el){
@@ -820,7 +828,9 @@
     revealed.slice().forEach(function(el){ io.observe(el); });
   }catch(e){}
 
-  sweep();                                   // reveal whatever is already in view on load
+  // Reveal whatever is already in view — but on the next frame, so the opacity:0
+  // start-state is committed first and above-fold items animate in too (not snap).
+  requestAnimationFrame(function(){ requestAnimationFrame(sweep); });
   setTimeout(function(){                       // hard failsafe: nothing stays hidden
     revealed.forEach(function(el){ el.classList.add('in'); });
   }, 2500);
