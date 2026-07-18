@@ -10,7 +10,7 @@
 <link rel="icon" href="assets/eden-logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:title" content="Chrome Extensions — Privacy · Eden Apps">
-<meta property="og:description" content="Everything runs in your browser. Nothing you do is uploaded, tracked, or sold.">
+<meta property="og:description" content="Nine Chrome extensions that run in your browser — what you do with them isn't uploaded, tracked, or sold.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://edenapps.app/extensions-privacy.html">
 <meta property="og:image" content="https://edenapps.app/assets/og-image.jpg">
@@ -73,7 +73,7 @@
   <ul>
     <li><strong>On your device.</strong> Your settings, saved items, and history live in your browser's local storage. There are no accounts, and no server we run receives what you do.</li>
     <li><strong>No tracking.</strong> No analytics, no advertising, no tracking pixels, no selling or sharing of your data — in any of them.</li>
-    <li><strong>Payments are handled by others.</strong> Some extensions offer an optional <strong>Pro</strong> upgrade — a <strong>one-time purchase</strong>, never a subscription and nothing to renew, always shown before you pay. That's processed by <a href="https://extensionpay.com" target="_blank" rel="noopener">ExtensionPay</a> using <a href="https://stripe.com" target="_blank" rel="noopener">Stripe</a> — you enter your email and card on their hosted page, and the extension never sees or stores your card number. To know whether you're on Free or Pro, an extension makes an <strong>anonymous plan check</strong> to ExtensionPay that carries no personal information. ExtensionPay keeps a small anonymous plan record in Chrome's synced storage, which can sync across your signed-in browsers — that record never includes anything you do in the extension.</li>
+    <li><strong>Payments are handled by others.</strong> Some extensions offer an optional <strong>Pro</strong> upgrade — a <strong>one-time purchase</strong> — not a subscription, nothing to renew — shown before you pay. That's processed by <a href="https://extensionpay.com" target="_blank" rel="noopener">ExtensionPay</a> using <a href="https://stripe.com" target="_blank" rel="noopener">Stripe</a> — you enter your email and card on their hosted page, and the extension never sees or stores your card number. To know whether you're on Free or Pro, an extension makes an <strong>anonymous plan check</strong> to ExtensionPay that carries no personal information. ExtensionPay keeps an anonymous plan record in Chrome's synced storage, which can sync across your signed-in browsers — that record never includes anything you do in the extension.</li>
     <li><strong>Reading pages.</strong> Some of these extensions need to read the page you're on to do their job (a summarizer has to read the text; a cookie-banner blocker has to see the banner). Where that's the case it's spelled out per extension below — and in every case the reading happens in your browser and the content is never sent anywhere.</li>
   </ul>
   <p>Below, each extension in plain terms.</p>
@@ -88,7 +88,7 @@
       <li><a href="#video-summaries">Video Summaries for YouTube</a></li>
       <li><a href="#tab-snoozer">Tab Snoozer</a></li>
       <li><a href="#recipe-extractor">Recipe Extractor</a></li>
-      <li><a href="#cookie-killer">Cookie Cutter</a></li>
+      <li><a href="#cookie-cutter">Cookie Cutter</a></li>
       <li><a href="#form-draft-guard">Form Draft Guard</a></li>
     </ul>
   </div>
@@ -96,8 +96,8 @@
   <hr class="rule">
 
   <div class="ext">
-    <h2 id="tab-manager">Tab Manager: Group Tabs &amp; Save Sessions <span class="kv">Free · reads only tab titles &amp; URLs · fully local</span></h2>
-    <p>Tab Manager runs entirely on your device. When you click <em>Group All Tabs</em> or <em>Save Session</em> it reads only your tabs' URLs, titles, and site icons — never the content of the pages themselves (it requests no page access and injects no scripts). Saved sessions and settings live solely in your browser's local storage; nothing is uploaded, there is no account, and the extension makes no network requests that send or collect your data. There's no tracking, analytics, advertising, or third-party sharing, and it's free with no in-app purchase.</p>
+    <h2 id="tab-manager">Tab Manager: Group Tabs &amp; Save Sessions <span class="kv">No purchase · reads only tab titles &amp; URLs · fully local</span></h2>
+    <p>Tab Manager runs entirely on your device. When you click <em>Group All Tabs</em> or <em>Save Session</em> it reads only your tabs' URLs, titles, and site icons — never the content of the pages themselves (it requests no page access and injects no scripts). Saved sessions and settings live solely in your browser's local storage; nothing is uploaded, there is no account, and the extension makes no network requests that send or collect your data. There's no tracking, analytics, advertising, or third-party sharing, and there's no in-app purchase — nothing to buy.</p>
   </div>
 
   <div class="ext">
@@ -131,7 +131,7 @@
   </div>
 
   <div class="ext">
-    <h2 id="cookie-killer">Cookie Cutter — Auto-Decline Cookie Banners <span class="kv">Reads pages in-memory to click "reject" · stores nothing about them · optional Pro</span></h2>
+    <h2 id="cookie-cutter">Cookie Cutter — Auto-Decline Cookie Banners <span class="kv">Reads pages in-memory to click "reject" · stores nothing about them · optional Pro</span></h2>
     <p>Cookie Cutter runs entirely on your device. It reads the pages you visit only in-memory, to find and click a cookie banner's <em>reject</em> / <em>decline</em> button (it never clicks accept), and nothing about the pages you view — no content, no browsing history, no list of sites — is ever stored or sent anywhere. The only data kept is local: your on/off and cleanup settings, the sites you chose to pause, any hide rules you created, and a simple "banners handled" counter. There's no analytics, advertising, tracking, or data sale; the sole outside connection is ExtensionPay (with Stripe) for the optional one-time Pro upgrade, which uses your payment email to verify your purchase — Cookie Cutter never sees your card details.</p>
   </div>
 

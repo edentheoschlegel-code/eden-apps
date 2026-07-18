@@ -75,7 +75,7 @@
     <li>Does not read the content of the pages you visit.</li>
   </ul>
   <h2>PAYMENTS (OPTIONAL PRO)</h2>
-  <p>Focus Mode is free to use. It offers a single optional upgrade — Pro — which unlocks an unlimited number of your own sites to pause. Pro is a one-time purchase of $5.99. It is not a subscription: you pay once and it is yours to keep, with nothing to renew or cancel.</p>
+  <p>Focus Mode is yours to use. It offers a single optional upgrade — Pro — which unlocks an unlimited number of your own sites to pause. Pro is a one-time purchase of $5.99. It is not a subscription: you pay once and it is yours to keep, with nothing to renew or cancel.</p>
   <p>To know whether you are on the Free or Pro plan, the Extension uses ExtensionPay (ExtPay). ExtPay stores an anonymous identifier in your browser and checks your plan status with its server (extensionpay.com). This check runs for all users, including free ones, and sends no personal information about you — no email, no card details, and nothing about the pages you visit.</p>
   <p>If you choose to buy Pro, the payment is processed by ExtensionPay and Stripe. The information you enter to pay (such as your email and card details) is handled directly by those providers under their own privacy policies — we never see or store your card number. If you do not buy Pro, no payment information is collected.</p>
   <ul>
@@ -89,7 +89,7 @@
     <li>notifications — shows a desktop message when a session or break ends.</li>
     <li>declarativeNetRequest — during an active focus session, redirects the sites you have added to a local page. Only the exact domains you choose are matched. The Extension does not record which sites you tried to visit.</li>
     <li>Host access to all sites (&lt;all_urls&gt;) — used only so the redirect rules above can send a site you have chosen to the local pause page, and to load that local page. There is no script that reads or runs on the ordinary pages you browse; the only content script is limited to extensionpay.com for the plan check.</li>
-    <li>Host access to <a href="https://extensionpay.com/*" target="_blank" rel="noopener">https://extensionpay.com/*</a> — used only for the anonymous plan check and, if you choose it, the optional Pro payment described under Payments.</li>
+    <li>Host access to <code>https://extensionpay.com/*</code> — used only for the anonymous plan check and, if you choose it, the optional Pro payment described under Payments.</li>
   </ul>
   <h2>DATA RETENTION AND DELETION</h2>
   <p>Your data stays in your browser until you clear it inside the Extension or uninstall the Extension. Uninstalling removes everything the Extension has stored. We hold no copy on our side, because none was ever sent to us.</p>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_preview-
+
+Sitemap: https://edenapps.app/sitemap.xml
