@@ -118,6 +118,14 @@
   .cycle-on .cyc .w.on{position:relative; opacity:1; filter:blur(0); transform:none}
   .cycle-on .cyc .w.out{opacity:0; filter:blur(6px); transform:translateY(-.32em) scale(.985)}
   @media (prefers-reduced-motion:reduce){ .cycle-on .cyc .w{transition:none} }
+  /* Mobile: the cycling word sits on its own centered line. The word-slot is
+     pinned (by JS) to the widest word, so on small screens shorter words would
+     hug the left and look off-centre — make the slot a full-width centred block
+     and centre the animated words within it so every word is dead-centre. */
+  @media (max-width:600px){
+    .cycle-on .cyc{display:block; width:100%; min-width:0!important; text-align:center}
+    .cycle-on .cyc .w{left:0; right:0; text-align:center}
+  }
   .lede{font-size:clamp(17px,2.3vw,20px); color:var(--muted); margin:0 auto; max-width:600px}
   @media (max-width:600px){ .hero{padding:34px 0 26px} }
 
