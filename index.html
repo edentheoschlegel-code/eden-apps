@@ -208,7 +208,26 @@
     .meta .name{font-size:21px}
   }
 
-  /* coming soon */
+  /* the Mac tools — a calm matched set in one evergreen accent, distinct from
+     the multicolour apps above and the indigo extensions below */
+  .mac-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:8px;
+    --ac:#3f6b4f; --ac-tx:#356045; --ac-soft:#e8f0ea}
+  @media(max-width:760px){.mac-grid{grid-template-columns:1fr}}
+  .card.mac .kicker{color:var(--ac-tx);font-weight:600}
+  .card.mac .desc{color:var(--muted);font-size:14.5px;line-height:1.55}
+  .card.mac .name a{color:inherit}
+  .soonpill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;
+    color:var(--ac-tx);background:var(--ac-soft);border:1px solid var(--line-strong);
+    border-radius:999px;padding:8px 14px;white-space:nowrap}
+  .soonpill .dot{width:7px;height:7px;border-radius:999px;background:var(--ac)}
+  .mac-bundle{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;
+    gap:14px;flex-wrap:wrap;padding:18px 24px;border:1px dashed var(--line-strong);
+    border-radius:var(--radius);background:var(--ac-soft)}
+  .mac-bundle .mb-txt{font-size:15px;color:var(--ink)}
+  .mac-bundle .mb-txt b{color:var(--ac-tx);font-weight:700}
+  .mac-bundle .mb-price{font-size:14px;font-weight:700;color:var(--ac-tx);white-space:nowrap}
+  :root[data-theme="dark"] .mac-grid{--ac:#5f9a72; --ac-tx:#8fc7a1; --ac-soft:#16231b}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mac-grid{--ac:#5f9a72; --ac-tx:#8fc7a1; --ac-soft:#16231b} }
 
   /* promise */
   .promise{margin:36px 0 10px; padding:34px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius)}
@@ -334,7 +353,7 @@
       <nav class="topnav">
         <a class="catlink" href="apps.html">Apps</a>
         <a class="catlink" href="extensions.html">Extensions</a>
-        <span class="catlink soon" aria-disabled="true" title="Mac tools — coming soon">Mac Tools <span class="soontag">Soon</span></span>
+        <a class="catlink" href="#mac" title="Mac tools — coming very soon">Mac Tools <span class="soontag">Soon</span></a>
         <button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
       </nav>
     </div>
@@ -433,6 +452,56 @@
         <button class="arrow next" type="button" aria-label="Next app">&#8250;</button>
       </div>
       <div class="carousel-ctl"><button class="playpause" id="eaPlay" type="button" aria-pressed="false"><span id="eaPlayIco" aria-hidden="true">&#10073;&#10073;</span> <span id="eaPlayLabel">Pause</span></button></div>
+    </section>
+
+
+    <div class="sec-head" id="mac">
+      <h2>The Mac tools</h2>
+      <span class="count">4 · new</span>
+    </div>
+    <p class="sec-note">Native tools for your Mac — one clean binary each, no runtime to install and nothing sent online. Signed and notarized by Apple, so they open without a fuss. Buy one for $12.99, or take all four for $34.99. Coming very soon.</p>
+
+    <section class="mac-grid" aria-label="Eden Apps for Mac">
+      <article class="card mac">
+        <div class="top"><img class="icon" src="assets/furrow.png" alt="" width="56" height="56"><div><h3 class="name">Furrow</h3><p class="kicker">Spreadsheet tidier</p></div></div>
+        <p class="desc">Drop a CSV or Excel file and tidy it — trim stray spaces, split, merge, convert, or clear duplicate rows. A fresh, clean copy is saved beside the original.</p>
+        <div class="foot">
+          <span class="price"><b>$12.99</b> · once</span>
+          <span class="soonpill"><span class="dot"></span>Coming soon</span>
+        </div>
+      </article>
+
+      <article class="card mac">
+        <div class="top"><img class="icon" src="assets/pagenook.png" alt="" width="56" height="56"><div><h3 class="name">Pagenook</h3><p class="kicker">PDF page rearranger</p></div></div>
+        <p class="desc">Rearrange a PDF's pages on a board you reorder by dragging — plus merge, split, rotate, and remove pages. Password-protected files are left untouched.</p>
+        <div class="foot">
+          <span class="price"><b>$12.99</b> · once</span>
+          <span class="soonpill"><span class="dot"></span>Coming soon</span>
+        </div>
+      </article>
+
+      <article class="card mac">
+        <div class="top"><img class="icon" src="assets/clearleaf.png" alt="" width="56" height="56"><div><h3 class="name">Clearleaf</h3><p class="kicker">Hidden-data remover</p></div></div>
+        <p class="desc">See the hidden trail a document or photo carries — author, edits, comments, location — then clear it and keep a clean copy beside the original.</p>
+        <div class="foot">
+          <span class="price"><b>$12.99</b> · once</span>
+          <span class="soonpill"><span class="dot"></span>Coming soon</span>
+        </div>
+      </article>
+
+      <article class="card mac">
+        <div class="top"><img class="icon" src="assets/bookplate.png" alt="" width="56" height="56"><div><h3 class="name">Bookplate</h3><p class="kicker">Read-it-later library</p></div></div>
+        <p class="desc">Save a clean, readable copy of any page to a private library that lives only on your Mac — and have any article read aloud. No account, offline.</p>
+        <div class="foot">
+          <span class="price"><b>$12.99</b> · once</span>
+          <span class="soonpill"><span class="dot"></span>Coming soon</span>
+        </div>
+      </article>
+
+      <div class="mac-bundle">
+        <span class="mb-txt"><b>All four Mac tools</b> — a little gift for taking the whole set.</span>
+        <span class="mb-price">$34.99 · once</span>
+      </div>
     </section>
 
 
