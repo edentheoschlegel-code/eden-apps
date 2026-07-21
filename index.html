@@ -285,10 +285,6 @@
   :root[data-theme="dark"] .card.fm{--ac-tx:#c4b5fd} :root[data-theme="dark"] .card.as{--ac-tx:#fdba74} :root[data-theme="dark"] .card.ts{--ac-tx:#a5b4fc}
   :root[data-theme="dark"] .card.re{--ac-tx:#fcd34d} :root[data-theme="dark"] .card.fd{--ac-tx:#93c5fd} :root[data-theme="dark"] .card.ck{--ac-tx:#fca5a5}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .card.vs{--ac-tx:#fbbf24} :root:not([data-theme="light"]) .card.pt{--ac-tx:#6ee7b7} :root:not([data-theme="light"]) .card.tm{--ac-tx:#7dd3fc} :root:not([data-theme="light"]) .card.fm{--ac-tx:#c4b5fd} :root:not([data-theme="light"]) .card.as{--ac-tx:#fdba74} :root:not([data-theme="light"]) .card.ts{--ac-tx:#a5b4fc} :root:not([data-theme="light"]) .card.re{--ac-tx:#fcd34d} :root:not([data-theme="light"]) .card.fd{--ac-tx:#93c5fd} :root:not([data-theme="light"]) .card.ck{--ac-tx:#fca5a5} }
-  /* Extensions unified into one calm indigo theme — a matched set like the Mac tools, in their own colour. */
-  .card.xc{--ac:var(--li);--ac-tx:var(--li-tx)}
-  :root[data-theme="dark"] .card.xc{--ac-tx:var(--li-tx)}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .card.xc{--ac-tx:var(--li-tx)} }
   /* extensions filter */
   .ext-filter{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 18px}
   .ext-filter button{font:inherit;font-size:13.5px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
@@ -296,7 +292,21 @@
   .ext-filter button[aria-pressed="true"]{color:#fff;background:var(--li);border-color:var(--li)}
   .ext-filter button[aria-pressed="true"]:hover{color:#fff}
   .ext-filter button:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
-  /* filters share the one indigo theme, unified with the extension cards */
+  /* each filter wears its own color */
+  .ext-filter button[data-f="all"]:hover{border-color:#eab308;color:#a16207}
+  .ext-filter button[data-f="all"][aria-pressed="true"]{background:#eab308;border-color:#eab308;color:#2b2004}
+  .ext-filter button[data-f="all"][aria-pressed="true"]:hover{color:#2b2004}
+  .ext-filter button[data-f="productivity"]:hover{border-color:#4f46e5;color:#4f46e5}
+  .ext-filter button[data-f="productivity"][aria-pressed="true"]{background:#4f46e5;border-color:#4f46e5;color:#fff}
+  .ext-filter button[data-f="reading"]:hover{border-color:#ea580c;color:#c2410c}
+  .ext-filter button[data-f="reading"][aria-pressed="true"]{background:#ea580c;border-color:#ea580c;color:#fff}
+  .ext-filter button[data-f="everyday"]:hover{border-color:#059669;color:#047857}
+  .ext-filter button[data-f="everyday"][aria-pressed="true"]{background:#059669;border-color:#059669;color:#fff}
+  :root[data-theme="dark"] .ext-filter button[data-f="all"]:hover{color:#fcd34d}
+  :root[data-theme="dark"] .ext-filter button[data-f="productivity"]:hover{color:#a5b4fc}
+  :root[data-theme="dark"] .ext-filter button[data-f="reading"]:hover{color:#fdba74}
+  :root[data-theme="dark"] .ext-filter button[data-f="everyday"]:hover{color:#6ee7b7}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .ext-filter button[data-f="all"]:hover{color:#fcd34d} :root:not([data-theme="light"]) .ext-filter button[data-f="productivity"]:hover{color:#a5b4fc} :root:not([data-theme="light"]) .ext-filter button[data-f="reading"]:hover{color:#fdba74} :root:not([data-theme="light"]) .ext-filter button[data-f="everyday"]:hover{color:#6ee7b7} }
   /* show six, keep the rest behind a gentle door */
   .ext-grid.limited article[data-extra]{display:none!important}
   .more-card{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:center;gap:11px;padding:19px 22px;border:1.5px solid var(--line-strong);background:transparent;box-shadow:none;color:var(--muted);font-weight:700;font-size:14.5px}
