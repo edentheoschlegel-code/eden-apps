@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'">
-<title>Apps — Eden Apps</title>
-<meta name="description" content="Private, on-device apps by Eden for your money, documents, and career — one-time Pro unlock, no accounts and no tracking.">
-<link rel="canonical" href="https://edenapps.app/apps.html">
+<title>Mac tools — Eden Apps</title>
+<meta name="description" content="Native, private tools for your Mac — Furrow, Pagenook, Clearleaf and Bookplate. One clean binary each, no runtime, nothing sent online. Buy once, or take all four.">
+<link rel="canonical" href="https://edenapps.app/mac-tools.html">
 <link rel="icon" href="assets/eden-logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta property="og:title" content="Apps — Eden Apps">
-<meta property="og:description" content="Private, on-device apps for your money, documents, and career. One-time Pro unlock, no accounts.">
+<meta property="og:title" content="Mac tools — Eden Apps">
+<meta property="og:description" content="Native, private tools for your Mac. One clean binary each, no runtime, nothing sent online.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://edenapps.app/apps.html">
+<meta property="og:url" content="https://edenapps.app/mac-tools.html">
 <meta property="og:image" content="https://edenapps.app/assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://edenapps.app/assets/og-image.jpg">
@@ -24,6 +24,8 @@
     --lr:#047857; --lr-soft:#e5f5ee; --lr-tx:#047857;
     --lp:#e11d48; --lp-soft:#fdeaef; --lp-tx:#e11d48;
     --sb:#0e7490; --sb-soft:#e6f6fa; --sb-tx:#0e7490;
+    /* the Mac tools' own evergreen */
+    --mac:#356045; --mac-soft:#e8f0ea;
     --radius:22px; --maxw:1080px;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
@@ -32,12 +34,14 @@
     --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
     --li-soft:#1a1840; --lr-soft:#0b2a1e; --lp-soft:#33121c; --sb-soft:#0c2a31;
     --li-tx:#8b83f0; --lr-tx:#34d399; --lp-tx:#fb7185; --sb-tx:#38bdf8;
+    --mac:#8fc7a1; --mac-soft:#16231b;
   }
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
     --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#8b93a1;
     --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
     --li-soft:#1a1840; --lr-soft:#0b2a1e; --lp-soft:#33121c; --sb-soft:#0c2a31;
     --li-tx:#8b83f0; --lr-tx:#34d399; --lp-tx:#fb7185; --sb-tx:#38bdf8;
+    --mac:#8fc7a1; --mac-soft:#16231b;
   }}
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -53,9 +57,8 @@
   .topnav{display:flex; align-items:center; gap:22px}
   .topnav .catlink{display:inline-flex; align-items:center; gap:6px; min-height:44px; font-size:14.5px; font-weight:700; color:var(--muted); white-space:nowrap; text-decoration:none; transition:color .2s}
   .topnav a.catlink:hover{color:var(--ink)}
-  .topnav .catlink[aria-current="page"]{color:var(--li-tx)}
-  .topnav .catlink.soon{color:var(--faint); cursor:default}
-  .topnav .soontag{font-size:10.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--li-tx)}
+  .topnav .catlink[aria-current="page"]{color:var(--mac)}
+  .topnav .soontag{font-size:10.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--mac)}
   @media(max-width:560px){
     .bar{flex-wrap:wrap; row-gap:14px}
     .topnav{flex-basis:100%; flex-wrap:wrap; gap:14px}
@@ -69,34 +72,31 @@
   :root[data-theme="dark"] .wm-a{color:#34d399}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .wm-e{color:#e8c06f} :root:not([data-theme="light"]) .wm-a{color:#34d399} }
   .themebtn{display:inline-grid; place-items:center; width:44px; height:44px; flex:none; border:1px solid var(--line-strong); border-radius:999px; background:var(--surface); color:var(--ink); cursor:pointer; padding:0; transition:border-color .2s, color .2s}
-  .themebtn:hover{border-color:var(--li-tx); color:var(--li-tx)}
+  .themebtn:hover{border-color:var(--mac); color:var(--mac)}
   .themebtn svg{width:17px; height:17px}
 
   .hero{padding:60px 0 22px; text-align:center; max-width:760px; margin:0 auto}
   .eyebrow{font-size:13px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--faint); margin:0 0 20px}
   h1{font-size:clamp(32px,5.4vw,52px); line-height:1.06; letter-spacing:-.035em; font-weight:800; margin:0 0 22px}
-  h1 .g-money{color:var(--sb-tx)} h1 .g-docs{color:var(--li-tx)} h1 .g-career{color:var(--lr-tx)}
-  .lede{font-size:clamp(17px,2.3vw,20px); color:var(--muted); margin:0 auto; max-width:600px}
+  h1 .g-mac{color:var(--mac)}
+  .lede{font-size:clamp(17px,2.3vw,20px); color:var(--muted); margin:0 auto; max-width:620px}
   @media (max-width:600px){ .hero{padding:34px 0 18px} }
 
   .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:34px 0 6px}
   .sec-head h2{font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); margin:0}
   .sec-head .count{font-size:13px; color:var(--faint)}
-  .sec-note{font-size:13.5px; color:var(--muted); margin:0 0 22px; max-width:640px}
+  .sec-note{font-size:13.5px; color:var(--muted); margin:0 0 22px; max-width:660px}
 
   .agrid{display:grid; grid-template-columns:1fr 1fr; gap:20px; padding-bottom:8px}
   @media (max-width:720px){ .agrid{grid-template-columns:1fr} }
-  .acard{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 24px 22px;
-    display:flex; flex-direction:column; transition:border-color .2s, transform .2s, box-shadow .2s}
+  .acard{position:relative; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 24px 22px;
+    display:flex; flex-direction:column; overflow:hidden; transition:border-color .2s, transform .2s, box-shadow .2s;
+    --acc:var(--mac); --acc-soft:var(--mac-soft)}
+  .acard::before{content:""; position:absolute; inset:0 0 auto 0; height:4px; background:var(--acc)}
   .acard:hover{border-color:var(--acc); transform:translateY(-2px); box-shadow:var(--shadow)}
-  .acard.li{--acc:var(--li-tx); --acc-soft:var(--li-soft)}
-  .acard.lr{--acc:var(--lr-tx); --acc-soft:var(--lr-soft)}
-  .acard.lp{--acc:var(--lp-tx); --acc-soft:var(--lp-soft)}
-  .acard.sb{--acc:var(--sb-tx); --acc-soft:var(--sb-soft)}
-  .ahead{display:flex; align-items:center; gap:14px}
+  .ahead{display:flex; align-items:center; gap:14px; margin-top:4px}
   .aicon{width:52px; height:52px; border-radius:14px; flex:none; object-fit:cover; box-shadow:0 1px 0 rgba(20,21,42,.04)}
   .aname{font-size:20px; font-weight:800; letter-spacing:-.015em; margin:0; line-height:1.1}
-  .aname a:hover{color:var(--acc)}
   .akicker{font-size:13px; font-weight:700; color:var(--acc); margin:3px 0 0}
   .adesc{color:var(--muted); font-size:15px; line-height:1.5; margin:16px 0 0}
   .atags{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0}
@@ -105,10 +105,22 @@
   .afoot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:20px}
   .aprice{font-size:13.5px; color:var(--faint)}
   .aprice b{color:var(--ink); font-weight:750}
-  .aopen{display:inline-flex; align-items:center; gap:7px; min-height:40px; font-size:14px; font-weight:700; color:var(--ink);
-    padding:8px 16px; border:1px solid var(--line-strong); border-radius:999px; background:var(--surface); white-space:nowrap; transition:border-color .2s, color .2s, gap .2s}
-  .aopen:hover{border-color:var(--acc); color:var(--acc); gap:10px}
-  .aopen svg{width:14px; height:14px}
+  .soonpill{display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; color:var(--acc);
+    background:var(--acc-soft); border:1px solid var(--line-strong); border-radius:999px; padding:8px 14px; white-space:nowrap}
+  .soonpill .dot{width:7px; height:7px; border-radius:999px; background:var(--acc)}
+
+  .mac-bundle{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin:22px 0 0;
+    padding:20px 26px; border:1px dashed var(--line-strong); border-radius:var(--radius); background:var(--mac-soft)}
+  .mac-bundle .mb-txt{font-size:15.5px; color:var(--ink)}
+  .mac-bundle .mb-txt b{color:var(--mac); font-weight:750}
+  .mac-bundle .mb-price{font-size:14.5px; font-weight:700; color:var(--mac); white-space:nowrap}
+  .mac-bundle .mb-was{color:var(--muted); text-decoration:line-through; font-weight:600; margin-right:9px}
+
+  .trust{margin:30px 0 0; display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  @media (max-width:720px){ .trust{grid-template-columns:1fr} }
+  .trust-item{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:18px 20px}
+  .trust-item h3{font-size:15px; font-weight:750; margin:0 0 5px; letter-spacing:-.01em}
+  .trust-item p{font-size:13.5px; color:var(--muted); margin:0; line-height:1.5}
 
   footer{margin-top:52px; border-top:1px solid var(--line); padding:34px 0 56px}
   .frow{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
@@ -118,7 +130,7 @@
   .flinks{display:flex; gap:18px; margin-left:auto; flex-wrap:wrap}
   .flinks a{color:var(--muted); font-size:13.5px}
   .flinks a:hover{color:var(--ink)}
-  .themebtn:focus-visible,.aopen:focus-visible,.brand:focus-visible,.catlink:focus-visible,.flinks a:focus-visible,.aname a:focus-visible{outline:2px solid var(--li-tx); outline-offset:3px}
+  .themebtn:focus-visible,.brand:focus-visible,.catlink:focus-visible,.flinks a:focus-visible{outline:2px solid var(--mac); outline-offset:3px}
 </style>
 <script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
@@ -131,81 +143,101 @@
         <span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span>
       </a>
       <nav class="topnav">
-        <a class="catlink" href="apps.html" aria-current="page">Apps</a>
+        <a class="catlink" href="apps.html">Apps</a>
         <a class="catlink" href="extensions.html">Extensions</a>
-        <a class="catlink" href="mac-tools.html" title="Mac tools — coming soon">Mac Tools <span class="soontag">Soon</span></a>
+        <a class="catlink" href="mac-tools.html" aria-current="page">Mac Tools <span class="soontag">Soon</span></a>
         <button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
       </nav>
     </div>
   </header>
 
   <section class="hero">
-    <p class="eyebrow">The apps</p>
-    <h1>Private apps for your <span class="g-money">money</span>, <span class="g-docs">documents</span> &amp; <span class="g-career">career.</span></h1>
-    <p class="lede">Tools that do one thing well — thoughtfully built and made with care. Every one runs on your device.</p>
+    <p class="eyebrow">The Mac tools</p>
+    <h1>Quiet, native tools for your <span class="g-mac">Mac.</span></h1>
+    <p class="lede">One clean binary each — no runtime to install, and nothing sent online. Signed and notarized by Apple, so they open without a fuss.</p>
   </section>
 
   <main id="main">
     <div class="sec-head">
-      <h2>All apps</h2>
-      <span class="count">4 live · more on the way</span>
+      <h2>All four</h2>
+      <span class="count">4 · new</span>
     </div>
-    <p class="sec-note">Each one opens right away — no account or signup — with an optional one-time Pro unlock and a 30-day money-back guarantee on web purchases. Every button opens the app on its own site, in a new tab.</p>
+    <p class="sec-note">Buy one for $12.99, or take all four together for $34.99 — a third off. Each does one thing well, keeps your originals as they are, and never phones home. Coming very soon.</p>
 
     <div class="agrid">
 
-      <article class="acard li">
+      <article class="acard mac">
         <div class="ahead">
-          <img class="aicon" src="assets/localinvoice.png" alt="" width="52" height="52">
-          <div><h3 class="aname"><a href="https://localinvoiceapp.com" target="_blank" rel="noopener">Local Invoice</a></h3><p class="akicker">Invoice maker</p></div>
+          <img class="aicon" src="assets/furrow.png" alt="" width="52" height="52">
+          <div><h3 class="aname">Furrow</h3><p class="akicker">Spreadsheet tidier</p></div>
         </div>
-        <p class="adesc">Create clean, professional invoices and estimates in minutes, then export a polished, watermark-free PDF.</p>
-        <div class="atags"><span class="atag">Business</span><span class="atag lock">🔒 On your device</span></div>
+        <p class="adesc">Drop a CSV or Excel file and tidy it — trim stray spaces, split, merge, convert, or clear duplicate rows. Every run saves a fresh, clean copy beside the original, so your data is never overwritten.</p>
+        <div class="atags"><span class="atag">Data</span><span class="atag lock">🔒 On your Mac</span></div>
         <div class="afoot">
-          <span class="aprice">Pro <b>$12.99</b> once</span>
-          <a class="aopen" href="https://localinvoiceapp.com" target="_blank" rel="noopener" title="Opens Local Invoice on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="aprice"><b>$12.99</b> · once</span>
+          <span class="soonpill"><span class="dot"></span>Coming soon</span>
         </div>
       </article>
 
-      <article class="acard lr">
+      <article class="acard mac">
         <div class="ahead">
-          <img class="aicon" src="assets/localresume.png" alt="" width="52" height="52">
-          <div><h3 class="aname"><a href="https://localresumeapp.com" target="_blank" rel="noopener">LocalResume</a></h3><p class="akicker">Resume builder</p></div>
+          <img class="aicon" src="assets/pagenook.png" alt="" width="52" height="52">
+          <div><h3 class="aname">Pagenook</h3><p class="akicker">PDF page rearranger</p></div>
         </div>
-        <p class="adesc">Build a clean resume and score it against any job description — right on your device — then see the keywords ATS filters look for.</p>
-        <div class="atags"><span class="atag">Career</span><span class="atag lock">🔒 On your device</span></div>
+        <p class="adesc">Rearrange a PDF's pages on a visual board you reorder by dragging — plus merge, split, rotate, and remove pages. A fresh copy is saved each time, and password-protected files are left untouched.</p>
+        <div class="atags"><span class="atag">PDF</span><span class="atag lock">🔒 On your Mac</span></div>
         <div class="afoot">
-          <span class="aprice">Pro <b>$12.99</b> once</span>
-          <a class="aopen" href="https://localresumeapp.com" target="_blank" rel="noopener" title="Opens LocalResume on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="aprice"><b>$12.99</b> · once</span>
+          <span class="soonpill"><span class="dot"></span>Coming soon</span>
         </div>
       </article>
 
-      <article class="acard lp">
+      <article class="acard mac">
         <div class="ahead">
-          <img class="aicon" src="assets/localpdf.png" alt="" width="52" height="52">
-          <div><h3 class="aname"><a href="https://localpdfapp.com" target="_blank" rel="noopener">Local PDF</a></h3><p class="akicker">PDF toolkit</p></div>
+          <img class="aicon" src="assets/clearleaf.png" alt="" width="52" height="52">
+          <div><h3 class="aname">Clearleaf</h3><p class="akicker">Hidden-data remover</p></div>
         </div>
-        <p class="adesc">Merge, split, compress, convert, sign and redact — a full set of PDF tools that runs on your device.</p>
-        <div class="atags"><span class="atag">Documents</span><span class="atag lock">🔒 On your device</span></div>
+        <p class="adesc">Before you send a document or photo, see the hidden trail it carries — author, edits, comments, where a photo was taken — then clear it and keep a clean copy beside the original. Reads your file locally and never phones home.</p>
+        <div class="atags"><span class="atag">Privacy</span><span class="atag lock">🔒 On your Mac</span></div>
         <div class="afoot">
-          <span class="aprice">Pro <b>$9.99</b> once</span>
-          <a class="aopen" href="https://localpdfapp.com" target="_blank" rel="noopener" title="Opens Local PDF on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="aprice"><b>$12.99</b> · once</span>
+          <span class="soonpill"><span class="dot"></span>Coming soon</span>
         </div>
       </article>
 
-      <article class="acard sb">
+      <article class="acard mac">
         <div class="ahead">
-          <img class="aicon" src="assets/snowball.png" alt="" width="52" height="52">
-          <div><h3 class="aname"><a href="https://mysnowballapp.com" target="_blank" rel="noopener">My Snowball</a></h3><p class="akicker">Debt payoff planner</p></div>
+          <img class="aicon" src="assets/bookplate.png" alt="" width="52" height="52">
+          <div><h3 class="aname">Bookplate</h3><p class="akicker">Read-it-later library</p></div>
         </div>
-        <p class="adesc">See your debt-free date and the smartest order to clear your balances — snowball, avalanche, or your own plan.</p>
-        <div class="atags"><span class="atag">Money</span><span class="atag lock">🔒 On your device</span></div>
+        <p class="adesc">Save a clean, readable copy of any page to a private library that lives only on your Mac — then read it anytime offline, or have any article read aloud. No account, and nothing synced.</p>
+        <div class="atags"><span class="atag">Reading</span><span class="atag lock">🔒 On your Mac</span></div>
         <div class="afoot">
-          <span class="aprice">Pro <b>$9.99</b> once</span>
-          <a class="aopen" href="https://mysnowballapp.com" target="_blank" rel="noopener" title="Opens My Snowball on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="aprice"><b>$12.99</b> · once</span>
+          <span class="soonpill"><span class="dot"></span>Coming soon</span>
         </div>
       </article>
 
+    </div>
+
+    <div class="mac-bundle">
+      <span class="mb-txt"><b>All four Mac tools</b> — a little gift for taking the whole set.</span>
+      <span class="mb-price"><span class="mb-was">$51.96</span>$34.99 · once · Save 33%</span>
+    </div>
+
+    <div class="trust">
+      <div class="trust-item">
+        <h3>On your Mac, always</h3>
+        <p>Each tool runs entirely on your machine. There's no account, and nothing about your files leaves your computer.</p>
+      </div>
+      <div class="trust-item">
+        <h3>Buy once, keep it</h3>
+        <p>One fair price, yours to keep. No subscription, no trial that turns into a charge — the price you see is the whole price.</p>
+      </div>
+      <div class="trust-item">
+        <h3>Opens without a fuss</h3>
+        <p>Signed with a Developer ID and notarized by Apple, so it opens like any trusted app — no scary warnings.</p>
+      </div>
     </div>
   </main>
 
@@ -217,6 +249,7 @@
       </div>
       <span class="fnote">Runs on your device. Answers to you.</span>
       <div class="flinks">
+        <a href="apps.html">Apps</a>
         <a href="extensions.html">Extensions</a>
         <a href="how-it-works.html">How it works</a>
         <a href="help.html">Help</a>
