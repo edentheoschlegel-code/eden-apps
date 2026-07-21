@@ -102,6 +102,16 @@
   .atags{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0}
   .atag{font-size:12.5px; font-weight:650; color:var(--acc); background:var(--acc-soft); padding:5px 11px; border-radius:999px}
   .atag.lock{color:var(--faint); background:transparent; border:1px solid var(--line-strong)}
+  /* each tool wears its own logo colour */
+  .acard.fw{--acc:#24603c;--acc-soft:#e8f0ea}
+  .acard.pn{--acc:#7824b4;--acc-soft:#f4eafb}
+  .acard.cl{--acc:#3c3cd8;--acc-soft:#eaeafb}
+  .acard.bp{--acc:#305478;--acc-soft:#e9eff5}
+  :root[data-theme="dark"] .acard.fw{--acc:#8fc7a1;--acc-soft:#16231b}
+  :root[data-theme="dark"] .acard.pn{--acc:#cf9df2;--acc-soft:#241330}
+  :root[data-theme="dark"] .acard.cl{--acc:#a8a8f5;--acc-soft:#17172e}
+  :root[data-theme="dark"] .acard.bp{--acc:#98bcdc;--acc-soft:#14202c}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .acard.fw{--acc:#8fc7a1;--acc-soft:#16231b} :root:not([data-theme="light"]) .acard.pn{--acc:#cf9df2;--acc-soft:#241330} :root:not([data-theme="light"]) .acard.cl{--acc:#a8a8f5;--acc-soft:#17172e} :root:not([data-theme="light"]) .acard.bp{--acc:#98bcdc;--acc-soft:#14202c} }
   .afoot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:20px}
   .aprice{font-size:13.5px; color:var(--faint)}
   .aprice b{color:var(--ink); font-weight:750}
@@ -110,7 +120,9 @@
   .soonpill .dot{width:7px; height:7px; border-radius:999px; background:var(--acc)}
 
   .mac-bundle{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin:22px 0 0;
-    padding:20px 26px; border:1px dashed var(--line-strong); border-radius:var(--radius); background:var(--mac-soft)}
+    padding:20px 26px; border:1px dashed var(--line-strong); border-radius:var(--radius); background:var(--mbg,#f4f8f5)}
+  :root[data-theme="dark"] .mac-bundle{--mbg:#121a15}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mac-bundle{--mbg:#121a15} }
   .mac-bundle .mb-txt{font-size:15.5px; color:var(--ink)}
   .mac-bundle .mb-txt b{color:var(--mac); font-weight:750}
   .mac-bundle .mb-price{font-size:14.5px; font-weight:700; color:var(--mac); white-space:nowrap}
@@ -166,52 +178,52 @@
 
     <div class="agrid">
 
-      <article class="acard mac">
+      <article class="acard mac fw">
         <div class="ahead">
           <img class="aicon" src="assets/furrow.png" alt="" width="52" height="52">
           <div><h3 class="aname">Furrow</h3><p class="akicker">Spreadsheet tidier</p></div>
         </div>
         <p class="adesc">Drop a CSV or Excel file and tidy it — trim stray spaces, split, merge, convert, or clear duplicate rows. Every run saves a fresh, clean copy beside the original, so your data is never overwritten.</p>
-        <div class="atags"><span class="atag">Data</span><span class="atag lock">🔒 On your Mac</span></div>
+        <div class="atags"><span class="atag">Data</span><span class="atag lock">On your Mac</span></div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
           <span class="soonpill"><span class="dot"></span>Coming soon</span>
         </div>
       </article>
 
-      <article class="acard mac">
+      <article class="acard mac pn">
         <div class="ahead">
           <img class="aicon" src="assets/pagenook.png" alt="" width="52" height="52">
           <div><h3 class="aname">Pagenook</h3><p class="akicker">PDF page rearranger</p></div>
         </div>
         <p class="adesc">Rearrange a PDF's pages on a visual board you reorder by dragging — plus merge, split, rotate, and remove pages. A fresh copy is saved each time, and password-protected files are left untouched.</p>
-        <div class="atags"><span class="atag">PDF</span><span class="atag lock">🔒 On your Mac</span></div>
+        <div class="atags"><span class="atag">PDF</span><span class="atag lock">On your Mac</span></div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
           <span class="soonpill"><span class="dot"></span>Coming soon</span>
         </div>
       </article>
 
-      <article class="acard mac">
+      <article class="acard mac cl">
         <div class="ahead">
           <img class="aicon" src="assets/clearleaf.png" alt="" width="52" height="52">
           <div><h3 class="aname">Clearleaf</h3><p class="akicker">Hidden-data remover</p></div>
         </div>
         <p class="adesc">Before you send a document or photo, see the hidden trail it carries — author, edits, comments, where a photo was taken — then clear it and keep a clean copy beside the original. Reads your file locally and never phones home.</p>
-        <div class="atags"><span class="atag">Privacy</span><span class="atag lock">🔒 On your Mac</span></div>
+        <div class="atags"><span class="atag">Privacy</span><span class="atag lock">On your Mac</span></div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
           <span class="soonpill"><span class="dot"></span>Coming soon</span>
         </div>
       </article>
 
-      <article class="acard mac">
+      <article class="acard mac bp">
         <div class="ahead">
           <img class="aicon" src="assets/bookplate.png" alt="" width="52" height="52">
           <div><h3 class="aname">Bookplate</h3><p class="akicker">Read-it-later library</p></div>
         </div>
         <p class="adesc">Save a clean, readable copy of any page to a private library that lives only on your Mac — then read it anytime offline, or have any article read aloud. No account, and nothing synced.</p>
-        <div class="atags"><span class="atag">Reading</span><span class="atag lock">🔒 On your Mac</span></div>
+        <div class="atags"><span class="atag">Reading</span><span class="atag lock">On your Mac</span></div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
           <span class="soonpill"><span class="dot"></span>Coming soon</span>

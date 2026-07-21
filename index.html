@@ -95,7 +95,7 @@
   .hp{position:absolute!important; left:-9999px!important; width:1px; height:1px; overflow:hidden}
 
   /* hero */
-  .hero{padding:64px 0 20px; text-align:center; max-width:880px; margin:0 auto}
+  .hero{padding:clamp(84px,12vh,128px) 0 clamp(72px,10vh,110px); text-align:center; max-width:880px; margin:0 auto}
   .eyebrow{font-size:13px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--faint); margin:0 0 20px}
   h1{font-size:clamp(34px,6vw,60px); line-height:1.05; letter-spacing:-.035em; font-weight:800; margin:0 0 22px}
   /* Keep the headline on one line on wide screens; let it wrap where it can't fit. */
@@ -127,7 +127,7 @@
     .cycle-on .cyc .w{left:0; right:0; text-align:center}
   }
   .lede{font-size:clamp(17px,2.3vw,20px); color:var(--muted); margin:0 auto; max-width:600px}
-  @media (max-width:600px){ .hero{padding:34px 0 26px} }
+  @media (max-width:600px){ .hero{padding:52px 0 48px} }
 
   /* section head */
   .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:36px 0 18px}
@@ -222,13 +222,27 @@
   .soonpill .dot{width:7px;height:7px;border-radius:999px;background:var(--ac)}
   .mac-bundle{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;
     gap:14px;flex-wrap:wrap;padding:18px 24px;border:1px dashed var(--line-strong);
-    border-radius:var(--radius);background:var(--ac-soft)}
+    border-radius:var(--radius);background:var(--mbg,#f4f8f5)}
+  :root[data-theme="dark"] .mac-bundle{--mbg:#121a15}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mac-bundle{--mbg:#121a15} }
   .mac-bundle .mb-txt{font-size:15px;color:var(--ink)}
   .mac-bundle .mb-txt b{color:var(--ac-tx);font-weight:700}
   .mac-bundle .mb-price{font-size:14px;font-weight:700;color:var(--ac-tx);white-space:nowrap}
   .mac-bundle .mb-was{color:var(--muted);text-decoration:line-through;font-weight:600;margin-right:9px}
+  .card.mac .tag{color:var(--ac-tx);background:var(--ac-soft);border-color:transparent}
+  .card.mac .tag.lock{color:var(--faint);background:transparent;border:1px solid var(--line-strong)}
   :root[data-theme="dark"] .mac-grid{--ac:#5f9a72; --ac-tx:#8fc7a1; --ac-soft:#16231b}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mac-grid{--ac:#5f9a72; --ac-tx:#8fc7a1; --ac-soft:#16231b} }
+  /* each Mac tool wears its own logo colour — same alive rhythm as the extensions */
+  .card.mac.fw{--ac:#24603c;--ac-tx:#24603c;--ac-soft:#e8f0ea}
+  .card.mac.pn{--ac:#7824b4;--ac-tx:#7824b4;--ac-soft:#f4eafb}
+  .card.mac.cl{--ac:#3c3cd8;--ac-tx:#3c3cd8;--ac-soft:#eaeafb}
+  .card.mac.bp{--ac:#305478;--ac-tx:#305478;--ac-soft:#e9eff5}
+  :root[data-theme="dark"] .card.mac.fw{--ac-tx:#8fc7a1;--ac-soft:#16231b}
+  :root[data-theme="dark"] .card.mac.pn{--ac-tx:#cf9df2;--ac-soft:#241330}
+  :root[data-theme="dark"] .card.mac.cl{--ac-tx:#a8a8f5;--ac-soft:#17172e}
+  :root[data-theme="dark"] .card.mac.bp{--ac-tx:#98bcdc;--ac-soft:#14202c}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .card.mac.fw{--ac-tx:#8fc7a1;--ac-soft:#16231b} :root:not([data-theme="light"]) .card.mac.pn{--ac-tx:#cf9df2;--ac-soft:#241330} :root:not([data-theme="light"]) .card.mac.cl{--ac-tx:#a8a8f5;--ac-soft:#17172e} :root:not([data-theme="light"]) .card.mac.bp{--ac-tx:#98bcdc;--ac-soft:#14202c} }
 
   /* promise */
   .promise{margin:36px 0 10px; padding:34px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius)}
@@ -270,9 +284,9 @@
   @media(max-width:600px){.ext-grid{grid-template-columns:1fr}}
   .card.xc{padding:22px;gap:11px}
   .card.xc .icon{width:46px;height:46px;border-radius:13px}
-  .card.xc .name{font-size:17.5px}
-  .card.xc .kicker{color:var(--ac-tx,var(--ac))}
-  .card.xc .desc{font-size:13.8px;line-height:1.55}
+  /* extension text matches the Mac tools' type exactly */
+  .card.xc .kicker{color:var(--ac-tx,var(--ac));font-weight:600}
+  .card.xc .desc{color:var(--muted);font-size:14.5px;line-height:1.55}
   .card.xc .split{font-size:12.5px}
   .card.xc .price{margin:0;font-size:13.5px}
   .foot2{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:2px}
@@ -309,11 +323,19 @@
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .ext-filter button[data-f="all"]:hover{color:#fcd34d} :root:not([data-theme="light"]) .ext-filter button[data-f="productivity"]:hover{color:#a5b4fc} :root:not([data-theme="light"]) .ext-filter button[data-f="reading"]:hover{color:#fdba74} :root:not([data-theme="light"]) .ext-filter button[data-f="everyday"]:hover{color:#6ee7b7} }
   /* show six, keep the rest behind a gentle door */
   .ext-grid.limited article[data-extra]{display:none!important}
-  .more-card{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:center;gap:11px;padding:19px 22px;border:1.5px solid var(--line-strong);background:transparent;box-shadow:none;color:var(--muted);font-weight:700;font-size:14.5px}
+  /* the "more extensions" door — same signature-bar look as the Mac tools bundle,
+     wearing the extensions' own warm yellow */
+  .more-card{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:center;gap:11px;padding:18px 24px;
+    border:1px dashed var(--line-strong);background:var(--exty-soft);box-shadow:none;
+    color:var(--ink);font-weight:400;font-size:15px}
   .more-card::before{display:none}
-  .more-card:hover{border-color:var(--li-tx);color:var(--li-tx);transform:none;box-shadow:none}
-  .more-card .mc-plus{display:inline-grid;place-items:center;min-width:32px;height:32px;padding:0 9px;border-radius:999px;background:var(--li-soft);color:var(--li-tx);font-size:13px;font-weight:800}
-  .more-card:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
+  .more-card:hover{border-color:var(--exty);color:var(--exty-tx);transform:none;box-shadow:none}
+  .more-card .mc-plus{display:inline-grid;place-items:center;min-width:23px;height:23px;padding:0 7px;border-radius:999px;background:var(--exty);color:#2b2004;font-size:12px;font-weight:800}
+  .more-card svg{color:var(--exty-tx)}
+  .more-card:focus-visible{outline:2px solid var(--exty-tx);outline-offset:3px}
+  :root{--exty:#eab308; --exty-tx:#a16207; --exty-soft:#fcf9ee}
+  :root[data-theme="dark"]{--exty:#eab308; --exty-tx:#fcd34d; --exty-soft:#1f1b10}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){--exty:#eab308; --exty-tx:#fcd34d; --exty-soft:#1f1b10} }
   /* in-card "see it in use" slide */
   .cbody{position:relative;display:flex;flex-direction:column;gap:11px;flex:1;min-height:0}
   .card.xc .top{padding-right:38px}
@@ -463,36 +485,40 @@
     <p class="sec-note">Native tools for your Mac — one clean binary each, no runtime to install and nothing sent online. Signed and notarized by Apple, so they open without a fuss. Buy one for $12.99, or take all four for $34.99. Coming very soon.</p>
 
     <section class="mac-grid" aria-label="Eden Apps for Mac">
-      <article class="card mac">
+      <article class="card mac fw">
         <div class="top"><img class="icon" src="assets/furrow.png" alt="" width="56" height="56"><div><h3 class="name">Furrow</h3><p class="kicker">Spreadsheet tidier</p></div></div>
         <p class="desc">Drop a CSV or Excel file and tidy it — trim stray spaces, split, merge, convert, or clear duplicate rows. A fresh, clean copy is saved beside the original.</p>
+        <div class="tags"><span class="tag">Data</span><span class="tag lock">On your Mac</span></div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
           <span class="soonpill"><span class="dot"></span>Coming soon</span>
         </div>
       </article>
 
-      <article class="card mac">
+      <article class="card mac pn">
         <div class="top"><img class="icon" src="assets/pagenook.png" alt="" width="56" height="56"><div><h3 class="name">Pagenook</h3><p class="kicker">PDF page rearranger</p></div></div>
         <p class="desc">Rearrange a PDF's pages on a board you reorder by dragging — plus merge, split, rotate, and remove pages. Password-protected files are left untouched.</p>
+        <div class="tags"><span class="tag">PDF</span><span class="tag lock">On your Mac</span></div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
           <span class="soonpill"><span class="dot"></span>Coming soon</span>
         </div>
       </article>
 
-      <article class="card mac">
+      <article class="card mac cl">
         <div class="top"><img class="icon" src="assets/clearleaf.png" alt="" width="56" height="56"><div><h3 class="name">Clearleaf</h3><p class="kicker">Hidden-data remover</p></div></div>
         <p class="desc">See the hidden trail a document or photo carries — author, edits, comments, location — then clear it and keep a clean copy beside the original.</p>
+        <div class="tags"><span class="tag">Privacy</span><span class="tag lock">On your Mac</span></div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
           <span class="soonpill"><span class="dot"></span>Coming soon</span>
         </div>
       </article>
 
-      <article class="card mac">
+      <article class="card mac bp">
         <div class="top"><img class="icon" src="assets/bookplate.png" alt="" width="56" height="56"><div><h3 class="name">Bookplate</h3><p class="kicker">Read-it-later library</p></div></div>
         <p class="desc">Save a clean, readable copy of any page to a private library that lives only on your Mac — and have any article read aloud. No account, offline.</p>
+        <div class="tags"><span class="tag">Reading</span><span class="tag lock">On your Mac</span></div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
           <span class="soonpill"><span class="dot"></span>Coming soon</span>
@@ -664,7 +690,7 @@
       </article>
       <a class="card more-card" id="extMore" href="extensions.html" title="See all extensions">
         <span class="mc-plus">+3</span>
-        <span>More extensions — see the whole collection</span>
+        <span><b>More extensions</b> — see the whole collection</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </section>
