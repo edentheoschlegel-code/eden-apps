@@ -29,6 +29,9 @@
     --lp:#e11d48; --lp-soft:#fdeaef; --lp-tx:#e11d48;
     --li:#4338ca; --li-soft:#ecebfb; --li-tx:#4338ca;
     --lr:#047857; --lr-soft:#e5f5ee; --lr-tx:#047857;
+    /* Signup button. Deep enough to carry a white label at 7.9:1. Kept off --li on
+       purpose: that token also drives the Local Invoice accent and the filter chips. */
+    --cta:#0e5585; --cta-ink:#ffffff;
     --radius:22px; --maxw:1080px;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
@@ -80,16 +83,23 @@
   .themebtn:hover{border-color:var(--li-tx); color:var(--li-tx)}
   .themebtn svg{width:17px; height:17px}
   /* email signup */
-  .subscribe{margin-top:20px; padding:38px 28px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); text-align:center}
+  /* square bottom + no bottom edge: the footer continues this same card (see footer{}).
+     The 30px bottom padding, plus the footer's 26px top, is what separates the two
+     zones now that there is no dividing line. */
+  .subscribe{margin-top:20px; padding:38px 28px 30px; background:var(--surface); border:1px solid var(--line); border-bottom:0; border-radius:var(--radius) var(--radius) 0 0; text-align:center}
   .subscribe h2{margin:0 0 7px; font-size:23px; letter-spacing:-.02em; text-transform:none; color:var(--ink); font-weight:800}
   .subscribe .sub{margin:0 auto 22px; color:var(--muted); font-size:15px; max-width:460px}
   .subform{display:flex; gap:10px; max-width:450px; margin:0 auto}
   @media(max-width:520px){ .subform{flex-direction:column} }
   .subform input[type=email]{flex:1; min-width:0; padding:12px 15px; font:inherit; font-size:16px; color:var(--ink); background:var(--bg); border:1px solid var(--line-strong); border-radius:12px}
-  .subform input[type=email]:focus{outline:2px solid var(--li); outline-offset:1px; border-color:var(--li)}
-  .subform button{appearance:none; border:0; background:var(--li); color:#fff; font:inherit; font-weight:700; font-size:16px; padding:12px 22px; border-radius:12px; cursor:pointer; white-space:nowrap}
+  /* --cta is the signup's own blue. Deliberately NOT --li: that token also carries the
+     Local Invoice accent and the extension filter chips, so recolouring it here would
+     repaint unrelated parts of the page. */
+  /* focus ring uses the fill colour — --cta-ink is white here and would vanish on the card */
+  .subform input[type=email]:focus{outline:2px solid var(--cta); outline-offset:1px; border-color:var(--cta)}
+  .subform button{appearance:none; border:0; background:var(--cta); color:var(--cta-ink); font:inherit; font-weight:700; font-size:16px; padding:12px 22px; border-radius:12px; cursor:pointer; white-space:nowrap}
   .subform button[disabled]{opacity:.6; cursor:default}
-  .subform button:hover{filter:brightness(1.08)}
+  .subform button:hover{filter:brightness(1.14)}
   .subnote{margin:12px 0 0; font-size:12.5px; color:var(--faint)}
   .subok{display:none; margin:4px auto 0; max-width:460px; color:var(--lr-tx); font-weight:650}
   .hp{position:absolute!important; left:-9999px!important; width:1px; height:1px; overflow:hidden}
@@ -244,20 +254,37 @@
   :root[data-theme="dark"] .card.mac.bp{--ac-tx:#98bcdc;--ac-soft:#14202c}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .card.mac.fw{--ac-tx:#8fc7a1;--ac-soft:#16231b} :root:not([data-theme="light"]) .card.mac.pn{--ac-tx:#cf9df2;--ac-soft:#241330} :root:not([data-theme="light"]) .card.mac.cl{--ac-tx:#a8a8f5;--ac-soft:#17172e} :root:not([data-theme="light"]) .card.mac.bp{--ac-tx:#98bcdc;--ac-soft:#14202c} }
 
-  /* promise */
-  .promise{margin:36px 0 10px; padding:34px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius)}
-  .promise h2{font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); text-align:center; margin:0 0 26px}
-  .points{display:grid; grid-template-columns:repeat(3,1fr); gap:26px}
-  @media (max-width:720px){ .points{grid-template-columns:1fr; gap:22px} }
-  .point{text-align:center}
-  .point .ico{width:50px; height:50px; margin:0 auto 13px; display:block}
-  .point .ico img{width:100%; height:100%; display:block; object-fit:contain; border-radius:23%}
-  .point h3{font-size:16.5px; font-weight:750; margin:0 0 6px; letter-spacing:-.01em}
+  /* promise — no panel. The page is already a page of cards; boxing the promises made
+     them read as one more row of the grid. Open on the background, split by hairlines,
+     titles left-aligned, and the heading sits out on the page like "The apps" and
+     "The extensions" do rather than inside a container of its own.
+     The 28px bottom margin stands in for the panel's old padding so the signup below
+     keeps its breathing room — .subscribe's own margin-top:20px is left untouched. */
+  .promise{margin:44px 0 28px; padding:38px 0 0; border-top:1px solid var(--line)}
+  .promise h2{font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); text-align:left; margin:0 0 24px}
+  .points{display:grid; grid-template-columns:repeat(3,1fr); gap:0}
+  .point{padding:0 30px}
+  .point:first-child{padding-left:0}
+  .point:last-child{padding-right:0}
+  .point + .point{border-left:1px solid var(--line)}
+  @media (max-width:760px){
+    .points{grid-template-columns:1fr}
+    .point{padding:22px 0}
+    .point + .point{border-left:0; border-top:1px solid var(--line)}
+  }
+  .point .ico{width:44px; height:44px; margin:0 0 15px; display:block}
+  /* no border-radius: the icons are transparent line art now, with no plate to round */
+  .point .ico img{width:100%; height:100%; display:block; object-fit:contain}
+  .point h3{font-size:17px; font-weight:750; margin:0 0 7px; letter-spacing:-.012em}
   .point p{font-size:14.5px; color:var(--muted); margin:0}
   .point svg{width:22px; height:22px; stroke-width:2}
 
   /* footer */
-  footer{border-top:1px solid var(--line); margin-top:44px; padding:32px 0 48px}
+  /* The signup and the footer are one seamless card — no dividing line between them.
+     The footer keeps only the card's left/right/bottom edges and rounds its bottom
+     corners; .subscribe drops its bottom edge so the two share the same surface. */
+  footer{margin:0 0 44px; padding:26px 28px 28px; background:var(--surface);
+    border:1px solid var(--line); border-top:0; border-radius:0 0 var(--radius) var(--radius)}
   .frow{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
   .fbrand{display:flex; align-items:center; gap:10px; font-weight:700}
   .fbrand .mark{width:23px; height:23px; object-fit:contain}
@@ -270,7 +297,8 @@
   .skip{position:absolute; left:-9999px; top:8px; z-index:100; background:var(--surface); color:var(--ink); border:1px solid var(--line-strong); border-radius:9px; padding:10px 16px; font-weight:700; font-size:14px}
   .skip:focus{left:16px}
   @media (max-width:560px){
-    footer{margin-top:36px; padding:28px 0 40px}
+    footer{margin:0 0 36px; padding:24px 20px 26px}
+    .subscribe{padding:32px 20px 28px}
     .frow{flex-direction:column; align-items:flex-start; gap:16px}
     .fnote{font-size:13px}
     .flinks{width:100%; gap:14px 22px}
@@ -323,16 +351,18 @@
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .ext-filter button[data-f="all"]:hover{color:#fcd34d} :root:not([data-theme="light"]) .ext-filter button[data-f="productivity"]:hover{color:#a5b4fc} :root:not([data-theme="light"]) .ext-filter button[data-f="reading"]:hover{color:#fdba74} :root:not([data-theme="light"]) .ext-filter button[data-f="everyday"]:hover{color:#6ee7b7} }
   /* show six, keep the rest behind a gentle door */
   .ext-grid.limited article[data-extra]{display:none!important}
-  /* the "more extensions" door — same signature-bar look as the Mac tools bundle,
-     wearing the extensions' own warm yellow */
-  .more-card{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:center;gap:11px;padding:18px 24px;
-    border:1px dashed var(--line-strong);background:var(--exty-soft);box-shadow:none;
-    color:var(--ink);font-weight:400;font-size:15px}
+  /* the "more extensions" door — a quiet link rather than a filled slab. The dashed
+     cream bar was the heaviest thing between the grid and the promises, and it read
+     as another card in a page that already has plenty. */
+  .more-card{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:center;gap:9px;padding:16px 4px;
+    border:0;background:transparent;box-shadow:none;
+    color:var(--li-tx);font-weight:650;font-size:14.5px}
   .more-card::before{display:none}
-  .more-card:hover{border-color:var(--exty);color:var(--exty-tx);transform:none;box-shadow:none}
-  .more-card .mc-plus{display:inline-grid;place-items:center;min-width:23px;height:23px;padding:0 7px;border-radius:999px;background:var(--exty);color:#2b2004;font-size:12px;font-weight:800}
-  .more-card svg{color:var(--exty-tx)}
-  .more-card:focus-visible{outline:2px solid var(--exty-tx);outline-offset:3px}
+  .more-card:hover{color:var(--li-tx);transform:none;box-shadow:none}
+  .more-card span:not(.mc-plus){border-bottom:1px solid transparent}
+  .more-card:hover span:not(.mc-plus){border-bottom-color:currentColor}
+  .more-card .mc-plus{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--li-soft);color:var(--li-tx);font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}
+  .more-card:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
   :root{--exty:#eab308; --exty-tx:#a16207; --exty-soft:#fcf9ee}
   :root[data-theme="dark"]{--exty:#eab308; --exty-tx:#fcd34d; --exty-soft:#1f1b10}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){--exty:#eab308; --exty-tx:#fcd34d; --exty-soft:#1f1b10} }
@@ -699,17 +729,17 @@
       <h2>Why Eden Apps</h2>
       <div class="points">
         <div class="point">
-          <div class="ico"><picture><source srcset="assets/promise-thoughtful.avif" type="image/avif"><img src="assets/promise-thoughtful.png?v=3" alt="" width="52" height="52" loading="lazy"></picture></div>
+          <div class="ico"><picture><source srcset="assets/promise-thoughtful.avif?v=4" type="image/avif"><img src="assets/promise-thoughtful.png?v=4" alt="" width="52" height="52" loading="lazy"></picture></div>
           <h3>Thoughtful by nature</h3>
           <p>We build focused apps that respect your time and attention — designed with intention, crafted with care.</p>
         </div>
         <div class="point">
-          <div class="ico"><picture><source srcset="assets/promise-fair.avif" type="image/avif"><img src="assets/promise-fair.png?v=3" alt="" width="52" height="52" loading="lazy"></picture></div>
+          <div class="ico"><picture><source srcset="assets/promise-fair.avif?v=4" type="image/avif"><img src="assets/promise-fair.png?v=4" alt="" width="52" height="52" loading="lazy"></picture></div>
           <h3>Fair and transparent</h3>
           <p>No subscriptions. No hidden fees. Just honest, one-time pricing and a 30-day money-back guarantee on web purchases.</p>
         </div>
         <div class="point">
-          <div class="ico"><picture><source srcset="assets/promise-yours.avif" type="image/avif"><img src="assets/promise-yours.png?v=3" alt="" width="52" height="52" loading="lazy"></picture></div>
+          <div class="ico"><picture><source srcset="assets/promise-yours.avif?v=4" type="image/avif"><img src="assets/promise-yours.png?v=4" alt="" width="52" height="52" loading="lazy"></picture></div>
           <h3>Yours, completely</h3>
           <p>Your data stays on your device. We don't track it, upload it, or sell it. It's yours alone.</p>
         </div>
