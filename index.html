@@ -82,11 +82,8 @@
   .themebtn{display:inline-grid; place-items:center; width:44px; height:44px; flex:none; border:1px solid var(--line-strong); border-radius:999px; background:var(--surface); color:var(--ink); cursor:pointer; padding:0; transition:border-color .2s, color .2s}
   .themebtn:hover{border-color:var(--li-tx); color:var(--li-tx)}
   .themebtn svg{width:17px; height:17px}
-  /* email signup */
-  /* square bottom + no bottom edge: the footer continues this same card (see footer{}).
-     The 30px bottom padding, plus the footer's 26px top, is what separates the two
-     zones now that there is no dividing line. */
-  .subscribe{margin-top:20px; padding:38px 28px 30px; background:var(--surface); border:1px solid var(--line); border-bottom:0; border-radius:var(--radius) var(--radius) 0 0; text-align:center}
+  /* email signup — no panel; sits directly on the page, same as the promises above it */
+  .subscribe{margin-top:20px; padding:38px 28px 30px; text-align:center}
   .subscribe h2{margin:0 0 7px; font-size:23px; letter-spacing:-.02em; text-transform:none; color:var(--ink); font-weight:800}
   .subscribe .sub{margin:0 auto 22px; color:var(--muted); font-size:15px; max-width:460px}
   .subform{display:flex; gap:10px; max-width:450px; margin:0 auto}
@@ -280,11 +277,7 @@
   .point svg{width:22px; height:22px; stroke-width:2}
 
   /* footer */
-  /* The signup and the footer are one seamless card — no dividing line between them.
-     The footer keeps only the card's left/right/bottom edges and rounds its bottom
-     corners; .subscribe drops its bottom edge so the two share the same surface. */
-  footer{margin:0 0 44px; padding:26px 28px 28px; background:var(--surface);
-    border:1px solid var(--line); border-top:0; border-radius:0 0 var(--radius) var(--radius)}
+  footer{margin:0 0 44px; padding:26px 28px 28px}
   .frow{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
   .fbrand{display:flex; align-items:center; gap:10px; font-weight:700}
   .fbrand .mark{width:23px; height:23px; object-fit:contain}
