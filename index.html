@@ -347,16 +347,21 @@
   .ext-grid.limited article[data-extra]{display:none!important}
   /* the "more extensions" door — a quiet link rather than a filled slab. The dashed
      cream bar was the heaviest thing between the grid and the promises, and it read
-     as another card in a page that already has plenty. */
+     as another card in a page that already has plenty.
+     Orange rather than the site's indigo (--li): reuses the same accent already used
+     for the "reading" extension category (--mx = --mx-tx #ea580c light / #fdba74 dark). */
   .more-card{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:center;gap:9px;padding:16px 4px;
     border:0;background:transparent;box-shadow:none;
-    color:var(--li-tx);font-weight:650;font-size:14.5px}
+    color:var(--mx-tx);font-weight:650;font-size:14.5px}
   .more-card::before{display:none}
-  .more-card:hover{color:var(--li-tx);transform:none;box-shadow:none}
+  .more-card:hover{color:var(--mx-tx);transform:none;box-shadow:none}
   .more-card span:not(.mc-plus){border-bottom:1px solid transparent}
   .more-card:hover span:not(.mc-plus){border-bottom-color:currentColor}
-  .more-card .mc-plus{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--li-soft);color:var(--li-tx);font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}
-  .more-card:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
+  .more-card .mc-plus{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--mx-soft);color:var(--mx-tx);font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}
+  .more-card:focus-visible{outline:2px solid var(--mx-tx);outline-offset:3px}
+  :root{--mx:#ea580c; --mx-tx:#c2410c; --mx-soft:#fdf0e6}
+  :root[data-theme="dark"]{--mx-tx:#fdba74; --mx-soft:#2a1a0d}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){--mx-tx:#fdba74; --mx-soft:#2a1a0d} }
   :root{--exty:#eab308; --exty-tx:#a16207; --exty-soft:#fcf9ee}
   :root[data-theme="dark"]{--exty:#eab308; --exty-tx:#fcd34d; --exty-soft:#1f1b10}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){--exty:#eab308; --exty-tx:#fcd34d; --exty-soft:#1f1b10} }
