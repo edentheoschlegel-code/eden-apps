@@ -124,14 +124,14 @@
   .applinks{display:flex; align-items:center; gap:9px; flex-wrap:wrap; justify-content:flex-end}
 
   .mac-bundle{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin:22px 0 0;
-    padding:20px 26px; border:1px solid var(--line-strong); border-radius:var(--radius); background:var(--mbg,#f4f8f5);
-    --acc:var(--mac); --acc-soft:var(--mac-soft)}
+    padding:20px 26px; border:1px solid var(--mbline,#f0d3d0); border-radius:var(--radius); background:var(--mbg,#fdf2f1);
+    --acc:#a3302b; --acc-soft:#fae5e3}
   .mac-bundle .mb-right{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:flex-end}
-  :root[data-theme="dark"] .mac-bundle{--mbg:#121a15}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mac-bundle{--mbg:#121a15} }
+  :root[data-theme="dark"] .mac-bundle{--mbg:#241315; --mbline:#4a2725; --acc:#f0a9a3; --acc-soft:#33191a}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mac-bundle{--mbg:#241315; --mbline:#4a2725; --acc:#f0a9a3; --acc-soft:#33191a} }
   .mac-bundle .mb-txt{font-size:15.5px; color:var(--ink)}
-  .mac-bundle .mb-txt b{color:var(--mac); font-weight:750}
-  .mac-bundle .mb-price{font-size:14.5px; font-weight:700; color:var(--mac); white-space:nowrap}
+  .mac-bundle .mb-txt b{color:var(--acc); font-weight:750}
+  .mac-bundle .mb-price{font-size:14.5px; font-weight:700; color:var(--acc); white-space:nowrap}
   .mac-bundle .mb-was{color:var(--muted); text-decoration:line-through; font-weight:600; margin-right:9px}
 
   .trust{margin:30px 0 0; display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
