@@ -133,6 +133,13 @@
   .split{font-size:12.5px; color:var(--muted); margin:0; line-height:1.5}
   .split b{color:var(--ink); font-weight:700}
   .foot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:2px}
+  /* phone: the price takes its own row so Add to Chrome + Privacy can't overflow the card */
+  @media(max-width:560px){
+    .foot{flex-wrap:wrap; row-gap:12px}
+    .foot .price{flex:1 0 100%; white-space:nowrap}
+    .foot .open{flex:1 1 auto; justify-content:center; min-height:44px}
+    .foot .plink{flex:0 0 auto; min-height:44px}
+  }
   .price{font-size:14px; font-weight:600; color:var(--muted)}
   .price b{color:var(--ink); font-weight:700}
   .open{display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:14px; color:#fff;

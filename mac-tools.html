@@ -122,6 +122,13 @@
     background:transparent; border:1.5px solid var(--acc); padding:8.5px 15px; border-radius:11px; transition:gap .2s, background .2s, color .2s}
   .appstore:hover{gap:11px; background:var(--acc); color:#fff}
   .applinks{display:flex; align-items:center; gap:9px; flex-wrap:wrap; justify-content:flex-end}
+  /* phone: price on its own row, then the coming-soon note and App Store share one row */
+  @media(max-width:560px){
+    .afoot{flex-wrap:wrap; row-gap:12px}
+    .afoot .aprice{flex:1 0 100%}
+    .applinks{width:100%; flex-wrap:wrap; justify-content:flex-start}
+    .applinks .appstore{flex:0 0 auto; white-space:nowrap; min-height:44px}
+  }
 
   .mac-bundle{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin:22px 0 0;
     padding:20px 26px; border:1px solid var(--mbline,#f0d3d0); border-radius:var(--radius); background:var(--mbg,#fdf2f1);
@@ -133,6 +140,8 @@
   .mac-bundle .mb-txt b{color:var(--acc); font-weight:750}
   .mac-bundle .mb-price{font-size:14.5px; font-weight:700; color:var(--acc); white-space:nowrap}
   .mac-bundle .mb-was{color:var(--muted); text-decoration:line-through; font-weight:600; margin-right:9px}
+  /* phone: the bundle's note and price read left-aligned under its sentence */
+  @media(max-width:560px){ .mac-bundle .mb-right{width:100%; justify-content:flex-start} }
 
   .trust{margin:30px 0 0; display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
   @media (max-width:720px){ .trust{grid-template-columns:1fr} }

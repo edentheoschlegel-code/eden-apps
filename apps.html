@@ -110,6 +110,13 @@
   .aopen:hover{border-color:var(--acc); color:var(--acc); gap:10px}
   .aopen svg{width:14px; height:14px}
   .alinks{display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+  /* phone: price on its own row, then Open + App Store share one full-width row */
+  @media(max-width:560px){
+    .afoot{flex-wrap:wrap; row-gap:12px}
+    .afoot .aprice{flex:1 0 100%; white-space:nowrap}
+    .alinks{width:100%; flex-wrap:nowrap; justify-content:flex-start}
+    .alinks .aopen{flex:1 1 0; justify-content:center; min-height:44px}
+  }
 
   footer{margin-top:52px; border-top:1px solid var(--line); padding:34px 0 56px}
   .frow{display:flex; align-items:center; gap:18px; flex-wrap:wrap}

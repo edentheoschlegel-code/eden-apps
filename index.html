@@ -167,6 +167,13 @@
     background:var(--ac); padding:10px 17px; border-radius:11px; transition:gap .2s, filter .2s}
   .open:hover{gap:11px; filter:brightness(1.06)}
   .applinks{display:flex; align-items:center; gap:9px; flex-wrap:wrap; justify-content:flex-end}
+  /* phone: price on its own row, then the actions share one full-width row */
+  @media(max-width:560px){
+    .foot{flex-wrap:wrap; row-gap:12px}
+    .foot .price{flex:1 0 100%; white-space:nowrap}
+    .applinks{width:100%; flex-wrap:wrap; justify-content:flex-start}
+    .applinks > a{flex:1 1 auto; justify-content:center; min-height:44px; white-space:nowrap}
+  }
   .appstore{display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:14px; color:var(--ac);
     background:transparent; border:1.5px solid var(--ac); padding:8.5px 15px; border-radius:11px; transition:gap .2s, background .2s, color .2s}
   .appstore:hover{gap:11px; background:var(--ac); color:#fff}
@@ -245,6 +252,8 @@
   .mac-bundle .mb-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
   .mac-bundle .mb-price{font-size:14px;font-weight:700;color:var(--ac-tx);white-space:nowrap}
   .mac-bundle .mb-was{color:var(--muted);text-decoration:line-through;font-weight:600;margin-right:9px}
+  /* phone: the bundle's note and price read left-aligned under its sentence */
+  @media(max-width:560px){ .mac-bundle .mb-right{width:100%; justify-content:flex-start} }
   .card.mac .tag{color:var(--ac-tx);background:var(--ac-soft);border-color:transparent}
   .card.mac .tag.lock{color:var(--faint);background:transparent;border:1px solid var(--line-strong)}
   :root[data-theme="dark"] .mac-grid{--ac:#5f9a72; --ac-tx:#8fc7a1; --ac-soft:#16231b}
