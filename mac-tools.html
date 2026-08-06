@@ -113,18 +113,20 @@
   :root[data-theme="dark"] .acard.bp{--acc:#98bcdc;--acc-soft:#14202c}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .acard.fw{--acc:#8fc7a1;--acc-soft:#16231b} :root:not([data-theme="light"]) .acard.pn{--acc:#cf9df2;--acc-soft:#241330} :root:not([data-theme="light"]) .acard.cl{--acc:#a8a8f5;--acc-soft:#17172e} :root:not([data-theme="light"]) .acard.bp{--acc:#98bcdc;--acc-soft:#14202c} }
   .afoot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:20px}
-  .aprice{font-size:13.5px; color:var(--faint)}
+  .aprice{font-size:13.5px; color:var(--faint); white-space:nowrap}
   .aprice b{color:var(--ink); font-weight:750}
-  .soonpill{display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; color:var(--acc);
-    background:var(--acc-soft); border:1px solid var(--line-strong); border-radius:999px; padding:8px 14px; white-space:nowrap}
-  .soonpill .dot{width:7px; height:7px; border-radius:999px; background:var(--acc)}
+  .soonpill{display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:650; color:var(--acc);
+    background:var(--acc-soft); border:1px solid var(--line-strong); border-radius:999px; padding:4.5px 10px; white-space:nowrap}
+  .soonpill .dot{width:5px; height:5px; border-radius:999px; background:var(--acc)}
   .appstore{display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:14px; color:var(--acc);
     background:transparent; border:1.5px solid var(--acc); padding:8.5px 15px; border-radius:11px; transition:gap .2s, background .2s, color .2s}
   .appstore:hover{gap:11px; background:var(--acc); color:#fff}
   .applinks{display:flex; align-items:center; gap:9px; flex-wrap:wrap; justify-content:flex-end}
 
   .mac-bundle{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin:22px 0 0;
-    padding:20px 26px; border:1px solid var(--line-strong); border-radius:var(--radius); background:var(--mbg,#f4f8f5)}
+    padding:20px 26px; border:1px solid var(--line-strong); border-radius:var(--radius); background:var(--mbg,#f4f8f5);
+    --acc:var(--mac); --acc-soft:var(--mac-soft)}
+  .mac-bundle .mb-right{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:flex-end}
   :root[data-theme="dark"] .mac-bundle{--mbg:#121a15}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mac-bundle{--mbg:#121a15} }
   .mac-bundle .mb-txt{font-size:15.5px; color:var(--ink)}
@@ -178,7 +180,7 @@
       <h2>All four</h2>
       <span class="count">4 · new</span>
     </div>
-    <p class="sec-note">Buy one for $12.99, or take all four together for $34.99 — a third off. Each does one thing well, keeps your originals as they are, and never phones home. <b>App Store</b> opens Apple's listing in a new tab — web versions are coming soon.</p>
+    <p class="sec-note">Buy one for $12.99 on the App Store, or take all four together for $34.99 here on the web — a third off, and coming soon. Each does one thing well, keeps your originals as they are, and never phones home. <b>App Store</b> opens Apple's listing in a new tab.</p>
 
     <div class="agrid">
 
@@ -250,7 +252,10 @@
 
     <div class="mac-bundle">
       <span class="mb-txt"><b>All four Mac tools</b> — a little gift for taking the whole set.</span>
-      <span class="mb-price"><span class="mb-was">$51.96</span>$34.99 · once · Save 33%</span>
+      <span class="mb-right">
+        <span class="soonpill" title="The all-four bundle will be sold here on edenapps.app"><span class="dot"></span>Web · coming soon</span>
+        <span class="mb-price"><span class="mb-was">$51.96</span>$34.99 · once · Save 33%</span>
+      </span>
     </div>
 
     <div class="trust">

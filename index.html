@@ -227,12 +227,13 @@
     --ac:#3f6b4f; --ac-tx:#356045; --ac-soft:#e8f0ea}
   @media(max-width:760px){.mac-grid{grid-template-columns:1fr}}
   .card.mac .kicker{color:var(--ac-tx);font-weight:600}
+  .card.mac .price{white-space:nowrap}
   .card.mac .desc{color:var(--muted);font-size:14.5px;line-height:1.55}
   .card.mac .name a{color:inherit}
-  .soonpill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;
+  .soonpill{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:650;
     color:var(--ac-tx);background:var(--ac-soft);border:1px solid var(--line-strong);
-    border-radius:999px;padding:8px 14px;white-space:nowrap}
-  .soonpill .dot{width:7px;height:7px;border-radius:999px;background:var(--ac)}
+    border-radius:999px;padding:4.5px 10px;white-space:nowrap}
+  .soonpill .dot{width:5px;height:5px;border-radius:999px;background:var(--ac)}
   .mac-bundle{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;
     gap:14px;flex-wrap:wrap;padding:18px 24px;border:1px solid var(--line-strong);
     border-radius:var(--radius);background:var(--mbg,#f4f8f5)}
@@ -240,6 +241,7 @@
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mac-bundle{--mbg:#121a15} }
   .mac-bundle .mb-txt{font-size:15px;color:var(--ink)}
   .mac-bundle .mb-txt b{color:var(--ac-tx);font-weight:700}
+  .mac-bundle .mb-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
   .mac-bundle .mb-price{font-size:14px;font-weight:700;color:var(--ac-tx);white-space:nowrap}
   .mac-bundle .mb-was{color:var(--muted);text-decoration:line-through;font-weight:600;margin-right:9px}
   .card.mac .tag{color:var(--ac-tx);background:var(--ac-soft);border-color:transparent}
@@ -527,7 +529,7 @@
       <h2>The Mac tools</h2>
       <span class="count">4 · new</span>
     </div>
-    <p class="sec-note">Native tools for your Mac — one clean binary each, no runtime to install, no account, and nothing collected. Signed and notarized by Apple, so your Mac already trusts them. Buy one for $12.99, or take all four for $34.99. <b>App Store</b> opens Apple's listing in a new tab — web versions are coming soon.</p>
+    <p class="sec-note">Native tools for your Mac — one clean binary each, no runtime to install, no account, and nothing collected. Signed and notarized by Apple, so your Mac already trusts them. Buy one for $12.99 on the App Store, or take all four for $34.99 here on the web — the bundle and the web versions are coming soon. <b>App Store</b> opens Apple's listing in a new tab.</p>
 
     <section class="mac-grid" aria-label="Eden Apps for Mac">
       <article class="card mac fw">
@@ -584,7 +586,10 @@
 
       <div class="mac-bundle">
         <span class="mb-txt"><b>All four Mac tools</b> — a little gift for taking the whole set.</span>
-        <span class="mb-price"><span class="mb-was">$51.96</span>$34.99 · once · Save 33%</span>
+        <span class="mb-right">
+          <span class="soonpill" title="The all-four bundle will be sold here on edenapps.app"><span class="dot"></span>Web · coming soon</span>
+          <span class="mb-price"><span class="mb-was">$51.96</span>$34.99 · once · Save 33%</span>
+        </span>
       </div>
     </section>
 
