@@ -118,6 +118,10 @@
   .soonpill{display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; color:var(--acc);
     background:var(--acc-soft); border:1px solid var(--line-strong); border-radius:999px; padding:8px 14px; white-space:nowrap}
   .soonpill .dot{width:7px; height:7px; border-radius:999px; background:var(--acc)}
+  .appstore{display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:14px; color:var(--acc);
+    background:transparent; border:1.5px solid var(--acc); padding:8.5px 15px; border-radius:11px; transition:gap .2s, background .2s, color .2s}
+  .appstore:hover{gap:11px; background:var(--acc); color:#fff}
+  .applinks{display:flex; align-items:center; gap:9px; flex-wrap:wrap; justify-content:flex-end}
 
   .mac-bundle{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin:22px 0 0;
     padding:20px 26px; border:1px solid var(--line-strong); border-radius:var(--radius); background:var(--mbg,#f4f8f5)}
@@ -157,7 +161,7 @@
       <nav class="topnav">
         <a class="catlink" href="apps.html">Apps</a>
         <a class="catlink" href="extensions.html">Extensions</a>
-        <a class="catlink" href="mac-tools.html" aria-current="page">Mac Tools <span class="soontag">Soon</span></a>
+        <a class="catlink" href="mac-tools.html" aria-current="page">Mac Tools</a>
         <button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
       </nav>
     </div>
@@ -174,7 +178,7 @@
       <h2>All four</h2>
       <span class="count">4 · new</span>
     </div>
-    <p class="sec-note">Buy one for $12.99, or take all four together for $34.99 — a third off. Each does one thing well, keeps your originals as they are, and never phones home. Coming very soon.</p>
+    <p class="sec-note">Buy one for $12.99, or take all four together for $34.99 — a third off. Each does one thing well, keeps your originals as they are, and never phones home. <b>App Store</b> opens Apple's listing in a new tab — web versions are coming soon.</p>
 
     <div class="agrid">
 
@@ -187,7 +191,10 @@
         <div class="atags"><span class="atag">Data</span><span class="atag lock">On your Mac</span></div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
-          <span class="soonpill"><span class="dot"></span>Coming soon</span>
+          <span class="applinks">
+            <span class="soonpill" title="The web version of Furrow is coming soon"><span class="dot"></span>Web app · coming soon</span>
+            <a class="appstore" href="https://apps.apple.com/app/id6796475605" target="_blank" rel="noopener" title="Opens Furrow on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </span>
         </div>
       </article>
 
@@ -200,7 +207,10 @@
         <div class="atags"><span class="atag">PDF</span><span class="atag lock">On your Mac</span></div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
-          <span class="soonpill"><span class="dot"></span>Coming soon</span>
+          <span class="applinks">
+            <span class="soonpill" title="The web version of Pagenook is coming soon"><span class="dot"></span>Web app · coming soon</span>
+            <a class="appstore" href="https://apps.apple.com/app/id6796476248" target="_blank" rel="noopener" title="Opens Pagenook on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </span>
         </div>
       </article>
 
@@ -213,7 +223,10 @@
         <div class="atags"><span class="atag">Privacy</span><span class="atag lock">On your Mac</span></div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
-          <span class="soonpill"><span class="dot"></span>Coming soon</span>
+          <span class="applinks">
+            <span class="soonpill" title="The web version of Clearleaf is coming soon"><span class="dot"></span>Web app · coming soon</span>
+            <a class="appstore" href="https://apps.apple.com/app/id6796349717" target="_blank" rel="noopener" title="Opens Clearleaf on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </span>
         </div>
       </article>
 
@@ -226,7 +239,10 @@
         <div class="atags"><span class="atag">Reading</span><span class="atag lock">On your Mac</span></div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
-          <span class="soonpill"><span class="dot"></span>Coming soon</span>
+          <span class="applinks">
+            <span class="soonpill" title="The web version of Bookplate is coming soon"><span class="dot"></span>Web app · coming soon</span>
+            <a class="appstore" href="https://apps.apple.com/app/id6796476940" target="_blank" rel="noopener" title="Opens Bookplate on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </span>
         </div>
       </article>
 
