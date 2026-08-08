@@ -1085,8 +1085,7 @@
   var words = [
     {t:'money.',     cls:'g-money'},
     {t:'documents.', cls:'g-docs'},
-    {t:'career.',    cls:'g-career'},
-    {t:'and more.',  cls:'g-more'}
+    {t:'career.',    cls:'g-career'}
   ];
   // Rebuild: lead text + a .cyc container holding stacked word spans.
   // For assistive tech the whole heading is announced once as a stable phrase;
@@ -1112,9 +1111,12 @@
   document.documentElement.classList.add('cycle-on');   // activates the stacked/animated CSS
   // Size the container to the widest word so layout doesn't jump.
   function fit(){
-    var max = 0;
-    spans.forEach(function(s){ var w = s.getBoundingClientRect().width; if(w>max) max=w; });
-    if(max) cyc.style.minWidth = Math.ceil(max + 2) + 'px';   // +2 guards sub-pixel rounding
+    /* Size to the word that is showing, so the line stays visually centred —
+       the old widest-word sizing left short words looking off-seat (Eden, 2026-08-08).
+       A width transition keeps the recentre gentle. */
+    var on = spans.filter(function(s){ return s.classList.contains('on'); })[0] || spans[0];
+    var w = on.getBoundingClientRect().width;
+    if(w) { cyc.style.transition = 'min-width .45s ease'; cyc.style.minWidth = Math.ceil(w + 2) + 'px'; }
   }
   fit();
   window.addEventListener('resize', fit);
@@ -1129,6 +1131,7 @@
     cur.classList.add('out');
     next.classList.remove('out');
     next.classList.add('on');
+    fit();
     (function(prev){ setTimeout(function(){ prev.classList.remove('out'); }, 600); })(cur);
     i = (i+1) % spans.length;
   }, 2200);
