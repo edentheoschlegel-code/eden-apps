@@ -130,13 +130,8 @@
   .cycle-on .cyc .w.out{opacity:0; filter:blur(6px); transform:translateY(-.32em) scale(.985)}
   @media (prefers-reduced-motion:reduce){ .cycle-on .cyc .w{transition:none} }
   /* Mobile: the cycling word sits on its own centered line. The word-slot is
-     pinned (by JS) to the widest word, so on small screens shorter words would
-     hug the left and look off-centre — make the slot a full-width centred block
-     and centre the animated words within it so every word is dead-centre. */
-  @media (max-width:600px){
-    .cycle-on .cyc{display:block; width:100%; min-width:0!important; text-align:center}
-    .cycle-on .cyc .w{left:0; right:0; text-align:center}
-  }
+     handled since 2026-08-08 by the .hero-l2 line and per-word fit sizing.
+     Eden's rule: "your" and the cycling word stay TOGETHER on phones. */
   .lede{font-size:clamp(15px,2vw,17px); color:var(--muted); margin:0 auto; max-width:600px}
   @media (max-width:600px){ .hero{padding:52px 0 48px} }
 
@@ -432,7 +427,7 @@
   <section class="hero">
     <p class="eyebrow">Made by Eden</p>
     <h1 id="heroHead">Privacy first software for<br><span class="hero-l2">your <span class="g-money">money</span>, <span class="g-docs">documents</span> &amp; <span class="g-career">career.</span></span></h1>
-    <p class="lede">Tools that do one thing well — thoughtfully built and made with care. Runs locally on your device.</p>
+    <p class="lede">Tools that do one thing well, thoughtfully built and made with care. Runs locally on your device.</p>
   </section>
 
   <main id="main">
@@ -440,7 +435,7 @@
       <h2>The apps</h2>
       <span class="count">4 live · more on the way</span>
     </div>
-    <p class="sec-note">Each one opens right away — no account or signup — and is available now on the App Store for iPhone and iPad. Upgrade anytime with an optional one-time Pro unlock and a 30-day money-back guarantee on web purchases.</p>
+    <p class="sec-note">Each one opens right away, with no account or signup, and is available now on the App Store for iPhone and iPad. Upgrade anytime with an optional one-time Pro unlock and a 30-day money-back guarantee on web purchases.</p>
 
     <section class="showcase" aria-roledescription="carousel" aria-label="Featured Eden Apps">
       <div class="tabs" role="group" aria-label="Choose an app">
@@ -481,7 +476,7 @@
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/localresume.png" alt="" width="48" height="48"><div><h3 class="name"><a href="https://localresumeapp.com" target="_blank" rel="noopener">LocalResume</a></h3><p class="kicker">Resume builder</p></div></div>
-            <p class="desc">Build a clean resume and score it against any job description — right on your device — then see the keywords ATS filters look for.</p>
+            <p class="desc">Build a clean resume and score it against any job description, right on your device, then see the keywords ATS filters look for.</p>
             <div class="tags"><span class="tag">Career</span><span class="tag lock">On your device</span></div>
             <p class="split"><b>Included:</b> resume, PDF export &amp; match score · <b>Pro:</b> Word, cover letter, tailoring &amp; versions</p>
             <div class="foot">
@@ -500,7 +495,7 @@
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/localpdf.png" alt="" width="48" height="48"><div><h3 class="name"><a href="https://localpdfapp.com" target="_blank" rel="noopener">Local PDF</a></h3><p class="kicker">PDF toolkit</p></div></div>
-            <p class="desc">Merge, split, compress, convert, sign and redact — a full set of PDF tools that runs on your device.</p>
+            <p class="desc">Merge, split, compress, convert, sign and redact. A full set of PDF tools that runs on your device.</p>
             <div class="tags"><span class="tag">Documents</span><span class="tag lock">On your device</span></div>
             <p class="split"><b>Included:</b> merge, split, compress, convert, sign, redact · <b>Pro:</b> advanced compress, batch &amp; ZIP</p>
             <div class="foot">
@@ -519,7 +514,7 @@
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/snowball.png" alt="" width="48" height="48"><div><h3 class="name"><a href="https://mysnowballapp.com" target="_blank" rel="noopener">My Snowball</a></h3><p class="kicker">Debt payoff planner</p></div></div>
-            <p class="desc">See your debt-free date and the smartest order to clear your balances — snowball, avalanche, or your own plan.</p>
+            <p class="desc">See your debt-free date and the smartest order to clear your balances: snowball, avalanche, or your own plan.</p>
             <div class="tags"><span class="tag">Money</span><span class="tag lock">On your device</span></div>
             <p class="split"><b>Included:</b> plan up to 4 debts · <b>Pro:</b> every debt, PDF export, refinance modeler &amp; more</p>
             <div class="foot">
@@ -538,9 +533,9 @@
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/localjournal.png" alt="" width="48" height="48"><div><h3 class="name">Local Journal</h3><p class="kicker">Private journal</p></div></div>
-            <p class="desc">Write your days in a journal that saves as you type and never leaves your device — with search, moods, tags and a calendar of your writing.</p>
+            <p class="desc">Write your days in a journal that saves as you type and never leaves your device, with search, moods, tags and a calendar of your writing.</p>
             <div class="tags"><span class="tag">Personal</span><span class="tag lock">On your device</span></div>
-            <p class="split"><b>Included:</b> everything — writing, search, calendar, exports &amp; passcode lock. There is no Pro; Local Journal is free.</p>
+            <p class="split"><b>Included:</b> writing, search, calendar, exports &amp; passcode lock. There is no Pro; Local Journal is free.</p>
             <div class="foot">
               <span class="price">Free</span>
               <span class="applinks">
@@ -579,12 +574,12 @@
       <h2>The Mac tools</h2>
       <span class="count">4 · new</span>
     </div>
-    <p class="sec-note">Native tools for your Mac — one clean binary each, no runtime to install, no account, and nothing collected. Signed and notarized by Apple, so your Mac already trusts them. Buy one for $12.99 on the App Store, or take all four for $34.99 here on the web — the bundle and the web versions are coming soon. <b>App Store</b> opens Apple's listing in a new tab.</p>
+    <p class="sec-note">Native tools for your Mac: one clean binary each, no runtime to install, no account, and nothing collected. Signed and notarized by Apple, so your Mac already trusts them. Buy one for $12.99 on the App Store, or take all four for $34.99 here on the web — the bundle and the web versions are coming soon. <b>App Store</b> opens Apple's listing in a new tab.</p>
 
     <section class="mac-grid" aria-label="Eden Apps for Mac">
       <article class="card mac fw">
         <div class="top"><img class="icon" src="assets/furrow.png" alt="" width="56" height="56"><div><h3 class="name">Furrow</h3><p class="kicker">Spreadsheet tidier</p></div></div>
-        <p class="desc">Drop a CSV or Excel file and tidy it — trim stray spaces, split, merge, convert, or clear duplicate rows. A fresh, clean copy is saved beside the original.</p>
+        <p class="desc">Drop a CSV or Excel file and tidy it: trim stray spaces, split, merge, convert, or clear duplicate rows. A fresh, clean copy is saved beside the original.</p>
         <div class="tags"><span class="tag">Data</span><span class="tag lock">On your Mac</span></div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
@@ -597,7 +592,7 @@
 
       <article class="card mac pn">
         <div class="top"><img class="icon" src="assets/pagenook.png" alt="" width="56" height="56"><div><h3 class="name">Pagenook</h3><p class="kicker">PDF page rearranger</p></div></div>
-        <p class="desc">Rearrange a PDF's pages on a board you reorder by dragging — plus merge, split, rotate, and remove pages. Password-protected files are left untouched.</p>
+        <p class="desc">Rearrange a PDF's pages on a board you reorder by dragging, plus merge, split, rotate, and remove pages. Password-protected files are left untouched.</p>
         <div class="tags"><span class="tag">PDF</span><span class="tag lock">On your Mac</span></div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
@@ -610,7 +605,7 @@
 
       <article class="card mac cl">
         <div class="top"><img class="icon" src="assets/clearleaf.png" alt="" width="56" height="56"><div><h3 class="name">Clearleaf</h3><p class="kicker">Hidden-data remover</p></div></div>
-        <p class="desc">See the hidden trail a document or photo carries — author, edits, comments, location — then clear it and keep a clean copy beside the original.</p>
+        <p class="desc">See the hidden trail a document or photo carries (author, edits, comments, location) and clear it and keep a clean copy beside the original.</p>
         <div class="tags"><span class="tag">Privacy</span><span class="tag lock">On your Mac</span></div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
@@ -623,7 +618,7 @@
 
       <article class="card mac bp">
         <div class="top"><img class="icon" src="assets/bookplate.png" alt="" width="56" height="56"><div><h3 class="name">Bookplate</h3><p class="kicker">Read-it-later library</p></div></div>
-        <p class="desc">Save a clean, readable copy of any page to a private library that lives only on your Mac — and have any article read aloud. No account, offline.</p>
+        <p class="desc">Save a clean, readable copy of any page to a private library that lives only on your Mac, and have any article read aloud. No account, offline.</p>
         <div class="tags"><span class="tag">Reading</span><span class="tag lock">On your Mac</span></div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
@@ -648,7 +643,7 @@
       <h2>The extensions</h2>
       <span class="count">9 extensions</span>
     </div>
-    <p class="sec-note">Focused browser tools with the same promise as our apps—built to keep your information yours. Pro is a <b>one-time unlock</b>, not a subscription. Each installs from the Chrome Web Store.</p>
+    <p class="sec-note">Focused browser tools with the same promise as our apps, built to keep your information yours. Pro is a <b>one-time unlock</b>, not a subscription. Each installs from the Chrome Web Store.</p>
 
     <div class="ext-filter" id="extFilter" role="group" aria-label="Filter extensions">
       <button type="button" data-f="all" aria-pressed="true">All</button>
@@ -661,7 +656,7 @@
         <button class="peek" type="button" aria-pressed="false" aria-label="See Video Summaries in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
         <div class="cbody">
         <div class="top"><img class="icon" src="assets/ext-video-summaries.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/video-summaries-for-youtu/ekhdoohngaeajhgjhmoacmcjmoagcaph" target="_blank" rel="noopener">Video Summaries</a></h3><p class="kicker">YouTube summaries</p></div></div>
-        <p class="desc">Turn any YouTube video into key points with clickable timestamps — summarized on your device.</p>
+        <p class="desc">Turn any YouTube video into key points with clickable timestamps, summarized on your device.</p>
         <p class="split"><b>Included:</b> 3 videos a day · <b>Pro:</b> unlimited, chapters &amp; export</p>
         <p class="price">Pro <b>$8.99</b> once</p>
 
@@ -709,7 +704,7 @@
         <button class="peek" type="button" aria-pressed="false" aria-label="See Focus Mode in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
         <div class="cbody">
         <div class="top"><img class="icon" src="assets/ext-focus-mode.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/focus-mode-%E2%80%94-pomodoro-sit/mmojkajohniicnkkmjohcplbljhjnmkp" target="_blank" rel="noopener">Focus Mode</a></h3><p class="kicker">Pomodoro &amp; site blocker</p></div></div>
-        <p class="desc">A focus timer paired with automatic site blocking — distracting sites simply stop loading during a session.</p>
+        <p class="desc">A focus timer paired with automatic site blocking: distracting sites simply stop loading during a session.</p>
         <p class="split"><b>Included:</b> timer + 5 custom sites · <b>Pro:</b> unlimited sites</p>
         <p class="price">Pro <b>$5.99</b> once</p>
 
@@ -725,7 +720,7 @@
         <button class="peek" type="button" aria-pressed="false" aria-label="See AI Summarizer in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
         <div class="cbody">
         <div class="top"><img class="icon" src="assets/ext-ai-summarizer.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/ai-summarizer-%E2%80%94-instant-p/enhflmnilfmaibpohaoapnlnjbdjbipb" target="_blank" rel="noopener">AI Summarizer</a></h3><p class="kicker">Page summaries</p></div></div>
-        <p class="desc">Condense any article into a few clear key points with one click — summarized right on your device.</p>
+        <p class="desc">Condense any article into a few clear key points with one click, summarized right on your device.</p>
         <p class="split"><b>Included:</b> 10 summaries a day · <b>Pro:</b> unlimited + detailed view</p>
         <p class="price">Pro <b>$5.99</b> once</p>
 
@@ -741,7 +736,7 @@
         <button class="peek" type="button" aria-pressed="false" aria-label="See Tab Snoozer in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
         <div class="cbody">
         <div class="top"><img class="icon" src="assets/ext-tab-snoozer.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/tab-snoozer/ciohooaomfljpbhjecfdjcondkeadode" target="_blank" rel="noopener">Tab Snoozer</a></h3><p class="kicker">Tab scheduler</p></div></div>
-        <p class="desc">Hide a tab until you need it — snooze it and it reopens itself on the schedule you pick, even after a restart.</p>
+        <p class="desc">Hide a tab until you need it: snooze it and it reopens itself on the schedule you pick, even after a restart.</p>
         <p class="split"><b>Included:</b> 3 snoozed at once · <b>Pro:</b> unlimited, custom times &amp; repeat</p>
         <p class="price">Pro <b>$8.99</b> once</p>
 
@@ -757,7 +752,7 @@
         <button class="peek" type="button" aria-pressed="false" aria-label="See Recipe Extractor in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
         <div class="cbody">
         <div class="top"><img class="icon" src="assets/ext-recipe-extractor.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/recipe-extractor-%E2%80%94-skip-t/fhdgipnhnlfldofapdjpbmbacmgddgmd" target="_blank" rel="noopener">Recipe Extractor</a></h3><p class="kicker">Recipe cleaner</p></div></div>
-        <p class="desc">Skip the life story and jump straight to the recipe — ingredients and steps, cleanly pulled from the page.</p>
+        <p class="desc">Skip the life story and jump straight to the recipe: ingredients and steps, cleanly pulled from the page.</p>
         <p class="split"><b>Included:</b> clean recipe &amp; cook-along · <b>Pro:</b> scaling, save &amp; export</p>
         <p class="price">Pro <b>$8.99</b> once</p>
 
@@ -789,7 +784,7 @@
         <button class="peek" type="button" aria-pressed="false" aria-label="See Cookie Cutter in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
         <div class="cbody">
         <div class="top"><img class="icon" src="assets/ext-cookie-cutter.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/cookie-cutter/gijjdeegadokkaffkhfnjiekfeppcdfc" target="_blank" rel="noopener">Cookie Cutter</a></h3><p class="kicker">Cookie banner auto-decline</p></div></div>
-        <p class="desc">Automatically declines cookie banners on the sites you visit — it clicks decline, never accept.</p>
+        <p class="desc">Automatically declines cookie banners on the sites you visit. It clicks decline, never accept.</p>
         <p class="split"><b>Included:</b> auto-decline cookie banners · <b>Pro:</b> deep cleanup &amp; element hider</p>
         <p class="price">Pro <b>$5.99</b> once</p>
 
