@@ -55,7 +55,7 @@
   <p class="lead">Video Summaries for YouTube is built to respect your privacy. Here is exactly what it does, and does not do, with your data.</p>
   <p>This extension is an independent tool and is not affiliated with, endorsed by, or sponsored by YouTube or Google LLC.</p>
   <h2>Summary (the short version)</h2>
-  <p>Summarizing happens locally, in your browser. Video Summaries for YouTube condenses a video on your own device using a built-in extractive summarizer. There is no AI server, no account, and no analytics. Besides reading caption data from YouTube itself (the site you're already on), the extension's only outside contact is a plan check with ExtensionPay (ExtPay): an anonymous check of whether you are on the Free or Pro plan. It runs for everyone and sends no personal data. The paid upgrade is optional and is a one-time purchase, not a subscription (see Payments below). Your viewing and your summaries stay yours.</p>
+  <p>Summarizing happens locally, in your browser. Video Summaries for YouTube condenses a video on your own device using a built in extractive summarizer. There is no AI server, no account, and no analytics. Besides reading caption data from YouTube itself (the site you're already on), the extension's only outside contact is a plan check with ExtensionPay (ExtPay): an anonymous check of whether you are on the Free or Pro plan. It runs for everyone and sends no personal data. The paid upgrade is optional and is a single purchase, not a subscription (see Payments below). Your viewing and your summaries stay yours.</p>
   <h2>How it works</h2>
   <p>When you click "Summarize This Video," the extension reads the public caption/transcript track of the YouTube video you currently have open, the same transcript YouTube already serves to your browser. It condenses that text into key points on your device, in the moment. Each point is matched back to a timestamp so you can jump the player to that part of the video. The transcript is used only to build your summary and is never uploaded.</p>
   <h2>What data the Extension accesses and stores</h2>
@@ -79,7 +79,7 @@
   </ul>
   <p>Besides reading caption data from YouTube itself (the site you're already on) to build a summary, the only service the extension contacts is ExtensionPay (extensionpay.com), the payment provider: it keeps an anonymous identifier in your browser and checks your plan status (Free or Pro) with its server. This check runs for all users, including free ones, and sends no personal information: no email, no card details, nothing about the videos you watch, and none of your transcripts or summaries.</p>
   <h2>Payments (optional Pro)</h2>
-  <p>The Pro upgrade is a one-time purchase, not a subscription. You pay once and it stays yours. Payments are handled by ExtensionPay (<a href="https://extensionpay.com" target="_blank" rel="noopener">https://extensionpay.com</a>), which uses Stripe for secure processing. If you buy Pro, ExtensionPay handles your email address and payment details solely to complete and verify that purchase. We never see or store your card information. If you do not buy the upgrade, no payment data is collected. See ExtensionPay's and Stripe's privacy policies for how they handle payment data:</p>
+  <p>The Pro upgrade is a single purchase, not a subscription. You pay once and it stays yours. Payments are handled by ExtensionPay (<a href="https://extensionpay.com" target="_blank" rel="noopener">https://extensionpay.com</a>), which uses Stripe for secure processing. If you buy Pro, ExtensionPay handles your email address and payment details solely to complete and verify that purchase. We never see or store your card information. If you do not buy the upgrade, no payment data is collected. See ExtensionPay's and Stripe's privacy policies for how they handle payment data:</p>
   <ul>
     <li>ExtensionPay: <a href="https://extensionpay.com/privacy" target="_blank" rel="noopener">https://extensionpay.com/privacy</a></li>
     <li>Stripe: <a href="https://stripe.com/privacy" target="_blank" rel="noopener">https://stripe.com/privacy</a></li>
@@ -89,12 +89,12 @@
     <li>storage: to save your summaries, usage count, settings, and plan record locally on your device.</li>
     <li>activeTab: to confirm the tab you are looking at is a YouTube video, so the summarize button can work on it. It is not used to read unrelated tabs or browsing history.</li>
     <li>host access to <code>https://www.youtube.com/*</code>: so the content script can read the public transcript of the video you ask it to summarize and move the player to a timestamp. This is the only site the extension reads.</li>
-    <li>host access to <code>https://extensionpay.com/*</code>: required by ExtensionPay to run the anonymous plan check and to handle the optional one-time Pro purchase.</li>
+    <li>host access to <code>https://extensionpay.com/*</code>: required by ExtensionPay to run the anonymous plan check and to handle the optional Pro purchase you make once.</li>
   </ul>
   <h2>Data retention</h2>
   <p>Your saved summaries, settings, and plan record stay in your browser until you delete them or remove the extension. Usage counts keep only the 7 most recent days; older days are pruned automatically. Removing the extension or clearing its storage erases everything the extension holds. The anonymous plan record held by ExtensionPay is governed by ExtensionPay's own retention policy.</p>
   <h2>Children</h2>
-  <p>Video Summaries for YouTube is a general-audience tool and is not directed at children under 13. It does not knowingly collect any personal information from anyone, including children.</p>
+  <p>Video Summaries for YouTube is a general audience tool and is not directed at children under 13. It does not knowingly collect any personal information from anyone, including children.</p>
   <h2>Changes</h2>
   <p>If this policy ever changes, the updated version will be posted here with a new "Last updated" date.</p>
   <h2>Contact</h2>

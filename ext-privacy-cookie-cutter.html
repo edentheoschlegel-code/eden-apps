@@ -60,9 +60,9 @@
   <h2>What data the Extension handles</h2>
   <p>The Extension stores the following on your device only (using Chrome's local storage):</p>
   <ul>
-    <li>Your settings (the global on/off switch and the deep-cleanup preference)</li>
+    <li>Your settings (the global on/off switch and the deep cleanup preference)</li>
     <li>The list of sites you have paused</li>
-    <li>Any per-site hide rules you create (the elements you chose to hide)</li>
+    <li>Any per site hide rules you create (the elements you chose to hide)</li>
     <li>A lifetime "banners handled" counter and a rolling count of the last few days</li>
   </ul>
   <p>That is the entire dataset. It never includes the content of the pages you visit, your browsing history, or which sites you went to.</p>
@@ -76,12 +76,12 @@
     <li>Does not store the content of pages you visit.</li>
   </ul>
   <h2>Payments (optional Pro upgrade)</h2>
-  <p>Pro features are unlocked through a <strong>one-time purchase</strong>, processed by <strong>ExtensionPay</strong> (ExtPay) securely via <strong>Stripe</strong>. To confirm whether you own Pro, ExtensionPay handles your payment email address. That is the only personal data involved, and it is used solely to verify your one-time purchase. Cookie Cutter itself never sees your card details and stores no payment information.</p>
+  <p>Pro features are unlocked through a <strong>single purchase</strong>, processed by <strong>ExtensionPay</strong> (ExtPay) securely via <strong>Stripe</strong>. To confirm whether you own Pro, ExtensionPay handles your payment email address. That is the only personal data involved, and it is used solely to verify that single purchase. Cookie Cutter itself never sees your card details and stores no payment information.</p>
   <h2>Permissions explained</h2>
   <ul>
-    <li><strong>storage</strong>: saves your settings, paused sites, per-site rules, and the banners-handled counter locally.</li>
-    <li><strong>all-sites content script (<code>&lt;all_urls&gt;</code> in <code>content_scripts</code>)</strong>: required so the Extension can find and click the decline button of a cookie banner on any site you visit. It uses this access only to dismiss banners and to apply rules you created; it does not read or transmit page content.</li>
-    <li><strong>activeTab</strong>: lets the popup read the address of the tab you are currently viewing (only when you open the popup) so the per-site pause toggle and saved-rules list can show the right site.</li>
+    <li><strong>storage</strong>: saves your settings, paused sites, per site rules, and the "banners handled" counter locally.</li>
+    <li><strong>content script on all sites (<code>&lt;all_urls&gt;</code> in <code>content_scripts</code>)</strong>: required so the Extension can find and click the decline button of a cookie banner on any site you visit. It uses this access only to dismiss banners and to apply rules you created; it does not read or transmit page content.</li>
+    <li><strong>activeTab</strong>: lets the popup read the address of the tab you are currently viewing (only when you open the popup) so the per site pause toggle and saved rules list can show the right site.</li>
     <li><strong>host access (<code>https://extensionpay.com/*</code>)</strong>: used only by the ExtensionPay payment integration to confirm your Pro status.</li>
   </ul>
   <h2>Data retention and deletion</h2>

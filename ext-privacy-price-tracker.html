@@ -56,7 +56,7 @@
   <h2>Summary</h2>
   <p>Price Tracker keeps everything on your device, in your browser's local storage. It does not send your data to any server we run, does not require an account, and does not share your information with third parties.</p>
   <h2>How it works</h2>
-  <p>When you click "Track Price" on a supported product page, the Extension saves that product so it can watch the price for you. Every few hours it quietly re-checks the prices of your tracked items, and if one drops it shows you a desktop alert. All of this happens on your own device.</p>
+  <p>When you click "Track Price" on a supported product page, the Extension saves that product so it can watch the price for you. Every few hours it quietly rechecks the prices of your tracked items, and if one drops it shows you a desktop alert. All of this happens on your own device.</p>
   <h2>What data the Extension handles</h2>
   <p>When you track a product, the Extension stores the following on your device only (using Chrome's local storage):</p>
   <ul>
@@ -75,15 +75,15 @@
     <li>Does not follow your browsing across the web.</li>
   </ul>
   <h2>Payments (optional Pro)</h2>
-  <p>Price Tracker is yours to use, with the option to unlock unlimited tracking through a one-time purchase of $8.99. This is a single payment, not a subscription. There is no monthly fee and nothing to renew.</p>
-  <p>The purchase is handled by ExtensionPay (extensionpay.com), a third-party payment service that works with Stripe. When you choose to upgrade, ExtensionPay processes the payment and simply tells the Extension whether your purchase is confirmed. Your card details are entered on ExtensionPay's and Stripe's own secure pages. The Extension never sees or stores your payment information. Please see ExtensionPay's and Stripe's own privacy policies for how they handle payment data. If you never upgrade, no payment information is involved at all.</p>
+  <p>Price Tracker is yours to use, with the option to unlock unlimited tracking through a single purchase of $8.99. This is a single payment, not a subscription. There is no monthly fee and nothing to renew.</p>
+  <p>The purchase is handled by ExtensionPay (extensionpay.com), a third party payment service that works with Stripe. When you choose to upgrade, ExtensionPay processes the payment and simply tells the Extension whether your purchase is confirmed. Your card details are entered on ExtensionPay's and Stripe's own secure pages. The Extension never sees or stores your payment information. Please see ExtensionPay's and Stripe's own privacy policies for how they handle payment data. If you never upgrade, no payment information is involved at all.</p>
   <h2>Permissions explained</h2>
   <ul>
     <li>storage: saves your tracked items and plan status locally in the browser.</li>
     <li>alarms: schedules the periodic price checks (about every six hours).</li>
     <li>notifications: shows a desktop alert when a tracked price drops.</li>
     <li>host access to the supported retailers (Amazon, eBay, Walmart, Target, Best Buy, Etsy, AliExpress, Newegg, Home Depot, and Costco): required to read price information from those product pages.</li>
-    <li>host access to <code>https://extensionpay.com/*</code>: used for ExtensionPay's anonymous plan check (which runs for all users and sends no personal information) and, if you choose it, the optional one-time Pro purchase.</li>
+    <li>host access to <code>https://extensionpay.com/*</code>: used for ExtensionPay's anonymous plan check (which runs for all users and sends no personal information) and, if you choose it, the optional Pro purchase you make once.</li>
   </ul>
   <h2>Data retention and deletion</h2>
   <p>Your tracked items stay in your browser until you remove them inside the Extension popup or until you uninstall the Extension. Uninstalling removes all data the Extension has stored on your device. We have no copy of it on our side, because none was ever sent to us.</p>
