@@ -192,7 +192,8 @@
   .track{display:flex; transition:transform .55s cubic-bezier(.4,0,.2,1)}
   @media (prefers-reduced-motion:reduce){ .track{transition:none} }
   .slide{min-width:100%; display:grid; grid-template-columns:1.32fr 1fr; gap:32px; align-items:center; padding:4px}
-  .slide.sb{--ac:var(--sb); --ac-tx:var(--sb-tx)} .slide.lp{--ac:var(--lp); --ac-tx:var(--lp-tx)} .slide.li{--ac:var(--li); --ac-tx:var(--li-tx)}.slide.lj{--ac:var(--lj); --ac-tx:var(--lj-tx)}.slide.ls{--ac:var(--ls); --ac-tx:var(--ls-tx)} .slide.lr{--ac:var(--lr); --ac-tx:var(--lr-tx)}
+  .slide.sb{--ac:var(--sb); --ac-tx:var(--sb-tx)} .slide.lp{--ac:var(--lp); --ac-tx:var(--lp-tx)} .slide.li{--ac:var(--li); --ac-tx:var(--li-tx)}.slide.lj{--ac:var(--lj); --ac-tx:var(--lj-tx)}.slide.ls{--ac:var(--ls); --ac-tx:var(--ls-tx)}
+  .hero-l2{font-size:.85em} .slide.lr{--ac:var(--lr); --ac-tx:var(--lr-tx)}
   .frame{border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); background:var(--surface)}
   .frame .bar{position:relative; display:flex; align-items:center; height:34px; padding:0 13px; border-bottom:1px solid var(--line); background:var(--bg)}
   .frame .bar .d{width:10px; height:10px; border-radius:50%; background:var(--line-strong); margin-right:6px}
@@ -430,7 +431,7 @@
 
   <section class="hero">
     <p class="eyebrow">Made by Eden</p>
-    <h1 id="heroHead">Privacy first software for<br>your <span class="g-money">money</span>, <span class="g-docs">documents</span> &amp; <span class="g-career">career.</span></h1>
+    <h1 id="heroHead">Privacy first software for<br><span class="hero-l2">your <span class="g-money">money</span>, <span class="g-docs">documents</span> &amp; <span class="g-career">career.</span></span></h1>
     <p class="lede">Tools that do one thing well — thoughtfully built and made with care. Runs locally on your device.</p>
   </section>
 
@@ -1093,7 +1094,10 @@
   h1.setAttribute('aria-label', 'Privacy first software for your money, documents, career, and more.');
   h1.textContent = 'Privacy first software for';
   h1.appendChild(document.createElement('br'));
-  h1.appendChild(document.createTextNode('your '));
+  var l2 = document.createElement('span');
+  l2.className = 'hero-l2';
+  l2.appendChild(document.createTextNode('your '));
+  h1.appendChild(l2);
   var cyc = document.createElement('span');
   cyc.className = 'cyc';
   cyc.setAttribute('aria-hidden', 'true');
@@ -1104,7 +1108,7 @@
     cyc.appendChild(s);
     return s;
   });
-  h1.appendChild(cyc);
+  (document.querySelector('#heroHead .hero-l2') || h1).appendChild(cyc);
   document.documentElement.classList.add('cycle-on');   // activates the stacked/animated CSS
   // Size the container to the widest word so layout doesn't jump.
   function fit(){
