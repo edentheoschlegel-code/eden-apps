@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'">
 <title>Apps · Eden Apps</title>
-<meta name="description" content="Private, on-device apps by Eden for your money, documents, and career. One-time Pro unlock, no accounts and no tracking.">
+<meta name="description" content="Private apps by Eden for your money, documents, and career, all running on your device. One time Pro unlock, no accounts and no tracking.">
 <link rel="canonical" href="https://edenapps.app/apps.html">
 <link rel="icon" href="assets/eden-logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:title" content="Apps · Eden Apps">
-<meta property="og:description" content="Private, on-device software for your money, documents, and career. One-time Pro unlock, no accounts.">
+<meta property="og:description" content="Private software for your money, documents, and career, all running on your device. One time Pro unlock, no accounts.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://edenapps.app/apps.html">
 <meta property="og:image" content="https://edenapps.app/assets/og-image.jpg">
@@ -79,6 +79,9 @@
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) h1{color:var(--ink)} }
   h1 .g-money{color:var(--sb-tx)} h1 .g-docs{color:var(--li-tx)} h1 .g-career{color:var(--lr-tx)}
   .lede{font-size:clamp(15px,2vw,17px); color:var(--muted); margin:0 auto; max-width:600px}
+  .hero-l2{font-size:.85em}
+  .for-b{display:none}
+  @media (max-width:600px){ .for-a{display:none} .h1-br{display:none} .hero-l2{display:block} .for-b{display:inline} }
   @media (max-width:600px){ .lede{font-size:11px; letter-spacing:-.015em; max-width:none} }
   @media (max-width:600px){ .hero{padding:34px 0 18px} }
 
@@ -154,7 +157,7 @@
 
   <section class="hero">
     <p class="eyebrow">The apps</p>
-    <h1>Privacy first software for your <span class="g-money">money</span>, <span class="g-docs">documents</span> &amp; <span class="g-career">career.</span></h1>
+    <h1>Privacy first software<span class="for-a"> for</span><br class="h1-br"><span class="hero-l2"><span class="for-b">for </span>your <span class="g-money">money</span>, <span class="g-docs">documents</span> &amp; <span class="g-career">career.</span></span></h1>
     <p class="lede">Tools that do one thing well, thoughtfully built and made with care.<br>Runs locally on your device.</p>
   </section>
 
@@ -163,7 +166,7 @@
       <h2>All apps</h2>
       <span class="count">4 live · more on the way</span>
     </div>
-    <p class="sec-note">Each one opens right away, with no account or signup, and is available now on the App Store for iPhone and iPad. Upgrade anytime with an optional one-time Pro unlock and a 30-day money-back guarantee on web purchases.</p>
+    <p class="sec-note">Each one opens right away, with no account or signup, and is available now on the App Store for iPhone and iPad. Upgrade anytime with an optional Pro unlock, bought once, and a 30 day money back guarantee on web purchases.</p>
 
     <div class="agrid">
 
@@ -172,7 +175,7 @@
           <img class="aicon" src="assets/localinvoice.png" alt="" width="52" height="52">
           <div><h3 class="aname"><a href="https://localinvoiceapp.com" target="_blank" rel="noopener">Local Invoice</a></h3><p class="akicker">Invoice maker</p></div>
         </div>
-        <p class="adesc">Create clean, professional invoices and estimates in minutes, then export a polished, watermark-free PDF.</p>
+        <p class="adesc">Create clean, professional invoices and estimates in minutes, then export a polished PDF with no watermark.</p>
         <div class="atags"><span class="atag">Business</span><span class="atag lock">On your device</span></div>
         <div class="afoot">
           <span class="aprice">Pro <b>$12.99</b> once</span>
@@ -220,7 +223,7 @@
           <img class="aicon" src="assets/snowball.png" alt="" width="52" height="52">
           <div><h3 class="aname"><a href="https://mysnowballapp.com" target="_blank" rel="noopener">My Snowball</a></h3><p class="akicker">Debt payoff planner</p></div>
         </div>
-        <p class="adesc">See your debt-free date and the smartest order to clear your balances: snowball, avalanche, or your own plan.</p>
+        <p class="adesc">See your debt free date and the smartest order to clear your balances: snowball, avalanche, or your own plan.</p>
         <div class="atags"><span class="atag">Money</span><span class="atag lock">On your device</span></div>
         <div class="afoot">
           <span class="aprice">Pro <b>$9.99</b> once</span>
