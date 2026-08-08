@@ -29,6 +29,8 @@
     --lp:#e11d48; --lp-soft:#fdeaef; --lp-tx:#e11d48;
     --li:#4338ca; --li-soft:#ecebfb; --li-tx:#4338ca;
     --lr:#047857; --lr-soft:#e5f5ee; --lr-tx:#047857;
+    --lj:#7b3f6b; --lj-soft:#f8f1f6; --lj-tx:#7b3f6b;
+    --ls:#c2410c; --ls-soft:#fdeee5; --ls-tx:#c2410c;
     /* Signup button. Deep enough to carry a white label at 7.9:1. Kept off --li on
        purpose: that token also drives the Local Invoice accent and the filter chips. */
     --cta:#0e5585; --cta-ink:#ffffff;
@@ -39,14 +41,14 @@
       --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#8b93a1;
       --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
       --sb-soft:#0c2a31; --lp-soft:#33121c; --li-soft:#1a1840; --lr-soft:#0b2a1e;
-      --sb-tx:#38bdf8; --lp-tx:#fb7185; --li-tx:#8b83f0; --lr-tx:#34d399;
+      --sb-tx:#38bdf8; --lp-tx:#fb7185; --li-tx:#8b83f0; --lr-tx:#34d399; --lj-tx:#d69fc4; --ls-tx:#fb923c;
   }
   @media (prefers-color-scheme:dark){
     :root:not([data-theme="light"]){
       --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#8b93a1;
       --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
       --sb-soft:#0c2a31; --lp-soft:#33121c; --li-soft:#1a1840; --lr-soft:#0b2a1e;
-      --sb-tx:#38bdf8; --lp-tx:#fb7185; --li-tx:#8b83f0; --lr-tx:#34d399;
+      --sb-tx:#38bdf8; --lp-tx:#fb7185; --li-tx:#8b83f0; --lr-tx:#34d399; --lj-tx:#d69fc4; --ls-tx:#fb923c;
     }
   }
   *{box-sizing:border-box}
@@ -190,7 +192,7 @@
   .track{display:flex; transition:transform .55s cubic-bezier(.4,0,.2,1)}
   @media (prefers-reduced-motion:reduce){ .track{transition:none} }
   .slide{min-width:100%; display:grid; grid-template-columns:1.32fr 1fr; gap:32px; align-items:center; padding:4px}
-  .slide.sb{--ac:var(--sb); --ac-tx:var(--sb-tx)} .slide.lp{--ac:var(--lp); --ac-tx:var(--lp-tx)} .slide.li{--ac:var(--li); --ac-tx:var(--li-tx)} .slide.lr{--ac:var(--lr); --ac-tx:var(--lr-tx)}
+  .slide.sb{--ac:var(--sb); --ac-tx:var(--sb-tx)} .slide.lp{--ac:var(--lp); --ac-tx:var(--lp-tx)} .slide.li{--ac:var(--li); --ac-tx:var(--li-tx)}.slide.lj{--ac:var(--lj); --ac-tx:var(--lj-tx)}.slide.ls{--ac:var(--ls); --ac-tx:var(--ls-tx)} .slide.lr{--ac:var(--lr); --ac-tx:var(--lr-tx)}
   .frame{border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); background:var(--surface)}
   .frame .bar{position:relative; display:flex; align-items:center; height:34px; padding:0 13px; border-bottom:1px solid var(--line); background:var(--bg)}
   .frame .bar .d{width:10px; height:10px; border-radius:50%; background:var(--line-strong); margin-right:6px}
@@ -214,7 +216,7 @@
   .tabs{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:0 0 22px}
   .tab{display:inline-flex; align-items:center; gap:8px; font:inherit; font-size:14px; font-weight:700; color:var(--muted); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:6px 15px 6px 7px; cursor:pointer; transition:color .2s, background .2s, border-color .2s}
   .tab img{width:22px; height:22px; border-radius:6px}
-  .tab.sb{--ac:var(--sb)} .tab.lp{--ac:var(--lp)} .tab.li{--ac:var(--li)} .tab.lr{--ac:var(--lr)}
+  .tab.sb{--ac:var(--sb)} .tab.lp{--ac:var(--lp)} .tab.li{--ac:var(--li)}.tab.lj{--ac:var(--lj)}.tab.ls{--ac:var(--ls)} .tab.lr{--ac:var(--lr)}
   .tab[aria-pressed="true"]{color:#fff; background:var(--ac); border-color:var(--ac)}
   .tab:hover{border-color:var(--ac)}
   .carousel-ctl{display:flex; justify-content:center; margin:16px 0 0}
@@ -445,12 +447,14 @@
         <button class="tab lr" type="button" data-i="1" aria-pressed="false" aria-controls="slide-lr" title="LocalResume — resume builder"><img src="assets/localresume.png" alt="" width="22" height="22">LocalResume</button>
         <button class="tab lp" type="button" data-i="2" aria-pressed="false" aria-controls="slide-lp" title="Local PDF — PDF toolkit"><img src="assets/localpdf.png" alt="" width="22" height="22">Local PDF</button>
         <button class="tab sb" type="button" data-i="3" aria-pressed="false" aria-controls="slide-sb" title="My Snowball — debt payoff planner"><img src="assets/snowball.png" alt="" width="22" height="22">My Snowball</button>
+        <button class="tab lj" type="button" data-i="4" aria-pressed="false" aria-controls="slide-lj" title="Local Journal — private journal"><img src="assets/localjournal.png" alt="" width="22" height="22">Local Journal</button>
+        <button class="tab ls" type="button" data-i="5" aria-pressed="false" aria-controls="slide-ls" title="Local Scan — document scanner"><img src="assets/localscan.png" alt="" width="22" height="22">Local Scan</button>
       </div>
       <div class="stage">
         <button class="arrow prev" type="button" aria-label="Previous app">&#8249;</button>
         <div class="viewport">
           <div class="track" id="eaTrack">
-        <article class="slide li" id="slide-li" role="group" aria-roledescription="slide" aria-label="Local Invoice, 1 of 4">
+        <article class="slide li" id="slide-li" role="group" aria-roledescription="slide" aria-label="Local Invoice, 1 of 6">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localinvoiceapp.com</span></div>
             <a href="https://localinvoiceapp.com" target="_blank" rel="noopener" aria-label="Open Local Invoice"><picture><source srcset="assets/hero-localinvoice.avif" type="image/avif"><img class="shot shot-light" src="assets/hero-localinvoice.jpg" alt="Local Invoice app screenshot" loading="eager" fetchpriority="high" width="1280" height="818"></picture><picture><source srcset="assets/hero-localinvoice-dark.avif" type="image/avif"><img class="shot shot-dark" src="assets/hero-localinvoice-dark.jpg" alt="Local Invoice app screenshot" loading="lazy" width="1280" height="818"></picture></a>
@@ -469,7 +473,7 @@
             </div>
           </div>
         </article>
-        <article class="slide lr" id="slide-lr" role="group" aria-roledescription="slide" aria-label="LocalResume, 2 of 4">
+        <article class="slide lr" id="slide-lr" role="group" aria-roledescription="slide" aria-label="LocalResume, 2 of 6">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localresumeapp.com</span></div>
             <a href="https://localresumeapp.com" target="_blank" rel="noopener" aria-label="Open LocalResume"><picture><source srcset="assets/hero-localresume.avif" type="image/avif"><img class="shot shot-light" src="assets/hero-localresume.jpg" alt="LocalResume app screenshot" loading="lazy" width="1280" height="818"></picture><picture><source srcset="assets/hero-localresume-dark.avif" type="image/avif"><img class="shot shot-dark" src="assets/hero-localresume-dark.jpg" alt="LocalResume app screenshot" loading="lazy" width="1280" height="818"></picture></a>
@@ -488,7 +492,7 @@
             </div>
           </div>
         </article>
-        <article class="slide lp" id="slide-lp" role="group" aria-roledescription="slide" aria-label="Local PDF, 3 of 4">
+        <article class="slide lp" id="slide-lp" role="group" aria-roledescription="slide" aria-label="Local PDF, 3 of 6">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localpdfapp.com</span></div>
             <a href="https://localpdfapp.com" target="_blank" rel="noopener" aria-label="Open Local PDF"><picture><source srcset="assets/hero-localpdf.avif" type="image/avif"><img class="shot shot-light" src="assets/hero-localpdf.jpg" alt="Local PDF app screenshot" loading="lazy" width="1280" height="818"></picture><picture><source srcset="assets/hero-localpdf-dark.avif" type="image/avif"><img class="shot shot-dark" src="assets/hero-localpdf-dark.jpg" alt="Local PDF app screenshot" loading="lazy" width="1280" height="818"></picture></a>
@@ -507,7 +511,7 @@
             </div>
           </div>
         </article>
-        <article class="slide sb" id="slide-sb" role="group" aria-roledescription="slide" aria-label="My Snowball, 4 of 4">
+        <article class="slide sb" id="slide-sb" role="group" aria-roledescription="slide" aria-label="My Snowball, 4 of 6">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">mysnowballapp.com</span></div>
             <a href="https://mysnowballapp.com" target="_blank" rel="noopener" aria-label="Open My Snowball"><picture><source srcset="assets/hero-snowball.avif" type="image/avif"><img class="shot shot-light" src="assets/hero-snowball.jpg" alt="My Snowball app screenshot" loading="lazy" width="1280" height="818"></picture><picture><source srcset="assets/hero-snowball-dark.avif" type="image/avif"><img class="shot shot-dark" src="assets/hero-snowball-dark.jpg" alt="My Snowball app screenshot" loading="lazy" width="1280" height="818"></picture></a>
@@ -522,6 +526,43 @@
               <span class="applinks">
                 <a class="open" href="https://mysnowballapp.com" target="_blank" rel="noopener" title="Opens My Snowball on its own site, in a new tab">Open<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                 <a class="appstore" href="https://apps.apple.com/app/id6789954920" target="_blank" rel="noopener" title="Opens My Snowball on the App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </span>
+            </div>
+          </div>
+        </article>
+        <article class="slide lj" id="slide-lj" role="group" aria-roledescription="slide" aria-label="Local Journal, 5 of 6">
+          <div class="frame">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localjournalapp.com</span></div>
+            <picture><source srcset="assets/hero-localjournal.avif" type="image/avif"><img class="shot shot-light" src="assets/hero-localjournal.jpg" alt="Local Journal app screenshot" loading="lazy" width="1280" height="818"></picture><picture><source srcset="assets/hero-localjournal-dark.avif" type="image/avif"><img class="shot shot-dark" src="assets/hero-localjournal-dark.jpg" alt="Local Journal app screenshot" loading="lazy" width="1280" height="818"></picture>
+          </div>
+          <div class="meta">
+            <div class="mhead"><img class="icon" src="assets/localjournal.png" alt="" width="48" height="48"><div><h3 class="name">Local Journal</h3><p class="kicker">Private journal</p></div></div>
+            <p class="desc">Write your days in a journal that saves as you type and never leaves your device — with search, moods, tags and a calendar of your writing.</p>
+            <div class="tags"><span class="tag">Personal</span><span class="tag lock">On your device</span></div>
+            <p class="split"><b>Included:</b> everything — writing, search, calendar, exports &amp; passcode lock. There is no Pro; Local Journal is free.</p>
+            <div class="foot">
+              <span class="price">Free</span>
+              <span class="applinks">
+                <span class="soonpill" title="The web version of Local Journal is coming soon"><span class="dot"></span>Web app &middot; coming soon</span>
+                <span class="soonpill" title="Local Journal is on its way to the App Store"><span class="dot"></span>App Store &middot; coming soon</span>
+              </span>
+            </div>
+          </div>
+        </article>
+        <article class="slide ls" id="slide-ls" role="group" aria-roledescription="slide" aria-label="Local Scan, 6 of 6">
+          <div class="frame">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localscanapp.com</span></div>
+            <picture><source srcset="assets/hero-localscan.avif" type="image/avif"><img class="shot shot-light" src="assets/hero-localscan.jpg" alt="Local Scan app screenshot" loading="lazy" width="1280" height="818"></picture><picture><source srcset="assets/hero-localscan-dark.avif" type="image/avif"><img class="shot shot-dark" src="assets/hero-localscan-dark.jpg" alt="Local Scan app screenshot" loading="lazy" width="1280" height="818"></picture>
+          </div>
+          <div class="meta">
+            <div class="mhead"><img class="icon" src="assets/localscan.png" alt="" width="48" height="48"><div><h3 class="name">Local Scan</h3><p class="kicker">Document scanner</p></div></div>
+            <p class="desc">Capture a page with your camera, straighten and clean it up on your device, and take it away as PDF, Word, plain text or Markdown.</p>
+            <div class="tags"><span class="tag">Documents</span><span class="tag lock">On your device</span></div>
+            <p class="split"><b>Included:</b> scan, straighten &amp; clean, PDF &amp; image export &middot; <b>Pro:</b> Word, Text, Markdown &amp; searchable text</p>
+            <div class="foot">
+              <span class="price">Pro <b>$12.99</b> once</span>
+              <span class="applinks">
+                <span class="soonpill" title="Local Scan is on its way to the App Store, for iPhone and iPad"><span class="dot"></span>App Store &middot; coming soon</span>
               </span>
             </div>
           </div>
