@@ -79,8 +79,7 @@
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) h1{color:var(--ink)} }
   h1 .g-money{color:var(--sb-tx)} h1 .g-docs{color:var(--li-tx)} h1 .g-career{color:var(--lr-tx)}
   .lede{font-size:clamp(15px,2vw,17px); color:var(--muted); margin:0 auto; max-width:600px}
-  .lede-br{display:none}
-  @media (max-width:600px){ .lede-br{display:inline} .lede{max-width:340px} }
+  @media (max-width:600px){ .lede{font-size:11px; letter-spacing:-.015em; max-width:none} }
   @media (max-width:600px){ .hero{padding:34px 0 18px} }
 
   .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:34px 0 6px}
@@ -156,7 +155,7 @@
   <section class="hero">
     <p class="eyebrow">The apps</p>
     <h1>Privacy first software for your <span class="g-money">money</span>, <span class="g-docs">documents</span> &amp; <span class="g-career">career.</span></h1>
-    <p class="lede">Tools that do one thing well,<br class="lede-br">thoughtfully built and made with care.<br>Runs locally on your device.</p>
+    <p class="lede">Tools that do one thing well, thoughtfully built and made with care.<br>Runs locally on your device.</p>
   </section>
 
   <main id="main">

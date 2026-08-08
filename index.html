@@ -135,8 +135,7 @@
      handled since 2026-08-08 by the .hero-l2 line and per-word fit sizing.
      Eden's rule: "your" and the cycling word stay TOGETHER on phones. */
   .lede{font-size:clamp(15px,2vw,17px); color:var(--muted); margin:0 auto; max-width:600px}
-  .lede-br{display:none}
-  @media (max-width:600px){ .lede-br{display:inline} .lede{max-width:340px} }
+  @media (max-width:600px){ .lede{font-size:11px; letter-spacing:-.015em; max-width:none} }
   @media (max-width:600px){ .hero{padding:52px 0 48px} }
 
   /* section head */
@@ -447,7 +446,7 @@
   <section class="hero">
     <p class="eyebrow">Made by Eden</p>
     <h1 id="heroHead">Privacy first software<span class="for-a"> for</span><br class="h1-br"><span class="hero-l2"><span class="for-b">for </span>your <span class="g-money">money</span>, <span class="g-docs">documents</span> &amp; <span class="g-career">career.</span></span></h1>
-    <p class="lede">Tools that do one thing well,<br class="lede-br">thoughtfully built and made with care.<br>Runs locally on your device.</p>
+    <p class="lede">Tools that do one thing well, thoughtfully built and made with care.<br>Runs locally on your device.</p>
   </section>
 
   <main id="main">
