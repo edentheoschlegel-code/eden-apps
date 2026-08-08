@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'">
-<title>Privacy Policy — Tab Snoozer · Eden Apps</title>
-<meta name="description" content="Privacy policy for the Tab Snoozer Chrome extension by Eden Apps — private by design, runs on your device.">
+<title>Privacy Policy · Tab Snoozer · Eden Apps</title>
+<meta name="description" content="Privacy policy for the Tab Snoozer Chrome extension by Eden Apps: private by design, runs on your device.">
 <link rel="canonical" href="https://edenapps.app/ext-privacy-tab-snoozer.html">
 <link rel="icon" href="assets/eden-logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -50,13 +50,13 @@
 <header><div class="wrap"><a class="brand" href="index.html"><img class="logo" src="assets/eden-logo.png" alt="Eden Apps logo" width="27" height="27"><span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span></a><button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button></div></header>
 <main><div class="wrap">
   <p class="kick">Chrome Extension</p>
-  <h1>Privacy Policy — Tab Snoozer</h1>
+  <h1>Privacy Policy · Tab Snoozer</h1>
   <p class="updated">Last updated: July 13, 2026</p>
   <p class="lead">Tab Snoozer is built to respect your privacy. Here is exactly what it does and does not do with your data.</p>
   <h2>Summary</h2>
-  <p>Everything happens in your browser. Tab Snoozer never reads the content of any web page you browse — it has no access to the sites you visit. It only remembers which tabs you chose to snooze, so it can bring them back on time. Its only site access is the payment provider's own page (extensionpay.com), where ExtensionPay's bundled script runs to handle plan checks and the optional one-time Pro upgrade via Stripe. The plan check is anonymous, runs for all users, and sends no personal data.</p>
+  <p>Everything happens in your browser. Tab Snoozer never reads the content of any web page you browse. It has no access to the sites you visit. It only remembers which tabs you chose to snooze, so it can bring them back on time. Its only site access is the payment provider's own page (extensionpay.com), where ExtensionPay's bundled script runs to handle plan checks and the optional one-time Pro upgrade via Stripe. The plan check is anonymous, runs for all users, and sends no personal data.</p>
   <h2>How it works</h2>
-  <p>When you snooze a tab, the extension notes that tab's address (URL), title, and site icon, sets an alarm for the time you chose, and closes the tab. When that time comes, it reopens the tab — quietly in the background by default. Your sleeping tabs live on your device until they wake or you take them off the list. There is no account and no login.</p>
+  <p>When you snooze a tab, the extension notes that tab's address (URL), title, and site icon, sets an alarm for the time you chose, and closes the tab. When that time comes, it reopens the tab, quietly in the background by default. Your sleeping tabs live on your device until they wake or you take them off the list. There is no account and no login.</p>
   <h2>What data the Extension handles</h2>
   <p>Everything the extension itself stores lives in your browser via chrome.storage.local:</p>
   <ul>
@@ -64,32 +64,32 @@
     <li>Your settings, such as whether reopened tabs take focus.</li>
     <li>Your plan record (whether you are on Free or Pro), so the extension knows which features to enable.</li>
   </ul>
-  <p>The bundled ExtensionPay payment library additionally keeps its own small plan record (an anonymous identifier and install date). Unlike the extension's own data above — which stays strictly on this device — ExtensionPay stores its record in Chrome's synced extension storage, so if you are signed in to Chrome, that record is synced across your browsers via your Google account.</p>
+  <p>The bundled ExtensionPay payment library additionally keeps its own small plan record (an anonymous identifier and install date). Unlike the extension's own data above (which stays strictly on this device), ExtensionPay stores its record in Chrome's synced extension storage, so if you are signed in to Chrome, that record is synced across your browsers via your Google account.</p>
   <p>You can clear all of this at any time by removing the extension or clearing the extension's storage in your browser.</p>
   <h2>What Tab Snoozer does NOT do</h2>
   <ul>
-    <li>It does not read the content of the pages you visit — there is no content script on any site you browse. (The only content script the extension carries runs on extensionpay.com, the payment provider's own page, as ExtensionPay requires.)</li>
+    <li>It does not read the content of the pages you visit: there is no content script on any site you browse. (The only content script the extension carries runs on extensionpay.com, the payment provider's own page, as ExtensionPay requires.)</li>
     <li>It does not collect your browsing history, page content, or other tabs' activity.</li>
     <li>It does not transmit your tabs, addresses, browsing data, or any personal information to us or to any third party.</li>
     <li>It has no tracking, no analytics, and no ads.</li>
   </ul>
   <p>Two kinds of network requests happen in normal use:</p>
   <ul>
-    <li>The payment provider's plan check. The extension contacts ExtensionPay (extensionpay.com) to check your plan status (Free or Pro) using an anonymous identifier. This runs for all users, including free ones — at install, at browser startup, and periodically while the extension runs — and sends no personal information: no email, no card details, and nothing about your tabs.</li>
+    <li>The payment provider's plan check. The extension contacts ExtensionPay (extensionpay.com) to check your plan status (Free or Pro) using an anonymous identifier. This runs for all users, including free ones (at install, at browser startup, and periodically while the extension runs), and sends no personal information: no email, no card details, and nothing about your tabs.</li>
     <li>Site icons in the popup. The popup shows each snoozed tab's site icon; your browser fetches those icons from the sites themselves (sites you already chose to snooze). No other information is sent to them.</li>
   </ul>
   <h2>Payments (optional Pro)</h2>
-  <p>Pro is a one-time purchase — a single payment, not a subscription. It is handled by ExtensionPay, which uses Stripe for secure payment processing. If you buy Pro, ExtensionPay handles your email address and payment details solely to complete and remember that purchase. We never see or store your card information. If you do not buy the upgrade, no payment data is collected.</p>
+  <p>Pro is a one-time purchase: a single payment, not a subscription. It is handled by ExtensionPay, which uses Stripe for secure payment processing. If you buy Pro, ExtensionPay handles your email address and payment details solely to complete and remember that purchase. We never see or store your card information. If you do not buy the upgrade, no payment data is collected.</p>
   <ul>
     <li>ExtensionPay: <a href="https://extensionpay.com/privacy" target="_blank" rel="noopener">https://extensionpay.com/privacy</a></li>
     <li>Stripe: <a href="https://stripe.com/privacy" target="_blank" rel="noopener">https://stripe.com/privacy</a></li>
   </ul>
   <h2>Permissions, explained</h2>
   <ul>
-    <li>storage — to remember your snoozed tabs, settings, and plan locally.</li>
-    <li>alarms — to wake your tabs at the times you chose.</li>
-    <li>tabs — to read the address and title of a tab when you snooze it, close it, and reopen it later. Not used to monitor browsing.</li>
-    <li>host access to extensionpay.com (<code>https://extensionpay.com/*</code>) — required by ExtensionPay to check your plan and handle the optional one-time Pro purchase.</li>
+    <li>storage: to remember your snoozed tabs, settings, and plan locally.</li>
+    <li>alarms: to wake your tabs at the times you chose.</li>
+    <li>tabs: to read the address and title of a tab when you snooze it, close it, and reopen it later. Not used to monitor browsing.</li>
+    <li>host access to extensionpay.com (<code>https://extensionpay.com/*</code>): required by ExtensionPay to check your plan and handle the optional one-time Pro purchase.</li>
   </ul>
   <h2>Data retention</h2>
   <p>Your snoozed tabs and settings stay on your device until the tab wakes, you remove the entry, or you clear the extension's storage. Removing the extension clears its local data. ExtensionPay retains only what it needs to remember your purchase; see its policy linked above.</p>
