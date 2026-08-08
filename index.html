@@ -430,7 +430,7 @@
 
   <section class="hero">
     <p class="eyebrow">Made by Eden</p>
-    <h1 id="heroHead">Privacy first software for your <span class="g-money">money</span>, <span class="g-docs">documents</span> &amp; <span class="g-career">career.</span></h1>
+    <h1 id="heroHead">Privacy first software for<br>your <span class="g-money">money</span>, <span class="g-docs">documents</span> &amp; <span class="g-career">career.</span></h1>
     <p class="lede">Tools that do one thing well — thoughtfully built and made with care. Runs locally on your device.</p>
   </section>
 
@@ -1091,7 +1091,9 @@
   // For assistive tech the whole heading is announced once as a stable phrase;
   // the animated word spans are hidden from AT so it never reads "money.documents.career.".
   h1.setAttribute('aria-label', 'Privacy first software for your money, documents, career, and more.');
-  h1.textContent = 'Privacy first software for your ';
+  h1.textContent = 'Privacy first software for';
+  h1.appendChild(document.createElement('br'));
+  h1.appendChild(document.createTextNode('your '));
   var cyc = document.createElement('span');
   cyc.className = 'cyc';
   cyc.setAttribute('aria-hidden', 'true');
