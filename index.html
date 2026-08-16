@@ -227,6 +227,9 @@
   .tab img{width:22px; height:22px; border-radius:6px}
   .tab.sb{--ac:var(--sb)} .tab.lp{--ac:var(--lp)} .tab.li{--ac:var(--li)}.tab.lj{--ac:var(--lj)}.tab.ls{--ac:var(--ls)} .tab.lr{--ac:var(--lr)}
   .tab[aria-pressed="true"]{color:#fff; background:var(--ac); border-color:var(--ac)}
+  /* Local Journal is the one app with no paid tier, so the pill says so. */
+  .tab .tfree{font-size:10px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; line-height:1; padding:3px 6px; border-radius:999px; background:var(--ac); color:#fff; margin-left:1px}
+  .tab[aria-pressed="true"] .tfree{background:rgba(255,255,255,.24)}
   .tab:hover{border-color:var(--ac)}
   .carousel-ctl{display:flex; justify-content:center; margin:16px 0 0}
   .playpause{display:inline-flex; align-items:center; gap:7px; font:inherit; font-size:12.5px; font-weight:650; color:var(--faint); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:6px 14px; cursor:pointer; transition:color .2s, border-color .2s}
@@ -239,6 +242,9 @@
     .tabs{display:grid; grid-template-columns:repeat(3,minmax(0,auto)); justify-content:center; gap:8px}
     .tabs .tab{font-size:11.5px; padding:7px 8px 7px 6px; gap:4px; white-space:nowrap}
     .tabs .tab img{width:17px; height:17px}
+    /* three to a row leaves no room for the chip, and the card below already
+       carries the price. */
+    .tabs .tab .tfree{display:none}
     .meta .name{font-size:21px}
   }
 
@@ -465,7 +471,7 @@
         <button class="tab lr" type="button" data-i="1" aria-pressed="false" aria-controls="slide-lr" title="LocalResume · resume builder"><img src="assets/localresume.png" alt="" width="22" height="22">LocalResume</button>
         <button class="tab lp" type="button" data-i="2" aria-pressed="false" aria-controls="slide-lp" title="Local PDF · PDF toolkit"><img src="assets/localpdf.png" alt="" width="22" height="22">Local PDF</button>
         <button class="tab sb" type="button" data-i="3" aria-pressed="false" aria-controls="slide-sb" title="My Snowball · debt payoff planner"><img src="assets/snowball.png" alt="" width="22" height="22">My Snowball</button>
-        <button class="tab lj" type="button" data-i="4" aria-pressed="false" aria-controls="slide-lj" title="Local Journal · private journal"><img src="assets/localjournal.png" alt="" width="22" height="22">Local Journal</button>
+        <button class="tab lj" type="button" data-i="4" aria-pressed="false" aria-controls="slide-lj" title="Local Journal · private journal · free"><img src="assets/localjournal.png" alt="" width="22" height="22">Local Journal<span class="tfree">Free</span></button>
         <button class="tab ls" type="button" data-i="5" aria-pressed="false" aria-controls="slide-ls" title="Local Scan · document scanner"><img src="assets/localscan.png" alt="" width="22" height="22">Local Scan</button>
       </div>
       <div class="stage">
