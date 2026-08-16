@@ -401,6 +401,7 @@
   /* in-card "see it in use" slide */
   .cbody{position:relative;display:flex;flex-direction:column;gap:11px;flex:1;min-height:0}
   .card.xc .top{padding-right:38px}
+  .card.mac .top{padding-right:38px}
   .cface-shot{position:absolute;inset:-8px;opacity:0;pointer-events:none;transition:opacity .25s ease;background:var(--surface);border-radius:12px;display:flex;align-items:center;justify-content:center;z-index:2}
   .card.flip .cface-shot{opacity:1;pointer-events:auto}
   .cface-shot picture{display:contents}
@@ -599,9 +600,13 @@
 
     <section class="mac-grid" aria-label="Eden Apps for Mac">
       <article class="card mac fw">
-        <div class="top"><img class="icon" src="assets/furrow.png" alt="" width="56" height="56"><div><h3 class="name">Furrow</h3><p class="kicker">Spreadsheet tidier</p></div></div>
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Furrow in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+          <div class="top"><img class="icon" src="assets/furrow.png" alt="" width="56" height="56"><div><h3 class="name">Furrow</h3><p class="kicker">Spreadsheet tidier</p></div></div>
         <p class="desc">Add a CSV or Excel file to get started. Trim extra spaces, split or merge data, convert values, and remove duplicate rows while keeping the original untouched.</p>
         <div class="tags"><span class="tag">Data</span><span class="tag lock">On your Mac</span></div>
+          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-furrow.jpg" alt="Furrow on macOS" loading="lazy" width="1000" height="798"></picture></div>
+        </div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
           <span class="applinks">
@@ -612,9 +617,13 @@
       </article>
 
       <article class="card mac pn">
-        <div class="top"><img class="icon" src="assets/pagenook.png" alt="" width="56" height="56"><div><h3 class="name">Pagenook</h3><p class="kicker">PDF page rearranger</p></div></div>
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Pagenook in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+          <div class="top"><img class="icon" src="assets/pagenook.png" alt="" width="56" height="56"><div><h3 class="name">Pagenook</h3><p class="kicker">PDF page rearranger</p></div></div>
         <p class="desc">Rearrange the pages in a PDF by dragging them into place. Merge, split, rotate, or remove pages, while leaving password-protected files untouched.</p>
         <div class="tags"><span class="tag">PDF</span><span class="tag lock">On your Mac</span></div>
+          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-pagenook.jpg" alt="Pagenook on macOS" loading="lazy" width="1000" height="817"></picture></div>
+        </div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
           <span class="applinks">
@@ -625,9 +634,13 @@
       </article>
 
       <article class="card mac cl">
-        <div class="top"><img class="icon" src="assets/clearleaf.png" alt="" width="56" height="56"><div><h3 class="name">Clearleaf</h3><p class="kicker">Hidden data remover</p></div></div>
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Clearleaf in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+          <div class="top"><img class="icon" src="assets/clearleaf.png" alt="" width="56" height="56"><div><h3 class="name">Clearleaf</h3><p class="kicker">Hidden data remover</p></div></div>
         <p class="desc">Find and remove metadata from your files, including author details, comments, edit history, and location data. Clearleaf saves a new copy and leaves your original unchanged.</p>
         <div class="tags"><span class="tag">Privacy</span><span class="tag lock">On your Mac</span></div>
+          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-clearleaf.jpg" alt="Clearleaf on macOS" loading="lazy" width="1000" height="657"></picture></div>
+        </div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
           <span class="applinks">
@@ -638,9 +651,13 @@
       </article>
 
       <article class="card mac bp">
-        <div class="top"><img class="icon" src="assets/bookplate.png" alt="" width="56" height="56"><div><h3 class="name">Bookplate</h3><p class="kicker">Read it later library</p></div></div>
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Bookplate in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+          <div class="top"><img class="icon" src="assets/bookplate.png" alt="" width="56" height="56"><div><h3 class="name">Bookplate</h3><p class="kicker">Read it later library</p></div></div>
         <p class="desc">Save articles and webpages to a private library on your Mac for reading later. Read offline anytime, or have any saved article read aloud.</p>
         <div class="tags"><span class="tag">Reading</span><span class="tag lock">On your Mac</span></div>
+          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-bookplate.jpg" alt="Bookplate on macOS" loading="lazy" width="1000" height="776"></picture></div>
+        </div>
         <div class="foot">
           <span class="price"><b>$12.99</b> · once</span>
           <span class="applinks">

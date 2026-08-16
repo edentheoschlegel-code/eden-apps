@@ -159,6 +159,21 @@
   .flinks a{color:var(--muted); font-size:13.5px}
   .flinks a:hover{color:var(--ink)}
   .themebtn:focus-visible,.brand:focus-visible,.catlink:focus-visible,.flinks a:focus-visible{outline:2px solid var(--mac); outline-offset:3px}
+
+  /* "see it in use" peek: same behaviour as the extension cards on the home page */
+  .cbody{position:relative; display:flex; flex-direction:column; flex:1; min-height:0}
+  .acard .ahead{padding-right:38px}
+  .peek{position:absolute; right:15px; top:17px; z-index:3; display:inline-grid; place-items:center; width:34px; height:34px; border:1.5px solid var(--line-strong); border-radius:999px; background:var(--surface); color:var(--muted); cursor:pointer; padding:0; transition:border-color .2s, color .2s}
+  .peek:hover{border-color:var(--acc, var(--mac)); color:var(--acc, var(--mac))}
+  .peek:focus-visible{outline:2px solid var(--mac); outline-offset:3px}
+  .peek .i2{display:none}
+  .acard.flip .peek .i1{display:none}
+  .acard.flip .peek .i2{display:grid}
+  .cface-shot{position:absolute; inset:-8px; opacity:0; pointer-events:none; transition:opacity .25s ease; background:var(--surface); border-radius:12px; display:flex; align-items:center; justify-content:center; z-index:2}
+  .acard.flip .cface-shot{opacity:1; pointer-events:auto}
+  .cface-shot picture{display:contents}
+  .cface-shot img{max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:10px}
+  @media (prefers-reduced-motion:reduce){ .cface-shot{transition:none} }
 </style>
 <script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
@@ -189,12 +204,16 @@
     <div class="agrid">
 
       <article class="acard mac fw">
-        <div class="ahead">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Furrow in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+          <div class="ahead">
           <img class="aicon" src="assets/furrow.png" alt="" width="52" height="52">
           <div><h3 class="aname">Furrow</h3><p class="akicker">Spreadsheet tidier</p></div>
         </div>
         <p class="adesc">Add a CSV or Excel file to get started. Trim extra spaces, split or merge data, convert values, and remove duplicate rows while keeping the original untouched.</p>
         <div class="atags"><span class="atag">Data</span><span class="atag lock">On your Mac</span></div>
+          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-furrow.jpg" alt="Furrow on macOS" loading="lazy" width="1000" height="798"></picture></div>
+        </div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
           <span class="applinks">
@@ -205,12 +224,16 @@
       </article>
 
       <article class="acard mac pn">
-        <div class="ahead">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Pagenook in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+          <div class="ahead">
           <img class="aicon" src="assets/pagenook.png" alt="" width="52" height="52">
           <div><h3 class="aname">Pagenook</h3><p class="akicker">PDF page rearranger</p></div>
         </div>
         <p class="adesc">Rearrange the pages in a PDF by dragging them into place. Merge, split, rotate, or remove pages, while leaving password-protected files untouched.</p>
         <div class="atags"><span class="atag">PDF</span><span class="atag lock">On your Mac</span></div>
+          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-pagenook.jpg" alt="Pagenook on macOS" loading="lazy" width="1000" height="817"></picture></div>
+        </div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
           <span class="applinks">
@@ -221,12 +244,16 @@
       </article>
 
       <article class="acard mac cl">
-        <div class="ahead">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Clearleaf in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+          <div class="ahead">
           <img class="aicon" src="assets/clearleaf.png" alt="" width="52" height="52">
           <div><h3 class="aname">Clearleaf</h3><p class="akicker">Hidden data remover</p></div>
         </div>
         <p class="adesc">Find and remove metadata from your files, including author details, comments, edit history, and location data. Clearleaf saves a new copy and leaves your original unchanged.</p>
         <div class="atags"><span class="atag">Privacy</span><span class="atag lock">On your Mac</span></div>
+          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-clearleaf.jpg" alt="Clearleaf on macOS" loading="lazy" width="1000" height="657"></picture></div>
+        </div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
           <span class="applinks">
@@ -237,12 +264,16 @@
       </article>
 
       <article class="acard mac bp">
-        <div class="ahead">
+        <button class="peek" type="button" aria-pressed="false" aria-label="See Bookplate in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
+        <div class="cbody">
+          <div class="ahead">
           <img class="aicon" src="assets/bookplate.png" alt="" width="52" height="52">
           <div><h3 class="aname">Bookplate</h3><p class="akicker">Read it later library</p></div>
         </div>
         <p class="adesc">Save articles and webpages to a private library on your Mac for reading later. Read offline anytime, or have any saved article read aloud.</p>
         <div class="atags"><span class="atag">Reading</span><span class="atag lock">On your Mac</span></div>
+          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-bookplate.jpg" alt="Bookplate on macOS" loading="lazy" width="1000" height="776"></picture></div>
+        </div>
         <div class="afoot">
           <span class="aprice"><b>$12.99</b> · once</span>
           <span class="applinks">
@@ -287,6 +318,20 @@
   var r=document.documentElement, btn=document.getElementById('themeToggle');
   function current(){var t=r.getAttribute('data-theme');if(t==='dark'||t==='light')return t;return (window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}
   if(btn) btn.addEventListener('click',function(){var next=current()==='dark'?'light':'dark';r.setAttribute('data-theme',next);try{localStorage.setItem('ea-theme',next);}catch(e){}});
+})();
+</script>
+<script>
+(function(){
+  [].slice.call(document.querySelectorAll('.acard .peek')).forEach(function(b){
+    b.addEventListener('click',function(){
+      var c=b.closest('.acard');
+      var on=c.classList.toggle('flip');
+      b.setAttribute('aria-pressed',on?'true':'false');
+      b.setAttribute('title',on?'Back to details':'See it in use');
+      var sh=c.querySelector('.cface-shot');
+      if(sh) sh.setAttribute('aria-hidden',on?'false':'true');
+    });
+  });
 })();
 </script>
 </body>
