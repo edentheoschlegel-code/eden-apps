@@ -142,7 +142,10 @@
   .mac-bundle .mb-price{font-size:14.5px; font-weight:700; color:var(--acc); white-space:nowrap}
   .mac-bundle .mb-was{color:var(--muted); text-decoration:line-through; font-weight:600; margin-right:9px}
   /* phone: the bundle's note and price read left-aligned under its sentence */
-  @media(max-width:560px){ .mac-bundle .mb-right{width:100%; justify-content:flex-start} }
+  /* the price line is nowrap by default, which overflowed the card on a phone and
+     cut off "Save 33%". Let it wrap at narrow widths. */
+  @media(max-width:560px){ .mac-bundle .mb-right{width:100%; justify-content:flex-start}
+    .mac-bundle .mb-price{white-space:normal} }
 
   .trust{margin:30px 0 0; display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
   @media (max-width:720px){ .trust{grid-template-columns:1fr} }
