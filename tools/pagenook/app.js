@@ -2,7 +2,7 @@
 // Vanilla JS + the shared engine (pdf-lib + pdf.js). No framework, no network.
 
 import { PagenookEngine, baseName } from "./engine.js";
-import { ensureLicensed } from "../_license/gate.js";
+import { ensureLicensed, useOnce } from "../_license/gate.js";
 
 const engine = new PagenookEngine();
 const fmt = (n) => n.toLocaleString();
@@ -35,6 +35,10 @@ function set(patch) {
 }
 
 async function addFiles(fileList) {
+  // Three free goes per tool on this device, then it asks for a licence.
+  // Counted here rather than at the save step, so nobody works through a file
+  // only to be stopped at the end.
+  if (!(await useOnce())) return;
   const pdfs = [...fileList].filter((f) => /\.pdf$/i.test(f.name) || f.type === "application/pdf");
   if (!pdfs.length) return;
   const seen = new Set(state.files.map((f) => f.path));

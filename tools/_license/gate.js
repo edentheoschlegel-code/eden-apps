@@ -142,6 +142,59 @@ export function licenseReady() {
   return ready;
 }
 
+// ---- the free goes -----------------------------------------------------------
+
+// Each tool can be used a few times before it asks for a licence, so anyone can
+// see it work on their own files first. The count is per tool and lives on this
+// device. A licensed device never counts.
+const FREE_USES = 3;
+const USES_KEY = "eden-uses";
+
+function readUses() {
+  try {
+    return JSON.parse(localStorage.getItem(USES_KEY) || "{}") || {};
+  } catch {
+    return {};
+  }
+}
+
+function writeUses(map) {
+  try {
+    localStorage.setItem(USES_KEY, JSON.stringify(map));
+  } catch { /* private mode: this session only */ }
+}
+
+/** Goes left before this tool asks for a licence. Infinity once licensed. */
+export function usesLeft() {
+  if (licensed) return Infinity;
+  const used = readUses()[PRODUCT] || 0;
+  return Math.max(0, FREE_USES - used);
+}
+
+export { FREE_USES };
+
+/**
+ * Called when someone starts a piece of work: loading files into a tool, or
+ * saving an article in Bookplate. Spends one of the free goes, and asks for a
+ * licence once they are gone. Resolves true if the work may go ahead.
+ */
+export function useOnce() {
+  return ready.then((ok) => {
+    if (ok || licensed) return true;
+    const map = readUses();
+    const used = map[PRODUCT] || 0;
+    if (used < FREE_USES) {
+      map[PRODUCT] = used + 1;
+      writeUses(map);
+      return true;
+    }
+    return ensureLicensed({
+      title: `Enter your code to keep using ${APP_NAME}`,
+      note: `You have used the free goes on ${APP_NAME} in this browser. A licence code from your Eden Apps purchase opens it for good, and it is the same code that opens the Mac app.`,
+    });
+  });
+}
+
 // ---- the ask ---------------------------------------------------------------
 
 let openPrompt = null;
@@ -151,18 +204,18 @@ let openPrompt = null;
  * Resolves true when the caller may proceed, false when the person backed out.
  * `note` replaces the default explanation, for cases like Bookplate's limit.
  */
-export function ensureLicensed({ note } = {}) {
+export function ensureLicensed({ note, title } = {}) {
   return ready.then((ok) => {
     if (ok || licensed) return true;
     if (openPrompt) return openPrompt; // never stack two dialogs
-    openPrompt = showPrompt({ note }).finally(() => {
+    openPrompt = showPrompt({ note, title }).finally(() => {
       openPrompt = null;
     });
     return openPrompt;
   });
 }
 
-function showPrompt({ note }) {
+function showPrompt({ note, title }) {
   injectStyle();
 
   return new Promise((resolve) => {
@@ -216,7 +269,7 @@ function showPrompt({ note }) {
         "div",
         { class: "eden-gate-card" },
         el("img", { class: "eden-gate-icon", src: "icon.png", alt: "", width: "52", height: "52" }),
-        el("h1", {}, "Enter your code to save"),
+        el("h1", {}, title || "Enter your code to save"),
         el(
           "p",
           {},

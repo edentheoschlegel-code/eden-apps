@@ -79,5 +79,16 @@
   <script src="../vendor/readability.js"></script>
   <script type="module" src="../_license/gate.js"></script>
   <script type="module" src="./app.js"></script>
+<script>
+  // Register the offline worker. Scope is the tools folder, which is the most
+  // sw.js is allowed to claim from where it sits. Failure is silent on purpose:
+  // no service worker simply means the tool needs a connection to open, which
+  // is how it behaved before.
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("../sw.js", { scope: "../" }).catch(function () {});
+    });
+  }
+</script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 // Queue files → reveal what's hidden (grouped) → Clean → download clean copies.
 
 import { ClearleafEngine, baseName, extOf } from "./engine.js";
-import { ensureLicensed } from "../_license/gate.js";
+import { ensureLicensed, useOnce } from "../_license/gate.js";
 
 const ACCEPT = ["docx", "xlsx", "pptx", "pdf", "jpg", "jpeg", "png", "tiff", "tif"];
 const engine = new ClearleafEngine();
@@ -26,7 +26,11 @@ function set(patch) {
   render();
 }
 
-function addFiles(fileList) {
+async function addFiles(fileList) {
+  // Three free goes per tool on this device, then it asks for a licence.
+  // Counted here rather than at the save step, so nobody works through a file
+  // only to be stopped at the end.
+  if (!(await useOnce())) return;
   const supported = [];
   const skipped = [];
   for (const f of [...fileList]) {
@@ -209,7 +213,7 @@ function dropZone() {
     el(
       "div",
       { class: "dz-sub" },
-      "Drop documents, PDFs or photos here. Clearleaf shows the hidden trail inside (author names, GPS, edit history) and saves a clean copy beside each one. Your originals stay as they are, and nothing leaves your device.",
+      "Drop documents, PDFs or photos here. Clearleaf shows the hidden trail inside (author names, GPS, edit history) and downloads a clean copy of each one. Your originals stay as they are, and nothing leaves your device.",
     ),
     el("button", { class: "dz-cta", onclick: openPicker }, "Choose files"),
     el("div", { class: "dz-hint" }, "Word, Excel, PowerPoint, PDF, JPEG and PNG."),

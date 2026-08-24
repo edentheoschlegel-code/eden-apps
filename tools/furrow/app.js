@@ -7,7 +7,7 @@ import {
   extOf,
   sampleFile,
 } from "./engine.js";
-import { ensureLicensed } from "../_license/gate.js";
+import { ensureLicensed, useOnce } from "../_license/gate.js";
 
 const ACCEPT = ["csv", "tsv", "txt", "xlsx", "xlsm", "xls", "ods"];
 const engine = new FurrowEngine();
@@ -40,6 +40,10 @@ function set(patch) {
 
 // ---- file intake -----------------------------------------------------------
 async function addFiles(fileList) {
+  // Three free goes per tool on this device, then it asks for a licence.
+  // Counted here rather than at the save step, so nobody works through a file
+  // only to be stopped at the end.
+  if (!(await useOnce())) return;
   const incoming = [...fileList];
   const accepted = incoming.filter((f) => ACCEPT.includes(extOf(f.name)));
   if (!accepted.length) {

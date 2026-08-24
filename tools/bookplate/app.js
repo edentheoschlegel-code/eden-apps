@@ -9,7 +9,7 @@ import {
   speakableText,
   SAMPLE,
 } from "./engine.js";
-import { ensureLicensed, isLicensed } from "../_license/gate.js";
+import { useOnce } from "../_license/gate.js";
 
 const lib = new BookplateLibrary();
 
@@ -58,21 +58,10 @@ async function selectArticle(id) {
   }
 }
 
-// Bookplate is a library rather than a converter, so there is no "save the
-// result" moment to charge for. It keeps a few articles free instead, and asks
-// for a licence when the shelf grows past them. The sample counts toward the
-// three like anything else, and can be deleted to free the slot; adding it is
-// never gated, so the tool can always be tried.
-const FREE_ARTICLES = 3;
-
+// Bookplate has no "save the result" moment, being a library, so a go is a
+// saved article. Same three, same shared counter as the other three tools.
 async function mayAddArticle() {
-  if (isLicensed()) return true;
-  const counts = await lib.count();
-  const kept = counts.library ?? state.items.length;
-  if (kept < FREE_ARTICLES) return true;
-  return ensureLicensed({
-    note: `Bookplate keeps ${FREE_ARTICLES} articles free. Saving more needs the licence code from your Eden Apps purchase, the same one that opens the Mac app.`,
-  });
+  return useOnce();
 }
 
 async function addFromSample() {
