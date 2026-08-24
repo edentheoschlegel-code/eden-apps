@@ -7,6 +7,7 @@ import {
   extOf,
   sampleFile,
 } from "./engine.js";
+import { ensureLicensed } from "../_license/gate.js";
 
 const ACCEPT = ["csv", "tsv", "txt", "xlsx", "xlsm", "xls", "ods"];
 const engine = new FurrowEngine();
@@ -131,6 +132,10 @@ function downloadBlob(name, blob) {
 
 async function run(op) {
   if (state.busy) return;
+  // Working the file is free; keeping the result is what needs a licence.
+  // Asked here rather than at the door, so the preview above has already shown
+  // this file's own columns before anyone is asked for anything.
+  if (!(await ensureLicensed())) return;
   set({ busy: true, error: null, savedNote: null });
   try {
     const receipts = await op();

@@ -2,6 +2,7 @@
 // Vanilla JS + the shared engine (pdf-lib + pdf.js). No framework, no network.
 
 import { PagenookEngine, baseName } from "./engine.js";
+import { ensureLicensed } from "../_license/gate.js";
 
 const engine = new PagenookEngine();
 const fmt = (n) => n.toLocaleString();
@@ -129,6 +130,8 @@ function downloadBlob(name, blob) {
 
 async function run(op) {
   if (state.busy) return;
+  // Rearranging is free; exporting the new PDF is what needs a licence.
+  if (!(await ensureLicensed())) return;
   set({ busy: true, error: null, savedNote: null });
   try {
     const receipts = await op();

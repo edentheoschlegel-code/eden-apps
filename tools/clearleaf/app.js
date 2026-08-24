@@ -2,6 +2,7 @@
 // Queue files → reveal what's hidden (grouped) → Clean → download clean copies.
 
 import { ClearleafEngine, baseName, extOf } from "./engine.js";
+import { ensureLicensed } from "../_license/gate.js";
 
 const ACCEPT = ["docx", "xlsx", "pptx", "pdf", "jpg", "jpeg", "png", "tiff", "tif"];
 const engine = new ClearleafEngine();
@@ -97,6 +98,9 @@ function downloadBlob(name, blob) {
 
 async function clean() {
   if (!state.queued.length || state.busy) return;
+  // Seeing the hidden trail in your own file is free, and it is the whole
+  // reason anyone wants this. Saving the cleaned copy is the paid step.
+  if (!(await ensureLicensed())) return;
   const submitted = state.queued;
   set({ busy: true, error: null });
   try {
