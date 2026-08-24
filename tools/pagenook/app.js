@@ -315,7 +315,7 @@ function body() {
 function dropZone() {
   return el(
     "div",
-    { class: "dropzone" + (state.over ? " over" : "") },
+    { class: "dropzone" + (state.over ? " over" : "") + (state.files.length ? " packed" : "") },
     el("div", {
       class: "dz-icon",
       html: `<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="12" height="16" rx="1.5"/><path d="M4.5 6v13a1.5 1.5 0 0 0 1.5 1.5h9"/><path d="M10.5 8h5M10.5 11h5M10.5 14h3"/></svg>`,

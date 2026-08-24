@@ -200,7 +200,7 @@ function body() {
 function dropZone() {
   return el(
     "div",
-    { class: "dropzone" + (state.over ? " over" : "") },
+    { class: "dropzone" + (state.over ? " over" : "") + (state.queued.length ? " packed" : "") },
     el("div", {
       class: "dz-icon",
       html: `<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3c-3 4-6 6-6 10a6 6 0 0 0 12 0c0-4-3-6-6-10z"/><path d="M11 21V9"/></svg>`,

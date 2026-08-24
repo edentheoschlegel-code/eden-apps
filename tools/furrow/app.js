@@ -371,7 +371,7 @@ function body() {
 function dropZone() {
   const dz = el(
     "div",
-    { class: "dropzone" + (state.over ? " over" : "") },
+    { class: "dropzone" + (state.over ? " over" : "") + (state.files.length ? " packed" : "") },
     el("div", {
       class: "dz-icon",
       html: `<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M8 5c0 3 1.5 5 4 6"/><path d="M16 5c0 3-1.5 5-4 6"/><path d="M6 11h12l-1.4 8.2a1 1 0 0 1-1 .8H8.4a1 1 0 0 1-1-.8L6 11z"/></svg>`,

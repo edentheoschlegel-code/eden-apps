@@ -156,6 +156,19 @@
   .footbar{padding:16px 22px; border-top:1px solid var(--line); color:var(--faint); font-size:12.5px; text-align:center}
   .footbar a{color:inherit}
   .visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+
+  /* On a phone the dropzone was still owning the whole first screen after a file
+     was loaded, so the result you came for sat below the fold behind an invitation
+     to load a file you had already loaded. Once something is in, it collapses to a
+     single row. Desktop keeps the full panel, where it sits beside the results. */
+  @media (max-width:760px){
+    .dropzone.packed{padding:10px 12px;text-align:left}
+    .dropzone.packed .dz-icon,
+    .dropzone.packed .dz-title,
+    .dropzone.packed .dz-sub,
+    .dropzone.packed .dz-hint{display:none}
+    .dropzone.packed .dz-cta{width:100%;margin:0;min-height:44px}
+  }
 </style>
 </head>
 <body>
