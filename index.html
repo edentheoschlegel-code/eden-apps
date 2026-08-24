@@ -244,13 +244,21 @@
     .slide .frame{order:2}
     .arrow{display:none}
     .tab{font-size:13.5px; padding:9px 16px 9px 8px}
-    .tabs{display:grid; grid-template-columns:repeat(3,minmax(0,auto)); justify-content:center; gap:8px}
+    /* auto rather than minmax(0,auto): the Local Journal pill carries a Free chip
+       and needs a wider column than the rest, otherwise its label is clipped. */
+    .tabs{display:grid; grid-template-columns:repeat(3,auto); justify-content:center; gap:8px}
     .tabs .tab{font-size:11.5px; padding:7px 8px 7px 6px; gap:4px; white-space:nowrap}
     .tabs .tab img{width:17px; height:17px}
-    /* three to a row leaves no room for the chip, and the card below already
-       carries the price. */
-    .tabs .tab .tfree{display:none}
+    /* Local Journal is the one app with no paid tier, and that is worth knowing
+       before you tap rather than after. The chip stays, just smaller. */
+    .tabs .tab .tfree{font-size:8.5px; padding:2px 4px; margin-left:0; letter-spacing:.03em}
     .meta .name{font-size:21px}
+  }
+
+  /* On the narrowest phones three pills plus the Free chip would crowd the row,
+     so they drop to two. */
+  @media (max-width:360px){
+    .tabs{grid-template-columns:repeat(2,auto)}
   }
 
   /* the Mac tools — a calm matched set in one evergreen accent, distinct from
