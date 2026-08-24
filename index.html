@@ -977,11 +977,25 @@
   function stop(){ if(timer){ clearInterval(timer); timer=null; } }
   function start(){ if(!reduce && !paused && !timer) timer=setInterval(function(){ go(i+1); }, 7500); }
   function restart(){ stop(); start(); }
+  // Someone who taps a tab, swipes, or uses the arrows is reading a particular
+  // app rather than watching the reel, and having it slide away mid-sentence is
+  // the one thing this carousel must not do. Autoplay stops for the rest of the
+  // visit. The control below flips to Play so it still describes what is really
+  // happening, and they can start it again if they want it.
+  function settle(){
+    stop();
+    if(paused) return;
+    paused=true;
+    var b=document.getElementById('eaPlay'), ico=document.getElementById('eaPlayIco'), lbl=document.getElementById('eaPlayLabel');
+    if(b){ b.setAttribute('aria-pressed','true'); b.setAttribute('aria-label','Play automatic slideshow'); }
+    if(ico) ico.innerHTML='&#9654;';
+    if(lbl) lbl.textContent='Play';
+  }
 
   var nb=document.querySelector('.showcase .next'), pb=document.querySelector('.showcase .prev');
-  if(nb) nb.addEventListener('click', function(){ go(i+1); restart(); });
-  if(pb) pb.addEventListener('click', function(){ go(i-1); restart(); });
-  tabs.forEach(function(t){ t.addEventListener('click', function(){ go(+t.getAttribute('data-i')); restart(); }); });
+  if(nb) nb.addEventListener('click', function(){ go(i+1); settle(); });
+  if(pb) pb.addEventListener('click', function(){ go(i-1); settle(); });
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ go(+t.getAttribute('data-i')); settle(); }); });
 
   // pause on hover/focus anywhere in the showcase — tab row included
   if(sc){ sc.addEventListener('mouseenter', stop); sc.addEventListener('mouseleave', start); sc.addEventListener('focusin', stop); sc.addEventListener('focusout', start); }
@@ -1001,10 +1015,10 @@
   var x0=null;
   if(vp){
     vp.addEventListener('touchstart', function(e){ x0=e.touches[0].clientX; stop(); }, {passive:true});
-    vp.addEventListener('touchend', function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40){ go(dx<0?i+1:i-1); } x0=null; restart(); }, {passive:true});
+    vp.addEventListener('touchend', function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40){ go(dx<0?i+1:i-1); } x0=null; settle(); }, {passive:true});
   }
   // arrow keys
-  if(sc) sc.addEventListener('keydown', function(e){ if(e.key==='ArrowRight'){ go(i+1); restart(); } else if(e.key==='ArrowLeft'){ go(i-1); restart(); } });
+  if(sc) sc.addEventListener('keydown', function(e){ if(e.key==='ArrowRight'){ go(i+1); settle(); } else if(e.key==='ArrowLeft'){ go(i-1); settle(); } });
 
   go(0); start();
 })();
