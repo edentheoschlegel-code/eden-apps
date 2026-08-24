@@ -3,7 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'">
+<!-- FastSpring's checkout runs from onfastspring.com: its library, its own stylesheet,
+     the calls it makes and the popup frame it opens. The host is needed in BOTH
+     script-src and style-src; without style-src the button still renders and the
+     checkout breaks silently. Everything else stays closed. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://sbl.onfastspring.com; style-src 'self' 'unsafe-inline' https://sbl.onfastspring.com; img-src 'self' data: https://*.onfastspring.com; font-src 'self' data:; connect-src 'self' https://*.onfastspring.com; frame-src https://*.onfastspring.com; object-src 'none'; base-uri 'self'">
 <title>Mac tools · Eden Apps</title>
 <meta name="description" content="Native, private tools for your Mac: Furrow, Pagenook, Clearleaf and Bookplate. One clean binary each, no runtime, nothing collected. Buy once, or take all four.">
 <link rel="canonical" href="https://edenapps.app/mac-tools.html">
@@ -127,6 +131,21 @@
     white-space:nowrap; text-decoration:none; transition:background .2s, color .2s}
   .weblink:hover{background:var(--acc); color:#fff}
   .weblink .dot{width:5px; height:5px; border-radius:999px; background:currentColor}
+  .buybtn{display:inline-flex; align-items:center; gap:7px; font:inherit; font-weight:700; font-size:14px;
+    color:#fff; background:var(--acc); border:1.5px solid var(--acc); padding:8.5px 16px; border-radius:11px;
+    cursor:pointer; transition:gap .2s, filter .2s}
+  .buybtn:hover{gap:11px; filter:brightness(1.08)}
+  .fs-done{margin:22px 0 0}
+  .fs-done-card{border:1px solid var(--line-strong); border-radius:var(--radius); background:var(--surface); padding:22px 26px}
+  .fs-done-card h3{margin:0 0 6px; font-size:18px; letter-spacing:-.2px}
+  .fs-done-card p{margin:0 0 12px; color:var(--muted); font-size:14.5px; line-height:1.6}
+  .fs-done-code{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:0 0 14px}
+  .fs-done-code code{flex:1 1 260px; font-size:12.5px; word-break:break-all; background:var(--mac-soft);
+    border-radius:10px; padding:10px 12px; color:var(--ink)}
+  .fs-done-copy{font:inherit; font-size:13px; font-weight:650; cursor:pointer; color:var(--mac);
+    background:transparent; border:1.5px solid var(--mac); border-radius:10px; padding:8px 14px}
+  .fs-done-tool{display:inline-block; margin:0 4px; font-weight:650; color:var(--mac)}
+  .fs-done-foot{font-size:12.5px; color:var(--faint)}
   .applinks{display:flex; align-items:center; gap:9px; flex-wrap:wrap; justify-content:flex-end}
   /* phone: price on its own row, then the coming-soon note and App Store share one row */
   @media(max-width:560px){
@@ -295,9 +314,9 @@
     </div>
 
     <div class="mac-bundle">
-      <span class="mb-txt"><b>All four Mac tools</b>, available together in one bundle.</span>
+      <span class="mb-txt"><b>All four Mac tools</b> in one bundle, and saving in all four browser versions.</span>
       <span class="mb-right">
-        <span class="soonpill" title="The bundle of all four will be sold here on edenapps.app"><span class="dot"></span>Web · coming soon</span>
+        <button class="buybtn" type="button" data-fsc-item-path-value="all-four-mac-tools-bundle" data-fsc-action="Add, Checkout" title="Buy all four Mac tools together">Buy all four<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         <span class="mb-price"><span class="mb-was">$51.96</span>$34.99 · one-time purchase · Save 33%</span>
       </span>
     </div>
@@ -342,6 +361,20 @@
     });
   });
 })();
+</script>
+<!-- FastSpring Store Builder Library, version and storefront both taken from the
+     console rather than the docs. data-storefront is the TEST storefront while the
+     store is unactivated; live is edenapps.onfastspring.com/popup-edenapps and that
+     one string is the only difference. -->
+<script src="assets/fastspring-checkout.js"></script>
+<script
+  id="fsc-api"
+  src="https://sbl.onfastspring.com/sbl/1.0.7/fastspring-builder.min.js"
+  type="text/javascript"
+  data-storefront="edenapps.test.onfastspring.com/popup-edenapps"
+  data-popup-webhook-received="fscPopupWebhookReceived"
+  data-popup-closed="fscPopupClosed"
+  data-error-callback="fscError">
 </script>
 </body>
 </html>
