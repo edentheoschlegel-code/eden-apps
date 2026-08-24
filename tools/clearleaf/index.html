@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clearleaf · Remove hidden data · Eden Apps</title>
+<meta name="description" content="See and strip the hidden metadata in your documents, PDFs and photos (author names, GPS, edit history) right on your device. Nothing is uploaded.">
+<meta name="eden-product" content="clearleaf">
+<meta name="eden-appname" content="Clearleaf">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234338ca' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'><path d='M11 3c-3 4-6 6-6 10a6 6 0 0 0 12 0c0-4-3-6-6-10z'/><path d='M11 21V9'/></svg>">
+<style>
+  :root{
+    --bg:#f6f6f9; --panel:#ffffff; --ink:#14152a; --faint:#6b6d84; --line:#e7e7ef;
+    --acc:#4338ca; --acc-soft:#eef0fd; --ok:#0f9d58; --warn:#b4690e;
+  }
+  @media(prefers-color-scheme:dark){
+    :root{
+      --bg:#0c0d12; --panel:#15161e; --ink:#f0f1f6; --faint:#9a9cb0; --line:#262838;
+      --acc:#8b83f0; --acc-soft:#1c1d33; --ok:#3ec07a; --warn:#e0a244;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .app{max-width:920px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand-dot{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--acc),#9333ea);display:inline-block}
+  .brand-icon{width:26px;height:26px;border-radius:7px;display:block}
+  .brand-name{font-weight:750;font-size:17px;letter-spacing:-.2px}
+  .brand-tag{color:var(--faint);font-size:13.5px}
+  @media(max-width:560px){.brand-tag{display:none}}
+  .chip{font-size:12.5px;color:var(--acc);background:var(--acc-soft);padding:4px 10px;border-radius:999px;font-weight:600;white-space:nowrap}
+  .body{flex:1;padding:22px;display:flex;flex-direction:column;gap:16px}
+
+  .dropzone{border:1.5px dashed var(--line);border-radius:16px;background:var(--panel);padding:34px 24px;text-align:center;transition:border-color .15s,background .15s}
+  .dropzone.over{border-color:var(--acc);background:var(--acc-soft)}
+  .dz-icon{color:var(--acc);margin-bottom:8px}
+  .dz-title{font-size:19px;font-weight:700;letter-spacing:-.2px}
+  .dz-sub{color:var(--faint);font-size:14px;max-width:62ch;margin:8px auto 0}
+  .dz-cta{margin-top:16px;border:0;border-radius:11px;background:var(--acc);color:#fff;font-weight:650;font-size:14.5px;padding:10px 20px;cursor:pointer}
+  .dz-cta:hover{filter:brightness(1.05)}
+  .dz-hint{color:var(--faint);font-size:12.5px;margin-top:12px}
+  .try-sample{align-self:center;background:none;border:0;color:var(--acc);cursor:pointer;font-size:13.5px;text-decoration:underline;text-underline-offset:3px}
+
+  .queue{display:flex;flex-direction:column;gap:6px}
+  .qrow{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:9px 13px}
+  .qkind{font-size:11.5px;font-weight:700;color:var(--acc);background:var(--acc-soft);padding:2px 8px;border-radius:6px;min-width:48px;text-align:center;text-transform:uppercase}
+  .qname{font-weight:600;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .qmeta{color:var(--faint);font-size:12.5px;margin-left:auto;white-space:nowrap}
+  .qx{border:0;background:none;color:var(--faint);cursor:pointer;font-size:18px;line-height:1;padding:0 2px}
+  .qx:hover{color:var(--ink)}
+
+  .looking{color:var(--faint);font-size:13.5px}
+  .reveal{display:flex;flex-direction:column;gap:10px}
+  .rfile{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+  .rfile-head{display:flex;align-items:center;gap:9px;padding:11px 14px;border-bottom:1px solid var(--line)}
+  .rfile-name{font-weight:650;font-size:14px}
+  .rfile-count{color:var(--faint);font-size:12.5px;margin-left:auto}
+  .rfile-clean{color:var(--ok);font-size:12.5px;margin-left:auto;font-weight:600}
+  .rfile-err{color:var(--warn);font-size:12.5px;margin-left:auto}
+  .rgroups{padding:10px 14px;display:flex;flex-direction:column;gap:10px}
+  .rgroup-title{font-size:12px;font-weight:700;color:var(--acc);text-transform:uppercase;letter-spacing:.03em}
+  .rgroup ul{margin:4px 0 0;padding-left:18px}
+  .rgroup li{font-size:13px;color:var(--ink);margin:2px 0}
+
+  .clean-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+  .clean-note{font-size:13.5px;color:var(--faint)}
+  .clean-go{border:0;border-radius:10px;background:var(--acc);color:#fff;font-weight:700;font-size:14.5px;padding:10px 22px;cursor:pointer}
+  .clean-go:disabled{opacity:.5;cursor:default}
+
+  .results{display:flex;flex-direction:column;gap:14px}
+  .results-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .results-title{font-size:20px;font-weight:750;letter-spacing:-.3px}
+  .ghost{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:9px;padding:7px 14px;cursor:pointer;font:inherit;font-size:13.5px}
+  .cards{display:flex;flex-direction:column;gap:8px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 15px}
+  .card-skip{opacity:.75}
+  .card-top{display:flex;align-items:center;gap:9px}
+  .tick{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700}
+  .tick.ok{background:var(--ok)} .tick.no{background:var(--warn)}
+  .card-name{font-weight:650;font-size:14px}
+  .card-note{color:var(--faint);font-size:13px;margin-top:5px}
+  .card-list{margin:6px 0 0;padding-left:18px}
+  .card-list li{font-size:12.5px;color:var(--faint);margin:1px 0}
+  .note-soft{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:12px 14px;color:var(--faint);font-size:13px}
+
+  .working{color:var(--faint);font-size:14px}
+  .error{background:var(--panel);border:1px solid var(--warn);color:var(--warn);border-radius:11px;padding:12px 14px;font-size:13.5px}
+  .notice{background:var(--acc-soft);border-radius:11px;padding:11px 14px;font-size:13px}
+  .footbar{padding:16px 22px;border-top:1px solid var(--line);color:var(--faint);font-size:12.5px;text-align:center}
+  .footbar a{color:inherit}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+  <div class="app" id="app"></div>
+  <input type="file" id="picker" class="visually-hidden" multiple
+         accept=".docx,.xlsx,.pptx,.pdf,.jpg,.jpeg,.png">
+  <script src="../vendor/pdf-lib.min.js"></script>
+  <script src="../vendor/jszip.min.js"></script>
+  <script type="module" src="../_license/gate.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
