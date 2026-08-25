@@ -303,9 +303,9 @@ export const SAMPLE = {
   excerpt: "A short note about saving things to read when there's time, and why a calm pile beats an anxious feed.",
   content_html: `
     <p>There is a particular kind of calm in a reading pile that asks nothing of you. It does not notify. It does not reorder itself overnight to show you what is new. It simply waits.</p>
-    <p>Bookplate is that pile, kept on your own device. You add something worth reading, and it stays: offline, unchanged, yours to open when there is time.</p>
+    <p>Bookplate is that pile, kept on your own device. You add something worth reading, and it stays until you have time for it.</p>
     <h2>Read it later, actually later</h2>
-    <p>The promise of "read it later" only works if later is a real place. Here it is: a quiet list, a clean reader, and nothing between you and the words.</p>
+    <p>"Read it later" only works if later is a real place. Here it is: a quiet list, a clean reader, and nothing between you and the words.</p>
     <p>Have it read aloud while you cook. Come back to it on a train with no signal. Move it to the trash when you are done, and take it back out if you were not.</p>
     <p>Nothing here leaves your device. That is the whole idea.</p>`,
 };
