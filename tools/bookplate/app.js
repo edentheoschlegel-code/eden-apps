@@ -64,6 +64,28 @@ async function mayAddArticle() {
   return useOnce();
 }
 
+// Your library, as a file you keep. Never gated: the articles are yours, and the
+// browser version has no other copy of them anywhere.
+async function downloadLibrary() {
+  try {
+    const data = await lib.exportAll();
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    const d = new Date(data.saved_at * 1000);
+    const stamp = [d.getFullYear(), String(d.getMonth() + 1).padStart(2, "0"), String(d.getDate()).padStart(2, "0")].join("-");
+    a.download = `Bookplate library ${stamp}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+    set({ error: null, toast: { msg: `Saved ${data.articles.length} ${data.articles.length === 1 ? "article" : "articles"} to your downloads folder.` } });
+  } catch (e) {
+    set({ error: friendly(e) });
+  }
+}
+
 async function addFromSample() {
   const rec = await lib.save(SAMPLE);
   await refresh();
@@ -72,8 +94,16 @@ async function addFromSample() {
 
 async function importFile(file) {
   try {
-    if (!(await mayAddArticle())) return;
     const text = await file.text();
+    // A library file restores everything at once. Checked before spending a go,
+    // so putting your own backup back does not cost you one of the free three.
+    if (/^\s*\{/.test(text) && text.includes('"bookplate-library"')) {
+      const n = await lib.importBackup(JSON.parse(text));
+      set({ error: null, toast: { msg: `Put back ${n} ${n === 1 ? "article" : "articles"}.` } });
+      await refresh();
+      return;
+    }
+    if (!(await mayAddArticle())) return;
     const isHtml = /\.html?$/i.test(file.name) || /^\s*<(!doctype|html)/i.test(text);
     const article = isHtml ? extractFromHtml(text) : articleFromText(text, stripExt(file.name));
     const rec = await lib.save(article);
@@ -271,6 +301,15 @@ function listPane() {
         { class: "btn ghost", onclick: () => set({ addOpen: !state.addOpen }) },
         state.addOpen ? "Cancel" : "Paste text",
       ),
+      // Only worth offering once there is something to save. Importing the file
+      // it produces puts the library back.
+      state.items.length || state.trashCount
+        ? el(
+            "button",
+            { class: "btn ghost", onclick: downloadLibrary, title: "Save your whole library as a file you keep" },
+            "Download library",
+          )
+        : null,
     ),
     el("input", {
       class: "title",

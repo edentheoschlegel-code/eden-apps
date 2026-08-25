@@ -114,6 +114,56 @@ export class BookplateLibrary {
     await reqP(tx(db, "readwrite").delete(id));
   }
 
+  // Everything in the library, including the trash, as one plain object. This is
+  // the only way out: the web version keeps articles in the browser's storage,
+  // so clearing site data would otherwise delete them with no copy anywhere.
+  // Getting your own writing back is never gated.
+  async exportAll() {
+    const db = await this.db();
+    const all = await reqP(tx(db, "readonly").getAll());
+    return {
+      format: "bookplate-library",
+      version: 1,
+      saved_at: nowSecs(),
+      articles: all.map((a) => ({
+        url: a.url || "",
+        title: a.title,
+        byline: a.byline ?? null,
+        excerpt: a.excerpt ?? null,
+        content_html: a.content_html,
+        saved_at: a.saved_at,
+        deleted: a.deleted ? 1 : 0,
+      })),
+    };
+  }
+
+  // Restore from the object above. Adds to whatever is already here rather than
+  // replacing it, so a restore can never quietly wipe a library someone has
+  // added to since. Returns how many came back.
+  async importBackup(obj) {
+    if (!obj || obj.format !== "bookplate-library" || !Array.isArray(obj.articles)) {
+      throw new Error("That isn't a Bookplate library file.");
+    }
+    const db = await this.db();
+    let added = 0;
+    for (const a of obj.articles) {
+      if (!a || !a.content_html) continue;
+      await reqP(
+        tx(db, "readwrite").add({
+          url: a.url || "",
+          title: (a.title && String(a.title).trim()) || "Untitled",
+          byline: a.byline ?? null,
+          excerpt: a.excerpt || makeExcerpt(a.content_html),
+          content_html: a.content_html,
+          saved_at: Number(a.saved_at) || nowSecs(),
+          deleted: a.deleted ? 1 : 0,
+        }),
+      );
+      added++;
+    }
+    return added;
+  }
+
   async count() {
     const db = await this.db();
     const all = await reqP(tx(db, "readonly").getAll());
