@@ -48,14 +48,17 @@
   .tabs{display:flex;gap:4px;padding:8px 14px 0}
   .tab{border:0;background:none;color:var(--faint);font:inherit;font-size:13px;font-weight:600;padding:6px 10px;border-radius:8px 8px 0 0;cursor:pointer}
   .tab.on{color:var(--acc);background:var(--acc-soft)}
-  .list{flex:1;overflow:auto;padding:8px}
+  /* A flex column so an empty state can take the spare room instead of sitting
+     at the top with half a screen of nothing under it. With articles in the
+     list they stack from the top exactly as before. */
+  .list{flex:1;overflow:auto;padding:8px;display:flex;flex-direction:column}
   .item{width:100%;text-align:left;border:1px solid transparent;background:none;border-radius:10px;padding:11px 12px;cursor:pointer;display:block}
   .item:hover{background:var(--panel)}
   .item.sel{background:var(--panel);border-color:var(--line)}
   .item-title{font-weight:650;font-size:14px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .item-meta{color:var(--faint);font-size:12px;margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .item-date{color:var(--faint);font-size:11px;margin-top:5px}
-  .empty{padding:36px 20px;text-align:center;color:var(--faint)}
+  .empty{padding:36px 20px;text-align:center;color:var(--faint);margin:auto 0}
   .empty-title{font-weight:700;color:var(--ink);font-size:16px;margin-bottom:6px}
   .empty-sub{font-size:13.5px;max-width:34ch;margin:0 auto}
 
