@@ -1,9 +1,10 @@
 // Shared licence gate for the Eden web tools.
 //
-// The tools are free to use on your own files. The licence is asked for at the
-// point where you keep the result: saving or exporting a file, or in Bookplate
-// growing the library past the free few. Seeing your own file handled correctly
-// is what makes the tool worth buying, so that part costs nothing.
+// The tools are free to TRY on your own files: three goes each on a device,
+// counted when files are loaded. Within those goes the tool works fully, but
+// keeping the result still needs a licence. Seeing your own file handled
+// correctly is what makes the tool worth buying, so that part is free, and it
+// is deliberately not unlimited.
 //
 // The code is the SAME one sold with the Mac download on FastSpring.
 // Verification is offline (ed25519, see verify.mjs); a valid code is remembered
@@ -274,7 +275,7 @@ function showPrompt({ note, title }) {
           "p",
           {},
           note ||
-            `${APP_NAME} is free to use on your own files. Keeping the result needs the licence code from your Eden Apps purchase, the same one that opens the Mac app.`,
+            `${APP_NAME} is free to try on your own files. Keeping the result needs the licence code from your Eden Apps purchase, the same one that opens the Mac app.`,
         ),
         input,
         btn,
