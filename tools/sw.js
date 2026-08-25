@@ -16,7 +16,12 @@
 // Nothing here talks to a server of ours. It only re-serves files already
 // fetched from this origin.
 
-const CACHE = "eden-tools";
+// Bumped once, deliberately. The first version of this worker never passed its
+// background revalidation to waitUntil, so any device that cached under it kept
+// those files with no way to refresh them. Changing the name makes activate()
+// delete the old cache outright, which is the only way to recover those devices.
+// Routine updates do NOT need this: waitUntil handles them now.
+const CACHE = "eden-tools-v2";
 
 // The shared pieces every tool needs. Individual app files, engines and vendored
 // libraries are picked up by use, which keeps the first visit light: precaching
