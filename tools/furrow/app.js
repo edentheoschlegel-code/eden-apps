@@ -384,7 +384,7 @@ function dropZone() {
     el(
       "div",
       { class: "dz-sub" },
-      "Drop CSV or Excel files here to split, merge, convert, or clean them. A fresh copy is downloaded for each. Your originals stay as they are, and nothing leaves your device.",
+      "Add CSV or Excel files to split, merge, convert, or clean them. A fresh copy is downloaded for each. Your originals stay as they are, and nothing leaves your device.",
     ),
     el("button", { class: "dz-cta", onclick: openPicker }, "Choose files"),
     el("div", { class: "dz-hint" }, "Works with CSV, TSV, and Excel (.xlsx, .xls, .ods)."),
@@ -550,7 +550,7 @@ function workbench() {
             el("button", { class: "wb-bar-act", onclick: () => addTrim(pickedList) }, "Trim spaces"),
             el("button", { class: "wb-bar-clear", onclick: () => set({ picked: new Set() }) }, "Clear"),
           ]
-        : el("span", { class: "wb-bar-hint" }, "Click a column to clean it."),
+        : el("span", { class: "wb-bar-hint" }, "Choose a column to clean it."),
     ),
   );
 

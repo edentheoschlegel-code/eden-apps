@@ -394,7 +394,11 @@ function listPane() {
 }
 
 function readerPane() {
-  const pane = el("div", { class: "reader-pane" + (state.selected ? "" : " ") });
+  // The stylesheet already had .reader-pane.hide-mobile{display:none} waiting for
+  // this class, which was never applied: the branch added a space instead. On a
+  // phone the panes stack, so an empty reader under an empty library meant two
+  // empty states and a long dead gap between them.
+  const pane = el("div", { class: "reader-pane" + (state.selected ? "" : " hide-mobile") });
   if (!state.selected) {
     pane.append(
       el(

@@ -213,7 +213,7 @@ function dropZone() {
     el(
       "div",
       { class: "dz-sub" },
-      "Drop documents, PDFs or photos here. Clearleaf shows the hidden trail inside (author names, GPS, edit history) and downloads a clean copy of each one. Your originals stay as they are, and nothing leaves your device.",
+      "Add documents, PDFs or photos. Clearleaf shows the hidden trail inside (author names, GPS, edit history) and downloads a clean copy of each one. Your originals stay as they are, and nothing leaves your device.",
     ),
     el("button", { class: "dz-cta", onclick: openPicker }, "Choose files"),
     el("div", { class: "dz-hint" }, "Word, Excel, PowerPoint, PDF, JPEG and PNG."),

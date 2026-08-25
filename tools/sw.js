@@ -76,6 +76,12 @@ self.addEventListener("fetch", (e) => {
           })
           .catch(() => null);
 
+        // Keep the worker alive until the refresh finishes. Without this the
+        // browser is free to shut it down the moment the cached response is
+        // returned, cancelling the fetch that updates the cache, and everyone
+        // stays on the old build forever.
+        e.waitUntil(fresh);
+
         // Cached copy wins on speed; the network copy refreshes it for next time.
         if (hit) return hit;
         return fresh.then((res) => res || new Response("Offline and not cached yet.", { status: 504, statusText: "Offline" }));

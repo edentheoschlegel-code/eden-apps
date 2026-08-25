@@ -328,7 +328,7 @@ function dropZone() {
     el(
       "div",
       { class: "dz-sub" },
-      "Drop PDF files here to merge, split, rotate, or remove pages. A fresh copy is downloaded for each. Your originals stay as they are, and nothing leaves your device.",
+      "Add PDF files to merge, split, rotate, or remove pages. A fresh copy is downloaded for each. Your originals stay as they are, and nothing leaves your device.",
     ),
     el("button", { class: "dz-cta", onclick: openPicker }, "Choose files"),
     el("div", { class: "dz-hint" }, "Works with PDF files. Password-protected PDFs are left untouched."),
@@ -381,7 +381,7 @@ function boardView() {
     ? `${state.picked.size} of ${b.length} ${b.length === 1 ? "page" : "pages"} picked`
     : reordered()
       ? "New order, not saved yet"
-      : `${b.length} ${b.length === 1 ? "page" : "pages"}. Click to pick, drag to move`;
+      : `${b.length} ${b.length === 1 ? "page" : "pages"}. Select any, drag to reorder`;
 
   const grid = el("div", { class: "board-grid" });
   b.forEach((t, i) => {
@@ -394,7 +394,7 @@ function boardView() {
           (state.picked.has(t.page) ? " picked" : "") +
           (dragOver === i && dragFrom !== null && dragFrom !== i ? " over" : ""),
         "aria-pressed": state.picked.has(t.page) ? "true" : "false",
-        title: `Page ${t.page}. Click to pick, drag to move`,
+        title: `Page ${t.page}. Select it, or drag to reorder`,
       },
       el("img", { src: t.image, alt: "", draggable: "false" }),
       el("span", { class: "thumb-n" }, String(t.page)),
