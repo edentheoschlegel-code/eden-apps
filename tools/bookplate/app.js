@@ -36,6 +36,17 @@ function set(patch) {
 }
 
 // ---- data ------------------------------------------------------------------
+// Bring an already-saved sample back into line with the current wording. Runs
+// once at startup and does nothing if it already matches.
+async function syncSample() {
+  try {
+    const n = await lib.refreshSample(SAMPLE);
+    if (n && state.selected && state.selected.byline === SAMPLE.byline) {
+      state.selected = await lib.get(state.selected.id);
+    }
+  } catch { /* never let this stop the app opening */ }
+}
+
 async function refresh() {
   const items = await lib.list({ deleted: state.tab === "trash" ? 1 : 0 });
   const counts = await lib.count();
@@ -457,4 +468,4 @@ function switchTab(tab) {
 
 // ---- boot ------------------------------------------------------------------
 render();
-refresh();
+syncSample().then(refresh);

@@ -164,6 +164,30 @@ export class BookplateLibrary {
     return added;
   }
 
+  // The sample is copied into the library when it is added, so a later edit to
+  // the words never reaches a copy someone already has. This brings ours back
+  // into line. It only ever touches the article we supplied, matched on our own
+  // byline and title, and only the text: anything a person wrote is not ours to
+  // rewrite.
+  async refreshSample(sample) {
+    const db = await this.db();
+    const all = await reqP(tx(db, "readonly").getAll());
+    let updated = 0;
+    for (const a of all) {
+      const ours = a.byline === sample.byline && a.title === sample.title && !a.url;
+      if (!ours || a.content_html === sample.content_html) continue;
+      await reqP(
+        tx(db, "readwrite").put({
+          ...a,
+          content_html: sample.content_html,
+          excerpt: sample.excerpt,
+        }),
+      );
+      updated++;
+    }
+    return updated;
+  }
+
   async count() {
     const db = await this.db();
     const all = await reqP(tx(db, "readonly").getAll());
