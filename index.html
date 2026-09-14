@@ -192,8 +192,8 @@
   .split b{color:var(--ink); font-weight:700}
   .sec-note{font-size:13.5px; color:var(--muted); margin:-4px 0 20px}
   @font-face{font-family:'EdenBold';src:url('assets/fonts/EdenBold-Regular.otf');font-display:swap}
-  #apps h2, #mac h2{font-family:'EdenBold',var(--font)}
-  #apps + .sec-note, #mac + .sec-note{font-family:'EdenColumn',var(--font)}
+  #apps h2, #mac h2, #extensions h2{font-family:'EdenBold',var(--font)}
+  #apps + .sec-note, #mac + .sec-note, #extensions + .sec-note{font-family:'EdenColumn',var(--font)}
 
   /* featured carousel */
   .showcase{margin-bottom:4px}
@@ -716,10 +716,10 @@
 
 
     <div class="sec-head" id="extensions">
-      <h2>The extensions</h2>
+      <h2>Eden Local Extensions</h2>
       <span class="count">9 extensions</span>
     </div>
-    <p class="sec-note">Focused browser tools with the same promise as our apps, built to keep your information yours. Pro is a <b>one time unlock</b>, not a subscription. Each installs from the Chrome Web Store.</p>
+    <p class="sec-note">Focused browser tools designed to work locally and keep your information on your device. No account required, with additional features available through a one-time purchase. Each extension installs from the Chrome Web Store.</p>
 
     <div class="ext-filter" id="extFilter" role="group" aria-label="Filter extensions">
       <button type="button" data-f="all" aria-pressed="true">All</button>
