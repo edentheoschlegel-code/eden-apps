@@ -55,11 +55,12 @@
   .ticket h2{margin:0 0 18px}
   .ticket .sub{margin:0 0 18px;color:var(--muted);font-size:15px}
   .field{margin:0 0 14px}
-  .field label{display:block;font-size:14px;font-weight:650;color:var(--ink);margin:0 0 6px}
-  .field input,.field select,.field textarea{width:100%;padding:11px 13px;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px}
+  @font-face{font-family:'EdenBloom';src:url('assets/fonts/EdenBloom-Regular.otf');font-display:swap}
+  .field label{display:block;font-family:'EdenBloom',var(--font);font-size:14px;font-weight:650;color:var(--ink);margin:0 0 6px}
+  .field input,.field select,.field textarea{width:100%;padding:11px 13px;font:inherit;font-family:'EdenBloom',var(--font);font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px}
   .field textarea{resize:vertical;min-height:120px}
   .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--li-tx);outline-offset:1px;border-color:var(--li-tx)}
-  .ticket button{appearance:none;border:0;background:var(--li);color:#fff;font:inherit;font-weight:700;font-size:15px;padding:12px 24px;border-radius:11px;cursor:pointer}
+  .ticket button{appearance:none;border:0;background:var(--li);color:#fff;font:inherit;font-family:'EdenBloom',var(--font);font-weight:700;font-size:15px;padding:12px 24px;border-radius:11px;cursor:pointer}
   .ticket button:hover{filter:brightness(1.06)}
   .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
   .sent-banner{display:none;margin:0 0 26px;padding:15px 18px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--lr);border-radius:12px;color:var(--ink);font-weight:600}
