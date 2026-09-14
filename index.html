@@ -264,9 +264,11 @@
     .meta .name{font-size:21px}
   }
 
-  /* On the narrowest phones three pills plus the Free chip would crowd the row,
-     so they drop to two. */
-  @media (max-width:360px){
+  /* On phones three pills plus the Free chip would crowd the row, so they drop
+     to two. EdenEditorial runs wider than the old system font did at 11.5px,
+     so this now needs to kick in well before 360px — 430px covers the common
+     iPhone widths (375-430) where three columns was overflowing. */
+  @media (max-width:430px){
     .tabs{grid-template-columns:repeat(2,auto)}
   }
 
