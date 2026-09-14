@@ -55,7 +55,13 @@
   .brand{display:flex; align-items:center; gap:11px; font-weight:800; letter-spacing:-.02em; font-size:19px}
   .brand .mark{width:31px; height:31px; display:block; object-fit:contain}
   .topnav{display:flex; align-items:center; gap:22px}
-  .topnav .catlink{display:inline-flex; align-items:center; gap:6px; min-height:44px; font-size:14.5px; font-weight:700; color:var(--muted); white-space:nowrap; text-decoration:none; transition:color .2s}
+  @font-face{font-family:'EdenSlab';src:url('assets/fonts/EdenSlab-Regular.otf');font-display:swap}
+  @font-face{font-family:'EdenColumn';src:url('assets/fonts/EdenColumn-Regular.otf');font-display:swap}
+  @font-face{font-family:'EdenMarker';src:url('assets/fonts/EdenMarker-Regular.otf');font-display:swap}
+  @font-face{font-family:'EdenRound';src:url('assets/fonts/EdenRound-Regular.otf');font-display:swap}
+  @font-face{font-family:'EdenSeaweed';src:url('assets/fonts/EdenSeaweed-Regular.otf');font-display:swap}
+  @font-face{font-family:'EdenKnit';src:url('assets/fonts/EdenKnit-Regular.otf');font-display:swap}
+  .topnav .catlink{display:inline-flex; align-items:center; gap:6px; min-height:44px; font-family:'EdenSlab',var(--font); font-size:14.5px; font-weight:700; color:var(--muted); white-space:nowrap; text-decoration:none; transition:color .2s}
   .topnav a.catlink:hover{color:var(--ink)}
   .topnav .catlink[aria-current="page"]{color:var(--mac)}
   .topnav .soontag{font-size:10.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--mac)}
@@ -84,10 +90,10 @@
   @media (max-width:600px){ .hero{padding:34px 0 18px} }
 
   .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:34px 0 6px}
-  .sec-head h2{font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#2c2c2c; margin:0}
+  .sec-head h2{font-family:'EdenBold',var(--font); font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#2c2c2c; margin:0}
   :root[data-theme="dark"] .sec-head h2{color:var(--faint)}
   .sec-head .count{font-size:13px; color:var(--faint)}
-  .sec-note{font-size:13.5px; color:var(--muted); margin:0 0 22px}
+  .sec-note{font-family:'EdenColumn',var(--font); font-size:13.5px; color:var(--muted); margin:0 0 22px}
 
   .agrid{display:grid; grid-template-columns:1fr 1fr; gap:20px; padding-bottom:8px}
   @media (max-width:720px){ .agrid{grid-template-columns:1fr} }
@@ -98,11 +104,11 @@
   .acard:hover{border-color:var(--acc); transform:translateY(-2px); box-shadow:var(--shadow)}
   .ahead{display:flex; align-items:center; gap:14px; margin-top:4px}
   .aicon{width:52px; height:52px; border-radius:14px; flex:none; object-fit:cover; box-shadow:0 1px 0 rgba(20,21,42,.04)}
-  .aname{font-size:20px; font-weight:800; letter-spacing:-.015em; margin:0; line-height:1.1}
-  .akicker{font-size:13px; font-weight:700; color:var(--acc); margin:3px 0 0}
-  .adesc{color:var(--muted); font-size:15px; line-height:1.5; margin:16px 0 0}
+  .aname{font-family:'EdenMarker',var(--font); font-size:20px; font-weight:800; letter-spacing:-.015em; margin:0; line-height:1.1}
+  .akicker{font-family:'EdenMarker',var(--font); font-size:13px; font-weight:700; color:var(--acc); margin:3px 0 0}
+  .adesc{font-family:'EdenMarker',var(--font); color:var(--muted); font-size:15px; line-height:1.5; margin:16px 0 0}
   .atags{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0}
-  .atag{font-size:12.5px; font-weight:650; color:var(--acc); background:var(--acc-soft); padding:5px 11px; border-radius:999px}
+  .atag{font-family:'EdenRound',var(--font); font-size:12.5px; font-weight:650; color:var(--acc); background:var(--acc-soft); padding:5px 11px; border-radius:999px}
   .atag.lock{color:var(--faint); background:transparent; border:1px solid var(--line-strong)}
   /* each tool wears its own logo colour */
   .acard.fw{--acc:#24603c;--acc-soft:#e8f0ea}
@@ -115,12 +121,12 @@
   :root[data-theme="dark"] .acard.bp{--acc:#98bcdc;--acc-soft:#14202c}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .acard.fw{--acc:#8fc7a1;--acc-soft:#16231b} :root:not([data-theme="light"]) .acard.pn{--acc:#cf9df2;--acc-soft:#241330} :root:not([data-theme="light"]) .acard.cl{--acc:#a8a8f5;--acc-soft:#17172e} :root:not([data-theme="light"]) .acard.bp{--acc:#98bcdc;--acc-soft:#14202c} }
   .afoot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:20px}
-  .aprice{font-size:13.5px; color:var(--faint); white-space:nowrap}
+  .aprice{font-family:'EdenRound',var(--font); font-size:13.5px; color:var(--faint); white-space:nowrap}
   .aprice b{color:var(--ink); font-weight:750}
   .soonpill{display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:650; color:var(--acc);
     background:var(--acc-soft); border:1px solid var(--line-strong); border-radius:999px; padding:4.5px 10px; white-space:nowrap}
   .soonpill .dot{width:5px; height:5px; border-radius:999px; background:var(--acc)}
-  .appstore{display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:14px; color:var(--acc);
+  .appstore{display:inline-flex; align-items:center; gap:7px; font-family:'EdenRound',var(--font); font-weight:700; font-size:14px; color:var(--acc);
     background:transparent; border:1.5px solid var(--acc); padding:8.5px 15px; border-radius:11px; transition:gap .2s, background .2s, color .2s}
   .appstore:hover{gap:11px; background:var(--acc); color:#fff}
   @font-face{font-family:'EdenBold';src:url('assets/fonts/EdenBold-Regular.otf');font-display:swap}
@@ -165,8 +171,8 @@
   .frow{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
   .fbrand{display:flex; align-items:center; gap:9px; font-weight:800; letter-spacing:-.02em; font-size:15px}
   .fbrand .mark{width:22px; height:22px; object-fit:contain}
-  .fnote{color:var(--faint); font-size:13px}
-  .flinks{display:flex; gap:18px; margin-left:auto; flex-wrap:wrap}
+  .fnote{font-family:'EdenKnit',var(--font); color:var(--faint); font-size:13px}
+  .flinks{display:flex; gap:18px; margin-left:auto; flex-wrap:wrap; font-family:'EdenSeaweed',var(--font); font-weight:700; -webkit-text-stroke:.4px currentColor}
   .flinks a{color:var(--muted); font-size:13.5px}
   .flinks a:hover{color:var(--ink)}
   .themebtn:focus-visible,.brand:focus-visible,.catlink:focus-visible,.flinks a:focus-visible{outline:2px solid var(--mac); outline-offset:3px}
