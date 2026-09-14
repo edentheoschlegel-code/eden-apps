@@ -144,7 +144,9 @@
      Eden's rule: "your" and the cycling word stay TOGETHER on phones. */
   @font-face{font-family:'EdenRound';src:url('assets/fonts/EdenRound-Regular.otf');font-display:swap}
   .lede{font-family:'EdenRound',var(--font); font-size:clamp(15px,2vw,17px); color:var(--muted); margin:0 auto; max-width:600px}
-  @media (max-width:600px){ .lede{font-size:11px; letter-spacing:-.015em; max-width:none} }
+  @media (max-width:600px){ .lede{font-size:10.5px; letter-spacing:-.015em; max-width:none} }
+  .mob-br2{display:none}
+  @media (max-width:600px){ h1{font-size:19px} .mob-br2{display:block; content:""} }
   @media (max-width:600px){ .hero{padding:52px 0 48px} }
 
   /* section head */
@@ -1191,6 +1193,8 @@
   var forB = document.createElement('span'); forB.className = 'for-b'; forB.textContent = 'for ';
   l2.appendChild(forB);
   l2.appendChild(document.createTextNode('your '));
+  var mobBr = document.createElement('br'); mobBr.className = 'mob-br2';
+  l2.appendChild(mobBr);
   h1.appendChild(l2);
   var cyc = document.createElement('span');
   cyc.className = 'cyc';
