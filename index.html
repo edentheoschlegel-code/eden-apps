@@ -190,6 +190,9 @@
   .split{font-size:12.5px; color:var(--muted); margin:0; line-height:1.5}
   .split b{color:var(--ink); font-weight:700}
   .sec-note{font-size:13.5px; color:var(--muted); margin:-4px 0 20px}
+  @font-face{font-family:'EdenBold';src:url('assets/fonts/EdenBold-Regular.otf');font-display:swap}
+  #apps h2{font-family:'EdenBold',var(--font)}
+  #apps + .sec-note{font-family:'EdenColumn',var(--font)}
 
   /* featured carousel */
   .showcase{margin-bottom:4px}
@@ -484,10 +487,10 @@
 
   <main id="main">
     <div class="sec-head" id="apps">
-      <h2>The apps</h2>
+      <h2>Eden Local Apps</h2>
       <span class="count">6 live</span>
     </div>
-    <p class="sec-note">Explore our collection of private, local-first apps, designed to work directly on your device with no account or signup required. Additional features are available through a one-time purchase.</p>
+    <p class="sec-note">Private, local-first tools designed to work directly on your device. No account or signup required, with additional features available through a one-time purchase.</p>
 
     <section class="showcase" aria-roledescription="carousel" aria-label="Featured Eden Apps">
       <div class="tabs" role="group" aria-label="Choose an app">
