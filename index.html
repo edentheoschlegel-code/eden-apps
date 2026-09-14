@@ -144,9 +144,9 @@
      Eden's rule: "your" and the cycling word stay TOGETHER on phones. */
   @font-face{font-family:'EdenRound';src:url('assets/fonts/EdenRound-Regular.otf');font-display:swap}
   .lede{font-family:'EdenRound',var(--font); font-size:clamp(15px,2vw,17px); color:var(--muted); margin:0 auto; max-width:600px}
-  @media (max-width:600px){ .lede{font-size:10.5px; letter-spacing:-.015em; max-width:none} }
+  @media (max-width:600px){ .lede{font-size:16px; letter-spacing:-.015em; max-width:none} }
   .mob-br2{display:none}
-  @media (max-width:600px){ h1{font-size:19px} }
+  @media (max-width:600px){ h1{font-size:24px} }
   @media (max-width:600px){ .hero{padding:52px 0 48px} }
 
   /* section head */
@@ -169,7 +169,7 @@
   .card .icon{width:56px; height:56px; border-radius:15px; flex:none; box-shadow:0 6px 18px -8px rgba(20,21,42,.4)}
   .card .name{font-size:20px; font-weight:800; letter-spacing:-.02em; margin:0}
   .card .kicker{font-size:13px; font-weight:650; color:var(--ac); margin:3px 0 0}
-  .card .desc{color:var(--muted); font-size:15px; margin:0; flex:1}
+  .card .desc{color:var(--muted); font-size:13.5px; margin:0; flex:1}
   .tags{display:flex; flex-wrap:wrap; gap:7px}
   .tag{font-family:'EdenRound',var(--font); font-size:12px; font-weight:650; color:var(--muted); background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:4px 10px}
   .tag.lock{color:var(--lr-tx); border-color:transparent; background:var(--lr-soft)}
@@ -238,7 +238,7 @@
   .meta .foot{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
   .arrow{flex:none; width:42px; height:42px; border-radius:50%; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); font-size:22px; line-height:1; cursor:pointer; display:grid; place-items:center; transition:border-color .2s, color .2s}
   .arrow:hover{border-color:var(--li-tx); color:var(--li-tx)}
-  .tabs{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:0 0 22px}
+  .tabs{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:0 0 22px}
   @font-face{font-family:'EdenEditorial';src:url('assets/fonts/EdenEditorial-Regular.otf');font-display:swap}
   .tab{display:inline-flex; align-items:center; gap:8px; font:inherit; font-size:14px; font-weight:700; font-family:'EdenEditorial',var(--font); color:var(--muted); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:6px 15px 6px 7px; cursor:pointer; transition:color .2s, background .2s, border-color .2s}
   .tab img{width:22px; height:22px; border-radius:6px}
@@ -466,6 +466,15 @@
   .js-anim .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1)}
   .js-anim .reveal.in{opacity:1; transform:none}
   @media (prefers-reduced-motion:reduce){ .js-anim .reveal{opacity:1; transform:none; transition:none} }
+  /* Phone type scale, kept last so it wins: hero > section heading > item name > body */
+  @media (max-width:600px){
+    .lede{font-size:15px}
+    .sec-head h2, .promise h2{font-size:16px}
+    .subscribe h2{font-size:17px}
+    .meta .name, .card .name, .point h3{font-size:15px}
+    .meta .kicker, .card .kicker{font-size:12.5px}
+    .sec-note, .meta .desc, .card .desc, .card.mac .desc, .card.xc .desc, .point p, .subscribe .sub{font-size:13px}
+  }
 </style>
 <script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}
   // Mark that JS is active BEFORE first paint, so the scroll-reveal hidden state
