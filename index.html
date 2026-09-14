@@ -117,11 +117,13 @@
   h1 .g-money{color:#bf8f2b}
   h1 .g-docs{color:#3b5bb0}
   h1 .g-career{color:#0a8f5c}
+  h1 .g-every{color:#e11d48}
   h1 .g-more{color:var(--faint)}
   :root[data-theme="dark"] h1 .g-money{color:#e8c06f}
   :root[data-theme="dark"] h1 .g-docs{color:#8fa8f0}
   :root[data-theme="dark"] h1 .g-career{color:#34d399}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) h1 .g-money{color:#e8c06f} :root:not([data-theme="light"]) h1 .g-docs{color:#8fa8f0} :root:not([data-theme="light"]) h1 .g-career{color:#34d399} }
+  :root[data-theme="dark"] h1 .g-every{color:#fb7185}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) h1 .g-money{color:#e8c06f} :root:not([data-theme="light"]) h1 .g-docs{color:#8fa8f0} :root:not([data-theme="light"]) h1 .g-career{color:#34d399} :root:not([data-theme="light"]) h1 .g-every{color:#fb7185} }
   /* cycling final word: slides + blurs softly between money / documents / career.
      Only active when JS adds .cycle-on; no-JS + reduced-motion show a static list. */
   .cyc{position:relative; display:inline-block; text-align:left; vertical-align:bottom}
@@ -473,8 +475,8 @@
 
   <section class="hero">
     <p class="eyebrow"><img src="assets/eden-logo.png" alt="Eden" class="eyebrow-logo"></p>
-    <h1 id="heroHead">Privacy first software<span class="for-a"> for</span><br class="h1-br"><span class="hero-l2"><span class="for-b">for </span>your <span class="g-money">money</span>, <span class="g-docs">documents</span>, <span class="g-career">career</span> &amp; more.</span></h1>
-    <p class="lede">Tools that do one thing well, thoughtfully built and made with care.<br>Runs on your device. Answers to you.</p>
+    <h1 id="heroHead">Thoughtful software<span class="for-a"> for</span><br class="h1-br"><span class="hero-l2"><span class="for-b">for </span>your <span class="g-docs">documents</span>, <span class="g-career">career</span>, <span class="g-money">money</span> and <span class="g-every">everyday</span>.</span></h1>
+    <p class="lede">Tools that do one thing well, thoughtfully built and made with care.<br>Simple to use. Designed with privacy in mind.</p>
   </section>
 
   <main id="main">
@@ -1144,8 +1146,8 @@
 })();
 </script>
 <script>
-/* Cycling headline word: "Privacy first software for your [money → documents → career]."
-   The static headline (a comma list of all three words) stays for no-JS and
+/* Cycling headline word: "Thoughtful software for your [documents → career → money → everyday]."
+   The static headline (a comma list of all four words) stays for no-JS and
    reduced-motion users. Only when motion is allowed do we swap in the single
    cycling word with a soft slide + blur transition. */
 (function(){
@@ -1154,15 +1156,16 @@
   var h1 = document.getElementById('heroHead');
   if(!h1) return;
   var words = [
-    {t:'money.',     cls:'g-money'},
     {t:'documents.', cls:'g-docs'},
-    {t:'career.',    cls:'g-career'}
+    {t:'career.',    cls:'g-career'},
+    {t:'money.',     cls:'g-money'},
+    {t:'everyday.',  cls:'g-every'}
   ];
   // Rebuild: lead text + a .cyc container holding stacked word spans.
   // For assistive tech the whole heading is announced once as a stable phrase;
-  // the animated word spans are hidden from AT so it never reads "money.documents.career.".
-  h1.setAttribute('aria-label', 'Privacy first software for your money, documents, career, and more.');
-  h1.textContent = 'Privacy first software';
+  // the animated word spans are hidden from AT so it never reads "documents.career.money.everyday.".
+  h1.setAttribute('aria-label', 'Thoughtful software for your documents, career, money, and everyday.');
+  h1.textContent = 'Thoughtful software';
   var forA = document.createElement('span'); forA.className = 'for-a'; forA.textContent = ' for';
   h1.appendChild(forA);
   var brEl = document.createElement('br'); brEl.className = 'h1-br';
