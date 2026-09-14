@@ -221,10 +221,11 @@
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .frame .shot-light{display:none} :root:not([data-theme="light"]) .frame .shot-dark{display:block} }
   .meta .mhead{display:flex; align-items:center; gap:14px; margin:0 0 15px}
   .meta .icon{width:48px; height:48px; border-radius:13px; box-shadow:0 6px 18px -8px rgba(20,21,42,.4)}
-  .meta .name{font-size:23px; font-weight:800; letter-spacing:-.02em; margin:0}
+  @font-face{font-family:'EdenMarker';src:url('assets/fonts/EdenMarker-Regular.otf');font-display:swap}
+  .meta .name{font-family:'EdenMarker',var(--font); font-size:23px; font-weight:800; letter-spacing:-.02em; margin:0}
   .meta .name a{color:inherit} .meta .name a:hover{color:var(--ac-tx)}
-  .meta .kicker{font-size:13.5px; font-weight:650; color:var(--ac-tx); margin:3px 0 0}
-  .meta .desc{color:var(--muted); font-size:15.5px; margin:0 0 15px}
+  .meta .kicker{font-family:'EdenMarker',var(--font); font-size:13.5px; font-weight:650; color:var(--ac-tx); margin:3px 0 0}
+  .meta .desc{font-family:'EdenMarker',var(--font); color:var(--muted); font-size:15.5px; margin:0 0 15px}
   .meta .tags{margin-bottom:11px}
   .meta .split{margin:0 0 20px}
   .meta .foot{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
