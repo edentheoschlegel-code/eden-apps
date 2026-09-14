@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'self'">
-<title>How it stays on your device · Eden Apps</title>
-<meta name="description" content="Eden Apps says your data stays on your device. Here's exactly how that works: where your work lives, why there's no server holding it, and how to check it yourself.">
+<title>How Our Local-First Apps Work · Eden Apps</title>
+<meta name="description" content="See how our current local-first apps handle your data, where your work lives, and how on-device processing helps keep your content private.">
 <link rel="canonical" href="https://edenapps.app/how-it-works.html">
 <link rel="icon" href="assets/eden-logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta property="og:title" content="How it stays on your device · Eden Apps">
-<meta property="og:description" content="Not a promise. An explanation. Where your work lives, the one time an app touches the network, and how to verify it yourself.">
+<meta property="og:title" content="How Our Local-First Apps Work · Eden Apps">
+<meta property="og:description" content="See where your work lives, how our local-first apps process your content, and what happens when an app needs a network connection.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://edenapps.app/how-it-works.html">
 <meta property="og:image" content="https://edenapps.app/assets/og-image.jpg">
@@ -62,14 +62,14 @@
 <body>
 <header><div class="wrap"><a class="brand" href="index.html"><img class="logo" src="assets/eden-logo.png" alt="Eden Apps logo" width="27" height="27"><span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span></a><button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button></div></header>
 <main><div class="wrap">
-  <h1>How it stays on your device</h1>
-  <p class="lead">Every Eden app says the same thing: <strong>your data stays on your device.</strong> This page explains exactly how that works, and how you can check it for yourself.</p>
+  <h1>Privacy you can understand</h1>
+  <p class="lead">Our current local-first apps are designed to work directly on your device, keeping your content private and under your control. We clearly explain how each product handles your information, so you know what happens with your data when you use it.</p>
 
   <h2>Where your work lives</h2>
   <p>On the web, an app saves your work in your browser's own local storage: the plan you're building, the invoice you're drafting, the document you're editing. On iPhone and iPad, it lives in the app's own storage on the device. There's no account to create and nothing to sync, because there's nowhere else for it to go.</p>
 
-  <h2>There's no server holding your content</h2>
-  <p>Eden Apps runs no server that receives what you create. Your numbers, text, and files are processed on your device and handed straight back to you. Nothing about them is uploaded, so there's no copy of your work sitting somewhere else, and nothing to breach.</p>
+  <h2>Built to stay local</h2>
+  <p>Our current local-first apps process your numbers, text, and files directly on your device. Your content isn't uploaded to Eden Apps servers for processing.</p>
 
   <h2>The one time an app reaches the network: Pro</h2>
   <p>An app reaches the network in just a couple of situations: buying Pro, or checking an unlock you already have. That goes through the payment provider (RevenueCat with Stripe on the web, and Apple's App Store on iPhone and iPad) and carries only what's needed to handle a purchase, like the email for your receipt. The work you create is not part of it. Those providers may collect their own diagnostics while processing the transaction; your documents, numbers, and files are not. (One more, only in Local PDF on the web: the first time you use text recognition, it downloads its engine once from our own site, carrying none of your files.)</p>
@@ -79,13 +79,8 @@
   <p>Worth stating plainly, since it surprises people: the summarizing extensions build their summaries <strong>on your device</strong>, with a summarizer built into the extension. There's no AI server, and nothing is uploaded to be read.</p>
 
   <div class="verify">
-    <h2>Don't take our word for it</h2>
-    <p>You can watch it happen:</p>
-    <ul>
-      <li><strong>Open your browser's Network tab</strong> (right click → Inspect → Network) and use the app. Outside of buying or restoring Pro, you'll see it make no requests carrying your data.</li>
-      <li><strong>Or turn on Airplane Mode</strong> and keep working. Aside from buying or restoring Pro (and, in Local PDF on the web, that one download for text recognition), it all keeps running, because the rest happens on your device.</li>
-    </ul>
-    <p>That's the difference between a promise and something you can verify.</p>
+    <h2>See for yourself</h2>
+    <p>Our local-first apps are designed to do their core work directly on your device. You can use your browser's Network tab (right click → Inspect → Network) to see network activity for yourself. Some functions — such as purchases, restoring purchases, or other clearly identified online features — may require a connection, but each app's own page explains when and why.</p>
   </div>
 
   <div class="cta">
