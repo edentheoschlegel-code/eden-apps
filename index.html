@@ -91,17 +91,18 @@
   .subscribe{margin-top:20px; padding:38px 28px 30px; text-align:center}
   /* its own larger, bold heading style, in the page's standard near-black ink —
      same color as every other heading on the site */
-  .subscribe h2{margin:0 0 7px; font-size:23px; letter-spacing:-.02em; text-transform:none; color:var(--ink); font-weight:800}
-  .subscribe .sub{margin:0 auto 22px; color:var(--muted); font-size:15px; max-width:460px}
+  @font-face{font-family:'EdenBloom';src:url('assets/fonts/EdenBloom-Regular.otf');font-display:swap}
+  .subscribe h2{font-family:'EdenBloom',var(--font); margin:0 0 7px; font-size:23px; letter-spacing:-.02em; text-transform:none; color:var(--ink); font-weight:800}
+  .subscribe .sub{font-family:'EdenBloom',var(--font); margin:0 auto 22px; color:var(--muted); font-size:15px; max-width:460px}
   .subform{display:flex; gap:10px; max-width:450px; margin:0 auto}
   @media(max-width:520px){ .subform{flex-direction:column} }
-  .subform input[type=email]{flex:1; min-width:0; padding:12px 15px; font:inherit; font-size:16px; color:var(--ink); background:var(--bg); border:1px solid var(--line-strong); border-radius:12px}
+  .subform input[type=email]{flex:1; min-width:0; padding:12px 15px; font:inherit; font-family:'EdenBloom',var(--font); font-size:16px; color:var(--ink); background:var(--bg); border:1px solid var(--line-strong); border-radius:12px}
   /* --cta is the signup's own blue. Deliberately NOT --li: that token also carries the
      Local Invoice accent and the extension filter chips, so recolouring it here would
      repaint unrelated parts of the page. */
   /* focus ring uses the fill colour — --cta-ink is white here and would vanish on the card */
   .subform input[type=email]:focus{outline:2px solid var(--cta); outline-offset:1px; border-color:var(--cta)}
-  .subform button{appearance:none; border:0; background:var(--cta); color:var(--cta-ink); font:inherit; font-weight:700; font-size:16px; padding:12px 22px; border-radius:12px; cursor:pointer; white-space:nowrap}
+  .subform button{appearance:none; border:0; background:var(--cta); color:var(--cta-ink); font:inherit; font-family:'EdenBloom',var(--font); font-weight:700; font-size:16px; padding:12px 22px; border-radius:12px; cursor:pointer; white-space:nowrap}
   .subform button[disabled]{opacity:.6; cursor:default}
   .subform button:hover{filter:brightness(1.14)}
   .subnote{margin:12px 0 0; font-size:12.5px; color:var(--faint)}
@@ -356,8 +357,8 @@
   .frow{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
   .fbrand{display:flex; align-items:center; gap:10px; font-weight:700}
   .fbrand .mark{width:23px; height:23px; object-fit:contain}
-  .fnote{color:var(--muted); font-size:13.5px}
-  .flinks{display:flex; flex-wrap:wrap; gap:20px; font-size:13.5px; color:var(--muted)}
+  .fnote{font-family:'EdenBloom',var(--font); color:var(--muted); font-size:13.5px}
+  .flinks{display:flex; flex-wrap:wrap; gap:20px; font-family:'EdenBloom',var(--font); font-size:13.5px; color:var(--muted)}
   .flinks a{padding:6px 0}
   .flinks a:hover{color:var(--ink)}
   /* keyboard focus + skip link */
