@@ -32,20 +32,23 @@
   .logo i{border-radius:4px}
   .logo i:nth-child(1){background:var(--sb)}.logo i:nth-child(2){background:var(--lp)}.logo i:nth-child(3){background:var(--li)}.logo i:nth-child(4){background:var(--lr)}
   main{padding:46px 0 60px}
-  h1{font-size:clamp(28px,5vw,36px);letter-spacing:-.03em;margin:0 0 8px;color:var(--ink)}
+@font-face{font-family:'EdenBold';src:url('assets/fonts/EdenBold-Regular.otf');font-display:swap}
+  @font-face{font-family:'EdenColumn';src:url('assets/fonts/EdenColumn-Regular.otf');font-display:swap}
+  @font-face{font-family:'EdenSeaweed';src:url('assets/fonts/EdenSeaweed-Regular.otf');font-display:swap}
+    h1{font-family:'EdenBold',var(--font); font-size:clamp(28px,5vw,36px);letter-spacing:-.03em;margin:0 0 8px;color:var(--ink)}
   .updated{color:var(--faint);font-size:14px;margin:0 0 30px}
-  h2{font-size:19px;letter-spacing:-.01em;margin:34px 0 8px;color:var(--ink)}
+  h2{font-family:'EdenBold',var(--font); font-size:19px;letter-spacing:-.01em;margin:34px 0 8px;color:var(--ink)}
   p,li{color:var(--muted);font-size:16px}
   p{margin:0 0 14px}
   strong{color:var(--ink);font-weight:650}
-  .lead{font-size:17.5px;color:var(--ink)}
+  .lead{font-family:'EdenColumn',var(--font); font-size:17.5px;color:var(--ink)}
   .contact{margin:26px 0 8px;padding:22px 24px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
   .contact .big{font-size:18px;font-weight:750;color:var(--ink);margin:0 0 4px}
   .contact a{font-weight:650}
   .faq{margin-top:14px}
   .faq h2{margin-bottom:6px}
   footer{border-top:1px solid var(--line)}
-  .frow{display:flex;gap:18px;flex-wrap:wrap;align-items:center;padding:24px 0 48px;color:var(--faint);font-size:13.5px}
+  .frow{font-family:'EdenSeaweed',var(--font); font-weight:700; -webkit-text-stroke:.4px currentColor; display:flex;gap:18px;flex-wrap:wrap;align-items:center;padding:24px 0 48px;color:var(--faint);font-size:13.5px}
   .frow a{color:var(--muted)}
   /* Report-an-issue form */
   .ticket{margin:6px 0 10px;padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
@@ -60,7 +63,6 @@
   .ticket button:hover{filter:brightness(1.06)}
   .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
   .sent-banner{display:none;margin:0 0 26px;padding:15px 18px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--lr);border-radius:12px;color:var(--ink);font-weight:600}
-  @font-face{font-family:'EdenColumn';src:url('assets/fonts/EdenColumn-Regular.otf');font-display:swap}
   .wm{display:inline-flex;gap:.28em;font-family:'EdenColumn',cursive}
   .wm-e{color:#bf8f2b}
   .wm-a{color:#0a8f5c}
