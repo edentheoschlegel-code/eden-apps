@@ -139,7 +139,8 @@
   /* Mobile: the cycling word sits on its own centered line. The word-slot is
      handled since 2026-08-08 by the .hero-l2 line and per-word fit sizing.
      Eden's rule: "your" and the cycling word stay TOGETHER on phones. */
-  .lede{font-size:clamp(15px,2vw,17px); color:var(--muted); margin:0 auto; max-width:600px}
+  @font-face{font-family:'EdenRound';src:url('assets/fonts/EdenRound-Regular.otf');font-display:swap}
+  .lede{font-family:'EdenRound',var(--font); font-size:clamp(15px,2vw,17px); color:var(--muted); margin:0 auto; max-width:600px}
   @media (max-width:600px){ .lede{font-size:11px; letter-spacing:-.015em; max-width:none} }
   @media (max-width:600px){ .hero{padding:52px 0 48px} }
 
