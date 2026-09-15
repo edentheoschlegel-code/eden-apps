@@ -175,11 +175,11 @@
   @media (max-width:600px){ .hero{padding:52px 0 48px} }
 
   /* section head */
-  .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:64px 0 32px}
-  .sec-head h2{font-size:18px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#2c2c2c; margin:0}
+  .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:72px 0 26px}
+  .sec-head h2{font-size:13px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--faint); margin:0}
   :root[data-theme="dark"] .sec-head h2{color:var(--faint)}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .sec-head h2{color:var(--faint)} }
-  .sec-head .count{font-size:13px; color:var(--faint)}
+  .sec-head .count{font-size:12px; letter-spacing:.04em; color:var(--faint); opacity:.8}
 
   /* app grid */
   .apps{display:grid; grid-template-columns:1fr 1fr; gap:36px}
@@ -219,7 +219,7 @@
   .card .name a{color:inherit} .card .name a:hover{color:var(--ac)}
   .split{font-family:'EdenRound',var(--font); font-size:14px; color:var(--muted); margin:0; line-height:1.5}
   .split b{color:var(--ink); font-weight:700}
-  .sec-note{font-size:14px; color:var(--muted); margin:-4px 0 20px}
+  .sec-note{font-size:14px; line-height:1.85; color:var(--muted); margin:-4px 0 24px; max-width:66ch}
   @media (max-width:600px){
     .sec-head{flex-direction:column; align-items:flex-start; gap:2px}
     .sec-note{margin-top:8px}
@@ -516,16 +516,24 @@
      the open extension's words stand beside it on the right */
   .gidx.ext-index{grid-template-columns:max-content minmax(0,1fr); gap:clamp(28px,4vw,72px)}
   .ext-index .gi-preview{order:2; display:flex; flex-wrap:wrap; align-items:center; gap:clamp(24px,3vw,48px); min-width:0}
-  .ext-index .gi-stage{flex:0 0 auto; width:clamp(260px,27vw,360px); max-width:100%; aspect-ratio:500/628}
+  .ext-index .gi-stage{flex:0 0 auto; width:clamp(320px,36vw,540px); max-width:100%; max-height:calc(100vh - var(--hdr,76px) - 40px); aspect-ratio:500/628; overflow:hidden;
+    -webkit-mask-image:linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 6%, #000 80%, transparent);
+    -webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 6%, #000 80%, transparent);
+    mask-composite:intersect}
+  .ext-index .gi-shot{transform:scale(1.2)}
+  .ext-index .gi-shot.seen{transform:scale(1.08); filter:blur(3px) brightness(.94)}
+  .ext-index .gi-shot.on{transform:scale(1.11)}
   /* the open extension's words live here, under the preview, and crossfade as
      you move along the names; the list itself never shifts */
-  .gi-caption{flex:1 1 220px; min-width:0; max-width:40ch; transition:opacity .16s ease, transform .55s cubic-bezier(.16,1,.3,1)}
+  .gi-caption{flex:1 1 220px; min-width:0; max-width:34ch; transition:opacity .16s ease, transform .55s cubic-bezier(.16,1,.3,1)}
   .gi-caption.swap{opacity:0; transform:translate3d(0,8px,0)}
-  .gi-caption .gi-desc{margin:0 0 8px}
+  .gi-caption .gi-desc{margin:0 0 12px; font-size:14.5px; line-height:1.8; color:var(--muted)}
+  .gi-caption .gi-split{margin:0 0 14px; line-height:1.7}
+  .gi-caption .gi-line{font-size:13px}
   @media (min-width:861px){ .ext-index .gi-body{display:none} }
   @media (max-width:860px){ .gi-caption{display:none} }
-  .ext-index .gi-shot{clip-path:inset(0 0 0 100%);
-    -webkit-mask-image:radial-gradient(ellipse 86% 90% at 50% 50%, #000 72%, transparent 100%); mask-image:radial-gradient(ellipse 86% 90% at 50% 50%, #000 72%, transparent 100%)}
+  .ext-index .gi-shot{clip-path:inset(0 0 0 100%); -webkit-mask-image:none; mask-image:none}
   .ext-index .gi-shot.seen, .ext-index .gi-shot.on{clip-path:inset(0 0 0 0)}
   .ext-index .gi[hidden]{display:none}
   .gi-split{margin:-4px 0 8px; font-family:'EdenMarker',var(--font); font-size:12.5px; line-height:1.6; color:var(--faint); max-width:54ch}
@@ -540,10 +548,11 @@
      its words, so there is one thing to read at a time */
   .ext-index .gi{display:block; padding:0; opacity:1}
   .ext-index .gi-name{margin:0; font-size:16px}
-  .gi-head{display:flex; align-items:center; gap:12px; width:100%; padding:10px 0; background:none; border:0; font:inherit; font-family:'EdenMarker',var(--font); font-size:16px; font-weight:800; letter-spacing:-.01em; line-height:1.4; text-align:left; color:var(--faint); cursor:pointer; transition:color .35s ease}
-  .gi-head .gi-icon{width:28px; height:28px; border-radius:8px; margin:0; opacity:.5; filter:grayscale(.6); transition:opacity .35s ease, filter .35s ease, transform .6s cubic-bezier(.16,1,.3,1)}
-  .gi-head .gi-kicker{margin-left:7px; font-size:12.5px; font-weight:600; color:var(--faint); transition:color .35s ease}
-  .gi-head:hover, .ext-index .gi.on .gi-head{color:var(--ink)}
+  .gi-head{display:flex; align-items:center; gap:12px; width:100%; padding:12px 0; background:none; border:0; font:inherit; font-family:'EdenMarker',var(--font); font-size:15px; font-weight:650; letter-spacing:0; line-height:1.4; text-align:left; color:var(--faint); cursor:pointer; transition:color .35s ease}
+  .gi-head .gi-icon{width:26px; height:26px; border-radius:8px; margin:0; opacity:.42; filter:grayscale(.75); transition:opacity .35s ease, filter .35s ease, transform .6s cubic-bezier(.16,1,.3,1)}
+  .gi-head .gi-kicker{margin-left:8px; font-size:12px; font-weight:500; color:var(--faint); opacity:.8; transition:color .35s ease}
+  .gi-head:hover{color:var(--muted)}
+  .ext-index .gi.on .gi-head{color:var(--ink); font-weight:750}
   .gi-head:hover .gi-icon, .ext-index .gi.on .gi-head .gi-icon{opacity:1; filter:none}
   .ext-index .gi.on .gi-head .gi-icon{transform:scale(1.12)}
   .ext-index .gi.on .gi-head .gi-kicker{color:var(--ac-tx)}
@@ -557,7 +566,7 @@
   @media (max-width:860px){ .ext-index .gi-shot-inline{display:block; width:100%; max-width:250px; margin:2px 0 16px} }
 
   /* extensions filter: plain words, the chosen one underlined */
-  .ext-filter{display:flex; flex-wrap:wrap; justify-content:center; gap:8px 26px; margin:0 0 14px}
+  .ext-filter{display:flex; flex-wrap:wrap; justify-content:center; gap:8px 28px; margin:6px 0 22px}
   .ext-filter button{position:relative; font:inherit; font-family:'EdenMarker',var(--font); font-size:13px; letter-spacing:.04em; color:var(--faint); background:none; border:0; padding:0 0 5px; cursor:pointer; transition:color .4s ease}
   .ext-filter button::after{content:""; position:absolute; left:0; right:0; bottom:0; height:1.5px; border-radius:2px; background:var(--ink); transform:scaleX(0); transform-origin:left; transition:transform .7s cubic-bezier(.77,0,.18,1)}
   .ext-filter button:hover, .ext-filter button[aria-pressed="true"]{color:var(--ink)}
