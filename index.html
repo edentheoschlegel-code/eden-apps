@@ -467,6 +467,48 @@
   .immersive .slide.on .meta .name{opacity:1; transform:none; filter:blur(0); transition-delay:.1s}
   .immersive .slide.on .meta .kicker{opacity:1; transform:none; filter:blur(0); transition-delay:.2s}
 
+  /* ── Mac tools: a gallery index, no boxes ─────────────────────────────
+     A quiet list on the left. One large preview on the right that sweeps to
+     whichever tool you point at, or the one you've scrolled to. On phones
+     each tool's picture sits under its words. */
+  .mac-index{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.12fr); gap:clamp(32px,5vw,84px); align-items:start; margin:4px 0 16px}
+  .mi-list{list-style:none; margin:0; padding:0}
+  .mi{display:grid; grid-template-columns:44px minmax(0,1fr); column-gap:18px; padding:clamp(18px,3vh,30px) 0}
+  .mi.fw{--ac-tx:#24603c} .mi.pn{--ac-tx:#7824b4} .mi.cl{--ac-tx:#3c3cd8} .mi.bp{--ac-tx:#3b5470}
+  :root[data-theme="dark"] .mi.fw{--ac-tx:#7fc79a} :root[data-theme="dark"] .mi.pn{--ac-tx:#c39af2} :root[data-theme="dark"] .mi.cl{--ac-tx:#a0a2f7} :root[data-theme="dark"] .mi.bp{--ac-tx:#a3b8d2}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mi.fw{--ac-tx:#7fc79a} :root:not([data-theme="light"]) .mi.pn{--ac-tx:#c39af2} :root:not([data-theme="light"]) .mi.cl{--ac-tx:#a0a2f7} :root:not([data-theme="light"]) .mi.bp{--ac-tx:#a3b8d2} }
+  .mi-icon{width:44px; height:44px; border-radius:11px; margin-top:2px}
+  .mi-name{margin:0; font-family:'EdenMarker',var(--font); font-size:20px; font-weight:800; letter-spacing:-.01em; line-height:1.35; color:var(--ink)}
+  .mi-kicker{margin-left:8px; font-size:13px; font-weight:600; letter-spacing:.01em; color:var(--ac-tx); white-space:nowrap}
+  .mi-desc{margin:6px 0 10px; font-family:'EdenMarker',var(--font); font-size:14px; line-height:1.7; color:var(--muted); max-width:54ch}
+  .mi-line{margin:0; display:flex; flex-wrap:wrap; align-items:baseline; font-family:'EdenMarker',var(--font); font-size:13px; color:var(--faint)}
+  .mi-line > * + *::before{content:"·"; margin:0 11px; color:var(--faint)}
+  .mi-line a{display:inline-flex; align-items:center; gap:4px; color:var(--muted); font-weight:500; text-decoration:none; border:0; transition:color .2s, gap .2s}
+  .mi-line a.mi-try{color:var(--ac-tx); font-weight:600}
+  .mi-line a:hover{color:var(--ac-tx); gap:7px}
+  .mi-line a + a::before{margin-right:11px}
+  .mi-shot-inline{display:none}
+
+  .mi-preview{position:sticky; top:calc(var(--hdr,76px) + 28px); display:grid; aspect-ratio:1000/800}
+  .mi-shot{grid-area:1/1; width:100%; height:100%; object-fit:contain;
+    -webkit-mask-image:radial-gradient(ellipse 72% 70% at 50% 50%, #000 62%, transparent 100%); mask-image:radial-gradient(ellipse 72% 70% at 50% 50%, #000 62%, transparent 100%);
+    clip-path:inset(0 0 0 100%); transform:scale(1.06);
+    transition:clip-path 1.05s cubic-bezier(.77,0,.18,1), transform 1.3s cubic-bezier(.16,1,.3,1), filter 1s ease}
+  .mi-shot.seen{clip-path:inset(0 0 0 0); transform:scale(.95); filter:blur(3px) brightness(.9)}
+  .mi-shot.on{clip-path:inset(0 0 0 0); transform:none; filter:none}
+
+  @media (min-width:861px){
+    .mi{opacity:.5; transition:opacity .5s ease}
+    .mi.on, .mi:hover, .mi:focus-within{opacity:1}
+  }
+  @media (max-width:860px){
+    .mac-index{grid-template-columns:1fr; gap:0}
+    .mi-preview{display:none}
+    .mi-shot-inline{display:block; grid-column:1/-1; width:100%; height:auto; margin-top:16px;
+      -webkit-mask-image:radial-gradient(ellipse 80% 75% at 50% 50%, #000 65%, transparent 100%); mask-image:radial-gradient(ellipse 80% 75% at 50% 50%, #000 65%, transparent 100%)}
+  }
+  @media (prefers-reduced-motion:reduce){ .mi-shot, .mi{transition:none} }
+
   /* the Mac tools — a calm matched set in one evergreen accent, distinct from
      the multicolour apps above and the indigo extensions below */
   .mac-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:8px;
@@ -836,82 +878,51 @@
     </div>
     <p class="sec-note">Native Mac tools built to work locally, with no account or extra software required. Your files stay on your Mac and remain unchanged. Each tool is signed and notarized by Apple, available on the App Store, and yours with a one-time purchase.</p>
 
-    <section class="mac-grid" aria-label="Eden Apps for Mac">
-      <article class="card mac fw">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Furrow in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-          <div class="top"><img class="icon" src="assets/furrow.png" alt="" width="56" height="56"><div><h3 class="name">Furrow</h3><p class="kicker">Spreadsheet tidier</p></div></div>
-        <p class="desc">Add a CSV or Excel file to get started. Trim extra spaces, split or merge data, convert values, and remove duplicate rows while keeping the original untouched.</p>
-        <div class="tags"><span class="tag">Data</span><span class="tag lock">On your device</span></div>
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-furrow.jpg" alt="Furrow on macOS" loading="lazy" width="1000" height="798"></picture></div>
-        </div>
-        <div class="foot">
-          <span class="price"><b>$12.99</b> · once</span>
-          <span class="applinks">
-            <a class="weblink" href="tools/furrow/" title="Opens Furrow in your browser, free to try on your own files"><span class="dot"></span>Try in your browser</a>
-            <a class="appstore" href="https://apps.apple.com/app/id6796475605" target="_blank" rel="noopener" title="Opens Furrow on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </span>
-        </div>
-      </article>
-
-      <article class="card mac pn">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Pagenook in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-          <div class="top"><img class="icon" src="assets/pagenook.png" alt="" width="56" height="56"><div><h3 class="name">Pagenook</h3><p class="kicker">PDF page rearranger</p></div></div>
-        <p class="desc">Rearrange the pages in a PDF by dragging them into place. Merge, split, rotate, or remove pages, while leaving password-protected files untouched.</p>
-        <div class="tags"><span class="tag">PDF</span><span class="tag lock">On your device</span></div>
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-pagenook.jpg" alt="Pagenook on macOS" loading="lazy" width="1000" height="817"></picture></div>
-        </div>
-        <div class="foot">
-          <span class="price"><b>$12.99</b> · once</span>
-          <span class="applinks">
-            <a class="weblink" href="tools/pagenook/" title="Opens Pagenook in your browser, free to try on your own files"><span class="dot"></span>Try in your browser</a>
-            <a class="appstore" href="https://apps.apple.com/app/id6796476248" target="_blank" rel="noopener" title="Opens Pagenook on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </span>
-        </div>
-      </article>
-
-      <article class="card mac cl">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Clearleaf in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-          <div class="top"><img class="icon" src="assets/clearleaf.png" alt="" width="56" height="56"><div><h3 class="name">Clearleaf</h3><p class="kicker">Hidden data remover</p></div></div>
-        <p class="desc">Find and remove metadata from your files, including author details, comments, edit history, and location data. Clearleaf saves a new copy and leaves your original unchanged.</p>
-        <div class="tags"><span class="tag">Privacy</span><span class="tag lock">On your device</span></div>
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-clearleaf.jpg" alt="Clearleaf on macOS" loading="lazy" width="1000" height="657"></picture></div>
-        </div>
-        <div class="foot">
-          <span class="price"><b>$12.99</b> · once</span>
-          <span class="applinks">
-            <a class="weblink" href="tools/clearleaf/" title="Opens Clearleaf in your browser, free to try on your own files"><span class="dot"></span>Try in your browser</a>
-            <a class="appstore" href="https://apps.apple.com/app/id6796349717" target="_blank" rel="noopener" title="Opens Clearleaf on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </span>
-        </div>
-      </article>
-
-      <article class="card mac bp">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Bookplate in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-          <div class="top"><img class="icon" src="assets/bookplate.png" alt="" width="56" height="56"><div><h3 class="name">Bookplate</h3><p class="kicker">Read it later library</p></div></div>
-        <p class="desc">Save articles and web pages to a private library for reading later. Read offline anytime, or have any saved article read aloud.</p>
-        <div class="tags"><span class="tag">Reading</span><span class="tag lock">On your device</span></div>
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-bookplate.jpg" alt="Bookplate on macOS" loading="lazy" width="1000" height="776"></picture></div>
-        </div>
-        <div class="foot">
-          <span class="price"><b>$12.99</b> · once</span>
-          <span class="applinks">
-            <a class="weblink" href="tools/bookplate/" title="Opens Bookplate in your browser, free to try on your own files"><span class="dot"></span>Try in your browser</a>
-            <a class="appstore" href="https://apps.apple.com/app/id6796476940" target="_blank" rel="noopener" title="Opens Bookplate on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </span>
-        </div>
-      </article>
-
-      <!-- <div class="mac-bundle">
-        <span class="mb-txt"><b>All four Mac tools</b>, available together in one bundle.</span>
-        <span class="mb-right">
-          <span class="soonpill" title="The bundle of all four will be sold here on edenapps.app"><span class="dot"></span>Web · coming soon</span>
-          <span class="mb-price"><span class="mb-was">$51.96</span>$34.99 · one-time purchase · Save 33%</span>
-        </span>
-      </div> -->
+    <section class="mac-index" aria-label="Eden Apps for Mac">
+      <ol class="mi-list">
+        <li class="mi fw">
+          <img class="mi-icon" src="assets/furrow.png" alt="" width="44" height="44">
+          <div class="mi-text">
+            <h3 class="mi-name">Furrow <span class="mi-kicker">Spreadsheet tidier</span></h3>
+            <p class="mi-desc">Add a CSV or Excel file to get started. Trim extra spaces, split or merge data, convert values, and remove duplicate rows while keeping the original untouched.</p>
+            <p class="mi-line"><span>$12.99 once</span><a class="mi-try" href="tools/furrow/" title="Opens Furrow in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796475605" target="_blank" rel="noopener" title="Opens Furrow on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+          </div>
+          <img class="mi-shot-inline" src="assets/mac-use-furrow.jpg" alt="Furrow on macOS" loading="lazy" width="1000" height="798">
+        </li>
+        <li class="mi pn">
+          <img class="mi-icon" src="assets/pagenook.png" alt="" width="44" height="44">
+          <div class="mi-text">
+            <h3 class="mi-name">Pagenook <span class="mi-kicker">PDF page rearranger</span></h3>
+            <p class="mi-desc">Rearrange the pages in a PDF by dragging them into place. Merge, split, rotate, or remove pages, while leaving password-protected files untouched.</p>
+            <p class="mi-line"><span>$12.99 once</span><a class="mi-try" href="tools/pagenook/" title="Opens Pagenook in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796476248" target="_blank" rel="noopener" title="Opens Pagenook on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+          </div>
+          <img class="mi-shot-inline" src="assets/mac-use-pagenook.jpg" alt="Pagenook on macOS" loading="lazy" width="1000" height="817">
+        </li>
+        <li class="mi cl">
+          <img class="mi-icon" src="assets/clearleaf.png" alt="" width="44" height="44">
+          <div class="mi-text">
+            <h3 class="mi-name">Clearleaf <span class="mi-kicker">Hidden data remover</span></h3>
+            <p class="mi-desc">Find and remove metadata from your files, including author details, comments, edit history, and location data. Clearleaf saves a new copy and leaves your original unchanged.</p>
+            <p class="mi-line"><span>$12.99 once</span><a class="mi-try" href="tools/clearleaf/" title="Opens Clearleaf in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796349717" target="_blank" rel="noopener" title="Opens Clearleaf on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+          </div>
+          <img class="mi-shot-inline" src="assets/mac-use-clearleaf.jpg" alt="Clearleaf on macOS" loading="lazy" width="1000" height="657">
+        </li>
+        <li class="mi bp">
+          <img class="mi-icon" src="assets/bookplate.png" alt="" width="44" height="44">
+          <div class="mi-text">
+            <h3 class="mi-name">Bookplate <span class="mi-kicker">Read it later library</span></h3>
+            <p class="mi-desc">Save articles and web pages to a private library for reading later. Read offline anytime, or have any saved article read aloud.</p>
+            <p class="mi-line"><span>$12.99 once</span><a class="mi-try" href="tools/bookplate/" title="Opens Bookplate in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796476940" target="_blank" rel="noopener" title="Opens Bookplate on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+          </div>
+          <img class="mi-shot-inline" src="assets/mac-use-bookplate.jpg" alt="Bookplate on macOS" loading="lazy" width="1000" height="776">
+        </li>
+      </ol>
+      <div class="mi-preview" aria-hidden="true">
+        <img class="mi-shot" src="assets/mac-use-furrow.jpg" alt="" loading="lazy" width="1000" height="798">
+        <img class="mi-shot" src="assets/mac-use-pagenook.jpg" alt="" loading="lazy" width="1000" height="817">
+        <img class="mi-shot" src="assets/mac-use-clearleaf.jpg" alt="" loading="lazy" width="1000" height="657">
+        <img class="mi-shot" src="assets/mac-use-bookplate.jpg" alt="" loading="lazy" width="1000" height="776">
+      </div>
     </section>
 
 
@@ -1264,6 +1275,34 @@
   window.addEventListener('scroll', function(){ if(!tick){ tick=true; requestAnimationFrame(function(){ tick=false; onScroll(); }); } }, {passive:true});
   window.addEventListener('resize', mode);
   mode();
+})();
+</script>
+<script>
+/* Mac tools index: the preview follows the tool you point at, or the one
+   nearest the middle of the screen as you scroll past the list. */
+(function(){
+  var root=document.querySelector('.mac-index'); if(!root) return;
+  var items=[].slice.call(root.querySelectorAll('.mi')), shots=[].slice.call(root.querySelectorAll('.mi-shot'));
+  var cur=-1, pointing=false;
+  function show(k){
+    if(k===cur) return; cur=k;
+    items.forEach(function(it,i){ it.classList.toggle('on', i===k); });
+    shots.forEach(function(sh,i){ sh.classList.toggle('on', i===k); sh.classList.toggle('seen', i<k); });
+  }
+  items.forEach(function(it,i){
+    it.addEventListener('mouseenter', function(){ pointing=true; show(i); });
+    it.addEventListener('mouseleave', function(){ pointing=false; });
+    it.addEventListener('focusin', function(){ show(i); });
+  });
+  function nearest(){
+    if(pointing) return;
+    var mid=window.innerHeight*0.45, best=0, bd=1e9;
+    items.forEach(function(it,i){ var r=it.getBoundingClientRect(), d=Math.abs((r.top+r.bottom)/2-mid); if(d<bd){ bd=d; best=i; } });
+    show(best);
+  }
+  var tick=false;
+  window.addEventListener('scroll', function(){ if(!tick){ tick=true; requestAnimationFrame(function(){ tick=false; nearest(); }); } }, {passive:true});
+  show(0); nearest();
 })();
 </script>
 <script>
