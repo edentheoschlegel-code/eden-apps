@@ -512,12 +512,14 @@
 
   /* ── extensions: the same index as the Mac tools, names on the left and
      the popup preview on the right, so the two sections line up. */
-  .gidx.ext-index{grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr)}
-  .ext-index .gi-preview{order:2}
-  .ext-index .gi-stage{aspect-ratio:500/628; max-height:calc(100vh - var(--hdr,76px) - 236px)}
+  /* three across: the names hug the left, the popup sits in the middle, and
+     the open extension's words stand beside it on the right */
+  .gidx.ext-index{grid-template-columns:max-content minmax(0,1fr); gap:clamp(28px,4vw,72px)}
+  .ext-index .gi-preview{order:2; display:flex; flex-wrap:wrap; align-items:center; gap:clamp(24px,3vw,48px); min-width:0}
+  .ext-index .gi-stage{flex:0 0 auto; width:clamp(260px,27vw,360px); max-width:100%; aspect-ratio:500/628}
   /* the open extension's words live here, under the preview, and crossfade as
      you move along the names; the list itself never shifts */
-  .gi-caption{margin:14px 4px 0; max-width:52ch; transition:opacity .16s ease, transform .55s cubic-bezier(.16,1,.3,1)}
+  .gi-caption{flex:1 1 220px; min-width:0; max-width:40ch; transition:opacity .16s ease, transform .55s cubic-bezier(.16,1,.3,1)}
   .gi-caption.swap{opacity:0; transform:translate3d(0,8px,0)}
   .gi-caption .gi-desc{margin:0 0 8px}
   @media (min-width:861px){ .ext-index .gi-body{display:none} }
@@ -532,7 +534,7 @@
   .ext-index .gi.ts{--ac-tx:#4f46e5} .ext-index .gi.re{--ac-tx:#a16207} .ext-index .gi.fd{--ac-tx:#2563eb} .ext-index .gi.ck{--ac-tx:#dc2626}
   :root[data-theme="dark"] .ext-index .gi.vs{--ac-tx:#fbbf24} :root[data-theme="dark"] .ext-index .gi.pt{--ac-tx:#6ee7b7} :root[data-theme="dark"] .ext-index .gi.tm{--ac-tx:#7dd3fc} :root[data-theme="dark"] .ext-index .gi.fm{--ac-tx:#c4b5fd} :root[data-theme="dark"] .ext-index .gi.as{--ac-tx:#fdba74} :root[data-theme="dark"] .ext-index .gi.ts{--ac-tx:#a5b4fc} :root[data-theme="dark"] .ext-index .gi.re{--ac-tx:#fcd34d} :root[data-theme="dark"] .ext-index .gi.fd{--ac-tx:#93c5fd} :root[data-theme="dark"] .ext-index .gi.ck{--ac-tx:#fca5a5}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .ext-index .gi.vs{--ac-tx:#fbbf24} :root:not([data-theme="light"]) .ext-index .gi.pt{--ac-tx:#6ee7b7} :root:not([data-theme="light"]) .ext-index .gi.tm{--ac-tx:#7dd3fc} :root:not([data-theme="light"]) .ext-index .gi.fm{--ac-tx:#c4b5fd} :root:not([data-theme="light"]) .ext-index .gi.as{--ac-tx:#fdba74} :root:not([data-theme="light"]) .ext-index .gi.ts{--ac-tx:#a5b4fc} :root:not([data-theme="light"]) .ext-index .gi.re{--ac-tx:#fcd34d} :root:not([data-theme="light"]) .ext-index .gi.fd{--ac-tx:#93c5fd} :root:not([data-theme="light"]) .ext-index .gi.ck{--ac-tx:#fca5a5} }
-  @media (max-width:860px){ .gidx.ext-index{grid-template-columns:1fr} }
+  @media (max-width:860px){ .gidx.ext-index{grid-template-columns:1fr} .ext-index .gi-preview{display:none} }
 
   /* rows that unfold: a short index of names, and only the open one shows
      its words, so there is one thing to read at a time */
@@ -550,7 +552,7 @@
   .gi-body-in{overflow:hidden; min-height:0; padding-left:40px}
   .ext-index .gi.on .gi-body{grid-template-rows:1fr; opacity:1; transition-delay:0s, .12s}
   .ext-index .gi-desc{margin:2px 0 8px}
-  .ext-index .gi-line{padding-bottom:14px}
+  .ext-index .gi-body .gi-line{padding-bottom:14px}
   @media (prefers-reduced-motion:reduce){ .gi-body, .gi-head, .gi-head .gi-icon{transition:none} }
   @media (max-width:860px){ .ext-index .gi-shot-inline{display:block; width:100%; max-width:250px; margin:2px 0 16px} }
 
