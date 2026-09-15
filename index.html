@@ -55,15 +55,12 @@
   html{-webkit-text-size-adjust:100%}
   @media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
   body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--font);
-    line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden}
+    line-height:1.7; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden}
   a{color:inherit; text-decoration:none}
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 16px}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
 
-  /* thin progress bar tracking scroll position — not motion, so it isn't
-     gated behind prefers-reduced-motion */
-  .scroll-progress{position:fixed; top:0; left:0; height:3px; width:0%; z-index:300;
-    background:linear-gradient(90deg,var(--sb),var(--li),var(--lr)); transition:width .12s linear}
-  @media (max-width:600px){ .scroll-progress{display:none} }
+  /* thin progress bar tracking scroll position — hidden by default */
+  .scroll-progress{display:none}
 
   /* header rides with the page and gains a hairline + shadow once content
      has scrolled beneath it, giving the page a sense of depth */
@@ -135,7 +132,7 @@
   .hp{position:absolute!important; left:-9999px!important; width:1px; height:1px; overflow:hidden}
 
   /* hero */
-  .hero{padding:clamp(84px,12vh,128px) 0 clamp(72px,10vh,110px); text-align:center; max-width:880px; margin:0 auto}
+  .hero{padding:clamp(100px,14vh,148px) 0 clamp(88px,12vh,130px); text-align:center; max-width:880px; margin:0 auto}
   .eyebrow{font-size:13px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--faint); margin:0 0 20px}
   .eyebrow-logo{height:50px; width:auto; display:inline-block}
   @font-face{font-family:'EdenWide';src:url('assets/fonts/EdenWide-Regular.otf');font-display:swap}
@@ -175,17 +172,17 @@
   @media (max-width:600px){ .hero{padding:52px 0 48px} }
 
   /* section head */
-  .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:36px 0 18px}
+  .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:48px 0 24px}
   .sec-head h2{font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#2c2c2c; margin:0}
   :root[data-theme="dark"] .sec-head h2{color:var(--faint)}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .sec-head h2{color:var(--faint)} }
   .sec-head .count{font-size:13px; color:var(--faint)}
 
   /* app grid */
-  .apps{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+  .apps{display:grid; grid-template-columns:1fr 1fr; gap:28px}
   @media (max-width:720px){ .apps{grid-template-columns:1fr} }
   .card{position:relative; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
-    padding:26px; display:flex; flex-direction:column; gap:14px; overflow:hidden;
+    padding:32px; display:flex; flex-direction:column; gap:18px; overflow:hidden;
     transition:transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s, border-color .25s}
   .card::before{content:""; position:absolute; inset:0 0 auto 0; height:4px; background:var(--ac)}
   .card:hover{transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--ac)}
@@ -366,7 +363,7 @@
   .promise h2{font-family:'EdenBold',var(--font); font-size:22px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:#2c2c2c; text-align:center; margin:0 0 24px}
   :root[data-theme="dark"] .promise h2{color:var(--ink)}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .promise h2{color:var(--ink)} }
-  .points{display:grid; grid-template-columns:repeat(3,1fr); gap:0}
+  .points{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
   .point{padding:0 30px; text-align:center}
   .point:first-child{padding-left:0}
   .point:last-child{padding-right:0}
