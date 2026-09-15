@@ -315,10 +315,26 @@
      and no-JS get plain cards you swipe sideways. No colour washes: the page
      stays white (or black), and the screenshots carry the colour. */
   .frame .bar{justify-content:flex-start}
+  /* no fake browser window around the screenshot (it read as a template): the
+     picture stands on its own and melts into the page at the bottom */
+  .showcase .frame{border:0; background:none; box-shadow:none; border-radius:18px 18px 0 0;
+    -webkit-mask-image:linear-gradient(to bottom, #000 48%, rgba(0,0,0,.35) 76%, transparent 94%); mask-image:linear-gradient(to bottom, #000 48%, rgba(0,0,0,.35) 76%, transparent 94%)}
+  .showcase .frame .bar{display:none}
 
   /* swipe cards (default) */
-  .showcase .stage{display:block; position:relative}
-  .showcase .scount{display:none}
+  .showcase .stage{display:flex; flex-direction:column; position:relative}
+  .showcase .viewport{order:1; width:100%; min-width:0}
+
+  /* the app pills are gone: a quiet row of dots says where you are, and each
+     dot still jumps to its app (its name stays readable to screen readers) */
+  .showcase .tabs{order:2; display:flex; justify-content:center; align-items:center; gap:12px; margin:18px 0 0; padding:0}
+  .showcase .tab{position:relative; font-size:0; gap:0; padding:0; width:8px; height:8px; min-width:0; border:0; border-radius:999px;
+    background:var(--line-strong); transition:width .5s cubic-bezier(.16,1,.3,1), background-color .4s}
+  .showcase .tab::after{content:""; position:absolute; inset:-12px -5px}
+  .showcase .tab img, .showcase .tab .tfree{display:none}
+  .showcase .tab:hover{background:var(--faint)}
+  .showcase .tab[aria-pressed="true"]{width:28px; background:var(--ink); border-color:transparent}
+  .showcase .tab:focus-visible{outline:2px solid var(--ink); outline-offset:5px}
   .showcase .viewport{overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory; scrollbar-width:none; padding:4px 0 10px}
   .showcase .viewport::-webkit-scrollbar{display:none}
   .showcase .track{display:flex; gap:16px; transform:none; transition:none}
@@ -331,26 +347,23 @@
   .immersive .viewport{position:absolute; inset:0; overflow:visible; scroll-snap-type:none; padding:0; perspective:2000px}
   /* the whole set grows from a card into the full screen as the section arrives */
   .immersive .track{display:grid; height:100%; gap:0; padding:0; transform:scale(calc(.82 + var(--e,1) * .18)); transform-origin:50% 0}
-  .immersive .slide{--budget:168px; --fw:min(100%, calc((100vh - var(--hdr,76px) - var(--budget)) * 1.5023));
+  .immersive .slide{--budget:140px; --fw:min(100%, calc((100vh - var(--hdr,76px) - var(--budget)) * 1.5648));
     grid-area:1/1; min-width:0; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:clamp(16px,2.6vh,28px); padding:clamp(12px,2vh,24px) clamp(80px,7vw,128px) clamp(16px,3vh,32px);
+    gap:clamp(16px,2.6vh,28px); padding:clamp(8px,1.4vh,18px) clamp(20px,3.5vw,56px) clamp(46px,6.5vh,66px);
     visibility:hidden; transition:visibility 0s .8s}
   .immersive .slide.on{visibility:visible; transition:none}
-  @media (max-width:1100px){ .immersive .slide{--budget:184px} }
+  @media (max-width:1100px){ .immersive .slide{--budget:156px} }
 
   /* the screenshot tips up into place, then slowly leans in while you read */
   .immersive .slide .frame{order:0; flex:none; width:var(--fw); border-radius:18px; transform-origin:50% 100%;
     opacity:0; transform:translate3d(0, calc(var(--dir,1) * 80px), 0) rotateX(calc(var(--dir,1) * 14deg)) scale(.94);
-    transition:opacity .5s ease, transform 1.05s cubic-bezier(.16,1,.3,1);
-    box-shadow:0 44px 90px -42px rgba(20,21,42,.38), 0 1px 3px rgba(20,21,42,.06)}
-  :root[data-theme="dark"] .immersive .slide .frame{box-shadow:0 44px 90px -42px rgba(0,0,0,.9)}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .immersive .slide .frame{box-shadow:0 44px 90px -42px rgba(0,0,0,.9)} }
+    transition:opacity .5s ease, transform 1.05s cubic-bezier(.16,1,.3,1)}
   .immersive .slide.on .frame{opacity:1; transform:none}
   .immersive .slide.out .frame{transform:translate3d(0, calc(var(--dir,1) * -60px), 0) rotateX(calc(var(--dir,1) * -8deg)) scale(.96)}
   .immersive .frame img{transform:scale(calc(1 + var(--lp,0) * .04)); transform-origin:50% 0}
 
   /* underneath, kept quiet: the screenshot is the star, the words just caption it */
-  .immersive .slide .meta{order:1; width:var(--fw); display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; column-gap:28px; row-gap:3px; padding:0 4px}
+  .immersive .slide .meta{order:1; position:relative; z-index:1; margin-top:calc(-1 * clamp(28px,5vh,56px)); width:var(--fw); display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; column-gap:28px; row-gap:3px; padding:0 4px}
   .immersive .meta .mhead{grid-column:1; grid-row:1; margin:0; gap:12px}
   .immersive .meta .icon{width:36px; height:36px; border-radius:10px; box-shadow:none}
   .immersive .meta .mhead > div{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
@@ -374,23 +387,9 @@
   .immersive .slide.on .meta > :nth-child(2){transition-delay:.19s}
   .immersive .slide.on .meta > :nth-child(5){transition-delay:.26s}
 
-  /* the rail: six icons on a thread that fills as you go */
-  .immersive .tabs{position:absolute; z-index:3; left:clamp(18px,2.2vw,40px); top:50%; transform:translateY(-50%); display:flex; flex-direction:column; align-items:center; gap:18px; margin:0; padding:4px 0}
-  .immersive .tabs::before, .immersive .tabs::after{content:""; position:absolute; left:50%; top:0; width:2px; margin-left:-1px; border-radius:2px}
-  .immersive .tabs::before{bottom:0; background:var(--line-strong)}
-  .immersive .tabs::after{height:calc(var(--p,0) * 100%); background:var(--ink)}
-  .immersive .tab{position:relative; z-index:1; font-size:0; gap:0; padding:0; width:40px; height:40px; justify-content:center; border:0; border-radius:12px; background:none}
-  .immersive .tab[aria-pressed="true"]{background:none}
-  .immersive .tab img{width:32px; height:32px; border-radius:9px; opacity:.45; filter:grayscale(.7);
-    transition:transform .6s cubic-bezier(.16,1,.3,1), opacity .4s, filter .4s, box-shadow .6s}
-  .immersive .tab:hover img{opacity:1; filter:none}
-  .immersive .tab[aria-pressed="true"] img{opacity:1; filter:none; transform:scale(1.25); box-shadow:0 0 0 2.5px var(--bg), 0 0 0 4px var(--ink)}
-  .immersive .tab .tfree{display:none}
-  .immersive .tab:focus-visible{outline:2px solid var(--ink); outline-offset:6px}
-
-  .immersive .scount{display:block; position:absolute; z-index:3; right:clamp(18px,2.2vw,40px); top:50%; transform:translateY(-50%);
-    font-family:'EdenMarker',var(--font); font-size:12px; letter-spacing:.12em; color:var(--faint)}
-  .immersive .scount b{color:var(--ink); font-weight:800}
+  .immersive .tabs{position:absolute; z-index:3; left:50%; bottom:clamp(16px,2.8vh,28px); transform:translateX(-50%); margin:0}
+  /* inside the section the menu bar drops its line, so it reads as one screen */
+  body.in-showcase header{border-bottom-color:transparent!important; box-shadow:none!important}
 
   /* the Mac tools — a calm matched set in one evergreen accent, distinct from
      the multicolour apps above and the indigo extensions below */
@@ -751,7 +750,6 @@
         </article>
           </div>
         </div>
-        <div class="scount" aria-hidden="true"><b id="eaNum">01</b><span> / 06</span></div>
       </div>
     </section>
 
@@ -1130,6 +1128,7 @@
     var p=dist>0 ? Math.min(1, Math.max(0, (h-r.top)/dist)) : 0;
     var fk=p*n, k=Math.min(n-1, Math.floor(fk));
     stage.style.setProperty('--p', p.toFixed(4));
+    document.body.classList.toggle('in-showcase', r.top <= h+2 && r.bottom >= vh-2);
     if(k!==i) select(k, k>i?1:-1);
     slides[k].style.setProperty('--lp', Math.min(1, fk-k).toFixed(4));
   }
@@ -1141,7 +1140,7 @@
       sc.classList.toggle('immersive', want);
       slides.forEach(function(s){ s.classList.remove('out'); });
       var keep=i<0?0:i; i=-1; select(keep, 1);
-      if(!want) vp.scrollLeft=0;
+      if(!want){ vp.scrollLeft=0; document.body.classList.remove('in-showcase'); }
     }
     onScroll();
   }
