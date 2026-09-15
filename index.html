@@ -87,8 +87,10 @@
   .brand .mark{width:31px; height:31px; display:block; object-fit:contain}
   .topnav{display:flex; align-items:center; gap:22px}
   @font-face{font-family:'EdenSlab';src:url('assets/fonts/EdenSlab-Regular.otf');font-display:swap}
-  .topnav .catlink{display:inline-flex; align-items:center; gap:6px; min-height:44px; font-family:'EdenSlab',var(--font); font-size:14.5px; font-weight:700; color:var(--muted); white-space:nowrap; text-decoration:none; transition:color .2s}
+  .topnav .catlink{display:inline-flex; align-items:center; gap:6px; min-height:44px; font-family:'EdenSlab',var(--font); font-size:14.5px; font-weight:700; color:var(--muted); white-space:nowrap; text-decoration:none; transition:color .2s; border:0}
   .topnav a.catlink:hover{color:var(--ink)}
+  .topnav .catlink:active{color:var(--ink)}
+  .topnav .catlink:focus-visible{outline:none}
   .topnav .catlink[aria-current="page"]{color:var(--li-tx)}
   .topnav .catlink.soon{color:var(--faint); cursor:default}
   .topnav .soontag{font-size:10.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--li-tx)}
