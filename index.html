@@ -516,7 +516,6 @@
   .ext-index .gi-shot{clip-path:inset(0 100% 0 0);
     -webkit-mask-image:radial-gradient(ellipse 86% 90% at 50% 50%, #000 72%, transparent 100%); mask-image:radial-gradient(ellipse 86% 90% at 50% 50%, #000 72%, transparent 100%)}
   .ext-index .gi-shot.seen, .ext-index .gi-shot.on{clip-path:inset(0 0 0 0)}
-  .ext-index .gi{padding:clamp(14px,2.4vh,24px) 0}
   .ext-index .gi[hidden]{display:none}
   .gi-split{margin:-4px 0 8px; font-family:'EdenMarker',var(--font); font-size:12.5px; line-height:1.6; color:var(--faint); max-width:54ch}
   .gi-split b{color:var(--muted); font-weight:600}
@@ -524,7 +523,27 @@
   .ext-index .gi.ts{--ac-tx:#4f46e5} .ext-index .gi.re{--ac-tx:#a16207} .ext-index .gi.fd{--ac-tx:#2563eb} .ext-index .gi.ck{--ac-tx:#dc2626}
   :root[data-theme="dark"] .ext-index .gi.vs{--ac-tx:#fbbf24} :root[data-theme="dark"] .ext-index .gi.pt{--ac-tx:#6ee7b7} :root[data-theme="dark"] .ext-index .gi.tm{--ac-tx:#7dd3fc} :root[data-theme="dark"] .ext-index .gi.fm{--ac-tx:#c4b5fd} :root[data-theme="dark"] .ext-index .gi.as{--ac-tx:#fdba74} :root[data-theme="dark"] .ext-index .gi.ts{--ac-tx:#a5b4fc} :root[data-theme="dark"] .ext-index .gi.re{--ac-tx:#fcd34d} :root[data-theme="dark"] .ext-index .gi.fd{--ac-tx:#93c5fd} :root[data-theme="dark"] .ext-index .gi.ck{--ac-tx:#fca5a5}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .ext-index .gi.vs{--ac-tx:#fbbf24} :root:not([data-theme="light"]) .ext-index .gi.pt{--ac-tx:#6ee7b7} :root:not([data-theme="light"]) .ext-index .gi.tm{--ac-tx:#7dd3fc} :root:not([data-theme="light"]) .ext-index .gi.fm{--ac-tx:#c4b5fd} :root:not([data-theme="light"]) .ext-index .gi.as{--ac-tx:#fdba74} :root:not([data-theme="light"]) .ext-index .gi.ts{--ac-tx:#a5b4fc} :root:not([data-theme="light"]) .ext-index .gi.re{--ac-tx:#fcd34d} :root:not([data-theme="light"]) .ext-index .gi.fd{--ac-tx:#93c5fd} :root:not([data-theme="light"]) .ext-index .gi.ck{--ac-tx:#fca5a5} }
-  @media (max-width:860px){ .gidx.ext-index{grid-template-columns:1fr} .ext-index .gi-shot-inline{grid-column:2; max-width:280px} }
+  @media (max-width:860px){ .gidx.ext-index{grid-template-columns:1fr} }
+
+  /* rows that unfold: a short index of names, and only the open one shows
+     its words, so there is one thing to read at a time */
+  .ext-index .gi{display:block; padding:0; opacity:1}
+  .ext-index .gi-name{margin:0; font-size:16px}
+  .gi-head{display:flex; align-items:center; gap:12px; width:100%; padding:10px 0; background:none; border:0; font:inherit; font-family:'EdenMarker',var(--font); font-size:16px; font-weight:800; letter-spacing:-.01em; line-height:1.4; text-align:left; color:var(--faint); cursor:pointer; transition:color .35s ease}
+  .gi-head .gi-icon{width:28px; height:28px; border-radius:8px; margin:0; opacity:.5; filter:grayscale(.6); transition:opacity .35s ease, filter .35s ease, transform .6s cubic-bezier(.16,1,.3,1)}
+  .gi-head .gi-kicker{margin-left:7px; font-size:12.5px; font-weight:600; color:var(--faint); transition:color .35s ease}
+  .gi-head:hover, .ext-index .gi.on .gi-head{color:var(--ink)}
+  .gi-head:hover .gi-icon, .ext-index .gi.on .gi-head .gi-icon{opacity:1; filter:none}
+  .ext-index .gi.on .gi-head .gi-icon{transform:scale(1.12)}
+  .ext-index .gi.on .gi-head .gi-kicker{color:var(--ac-tx)}
+  .gi-head:focus-visible{outline:2px solid var(--ink); outline-offset:3px; border-radius:6px}
+  .gi-body{display:grid; grid-template-rows:0fr; opacity:0; transition:grid-template-rows .6s cubic-bezier(.16,1,.3,1), opacity .4s ease}
+  .gi-body-in{overflow:hidden; min-height:0; padding-left:40px}
+  .ext-index .gi.on .gi-body{grid-template-rows:1fr; opacity:1; transition-delay:0s, .12s}
+  .ext-index .gi-desc{margin:2px 0 8px}
+  .ext-index .gi-line{padding-bottom:14px}
+  @media (prefers-reduced-motion:reduce){ .gi-body, .gi-head, .gi-head .gi-icon{transition:none} }
+  @media (max-width:860px){ .ext-index .gi-shot-inline{display:block; width:100%; max-width:250px; margin:2px 0 16px} }
 
   /* extensions filter: plain words, the chosen one underlined */
   .ext-filter{display:flex; flex-wrap:wrap; gap:8px 24px; margin:0 0 6px}
@@ -792,7 +811,7 @@
       <button type="button" data-f="reading" aria-pressed="false">Reading &amp; video</button>
       <button type="button" data-f="everyday" aria-pressed="false">Everyday browsing</button>
     </div>
-    <section class="gidx ext-index" aria-label="Eden Apps Chrome extensions">
+    <section class="gidx ext-index" data-click aria-label="Eden Apps Chrome extensions">
       <div class="gi-preview" aria-hidden="true">
         <img class="gi-shot" src="assets/ext-use-video-summaries.jpg" alt="" loading="lazy" width="500" height="628">
         <img class="gi-shot" src="assets/ext-use-price-tracker.jpg" alt="" loading="lazy" width="500" height="628">
@@ -806,94 +825,85 @@
       </div>
       <ol class="gi-list">
         <li class="gi vs" data-cat="reading">
-          <img class="gi-icon" src="assets/ext-video-summaries.png" alt="" width="44" height="44">
-          <div class="gi-text">
-            <h3 class="gi-name">Video Summaries <span class="gi-kicker">YouTube summaries</span></h3>
+          <h3 class="gi-name"><button class="gi-head" type="button" id="xh-vs" aria-expanded="false" aria-controls="xb-vs"><img class="gi-icon" src="assets/ext-video-summaries.png" alt="" width="28" height="28"><span>Video Summaries <span class="gi-kicker">YouTube summaries</span></span></button></h3>
+          <div class="gi-body" id="xb-vs" role="region" aria-labelledby="xh-vs"><div class="gi-body-in">
             <p class="gi-desc">Turn any YouTube video into key points with clickable timestamps, summarized on your device.</p>
             <p class="gi-split"><b>Included:</b> 3 videos a day · <b>Pro:</b> unlimited, chapters &amp; export</p>
             <p class="gi-line"><span>Pro $8.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/video-summaries-for-youtu/ekhdoohngaeajhgjhmoacmcjmoagcaph" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-video-summaries.html" title="Privacy policy for Video Summaries">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
-          </div>
-          <img class="gi-shot-inline" src="assets/ext-use-video-summaries.jpg" alt="Video Summaries popup in use" loading="lazy" width="500" height="628">
+            <img class="gi-shot-inline" src="assets/ext-use-video-summaries.jpg" alt="Video Summaries popup in use" loading="lazy" width="500" height="628">
+          </div></div>
         </li>
         <li class="gi pt" data-cat="everyday">
-          <img class="gi-icon" src="assets/ext-price-tracker.png" alt="" width="44" height="44">
-          <div class="gi-text">
-            <h3 class="gi-name">Price Tracker <span class="gi-kicker">Price alerts</span></h3>
+          <h3 class="gi-name"><button class="gi-head" type="button" id="xh-pt" aria-expanded="false" aria-controls="xb-pt"><img class="gi-icon" src="assets/ext-price-tracker.png" alt="" width="28" height="28"><span>Price Tracker <span class="gi-kicker">Price alerts</span></span></button></h3>
+          <div class="gi-body" id="xb-pt" role="region" aria-labelledby="xh-pt"><div class="gi-body-in">
             <p class="gi-desc">Track prices across ten major shopping sites and get a gentle alert the moment something drops.</p>
             <p class="gi-split"><b>Included:</b> track 5 products · <b>Pro:</b> unlimited tracking</p>
             <p class="gi-line"><span>Pro $8.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/price-tracker-%E2%80%94-smart-pri/kambpllckipopnbanjkjgipdcinhlplh" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-price-tracker.html" title="Privacy policy for Price Tracker">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
-          </div>
-          <img class="gi-shot-inline" src="assets/ext-use-price-tracker.jpg" alt="Price Tracker popup in use" loading="lazy" width="500" height="628">
+            <img class="gi-shot-inline" src="assets/ext-use-price-tracker.jpg" alt="Price Tracker popup in use" loading="lazy" width="500" height="628">
+          </div></div>
         </li>
         <li class="gi tm" data-cat="productivity">
-          <img class="gi-icon" src="assets/ext-tab-manager.png" alt="" width="44" height="44">
-          <div class="gi-text">
-            <h3 class="gi-name">Tab Manager <span class="gi-kicker">Tab groups &amp; sessions</span></h3>
+          <h3 class="gi-name"><button class="gi-head" type="button" id="xh-tm" aria-expanded="false" aria-controls="xb-tm"><img class="gi-icon" src="assets/ext-tab-manager.png" alt="" width="28" height="28"><span>Tab Manager <span class="gi-kicker">Tab groups &amp; sessions</span></span></button></h3>
+          <div class="gi-body" id="xb-tm" role="region" aria-labelledby="xh-tm"><div class="gi-body-in">
             <p class="gi-desc">Group your open tabs into color coded groups in one click, and save them as sessions to reopen anytime.</p>
             <p class="gi-split"><b>Included:</b> unlimited groups &amp; sessions · <b>Pro:</b> custom rules &amp; session backup</p>
             <p class="gi-line"><span>Pro $8.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/tab-manager-group-tabs-sa/chlgclchldoppenblmlodeifgngoihid" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-tab-manager.html" title="Privacy policy for Tab Manager">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
-          </div>
-          <img class="gi-shot-inline" src="assets/ext-use-tab-manager.jpg" alt="Tab Manager popup in use" loading="lazy" width="500" height="628">
+            <img class="gi-shot-inline" src="assets/ext-use-tab-manager.jpg" alt="Tab Manager popup in use" loading="lazy" width="500" height="628">
+          </div></div>
         </li>
         <li class="gi fm" data-cat="productivity">
-          <img class="gi-icon" src="assets/ext-focus-mode.png" alt="" width="44" height="44">
-          <div class="gi-text">
-            <h3 class="gi-name">Focus Mode <span class="gi-kicker">Pomodoro &amp; site blocker</span></h3>
+          <h3 class="gi-name"><button class="gi-head" type="button" id="xh-fm" aria-expanded="false" aria-controls="xb-fm"><img class="gi-icon" src="assets/ext-focus-mode.png" alt="" width="28" height="28"><span>Focus Mode <span class="gi-kicker">Pomodoro &amp; site blocker</span></span></button></h3>
+          <div class="gi-body" id="xb-fm" role="region" aria-labelledby="xh-fm"><div class="gi-body-in">
             <p class="gi-desc">A focus timer paired with automatic site blocking: distracting sites simply stop loading during a session.</p>
             <p class="gi-split"><b>Included:</b> timer + 5 custom sites · <b>Pro:</b> unlimited sites</p>
             <p class="gi-line"><span>Pro $5.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/focus-mode-%E2%80%94-pomodoro-sit/mmojkajohniicnkkmjohcplbljhjnmkp" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-focus-mode.html" title="Privacy policy for Focus Mode">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
-          </div>
-          <img class="gi-shot-inline" src="assets/ext-use-focus-mode.jpg" alt="Focus Mode popup in use" loading="lazy" width="500" height="628">
+            <img class="gi-shot-inline" src="assets/ext-use-focus-mode.jpg" alt="Focus Mode popup in use" loading="lazy" width="500" height="628">
+          </div></div>
         </li>
         <li class="gi as" data-cat="reading">
-          <img class="gi-icon" src="assets/ext-ai-summarizer.png" alt="" width="44" height="44">
-          <div class="gi-text">
-            <h3 class="gi-name">AI Summarizer <span class="gi-kicker">Page summaries</span></h3>
+          <h3 class="gi-name"><button class="gi-head" type="button" id="xh-as" aria-expanded="false" aria-controls="xb-as"><img class="gi-icon" src="assets/ext-ai-summarizer.png" alt="" width="28" height="28"><span>AI Summarizer <span class="gi-kicker">Page summaries</span></span></button></h3>
+          <div class="gi-body" id="xb-as" role="region" aria-labelledby="xh-as"><div class="gi-body-in">
             <p class="gi-desc">Condense any article into a few clear key points with one click, summarized right on your device.</p>
             <p class="gi-split"><b>Included:</b> 10 summaries a day · <b>Pro:</b> unlimited + detailed view</p>
             <p class="gi-line"><span>Pro $5.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/ai-summarizer-%E2%80%94-instant-p/enhflmnilfmaibpohaoapnlnjbdjbipb" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-ai-summarizer.html" title="Privacy policy for AI Summarizer">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
-          </div>
-          <img class="gi-shot-inline" src="assets/ext-use-ai-summarizer.jpg" alt="AI Summarizer popup in use" loading="lazy" width="500" height="628">
+            <img class="gi-shot-inline" src="assets/ext-use-ai-summarizer.jpg" alt="AI Summarizer popup in use" loading="lazy" width="500" height="628">
+          </div></div>
         </li>
         <li class="gi ts" data-cat="productivity">
-          <img class="gi-icon" src="assets/ext-tab-snoozer.png" alt="" width="44" height="44">
-          <div class="gi-text">
-            <h3 class="gi-name">Tab Snoozer <span class="gi-kicker">Tab scheduler</span></h3>
+          <h3 class="gi-name"><button class="gi-head" type="button" id="xh-ts" aria-expanded="false" aria-controls="xb-ts"><img class="gi-icon" src="assets/ext-tab-snoozer.png" alt="" width="28" height="28"><span>Tab Snoozer <span class="gi-kicker">Tab scheduler</span></span></button></h3>
+          <div class="gi-body" id="xb-ts" role="region" aria-labelledby="xh-ts"><div class="gi-body-in">
             <p class="gi-desc">Hide a tab until you need it: snooze it and it reopens itself on the schedule you pick, even after a restart.</p>
             <p class="gi-split"><b>Included:</b> 3 snoozed at once · <b>Pro:</b> unlimited, custom times &amp; repeat</p>
             <p class="gi-line"><span>Pro $8.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/tab-snoozer/ciohooaomfljpbhjecfdjcondkeadode" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-tab-snoozer.html" title="Privacy policy for Tab Snoozer">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
-          </div>
-          <img class="gi-shot-inline" src="assets/ext-use-tab-snoozer.jpg" alt="Tab Snoozer popup in use" loading="lazy" width="500" height="628">
+            <img class="gi-shot-inline" src="assets/ext-use-tab-snoozer.jpg" alt="Tab Snoozer popup in use" loading="lazy" width="500" height="628">
+          </div></div>
         </li>
         <li class="gi re" data-cat="reading">
-          <img class="gi-icon" src="assets/ext-recipe-extractor.png" alt="" width="44" height="44">
-          <div class="gi-text">
-            <h3 class="gi-name">Recipe Extractor <span class="gi-kicker">Recipe cleaner</span></h3>
+          <h3 class="gi-name"><button class="gi-head" type="button" id="xh-re" aria-expanded="false" aria-controls="xb-re"><img class="gi-icon" src="assets/ext-recipe-extractor.png" alt="" width="28" height="28"><span>Recipe Extractor <span class="gi-kicker">Recipe cleaner</span></span></button></h3>
+          <div class="gi-body" id="xb-re" role="region" aria-labelledby="xh-re"><div class="gi-body-in">
             <p class="gi-desc">Skip the life story and jump straight to the recipe: ingredients and steps, cleanly pulled from the page.</p>
             <p class="gi-split"><b>Included:</b> clean recipe &amp; cook along mode · <b>Pro:</b> scaling, save &amp; export</p>
             <p class="gi-line"><span>Pro $8.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/recipe-extractor-%E2%80%94-skip-t/fhdgipnhnlfldofapdjpbmbacmgddgmd" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-recipe-extractor.html" title="Privacy policy for Recipe Extractor">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
-          </div>
-          <img class="gi-shot-inline" src="assets/ext-use-recipe-extractor.jpg" alt="Recipe Extractor popup in use" loading="lazy" width="500" height="628">
+            <img class="gi-shot-inline" src="assets/ext-use-recipe-extractor.jpg" alt="Recipe Extractor popup in use" loading="lazy" width="500" height="628">
+          </div></div>
         </li>
         <li class="gi fd" data-cat="everyday">
-          <img class="gi-icon" src="assets/ext-form-draft-guard.png" alt="" width="44" height="44">
-          <div class="gi-text">
-            <h3 class="gi-name">Form Draft Guard <span class="gi-kicker">Draft protection</span></h3>
+          <h3 class="gi-name"><button class="gi-head" type="button" id="xh-fd" aria-expanded="false" aria-controls="xb-fd"><img class="gi-icon" src="assets/ext-form-draft-guard.png" alt="" width="28" height="28"><span>Form Draft Guard <span class="gi-kicker">Draft protection</span></span></button></h3>
+          <div class="gi-body" id="xb-fd" role="region" aria-labelledby="xh-fd"><div class="gi-body-in">
             <p class="gi-desc">Saves what you type in comment boxes and forms automatically, so a crash or misclick can't wipe your words.</p>
             <p class="gi-split"><b>Included:</b> 15 drafts, kept 7 days · <b>Pro:</b> unlimited + version history</p>
             <p class="gi-line"><span>Pro $5.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/form-draft-guard/ehdccipfboaojjifllomihhjcjgebnec" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-form-draft-guard.html" title="Privacy policy for Form Draft Guard">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
-          </div>
-          <img class="gi-shot-inline" src="assets/ext-use-form-draft-guard.jpg" alt="Form Draft Guard popup in use" loading="lazy" width="500" height="628">
+            <img class="gi-shot-inline" src="assets/ext-use-form-draft-guard.jpg" alt="Form Draft Guard popup in use" loading="lazy" width="500" height="628">
+          </div></div>
         </li>
         <li class="gi ck" data-cat="everyday">
-          <img class="gi-icon" src="assets/ext-cookie-cutter.png" alt="" width="44" height="44">
-          <div class="gi-text">
-            <h3 class="gi-name">Cookie Cutter <span class="gi-kicker">Cookie banner blocker</span></h3>
+          <h3 class="gi-name"><button class="gi-head" type="button" id="xh-ck" aria-expanded="false" aria-controls="xb-ck"><img class="gi-icon" src="assets/ext-cookie-cutter.png" alt="" width="28" height="28"><span>Cookie Cutter <span class="gi-kicker">Cookie banner blocker</span></span></button></h3>
+          <div class="gi-body" id="xb-ck" role="region" aria-labelledby="xh-ck"><div class="gi-body-in">
             <p class="gi-desc">Automatically declines cookie banners on the sites you visit. It clicks decline, never accept.</p>
             <p class="gi-split"><b>Included:</b> auto decline cookie banners · <b>Pro:</b> deep cleanup &amp; element hider</p>
             <p class="gi-line"><span>Pro $5.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/cookie-cutter/gijjdeegadokkaffkhfnjiekfeppcdfc" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-cookie-cutter.html" title="Privacy policy for Cookie Cutter">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
-          </div>
-          <img class="gi-shot-inline" src="assets/ext-use-cookie-cutter.jpg" alt="Cookie Cutter popup in use" loading="lazy" width="500" height="628">
+            <img class="gi-shot-inline" src="assets/ext-use-cookie-cutter.jpg" alt="Cookie Cutter popup in use" loading="lazy" width="500" height="628">
+          </div></div>
         </li>
       </ol>
     </section>
@@ -1097,16 +1107,20 @@
     function visible(it){ return !it.hidden; }
     function show(k){
       if(k===cur || k<0) return; cur=k;
-      items.forEach(function(it,i){ it.classList.toggle('on', i===k); });
+      items.forEach(function(it,i){ it.classList.toggle('on', i===k); var h=it.querySelector('.gi-head'); if(h) h.setAttribute('aria-expanded', i===k?'true':'false'); });
       shots.forEach(function(sh,i){ sh.classList.toggle('on', i===k); sh.classList.toggle('seen', i<k); });
     }
+    var byClick=root.hasAttribute('data-click');
     items.forEach(function(it,i){
+      var head=it.querySelector('.gi-head');
+      if(byClick){ if(head) head.addEventListener('click', function(){ show(i); }); return; }
       it.addEventListener('mouseenter', function(){ pointing=true; show(i); });
       it.addEventListener('mouseleave', function(){ pointing=false; });
       it.addEventListener('focusin', function(){ show(i); });
     });
     function nearest(){
       if(pointing) return;
+      if(byClick){ if(cur<0 || items[cur].hidden){ for(var i=0;i<items.length;i++){ if(visible(items[i])){ show(i); break; } } } return; }
       var mid=window.innerHeight*0.45, best=-1, bd=1e9;
       items.forEach(function(it,i){ if(!visible(it)) return; var r=it.getBoundingClientRect(), d=Math.abs((r.top+r.bottom)/2-mid); if(d<bd){ bd=d; best=i; } });
       show(best);
