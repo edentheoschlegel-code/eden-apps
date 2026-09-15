@@ -471,202 +471,69 @@
      A quiet list on the left. One large preview on the right that sweeps to
      whichever tool you point at, or the one you've scrolled to. On phones
      each tool's picture sits under its words. */
-  .mac-index{display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.5fr); gap:clamp(24px,3.5vw,56px); align-items:start; margin:4px 0 16px}
-  .mi-list{list-style:none; margin:0; padding:0}
-  .mi{display:grid; grid-template-columns:44px minmax(0,1fr); column-gap:18px; padding:clamp(18px,3vh,30px) 0}
-  .mi.fw{--ac-tx:#24603c} .mi.pn{--ac-tx:#7824b4} .mi.cl{--ac-tx:#3c3cd8} .mi.bp{--ac-tx:#3b5470}
-  :root[data-theme="dark"] .mi.fw{--ac-tx:#7fc79a} :root[data-theme="dark"] .mi.pn{--ac-tx:#c39af2} :root[data-theme="dark"] .mi.cl{--ac-tx:#a0a2f7} :root[data-theme="dark"] .mi.bp{--ac-tx:#a3b8d2}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mi.fw{--ac-tx:#7fc79a} :root:not([data-theme="light"]) .mi.pn{--ac-tx:#c39af2} :root:not([data-theme="light"]) .mi.cl{--ac-tx:#a0a2f7} :root:not([data-theme="light"]) .mi.bp{--ac-tx:#a3b8d2} }
-  .mi-icon{width:44px; height:44px; border-radius:11px; margin-top:2px}
-  .mi-name{margin:0; font-family:'EdenMarker',var(--font); font-size:20px; font-weight:800; letter-spacing:-.01em; line-height:1.35; color:var(--ink)}
-  .mi-kicker{margin-left:8px; font-size:13px; font-weight:600; letter-spacing:.01em; color:var(--ac-tx); white-space:nowrap}
-  .mi-desc{margin:6px 0 10px; font-family:'EdenMarker',var(--font); font-size:14px; line-height:1.7; color:var(--muted); max-width:54ch}
-  .mi-line{margin:0; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 18px; font-family:'EdenMarker',var(--font); font-size:13px; color:var(--faint)}
-  .mi-links{white-space:nowrap}
-  .mi-links a + a::before{content:"·"; margin:0 11px; color:var(--faint); font-weight:400}
-  .mi-line a{display:inline-flex; align-items:center; gap:4px; color:var(--muted); font-weight:500; text-decoration:none; border:0; transition:color .2s, gap .2s}
-  .mi-line a.mi-try{color:var(--ac-tx); font-weight:600}
-  .mi-line a:hover{color:var(--ac-tx); gap:7px}
-  .mi-shot-inline{display:none}
+  .gidx{display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.5fr); gap:clamp(24px,3.5vw,56px); align-items:start; margin:4px 0 16px}
+  .gi-list{list-style:none; margin:0; padding:0}
+  .gi{display:grid; grid-template-columns:44px minmax(0,1fr); column-gap:18px; padding:clamp(18px,3vh,30px) 0}
+  .gi.fw{--ac-tx:#24603c} .gi.pn{--ac-tx:#7824b4} .gi.cl{--ac-tx:#3c3cd8} .gi.bp{--ac-tx:#3b5470}
+  :root[data-theme="dark"] .gi.fw{--ac-tx:#7fc79a} :root[data-theme="dark"] .gi.pn{--ac-tx:#c39af2} :root[data-theme="dark"] .gi.cl{--ac-tx:#a0a2f7} :root[data-theme="dark"] .gi.bp{--ac-tx:#a3b8d2}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .gi.fw{--ac-tx:#7fc79a} :root:not([data-theme="light"]) .gi.pn{--ac-tx:#c39af2} :root:not([data-theme="light"]) .gi.cl{--ac-tx:#a0a2f7} :root:not([data-theme="light"]) .gi.bp{--ac-tx:#a3b8d2} }
+  .gi-icon{width:44px; height:44px; border-radius:11px; margin-top:2px}
+  .gi-name{margin:0; font-family:'EdenMarker',var(--font); font-size:20px; font-weight:800; letter-spacing:-.01em; line-height:1.35; color:var(--ink)}
+  .gi-kicker{margin-left:8px; font-size:13px; font-weight:600; letter-spacing:.01em; color:var(--ac-tx); white-space:nowrap}
+  .gi-desc{margin:6px 0 10px; font-family:'EdenMarker',var(--font); font-size:14px; line-height:1.7; color:var(--muted); max-width:54ch}
+  .gi-line{margin:0; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 18px; font-family:'EdenMarker',var(--font); font-size:13px; color:var(--faint)}
+  .gi-links{white-space:nowrap}
+  .gi-links a + a::before{content:"·"; margin:0 11px; color:var(--faint); font-weight:400}
+  .gi-line a{display:inline-flex; align-items:center; gap:4px; color:var(--muted); font-weight:500; text-decoration:none; border:0; transition:color .2s, gap .2s}
+  .gi-line a.gi-go{color:var(--ac-tx); font-weight:600}
+  .gi-line a:hover{color:var(--ac-tx); gap:7px}
+  .gi-shot-inline{display:none}
 
-  .mi-preview{position:sticky; top:calc(var(--hdr,76px) + 16px); display:grid; aspect-ratio:1000/800}
-  .mi-shot{grid-area:1/1; width:100%; height:100%; object-fit:contain;
+  .gi-preview{position:sticky; top:calc(var(--hdr,76px) + 16px); display:grid; aspect-ratio:1000/800}
+  .gi-shot{grid-area:1/1; width:100%; height:100%; object-fit:contain;
     -webkit-mask-image:radial-gradient(ellipse 92% 90% at 50% 50%, #000 76%, transparent 100%); mask-image:radial-gradient(ellipse 92% 90% at 50% 50%, #000 76%, transparent 100%);
     clip-path:inset(0 0 0 100%); transform:scale(1.06);
     transition:clip-path 1.05s cubic-bezier(.77,0,.18,1), transform 1.3s cubic-bezier(.16,1,.3,1), filter 1s ease}
-  .mi-shot.seen{clip-path:inset(0 0 0 0); transform:scale(.95); filter:blur(3px) brightness(.9)}
-  .mi-shot.on{clip-path:inset(0 0 0 0); transform:none; filter:none}
+  .gi-shot.seen{clip-path:inset(0 0 0 0); transform:scale(.95); filter:blur(3px) brightness(.9)}
+  .gi-shot.on{clip-path:inset(0 0 0 0); transform:none; filter:none}
 
   @media (min-width:861px){
-    .mi{opacity:.5; transition:opacity .5s ease}
-    .mi.on, .mi:hover, .mi:focus-within{opacity:1}
+    .gi{opacity:.5; transition:opacity .5s ease}
+    .gi.on, .gi:hover, .gi:focus-within{opacity:1}
   }
   @media (max-width:860px){
-    .mac-index{grid-template-columns:1fr; gap:0}
-    .mi-preview{display:none}
-    .mi-shot-inline{display:block; grid-column:1/-1; width:100%; height:auto; margin-top:16px;
+    .gidx{grid-template-columns:1fr; gap:0}
+    .gi-preview{display:none}
+    .gi-shot-inline{display:block; grid-column:1/-1; width:100%; height:auto; margin-top:16px;
       -webkit-mask-image:radial-gradient(ellipse 80% 75% at 50% 50%, #000 65%, transparent 100%); mask-image:radial-gradient(ellipse 80% 75% at 50% 50%, #000 65%, transparent 100%)}
   }
-  @media (prefers-reduced-motion:reduce){ .mi-shot, .mi{transition:none} }
+  @media (prefers-reduced-motion:reduce){ .gi-shot, .gi{transition:none} }
 
-  /* the Mac tools — a calm matched set in one evergreen accent, distinct from
-     the multicolour apps above and the indigo extensions below */
-  .mac-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:8px;
-    --ac:#3f6b4f; --ac-tx:#356045; --ac-soft:#e8f0ea}
-  @media(max-width:760px){.mac-grid{grid-template-columns:1fr}}
-  .card.mac .kicker{color:var(--ac-tx);font-weight:600}
-  .card.mac .price{white-space:nowrap}
-  .card.mac .weblink{display:inline-flex; align-items:center; gap:5px; font-family:'EdenBold',var(--font); font-size:11.5px; font-weight:650; color:var(--acc);
-    background:var(--acc-soft); border:1px solid var(--line-strong); border-radius:999px; padding:4.5px 10px;
-    white-space:nowrap; text-decoration:none; transition:background .2s, color .2s}
-  .card.mac .weblink:hover{background:var(--acc); color:#fff}
-  .card.mac .weblink .dot{width:5px; height:5px; border-radius:999px; background:currentColor}
+  /* ── extensions: the same index, mirrored. The popup preview sits on the
+     left and sweeps in from that side; the list runs down the right. */
+  .gidx.ext-index{grid-template-columns:minmax(0,.72fr) minmax(0,1.4fr)}
+  .ext-index .gi-preview{aspect-ratio:500/628; max-height:calc(100vh - var(--hdr,76px) - 48px)}
+  .ext-index .gi-shot{clip-path:inset(0 100% 0 0);
+    -webkit-mask-image:radial-gradient(ellipse 86% 90% at 50% 50%, #000 72%, transparent 100%); mask-image:radial-gradient(ellipse 86% 90% at 50% 50%, #000 72%, transparent 100%)}
+  .ext-index .gi-shot.seen, .ext-index .gi-shot.on{clip-path:inset(0 0 0 0)}
+  .ext-index .gi{padding:clamp(14px,2.4vh,24px) 0}
+  .ext-index .gi[hidden]{display:none}
+  .gi-split{margin:-4px 0 8px; font-family:'EdenMarker',var(--font); font-size:12.5px; line-height:1.6; color:var(--faint); max-width:54ch}
+  .gi-split b{color:var(--muted); font-weight:600}
+  .ext-index .gi.vs{--ac-tx:#b45309} .ext-index .gi.pt{--ac-tx:#047857} .ext-index .gi.tm{--ac-tx:#0369a1} .ext-index .gi.fm{--ac-tx:#7c3aed} .ext-index .gi.as{--ac-tx:#c2410c}
+  .ext-index .gi.ts{--ac-tx:#4f46e5} .ext-index .gi.re{--ac-tx:#a16207} .ext-index .gi.fd{--ac-tx:#2563eb} .ext-index .gi.ck{--ac-tx:#dc2626}
+  :root[data-theme="dark"] .ext-index .gi.vs{--ac-tx:#fbbf24} :root[data-theme="dark"] .ext-index .gi.pt{--ac-tx:#6ee7b7} :root[data-theme="dark"] .ext-index .gi.tm{--ac-tx:#7dd3fc} :root[data-theme="dark"] .ext-index .gi.fm{--ac-tx:#c4b5fd} :root[data-theme="dark"] .ext-index .gi.as{--ac-tx:#fdba74} :root[data-theme="dark"] .ext-index .gi.ts{--ac-tx:#a5b4fc} :root[data-theme="dark"] .ext-index .gi.re{--ac-tx:#fcd34d} :root[data-theme="dark"] .ext-index .gi.fd{--ac-tx:#93c5fd} :root[data-theme="dark"] .ext-index .gi.ck{--ac-tx:#fca5a5}
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .ext-index .gi.vs{--ac-tx:#fbbf24} :root:not([data-theme="light"]) .ext-index .gi.pt{--ac-tx:#6ee7b7} :root:not([data-theme="light"]) .ext-index .gi.tm{--ac-tx:#7dd3fc} :root:not([data-theme="light"]) .ext-index .gi.fm{--ac-tx:#c4b5fd} :root:not([data-theme="light"]) .ext-index .gi.as{--ac-tx:#fdba74} :root:not([data-theme="light"]) .ext-index .gi.ts{--ac-tx:#a5b4fc} :root:not([data-theme="light"]) .ext-index .gi.re{--ac-tx:#fcd34d} :root:not([data-theme="light"]) .ext-index .gi.fd{--ac-tx:#93c5fd} :root:not([data-theme="light"]) .ext-index .gi.ck{--ac-tx:#fca5a5} }
+  @media (max-width:860px){ .gidx.ext-index{grid-template-columns:1fr} .ext-index .gi-shot-inline{grid-column:2; max-width:280px} }
 
-  .card.mac .desc{color:var(--muted);font-size:14px;line-height:1.55}
-  .card.mac .name a{color:inherit}
-  .soonpill{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:650;
-    color:var(--ac-tx);background:var(--ac-soft);border:1px solid var(--line-strong);
-    border-radius:999px;padding:4.5px 10px;white-space:nowrap}
-  .soonpill .dot{width:5px;height:5px;border-radius:999px;background:var(--ac)}
-  .mac-bundle{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;
-    gap:14px;flex-wrap:wrap;padding:18px 24px;border:1px solid var(--mbline,#f0d3d0);
-    border-radius:var(--radius);background:var(--mbg,#fdf2f1);
-    --ac:#c14b45;--ac-tx:#a3302b;--ac-soft:#fae5e3}
-  :root[data-theme="dark"] .mac-bundle{--mbg:#241315;--mbline:#4a2725;--ac:#e08b84;--ac-tx:#f0a9a3;--ac-soft:#33191a}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mac-bundle{--mbg:#241315;--mbline:#4a2725;--ac:#e08b84;--ac-tx:#f0a9a3;--ac-soft:#33191a} }
-  .mac-bundle .mb-txt{font-size:15px;color:var(--ink)}
-  .mac-bundle .mb-txt b{color:var(--ac-tx);font-weight:700}
-  .mac-bundle .mb-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
-  .mac-bundle .mb-price{font-size:14px;font-weight:700;color:var(--ac-tx);white-space:nowrap}
-  .mac-bundle .mb-was{color:var(--muted);text-decoration:line-through;font-weight:600;margin-right:9px}
-  /* phone: the bundle's note and price read left-aligned under its sentence */
-  @media(max-width:560px){ .mac-bundle .mb-right{width:100%; justify-content:flex-start} }
-  .card.mac .tag{color:var(--ac-tx);background:var(--ac-soft);border-color:transparent}
-  .card.mac .tag.lock{color:var(--faint);background:transparent;border:1px solid var(--line-strong)}
-  :root[data-theme="dark"] .mac-grid{--ac:#5f9a72; --ac-tx:#8fc7a1; --ac-soft:#16231b}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mac-grid{--ac:#5f9a72; --ac-tx:#8fc7a1; --ac-soft:#16231b} }
-  /* each Mac tool wears its own logo colour — same alive rhythm as the extensions */
-  .card.mac.fw{--ac:#24603c;--ac-tx:#24603c;--ac-soft:#e8f0ea}
-  .card.mac.pn{--ac:#7824b4;--ac-tx:#7824b4;--ac-soft:#f4eafb}
-  .card.mac.cl{--ac:#3c3cd8;--ac-tx:#3c3cd8;--ac-soft:#eaeafb}
-  .card.mac.bp{--ac:#305478;--ac-tx:#305478;--ac-soft:#e9eff5}
-  :root[data-theme="dark"] .card.mac.fw{--ac-tx:#8fc7a1;--ac-soft:#16231b}
-  :root[data-theme="dark"] .card.mac.pn{--ac-tx:#cf9df2;--ac-soft:#241330}
-  :root[data-theme="dark"] .card.mac.cl{--ac-tx:#a8a8f5;--ac-soft:#17172e}
-  :root[data-theme="dark"] .card.mac.bp{--ac-tx:#98bcdc;--ac-soft:#14202c}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .card.mac.fw{--ac-tx:#8fc7a1;--ac-soft:#16231b} :root:not([data-theme="light"]) .card.mac.pn{--ac-tx:#cf9df2;--ac-soft:#241330} :root:not([data-theme="light"]) .card.mac.cl{--ac-tx:#a8a8f5;--ac-soft:#17172e} :root:not([data-theme="light"]) .card.mac.bp{--ac-tx:#98bcdc;--ac-soft:#14202c} }
+  /* extensions filter: plain words, the chosen one underlined */
+  .ext-filter{display:flex; flex-wrap:wrap; gap:8px 24px; margin:0 0 6px}
+  .ext-filter button{position:relative; font:inherit; font-family:'EdenMarker',var(--font); font-size:13px; letter-spacing:.04em; color:var(--faint); background:none; border:0; padding:0 0 5px; cursor:pointer; transition:color .4s ease}
+  .ext-filter button::after{content:""; position:absolute; left:0; right:0; bottom:0; height:1.5px; border-radius:2px; background:var(--ink); transform:scaleX(0); transform-origin:left; transition:transform .7s cubic-bezier(.77,0,.18,1)}
+  .ext-filter button:hover, .ext-filter button[aria-pressed="true"]{color:var(--ink)}
+  .ext-filter button[aria-pressed="true"]::after{transform:scaleX(1)}
+  .ext-filter button:focus-visible{outline:2px solid var(--ink); outline-offset:4px}
 
-  /* promise — no panel. The page is already a page of cards; boxing the promises made
-     them read as one more row of the grid. Open on the background, split by hairlines,
-     titles left-aligned, and the heading sits out on the page like "The apps" and
-     "The extensions" do rather than inside a container of its own.
-     Bottom margin widened (28px -> 64px) so the promises and the signup read as two
-     distinct groups, not one long run of text. .subscribe's margin-top:20px is unchanged. */
-  .promise{margin:44px 0 64px; padding:38px 0 0}
-  .promise h2{font-family:'EdenBold',var(--font); font-size:22px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:#2c2c2c; text-align:center; margin:0 0 24px}
-  :root[data-theme="dark"] .promise h2{color:var(--ink)}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .promise h2{color:var(--ink)} }
-  .points{display:grid; grid-template-columns:repeat(3,1fr); gap:32px}
-  .point{padding:0 40px; text-align:center}
-  .point:first-child{padding-left:0}
-  .point:last-child{padding-right:0}
-  @media (max-width:760px){
-    .points{grid-template-columns:1fr}
-    .point{padding:22px 0}
-  }
-  .point .ico{width:44px; height:44px; margin:0 auto 15px; display:block}
-  /* no border-radius: the icons are transparent line art now, with no plate to round */
-  .point .ico img{width:100%; height:100%; display:block; object-fit:contain}
-  .point h3{font-family:'EdenMarker',var(--font); font-size:15.5px; font-weight:750; margin:0 0 7px; letter-spacing:-.012em; color:#2c2c2c}
-  :root[data-theme="dark"] .point h3{color:var(--ink)}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .point h3{color:var(--ink)} }
-  .point p{font-family:'EdenMarker',var(--font); font-size:14.5px; color:var(--muted); margin:0}
-  .point svg{width:22px; height:22px; stroke-width:2}
-
-  /* footer */
-  footer{margin:0 0 44px; padding:26px 28px 28px}
-  .frow{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
-  .fbrand{display:flex; align-items:center; gap:10px; font-weight:700}
-  .fbrand .mark{width:23px; height:23px; object-fit:contain}
-  @font-face{font-family:'EdenKnit';src:url('assets/fonts/EdenKnit-Regular.otf');font-display:swap}
-  .fnote{font-family:'EdenKnit',var(--font); color:var(--muted); font-size:13.5px}
-  @font-face{font-family:'EdenSeaweed';src:url('assets/fonts/EdenSeaweed-Regular.otf');font-display:swap}
-  .flinks{display:flex; flex-wrap:wrap; gap:20px; font-family:var(--font); font-weight:700; font-size:13.5px; color:var(--muted)}
-  .flinks a{padding:6px 0}
-  .flinks a:hover{color:var(--ink)}
-  /* keyboard focus + skip link */
-  .tab:focus-visible,.arrow:focus-visible,.open:focus-visible,.themebtn:focus-visible,.topnav .support:focus-visible,.subform button:focus-visible,.playpause:focus-visible,.frame a:focus-visible{outline:2px solid var(--li-tx); outline-offset:3px}
-  .skip{position:absolute; left:-9999px; top:8px; z-index:100; background:var(--surface); color:var(--ink); border:1px solid var(--line-strong); border-radius:9px; padding:10px 16px; font-weight:700; font-size:14px}
-  .skip:focus{left:16px}
-  @media (max-width:560px){
-    footer{margin:0 0 36px; padding:24px 20px 26px}
-    .subscribe{padding:32px 20px 28px}
-    .frow{flex-direction:column; align-items:flex-start; gap:16px}
-    .fnote{font-size:13px}
-    .flinks{width:100%; gap:14px 22px}
-  }
-  .plink{display:inline-flex;align-items:center;gap:6px;font-family:'EdenRound',var(--font);font-size:13px;font-weight:700;color:var(--ac-tx,var(--li-tx));background:var(--surface);border:1.5px solid var(--line-strong);border-radius:999px;padding:8px 15px;white-space:nowrap;transition:border-color .2s,color .2s,background .2s}
-  .plink:hover{border-color:var(--ac,var(--li));text-decoration:none}
-  .plink:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
-  /* extensions grid — a different rhythm from the apps showcase */
-  .ext-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:6px}
-  @media(max-width:920px){.ext-grid{grid-template-columns:1fr 1fr}}
-  @media(max-width:600px){.ext-grid{grid-template-columns:1fr}}
-  .card.xc{padding:22px;gap:11px}
-  .card.xc .icon{width:46px;height:46px;border-radius:13px}
-  /* extension text matches the Mac tools' type exactly */
-  .card.xc .kicker{color:var(--ac-tx,var(--ac));font-weight:600}
-  .card.xc .desc{color:var(--muted);font-size:14px;line-height:1.55}
-  .card.xc .split{font-size:12.5px}
-  .card.xc .price{margin:0;font-size:13.5px}
-  .foot2{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:2px}
-  .card.xc .open{padding:9px 14px;font-size:13px;gap:6px}
-  .card.xc .plink{padding:7px 13px;font-size:12.5px}
-  .card.vs{--ac:#d97706;--ac-tx:#b45309} .card.pt{--ac:#059669;--ac-tx:#047857} .card.tm{--ac:#0284c7;--ac-tx:#0369a1}
-  .card.fm{--ac:#7c3aed;--ac-tx:#7c3aed} .card.as{--ac:#ea580c;--ac-tx:#c2410c} .card.ts{--ac:#4f46e5;--ac-tx:#4f46e5}
-  .card.re{--ac:#ca8a04;--ac-tx:#a16207} .card.fd{--ac:#2563eb;--ac-tx:#2563eb} .card.ck{--ac:#dc2626;--ac-tx:#dc2626}
-  :root[data-theme="dark"] .card.vs{--ac-tx:#fbbf24} :root[data-theme="dark"] .card.pt{--ac-tx:#6ee7b7} :root[data-theme="dark"] .card.tm{--ac-tx:#7dd3fc}
-  :root[data-theme="dark"] .card.fm{--ac-tx:#c4b5fd} :root[data-theme="dark"] .card.as{--ac-tx:#fdba74} :root[data-theme="dark"] .card.ts{--ac-tx:#a5b4fc}
-  :root[data-theme="dark"] .card.re{--ac-tx:#fcd34d} :root[data-theme="dark"] .card.fd{--ac-tx:#93c5fd} :root[data-theme="dark"] .card.ck{--ac-tx:#fca5a5}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .card.vs{--ac-tx:#fbbf24} :root:not([data-theme="light"]) .card.pt{--ac-tx:#6ee7b7} :root:not([data-theme="light"]) .card.tm{--ac-tx:#7dd3fc} :root:not([data-theme="light"]) .card.fm{--ac-tx:#c4b5fd} :root:not([data-theme="light"]) .card.as{--ac-tx:#fdba74} :root:not([data-theme="light"]) .card.ts{--ac-tx:#a5b4fc} :root:not([data-theme="light"]) .card.re{--ac-tx:#fcd34d} :root:not([data-theme="light"]) .card.fd{--ac-tx:#93c5fd} :root:not([data-theme="light"]) .card.ck{--ac-tx:#fca5a5} }
-  /* extensions filter */
-  .ext-filter{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 18px}
-  .ext-filter button{font:inherit;font-family:'EdenEditorial',var(--font);font-size:13.5px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
-  .ext-filter button:hover{border-color:var(--li-tx);color:var(--li-tx)}
-  .ext-filter button[aria-pressed="true"]{color:#fff;background:var(--li);border-color:var(--li)}
-  .ext-filter button[aria-pressed="true"]:hover{color:#fff}
-  .ext-filter button:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
-  /* each filter wears its own color */
-  .ext-filter button[data-f="all"]:hover{border-color:#eab308;color:#a16207}
-  .ext-filter button[data-f="all"][aria-pressed="true"]{background:#eab308;border-color:#eab308;color:#2b2004}
-  .ext-filter button[data-f="all"][aria-pressed="true"]:hover{color:#2b2004}
-  .ext-filter button[data-f="productivity"]:hover{border-color:#4f46e5;color:#4f46e5}
-  .ext-filter button[data-f="productivity"][aria-pressed="true"]{background:#4f46e5;border-color:#4f46e5;color:#fff}
-  .ext-filter button[data-f="reading"]:hover{border-color:#ea580c;color:#c2410c}
-  .ext-filter button[data-f="reading"][aria-pressed="true"]{background:#ea580c;border-color:#ea580c;color:#fff}
-  .ext-filter button[data-f="everyday"]:hover{border-color:#059669;color:#047857}
-  .ext-filter button[data-f="everyday"][aria-pressed="true"]{background:#059669;border-color:#059669;color:#fff}
-  :root[data-theme="dark"] .ext-filter button[data-f="all"]:hover{color:#fcd34d}
-  :root[data-theme="dark"] .ext-filter button[data-f="productivity"]:hover{color:#a5b4fc}
-  :root[data-theme="dark"] .ext-filter button[data-f="reading"]:hover{color:#fdba74}
-  :root[data-theme="dark"] .ext-filter button[data-f="everyday"]:hover{color:#6ee7b7}
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .ext-filter button[data-f="all"]:hover{color:#fcd34d} :root:not([data-theme="light"]) .ext-filter button[data-f="productivity"]:hover{color:#a5b4fc} :root:not([data-theme="light"]) .ext-filter button[data-f="reading"]:hover{color:#fdba74} :root:not([data-theme="light"]) .ext-filter button[data-f="everyday"]:hover{color:#6ee7b7} }
-  /* show six, keep the rest behind a gentle door */
-  .ext-grid.limited article[data-extra]{display:none!important}
-  /* the "more extensions" door — a quiet link rather than a filled slab. The dashed
-     cream bar was the heaviest thing between the grid and the promises, and it read
-     as another card in a page that already has plenty.
-     Orange rather than the site's indigo (--li): reuses the same accent already used
-     for the "reading" extension category (--mx = --mx-tx #ea580c light / #fdba74 dark). */
-  .more-card{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:center;gap:9px;padding:16px 4px;
-    border:0;background:transparent;box-shadow:none;
-    color:var(--mx-tx);font-weight:650;font-size:14.5px}
-  .more-card::before{display:none}
-  .more-card:hover{color:var(--mx-tx);transform:none;box-shadow:none}
-  .more-card span:not(.mc-plus){border-bottom:1px solid transparent}
-  .more-card:hover span:not(.mc-plus){border-bottom-color:currentColor}
-  .more-card .mc-plus{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--mx-soft);color:var(--mx-tx);font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}
-  .more-card:focus-visible{outline:2px solid var(--mx-tx);outline-offset:3px}
   :root{--mx:#ea580c; --mx-tx:#c2410c; --mx-soft:#fdf0e6}
   :root[data-theme="dark"]{--mx-tx:#fdba74; --mx-soft:#2a1a0d}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){--mx-tx:#fdba74; --mx-soft:#2a1a0d} }
@@ -675,19 +542,6 @@
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){--exty:#eab308; --exty-tx:#fcd34d; --exty-soft:#1f1b10} }
   /* in-card "see it in use" slide */
   .cbody{position:relative;display:flex;flex-direction:column;gap:11px;flex:1;min-height:0}
-  .card.xc .top{padding-right:38px}
-  .card.mac .top{padding-right:38px}
-  .cface-shot{position:absolute;inset:-8px;opacity:0;pointer-events:none;transition:opacity .25s ease;background:var(--surface);border-radius:12px;display:flex;align-items:center;justify-content:center;z-index:2}
-  .card.flip .cface-shot{opacity:1;pointer-events:auto}
-  .cface-shot picture{display:contents}
-  .cface-shot img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px}
-  @media (prefers-reduced-motion:reduce){ .cface-shot{transition:none} }
-  .peek{position:absolute;right:15px;top:17px;z-index:3;display:inline-grid;place-items:center;width:34px;height:34px;border:1.5px solid var(--line-strong);border-radius:999px;background:var(--surface);color:var(--muted);cursor:pointer;padding:0;transition:border-color .2s,color .2s}
-  .peek:hover{border-color:var(--ac,var(--li));color:var(--ac-tx,var(--li-tx))}
-  .peek:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
-  .peek .i2{display:none}
-  .card.flip .peek .i1{display:none}
-  .card.flip .peek .i2{display:grid}
 
   /* subtle scroll-reveal — content settles in gently as it enters view.
      The hidden start-state only applies when JS is active (html.js-anim), so
@@ -878,50 +732,50 @@
     </div>
     <p class="sec-note">Native Mac tools built to work locally, with no account or extra software required. Your files stay on your Mac and remain unchanged. Each tool is signed and notarized by Apple, available on the App Store, and yours with a one-time purchase.</p>
 
-    <section class="mac-index" aria-label="Eden Apps for Mac">
-      <ol class="mi-list">
-        <li class="mi fw">
-          <img class="mi-icon" src="assets/furrow.png" alt="" width="44" height="44">
-          <div class="mi-text">
-            <h3 class="mi-name">Furrow <span class="mi-kicker">Spreadsheet tidier</span></h3>
-            <p class="mi-desc">Add a CSV or Excel file to get started. Trim extra spaces, split or merge data, convert values, and remove duplicate rows while keeping the original untouched.</p>
-            <p class="mi-line"><span>$12.99 once</span><span class="mi-links"><a class="mi-try" href="tools/furrow/" title="Opens Furrow in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796475605" target="_blank" rel="noopener" title="Opens Furrow on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+    <section class="gidx" aria-label="Eden Apps for Mac">
+      <ol class="gi-list">
+        <li class="gi fw">
+          <img class="gi-icon" src="assets/furrow.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Furrow <span class="gi-kicker">Spreadsheet tidier</span></h3>
+            <p class="gi-desc">Add a CSV or Excel file to get started. Trim extra spaces, split or merge data, convert values, and remove duplicate rows while keeping the original untouched.</p>
+            <p class="gi-line"><span>$12.99 once</span><span class="gi-links"><a class="gi-go" href="tools/furrow/" title="Opens Furrow in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796475605" target="_blank" rel="noopener" title="Opens Furrow on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
           </div>
-          <img class="mi-shot-inline" src="assets/mac-use-furrow.jpg" alt="Furrow on macOS" loading="lazy" width="1000" height="798">
+          <img class="gi-shot-inline" src="assets/mac-use-furrow.jpg" alt="Furrow on macOS" loading="lazy" width="1000" height="798">
         </li>
-        <li class="mi pn">
-          <img class="mi-icon" src="assets/pagenook.png" alt="" width="44" height="44">
-          <div class="mi-text">
-            <h3 class="mi-name">Pagenook <span class="mi-kicker">PDF page rearranger</span></h3>
-            <p class="mi-desc">Rearrange the pages in a PDF by dragging them into place. Merge, split, rotate, or remove pages, while leaving password-protected files untouched.</p>
-            <p class="mi-line"><span>$12.99 once</span><span class="mi-links"><a class="mi-try" href="tools/pagenook/" title="Opens Pagenook in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796476248" target="_blank" rel="noopener" title="Opens Pagenook on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+        <li class="gi pn">
+          <img class="gi-icon" src="assets/pagenook.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Pagenook <span class="gi-kicker">PDF page rearranger</span></h3>
+            <p class="gi-desc">Rearrange the pages in a PDF by dragging them into place. Merge, split, rotate, or remove pages, while leaving password-protected files untouched.</p>
+            <p class="gi-line"><span>$12.99 once</span><span class="gi-links"><a class="gi-go" href="tools/pagenook/" title="Opens Pagenook in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796476248" target="_blank" rel="noopener" title="Opens Pagenook on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
           </div>
-          <img class="mi-shot-inline" src="assets/mac-use-pagenook.jpg" alt="Pagenook on macOS" loading="lazy" width="1000" height="817">
+          <img class="gi-shot-inline" src="assets/mac-use-pagenook.jpg" alt="Pagenook on macOS" loading="lazy" width="1000" height="817">
         </li>
-        <li class="mi cl">
-          <img class="mi-icon" src="assets/clearleaf.png" alt="" width="44" height="44">
-          <div class="mi-text">
-            <h3 class="mi-name">Clearleaf <span class="mi-kicker">Hidden data remover</span></h3>
-            <p class="mi-desc">Find and remove metadata from your files, including author details, comments, edit history, and location data. Clearleaf saves a new copy and leaves your original unchanged.</p>
-            <p class="mi-line"><span>$12.99 once</span><span class="mi-links"><a class="mi-try" href="tools/clearleaf/" title="Opens Clearleaf in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796349717" target="_blank" rel="noopener" title="Opens Clearleaf on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+        <li class="gi cl">
+          <img class="gi-icon" src="assets/clearleaf.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Clearleaf <span class="gi-kicker">Hidden data remover</span></h3>
+            <p class="gi-desc">Find and remove metadata from your files, including author details, comments, edit history, and location data. Clearleaf saves a new copy and leaves your original unchanged.</p>
+            <p class="gi-line"><span>$12.99 once</span><span class="gi-links"><a class="gi-go" href="tools/clearleaf/" title="Opens Clearleaf in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796349717" target="_blank" rel="noopener" title="Opens Clearleaf on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
           </div>
-          <img class="mi-shot-inline" src="assets/mac-use-clearleaf.jpg" alt="Clearleaf on macOS" loading="lazy" width="1000" height="657">
+          <img class="gi-shot-inline" src="assets/mac-use-clearleaf.jpg" alt="Clearleaf on macOS" loading="lazy" width="1000" height="657">
         </li>
-        <li class="mi bp">
-          <img class="mi-icon" src="assets/bookplate.png" alt="" width="44" height="44">
-          <div class="mi-text">
-            <h3 class="mi-name">Bookplate <span class="mi-kicker">Read it later library</span></h3>
-            <p class="mi-desc">Save articles and web pages to a private library for reading later. Read offline anytime, or have any saved article read aloud.</p>
-            <p class="mi-line"><span>$12.99 once</span><span class="mi-links"><a class="mi-try" href="tools/bookplate/" title="Opens Bookplate in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796476940" target="_blank" rel="noopener" title="Opens Bookplate on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+        <li class="gi bp">
+          <img class="gi-icon" src="assets/bookplate.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Bookplate <span class="gi-kicker">Read it later library</span></h3>
+            <p class="gi-desc">Save articles and web pages to a private library for reading later. Read offline anytime, or have any saved article read aloud.</p>
+            <p class="gi-line"><span>$12.99 once</span><span class="gi-links"><a class="gi-go" href="tools/bookplate/" title="Opens Bookplate in your browser, free to try on your own files">Try in your browser <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="https://apps.apple.com/app/id6796476940" target="_blank" rel="noopener" title="Opens Bookplate on the Mac App Store, in a new tab">App Store <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
           </div>
-          <img class="mi-shot-inline" src="assets/mac-use-bookplate.jpg" alt="Bookplate on macOS" loading="lazy" width="1000" height="776">
+          <img class="gi-shot-inline" src="assets/mac-use-bookplate.jpg" alt="Bookplate on macOS" loading="lazy" width="1000" height="776">
         </li>
       </ol>
-      <div class="mi-preview" aria-hidden="true">
-        <img class="mi-shot" src="assets/mac-use-furrow.jpg" alt="" loading="lazy" width="1000" height="798">
-        <img class="mi-shot" src="assets/mac-use-pagenook.jpg" alt="" loading="lazy" width="1000" height="817">
-        <img class="mi-shot" src="assets/mac-use-clearleaf.jpg" alt="" loading="lazy" width="1000" height="657">
-        <img class="mi-shot" src="assets/mac-use-bookplate.jpg" alt="" loading="lazy" width="1000" height="776">
+      <div class="gi-preview" aria-hidden="true">
+        <img class="gi-shot" src="assets/mac-use-furrow.jpg" alt="" loading="lazy" width="1000" height="798">
+        <img class="gi-shot" src="assets/mac-use-pagenook.jpg" alt="" loading="lazy" width="1000" height="817">
+        <img class="gi-shot" src="assets/mac-use-clearleaf.jpg" alt="" loading="lazy" width="1000" height="657">
+        <img class="gi-shot" src="assets/mac-use-bookplate.jpg" alt="" loading="lazy" width="1000" height="776">
       </div>
     </section>
 
@@ -938,155 +792,110 @@
       <button type="button" data-f="reading" aria-pressed="false">Reading &amp; video</button>
       <button type="button" data-f="everyday" aria-pressed="false">Everyday browsing</button>
     </div>
-    <section class="ext-grid limited" aria-label="Eden Apps Chrome extensions">
-      <article data-cat="reading" class="card xc vs">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Video Summaries in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-        <div class="top"><img class="icon" src="assets/ext-video-summaries.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/video-summaries-for-youtu/ekhdoohngaeajhgjhmoacmcjmoagcaph" target="_blank" rel="noopener">Video Summaries</a></h3><p class="kicker">YouTube summaries</p></div></div>
-        <p class="desc">Turn any YouTube video into key points with clickable timestamps, summarized on your device.</p>
-        <p class="split"><b>Included:</b> 3 videos a day · <b>Pro:</b> unlimited, chapters &amp; export</p>
-        <p class="price">Pro <b>$8.99</b> once</p>
-
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/ext-use-video-summaries.jpg" alt="Video Summaries popup in use" loading="lazy" width="500" height="628"></picture></div>
-        </div>
-        <div class="foot2">
-          <a class="open" href="https://chromewebstore.google.com/detail/video-summaries-for-youtu/ekhdoohngaeajhgjhmoacmcjmoagcaph" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="plink" href="ext-privacy-video-summaries.html" title="Privacy policy for Video Summaries"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
-        </div>
-      </article>
-
-      <article data-cat="everyday" class="card xc pt">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Price Tracker in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-        <div class="top"><img class="icon" src="assets/ext-price-tracker.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/price-tracker-%E2%80%94-smart-pri/kambpllckipopnbanjkjgipdcinhlplh" target="_blank" rel="noopener">Price Tracker</a></h3><p class="kicker">Price alerts</p></div></div>
-        <p class="desc">Track prices across ten major shopping sites and get a gentle alert the moment something drops.</p>
-        <p class="split"><b>Included:</b> track 5 products · <b>Pro:</b> unlimited tracking</p>
-        <p class="price">Pro <b>$8.99</b> once</p>
-
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/ext-use-price-tracker.jpg" alt="Price Tracker popup in use" loading="lazy" width="500" height="628"></picture></div>
-        </div>
-        <div class="foot2">
-          <a class="open" href="https://chromewebstore.google.com/detail/price-tracker-%E2%80%94-smart-pri/kambpllckipopnbanjkjgipdcinhlplh" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="plink" href="ext-privacy-price-tracker.html" title="Privacy policy for Price Tracker"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
-        </div>
-      </article>
-
-      <article data-cat="productivity" class="card xc tm">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Tab Manager in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-        <div class="top"><img class="icon" src="assets/ext-tab-manager.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/tab-manager-group-tabs-sa/chlgclchldoppenblmlodeifgngoihid" target="_blank" rel="noopener">Tab Manager</a></h3><p class="kicker">Tab groups &amp; sessions</p></div></div>
-        <p class="desc">Group your open tabs into color coded groups in one click, and save them as sessions to reopen anytime.</p>
-        <p class="split"><b>Included:</b> unlimited groups &amp; sessions · <b>Pro:</b> custom rules &amp; session backup</p>
-        <p class="price">Pro <b>$8.99</b> once</p>
-
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/ext-use-tab-manager.jpg" alt="Tab Manager popup in use" loading="lazy" width="500" height="628"></picture></div>
-        </div>
-        <div class="foot2">
-          <a class="open" href="https://chromewebstore.google.com/detail/tab-manager-group-tabs-sa/chlgclchldoppenblmlodeifgngoihid" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="plink" href="ext-privacy-tab-manager.html" title="Privacy policy for Tab Manager"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
-        </div>
-      </article>
-
-      <article data-cat="productivity" class="card xc fm">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Focus Mode in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-        <div class="top"><img class="icon" src="assets/ext-focus-mode.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/focus-mode-%E2%80%94-pomodoro-sit/mmojkajohniicnkkmjohcplbljhjnmkp" target="_blank" rel="noopener">Focus Mode</a></h3><p class="kicker">Pomodoro &amp; site blocker</p></div></div>
-        <p class="desc">A focus timer paired with automatic site blocking: distracting sites simply stop loading during a session.</p>
-        <p class="split"><b>Included:</b> timer + 5 custom sites · <b>Pro:</b> unlimited sites</p>
-        <p class="price">Pro <b>$5.99</b> once</p>
-
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/ext-use-focus-mode.jpg" alt="Focus Mode popup in use" loading="lazy" width="500" height="628"></picture></div>
-        </div>
-        <div class="foot2">
-          <a class="open" href="https://chromewebstore.google.com/detail/focus-mode-%E2%80%94-pomodoro-sit/mmojkajohniicnkkmjohcplbljhjnmkp" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="plink" href="ext-privacy-focus-mode.html" title="Privacy policy for Focus Mode"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
-        </div>
-      </article>
-
-      <article data-cat="reading" class="card xc as">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See AI Summarizer in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-        <div class="top"><img class="icon" src="assets/ext-ai-summarizer.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/ai-summarizer-%E2%80%94-instant-p/enhflmnilfmaibpohaoapnlnjbdjbipb" target="_blank" rel="noopener">AI Summarizer</a></h3><p class="kicker">Page summaries</p></div></div>
-        <p class="desc">Condense any article into a few clear key points with one click, summarized right on your device.</p>
-        <p class="split"><b>Included:</b> 10 summaries a day · <b>Pro:</b> unlimited + detailed view</p>
-        <p class="price">Pro <b>$5.99</b> once</p>
-
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/ext-use-ai-summarizer.jpg" alt="AI Summarizer popup in use" loading="lazy" width="500" height="628"></picture></div>
-        </div>
-        <div class="foot2">
-          <a class="open" href="https://chromewebstore.google.com/detail/ai-summarizer-%E2%80%94-instant-p/enhflmnilfmaibpohaoapnlnjbdjbipb" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="plink" href="ext-privacy-ai-summarizer.html" title="Privacy policy for AI Summarizer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
-        </div>
-      </article>
-
-      <article data-cat="productivity" class="card xc ts">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Tab Snoozer in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-        <div class="top"><img class="icon" src="assets/ext-tab-snoozer.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/tab-snoozer/ciohooaomfljpbhjecfdjcondkeadode" target="_blank" rel="noopener">Tab Snoozer</a></h3><p class="kicker">Tab scheduler</p></div></div>
-        <p class="desc">Hide a tab until you need it: snooze it and it reopens itself on the schedule you pick, even after a restart.</p>
-        <p class="split"><b>Included:</b> 3 snoozed at once · <b>Pro:</b> unlimited, custom times &amp; repeat</p>
-        <p class="price">Pro <b>$8.99</b> once</p>
-
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/ext-use-tab-snoozer.jpg" alt="Tab Snoozer popup in use" loading="lazy" width="500" height="628"></picture></div>
-        </div>
-        <div class="foot2">
-          <a class="open" href="https://chromewebstore.google.com/detail/tab-snoozer/ciohooaomfljpbhjecfdjcondkeadode" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="plink" href="ext-privacy-tab-snoozer.html" title="Privacy policy for Tab Snoozer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
-        </div>
-      </article>
-
-      <article data-cat="reading" data-extra="" class="card xc re">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Recipe Extractor in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-        <div class="top"><img class="icon" src="assets/ext-recipe-extractor.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/recipe-extractor-%E2%80%94-skip-t/fhdgipnhnlfldofapdjpbmbacmgddgmd" target="_blank" rel="noopener">Recipe Extractor</a></h3><p class="kicker">Recipe cleaner</p></div></div>
-        <p class="desc">Skip the life story and jump straight to the recipe: ingredients and steps, cleanly pulled from the page.</p>
-        <p class="split"><b>Included:</b> clean recipe &amp; cook along mode · <b>Pro:</b> scaling, save &amp; export</p>
-        <p class="price">Pro <b>$8.99</b> once</p>
-
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/ext-use-recipe-extractor.jpg" alt="Recipe Extractor popup in use" loading="lazy" width="500" height="628"></picture></div>
-        </div>
-        <div class="foot2">
-          <a class="open" href="https://chromewebstore.google.com/detail/recipe-extractor-%E2%80%94-skip-t/fhdgipnhnlfldofapdjpbmbacmgddgmd" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="plink" href="ext-privacy-recipe-extractor.html" title="Privacy policy for Recipe Extractor"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
-        </div>
-      </article>
-
-      <article data-cat="everyday" data-extra="" class="card xc fd">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Form Draft Guard in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-        <div class="top"><img class="icon" src="assets/ext-form-draft-guard.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/form-draft-guard/ehdccipfboaojjifllomihhjcjgebnec" target="_blank" rel="noopener">Form Draft Guard</a></h3><p class="kicker">Draft protection</p></div></div>
-        <p class="desc">Saves what you type in comment boxes and forms automatically, so a crash or misclick can't wipe your words.</p>
-        <p class="split"><b>Included:</b> 15 drafts, kept 7 days · <b>Pro:</b> unlimited + version history</p>
-        <p class="price">Pro <b>$5.99</b> once</p>
-
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/ext-use-form-draft-guard.jpg" alt="Form Draft Guard popup in use" loading="lazy" width="500" height="628"></picture></div>
-        </div>
-        <div class="foot2">
-          <a class="open" href="https://chromewebstore.google.com/detail/form-draft-guard/ehdccipfboaojjifllomihhjcjgebnec" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="plink" href="ext-privacy-form-draft-guard.html" title="Privacy policy for Form Draft Guard"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
-        </div>
-      </article>
-
-      <article data-cat="everyday" data-extra="" class="card xc ck">
-        <button class="peek" type="button" aria-pressed="false" aria-label="See Cookie Cutter in use" title="See it in use"><span class="i1" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="i2" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></button>
-        <div class="cbody">
-        <div class="top"><img class="icon" src="assets/ext-cookie-cutter.png" alt="" width="46" height="46"><div><h3 class="name"><a href="https://chromewebstore.google.com/detail/cookie-cutter/gijjdeegadokkaffkhfnjiekfeppcdfc" target="_blank" rel="noopener">Cookie Cutter</a></h3><p class="kicker">Cookie banner blocker</p></div></div>
-        <p class="desc">Automatically declines cookie banners on the sites you visit. It clicks decline, never accept.</p>
-        <p class="split"><b>Included:</b> auto decline cookie banners · <b>Pro:</b> deep cleanup &amp; element hider</p>
-        <p class="price">Pro <b>$5.99</b> once</p>
-
-          <div class="cface-shot" aria-hidden="true"><picture><img src="assets/ext-use-cookie-cutter.jpg" alt="Cookie Cutter popup in use" loading="lazy" width="500" height="628"></picture></div>
-        </div>
-        <div class="foot2">
-          <a class="open" href="https://chromewebstore.google.com/detail/cookie-cutter/gijjdeegadokkaffkhfnjiekfeppcdfc" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="plink" href="ext-privacy-cookie-cutter.html" title="Privacy policy for Cookie Cutter"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a>
-        </div>
-      </article>
-      <a class="card more-card" id="extMore" href="extensions.html" title="See all extensions">
-        <span class="mc-plus">+3</span>
-        <span><b>More extensions</b>: see the whole collection</span>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
+    <section class="gidx ext-index" aria-label="Eden Apps Chrome extensions">
+      <div class="gi-preview" aria-hidden="true">
+        <img class="gi-shot" src="assets/ext-use-video-summaries.jpg" alt="" loading="lazy" width="500" height="628">
+        <img class="gi-shot" src="assets/ext-use-price-tracker.jpg" alt="" loading="lazy" width="500" height="628">
+        <img class="gi-shot" src="assets/ext-use-tab-manager.jpg" alt="" loading="lazy" width="500" height="628">
+        <img class="gi-shot" src="assets/ext-use-focus-mode.jpg" alt="" loading="lazy" width="500" height="628">
+        <img class="gi-shot" src="assets/ext-use-ai-summarizer.jpg" alt="" loading="lazy" width="500" height="628">
+        <img class="gi-shot" src="assets/ext-use-tab-snoozer.jpg" alt="" loading="lazy" width="500" height="628">
+        <img class="gi-shot" src="assets/ext-use-recipe-extractor.jpg" alt="" loading="lazy" width="500" height="628">
+        <img class="gi-shot" src="assets/ext-use-form-draft-guard.jpg" alt="" loading="lazy" width="500" height="628">
+        <img class="gi-shot" src="assets/ext-use-cookie-cutter.jpg" alt="" loading="lazy" width="500" height="628">
+      </div>
+      <ol class="gi-list">
+        <li class="gi vs" data-cat="reading">
+          <img class="gi-icon" src="assets/ext-video-summaries.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Video Summaries <span class="gi-kicker">YouTube summaries</span></h3>
+            <p class="gi-desc">Turn any YouTube video into key points with clickable timestamps, summarized on your device.</p>
+            <p class="gi-split"><b>Included:</b> 3 videos a day · <b>Pro:</b> unlimited, chapters &amp; export</p>
+            <p class="gi-line"><span>Pro $8.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/video-summaries-for-youtu/ekhdoohngaeajhgjhmoacmcjmoagcaph" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-video-summaries.html" title="Privacy policy for Video Summaries">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+          </div>
+          <img class="gi-shot-inline" src="assets/ext-use-video-summaries.jpg" alt="Video Summaries popup in use" loading="lazy" width="500" height="628">
+        </li>
+        <li class="gi pt" data-cat="everyday">
+          <img class="gi-icon" src="assets/ext-price-tracker.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Price Tracker <span class="gi-kicker">Price alerts</span></h3>
+            <p class="gi-desc">Track prices across ten major shopping sites and get a gentle alert the moment something drops.</p>
+            <p class="gi-split"><b>Included:</b> track 5 products · <b>Pro:</b> unlimited tracking</p>
+            <p class="gi-line"><span>Pro $8.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/price-tracker-%E2%80%94-smart-pri/kambpllckipopnbanjkjgipdcinhlplh" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-price-tracker.html" title="Privacy policy for Price Tracker">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+          </div>
+          <img class="gi-shot-inline" src="assets/ext-use-price-tracker.jpg" alt="Price Tracker popup in use" loading="lazy" width="500" height="628">
+        </li>
+        <li class="gi tm" data-cat="productivity">
+          <img class="gi-icon" src="assets/ext-tab-manager.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Tab Manager <span class="gi-kicker">Tab groups &amp; sessions</span></h3>
+            <p class="gi-desc">Group your open tabs into color coded groups in one click, and save them as sessions to reopen anytime.</p>
+            <p class="gi-split"><b>Included:</b> unlimited groups &amp; sessions · <b>Pro:</b> custom rules &amp; session backup</p>
+            <p class="gi-line"><span>Pro $8.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/tab-manager-group-tabs-sa/chlgclchldoppenblmlodeifgngoihid" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-tab-manager.html" title="Privacy policy for Tab Manager">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+          </div>
+          <img class="gi-shot-inline" src="assets/ext-use-tab-manager.jpg" alt="Tab Manager popup in use" loading="lazy" width="500" height="628">
+        </li>
+        <li class="gi fm" data-cat="productivity">
+          <img class="gi-icon" src="assets/ext-focus-mode.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Focus Mode <span class="gi-kicker">Pomodoro &amp; site blocker</span></h3>
+            <p class="gi-desc">A focus timer paired with automatic site blocking: distracting sites simply stop loading during a session.</p>
+            <p class="gi-split"><b>Included:</b> timer + 5 custom sites · <b>Pro:</b> unlimited sites</p>
+            <p class="gi-line"><span>Pro $5.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/focus-mode-%E2%80%94-pomodoro-sit/mmojkajohniicnkkmjohcplbljhjnmkp" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-focus-mode.html" title="Privacy policy for Focus Mode">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+          </div>
+          <img class="gi-shot-inline" src="assets/ext-use-focus-mode.jpg" alt="Focus Mode popup in use" loading="lazy" width="500" height="628">
+        </li>
+        <li class="gi as" data-cat="reading">
+          <img class="gi-icon" src="assets/ext-ai-summarizer.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">AI Summarizer <span class="gi-kicker">Page summaries</span></h3>
+            <p class="gi-desc">Condense any article into a few clear key points with one click, summarized right on your device.</p>
+            <p class="gi-split"><b>Included:</b> 10 summaries a day · <b>Pro:</b> unlimited + detailed view</p>
+            <p class="gi-line"><span>Pro $5.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/ai-summarizer-%E2%80%94-instant-p/enhflmnilfmaibpohaoapnlnjbdjbipb" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-ai-summarizer.html" title="Privacy policy for AI Summarizer">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+          </div>
+          <img class="gi-shot-inline" src="assets/ext-use-ai-summarizer.jpg" alt="AI Summarizer popup in use" loading="lazy" width="500" height="628">
+        </li>
+        <li class="gi ts" data-cat="productivity">
+          <img class="gi-icon" src="assets/ext-tab-snoozer.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Tab Snoozer <span class="gi-kicker">Tab scheduler</span></h3>
+            <p class="gi-desc">Hide a tab until you need it: snooze it and it reopens itself on the schedule you pick, even after a restart.</p>
+            <p class="gi-split"><b>Included:</b> 3 snoozed at once · <b>Pro:</b> unlimited, custom times &amp; repeat</p>
+            <p class="gi-line"><span>Pro $8.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/tab-snoozer/ciohooaomfljpbhjecfdjcondkeadode" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-tab-snoozer.html" title="Privacy policy for Tab Snoozer">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+          </div>
+          <img class="gi-shot-inline" src="assets/ext-use-tab-snoozer.jpg" alt="Tab Snoozer popup in use" loading="lazy" width="500" height="628">
+        </li>
+        <li class="gi re" data-cat="reading">
+          <img class="gi-icon" src="assets/ext-recipe-extractor.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Recipe Extractor <span class="gi-kicker">Recipe cleaner</span></h3>
+            <p class="gi-desc">Skip the life story and jump straight to the recipe: ingredients and steps, cleanly pulled from the page.</p>
+            <p class="gi-split"><b>Included:</b> clean recipe &amp; cook along mode · <b>Pro:</b> scaling, save &amp; export</p>
+            <p class="gi-line"><span>Pro $8.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/recipe-extractor-%E2%80%94-skip-t/fhdgipnhnlfldofapdjpbmbacmgddgmd" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-recipe-extractor.html" title="Privacy policy for Recipe Extractor">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+          </div>
+          <img class="gi-shot-inline" src="assets/ext-use-recipe-extractor.jpg" alt="Recipe Extractor popup in use" loading="lazy" width="500" height="628">
+        </li>
+        <li class="gi fd" data-cat="everyday">
+          <img class="gi-icon" src="assets/ext-form-draft-guard.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Form Draft Guard <span class="gi-kicker">Draft protection</span></h3>
+            <p class="gi-desc">Saves what you type in comment boxes and forms automatically, so a crash or misclick can't wipe your words.</p>
+            <p class="gi-split"><b>Included:</b> 15 drafts, kept 7 days · <b>Pro:</b> unlimited + version history</p>
+            <p class="gi-line"><span>Pro $5.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/form-draft-guard/ehdccipfboaojjifllomihhjcjgebnec" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-form-draft-guard.html" title="Privacy policy for Form Draft Guard">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+          </div>
+          <img class="gi-shot-inline" src="assets/ext-use-form-draft-guard.jpg" alt="Form Draft Guard popup in use" loading="lazy" width="500" height="628">
+        </li>
+        <li class="gi ck" data-cat="everyday">
+          <img class="gi-icon" src="assets/ext-cookie-cutter.png" alt="" width="44" height="44">
+          <div class="gi-text">
+            <h3 class="gi-name">Cookie Cutter <span class="gi-kicker">Cookie banner blocker</span></h3>
+            <p class="gi-desc">Automatically declines cookie banners on the sites you visit. It clicks decline, never accept.</p>
+            <p class="gi-split"><b>Included:</b> auto decline cookie banners · <b>Pro:</b> deep cleanup &amp; element hider</p>
+            <p class="gi-line"><span>Pro $5.99 once</span><span class="gi-links"><a class="gi-go" href="https://chromewebstore.google.com/detail/cookie-cutter/gijjdeegadokkaffkhfnjiekfeppcdfc" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="ext-privacy-cookie-cutter.html" title="Privacy policy for Cookie Cutter">Privacy <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></p>
+          </div>
+          <img class="gi-shot-inline" src="assets/ext-use-cookie-cutter.jpg" alt="Cookie Cutter popup in use" loading="lazy" width="500" height="628">
+        </li>
+      </ol>
     </section>
 
     <section class="promise">
@@ -1278,65 +1087,48 @@
 })();
 </script>
 <script>
-/* Mac tools index: the preview follows the tool you point at, or the one
-   nearest the middle of the screen as you scroll past the list. */
+/* Gallery indexes (Mac tools, extensions): the preview follows the item you
+   point at, or the one nearest the middle of the screen as you scroll the list.
+   Filtered-out items are skipped. */
 (function(){
-  var root=document.querySelector('.mac-index'); if(!root) return;
-  var items=[].slice.call(root.querySelectorAll('.mi')), shots=[].slice.call(root.querySelectorAll('.mi-shot'));
-  var cur=-1, pointing=false;
-  function show(k){
-    if(k===cur) return; cur=k;
-    items.forEach(function(it,i){ it.classList.toggle('on', i===k); });
-    shots.forEach(function(sh,i){ sh.classList.toggle('on', i===k); sh.classList.toggle('seen', i<k); });
-  }
-  items.forEach(function(it,i){
-    it.addEventListener('mouseenter', function(){ pointing=true; show(i); });
-    it.addEventListener('mouseleave', function(){ pointing=false; });
-    it.addEventListener('focusin', function(){ show(i); });
+  [].slice.call(document.querySelectorAll('.gidx')).forEach(function(root){
+    var items=[].slice.call(root.querySelectorAll('.gi')), shots=[].slice.call(root.querySelectorAll('.gi-shot'));
+    var cur=-1, pointing=false;
+    function visible(it){ return !it.hidden; }
+    function show(k){
+      if(k===cur || k<0) return; cur=k;
+      items.forEach(function(it,i){ it.classList.toggle('on', i===k); });
+      shots.forEach(function(sh,i){ sh.classList.toggle('on', i===k); sh.classList.toggle('seen', i<k); });
+    }
+    items.forEach(function(it,i){
+      it.addEventListener('mouseenter', function(){ pointing=true; show(i); });
+      it.addEventListener('mouseleave', function(){ pointing=false; });
+      it.addEventListener('focusin', function(){ show(i); });
+    });
+    function nearest(){
+      if(pointing) return;
+      var mid=window.innerHeight*0.45, best=-1, bd=1e9;
+      items.forEach(function(it,i){ if(!visible(it)) return; var r=it.getBoundingClientRect(), d=Math.abs((r.top+r.bottom)/2-mid); if(d<bd){ bd=d; best=i; } });
+      show(best);
+    }
+    var tick=false;
+    window.addEventListener('scroll', function(){ if(!tick){ tick=true; requestAnimationFrame(function(){ tick=false; nearest(); }); } }, {passive:true});
+    root.addEventListener('gidx-refresh', function(){ cur=-1; pointing=false; nearest(); });
+    show(0); nearest();
   });
-  function nearest(){
-    if(pointing) return;
-    var mid=window.innerHeight*0.45, best=0, bd=1e9;
-    items.forEach(function(it,i){ var r=it.getBoundingClientRect(), d=Math.abs((r.top+r.bottom)/2-mid); if(d<bd){ bd=d; best=i; } });
-    show(best);
-  }
-  var tick=false;
-  window.addEventListener('scroll', function(){ if(!tick){ tick=true; requestAnimationFrame(function(){ tick=false; nearest(); }); } }, {passive:true});
-  show(0); nearest();
 })();
 </script>
 <script>
 (function(){
   var bar=document.getElementById('extFilter'); if(!bar) return;
-  var btns=[].slice.call(bar.querySelectorAll('button'));
-  var cards=[].slice.call(document.querySelectorAll('[data-cat]'));
-  var grid=document.querySelector('.ext-grid');
-  var more=document.getElementById('extMore');
+  var root=document.querySelector('.ext-index'); if(!root) return;
+  var btns=[].slice.call(bar.querySelectorAll('button')), items=[].slice.call(root.querySelectorAll('.gi'));
   btns.forEach(function(b){ b.addEventListener('click', function(){
     btns.forEach(function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
     var f=b.getAttribute('data-f');
-    var all=(f==='all');
-    if(grid) grid.classList.toggle('limited', all);   // a chosen filter reveals its whole group
-    if(more) more.style.display=all?'':'none';
-    cards.forEach(function(c){
-      c.style.display=(all||c.getAttribute('data-cat')===f)?'':'none';
-      if(c.style.display!=='none') c.classList.add('in');   // a card shown by filtering must not stay hidden by the reveal transition
-    });
+    items.forEach(function(it){ var on=(f==='all'||it.getAttribute('data-cat')===f); it.hidden=!on; if(on) it.classList.add('in'); });
+    root.dispatchEvent(new Event('gidx-refresh'));
   });});
-})();
-</script>
-<script>
-(function(){
-  [].slice.call(document.querySelectorAll('.card .peek')).forEach(function(b){
-    b.addEventListener('click',function(){
-      var c=b.closest('.card');
-      var on=c.classList.toggle('flip');
-      b.setAttribute('aria-pressed',on?'true':'false');
-      b.setAttribute('title',on?'Back to details':'See it in use');
-      var sh=c.querySelector('.cface-shot');
-      if(sh) sh.setAttribute('aria-hidden',on?'false':'true');
-    });
-  });
 })();
 </script>
 <script>
@@ -1355,7 +1147,7 @@
     ['.sec-note', 40],
     ['.showcase', 0],
     ['.ext-filter', 0],
-    ['.ext-grid > *', 55],
+    ['.gidx', 0],
     ['.promise', 0],
     ['.point', 90],
     ['.subscribe', 0]
