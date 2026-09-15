@@ -1289,10 +1289,15 @@
   var hero = document.querySelector('.hero');
   var toTop = document.getElementById('backToTop');
   var docEl = document.documentElement;
+  var lastY = 0;
+  var direction = 'down'; // track scroll direction
 
   var ticking = false;
   function update(){
     var y = window.scrollY || docEl.scrollTop;
+    var isScrollingDown = y > lastY;
+    direction = isScrollingDown ? 'down' : 'up';
+    lastY = y;
 
     if(header) header.classList.toggle('scrolled', y > 8);
 
@@ -1304,8 +1309,11 @@
     if(hero && !reduce){
       var h = hero.offsetHeight || 1;
       var p = Math.min(1, y / (h * 0.9));
-      hero.style.transform = 'translateY(' + (y * -0.15) + 'px)';
-      hero.style.opacity = String(1 - p * 0.55);
+      var drift = isScrollingDown ? (y * -0.15) : (y * -0.08); // slower parallax when scrolling up
+      hero.style.transform = 'translateY(' + drift + 'px)';
+      // opacity fades faster down, slower up
+      var opacityChange = isScrollingDown ? (p * 0.55) : (p * 0.3);
+      hero.style.opacity = String(1 - opacityChange);
     }
 
     if(toTop) toTop.classList.toggle('show', y > 560);
