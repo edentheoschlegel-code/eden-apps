@@ -63,6 +63,7 @@
      gated behind prefers-reduced-motion */
   .scroll-progress{position:fixed; top:0; left:0; height:3px; width:0%; z-index:300;
     background:linear-gradient(90deg,var(--sb),var(--li),var(--lr)); transition:width .12s linear}
+  @media (max-width:600px){ .scroll-progress{display:none} }
 
   /* header rides with the page and gains a hairline + shadow once content
      has scrolled beneath it, giving the page a sense of depth */
