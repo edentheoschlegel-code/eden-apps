@@ -600,7 +600,7 @@
 
   /* ── why Eden Apps: the original centred layout, without icons ──────── */
   .promise{margin:clamp(80px,12vh,140px) 0 64px; padding:38px 0 0}
-  .promise h2{font-family:'EdenBold',var(--font); font-size:22px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:#2c2c2c; text-align:center; margin:0 0 24px}
+  .promise h2{font-family:'EdenBold',var(--font); font-size:22px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:#2c2c2c; text-align:center; margin:0 0 clamp(40px,7vh,72px)}
   :root[data-theme="dark"] .promise h2{color:var(--ink)}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .promise h2{color:var(--ink)} }
   .points{display:grid; grid-template-columns:repeat(3,1fr); gap:32px}
