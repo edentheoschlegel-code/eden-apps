@@ -347,12 +347,12 @@
   .immersive .viewport{position:absolute; inset:0; overflow:visible; scroll-snap-type:none; padding:0; perspective:2000px}
   /* the whole set grows from a card into the full screen as the section arrives */
   .immersive .track{display:grid; height:100%; gap:0; padding:0; transform:scale(calc(.82 + var(--e,1) * .18)); transform-origin:50% 0}
-  .immersive .slide{--budget:244px; --fw:min(100%, calc((100vh - var(--hdr,76px) - var(--budget)) * 1.5652));
+  .immersive .slide{--budget:176px; --fw:min(100%, calc((100vh - var(--hdr,76px) - var(--budget)) * 1.5652));
     grid-area:1/1; min-width:0; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;
     gap:clamp(16px,2.6vh,28px); padding:clamp(8px,1.4vh,18px) clamp(20px,3.5vw,56px) clamp(46px,6.5vh,66px);
     visibility:hidden; transition:visibility 0s .8s}
   .immersive .slide.on{visibility:visible; transition:none}
-  @media (max-width:1100px){ .immersive .slide{--budget:260px} }
+  @media (max-width:1100px){ .immersive .slide{--budget:192px} }
 
   /* the screenshot tips up into place, then slowly leans in while you read */
   .immersive .slide .frame{order:0; flex:none; width:var(--fw); border-radius:18px; transform-origin:50% 100%;
@@ -444,6 +444,28 @@
   .immersive .slide.on .meta > :nth-child(6){transition-delay:.3s}
   .immersive .meta .name{letter-spacing:.16em; transition:letter-spacing 1.3s cubic-bezier(.16,1,.3,1)}
   .immersive .slide.on .meta .name{letter-spacing:-.02em}
+
+  /* minimal caption: the name, then one quiet line with what it is, the price
+     and the way in. No labels, no paragraph, no button shapes. */
+  .immersive .pglabels, .immersive .meta .desc{display:none}
+  .immersive .slide .meta{flex-direction:row; flex-wrap:wrap; justify-content:center; align-items:baseline; row-gap:6px; margin-top:calc(-1 * clamp(18px,3vh,36px))}
+  .immersive .meta .mhead, .immersive .meta .mhead > div{display:contents}
+  .immersive .meta .name{flex-basis:100%; text-align:center; font-size:clamp(19px,1.75vw,25px)}
+  .immersive .meta .kicker{margin:0; font-size:13px; letter-spacing:.01em; text-transform:none; color:var(--faint); white-space:nowrap}
+  .immersive .meta .foot{margin:0; gap:0; align-items:baseline; flex-wrap:nowrap}
+  .immersive .meta .foot::before, .immersive .meta .applinks > a::before{content:"·"; margin:0 11px; color:var(--faint); font-weight:400}
+  .immersive .meta .price, .immersive .meta .price b{font-size:13px; font-weight:400; color:var(--faint)}
+  .immersive .meta .applinks{gap:0; align-items:baseline}
+  .immersive .meta .open, .immersive .meta .appstore, .immersive .meta .applinks > .appstore:only-child{
+    padding:0; border:0; border-radius:0; background:none; font-size:13px; font-weight:600; gap:4px; color:var(--ac-tx)}
+  .immersive .meta .applinks > .open + .appstore{color:var(--muted); font-weight:500}
+  .immersive .meta .open:hover, .immersive .meta .appstore:hover, .immersive .meta .applinks > .appstore:only-child:hover{background:none; color:var(--ac-tx); gap:7px}
+  .immersive .meta .open svg, .immersive .meta .appstore svg{width:12px; height:12px}
+  /* name and line fade into focus on their own, since their wrapper steps aside */
+  .immersive .slide .meta .name, .immersive .slide .meta .kicker{opacity:0; transform:translate3d(0, calc(var(--dir,1) * 18px), 0); filter:blur(6px);
+    transition:opacity .45s ease, transform .9s cubic-bezier(.16,1,.3,1), filter .8s ease, letter-spacing 1.3s cubic-bezier(.16,1,.3,1)}
+  .immersive .slide.on .meta .name{opacity:1; transform:none; filter:blur(0); transition-delay:.1s}
+  .immersive .slide.on .meta .kicker{opacity:1; transform:none; filter:blur(0); transition-delay:.2s}
 
   /* the Mac tools — a calm matched set in one evergreen accent, distinct from
      the multicolour apps above and the indigo extensions below */
