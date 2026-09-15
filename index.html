@@ -395,8 +395,11 @@
 
   /* full screen: the screenshot spans the whole width and its lower part
      melts into the page beneath the caption. Local Scan keeps its phones. */
-  .immersive .slide .frame{width:100%; max-width:1800px; height:calc(100vh - var(--hdr,76px) - var(--budget)); overflow:hidden}
-  .immersive .slide.ls .frame{width:var(--fw); height:auto; overflow:visible}
+  .immersive .slide .frame{width:min(90%, 1500px); height:calc(100vh - var(--hdr,76px) - var(--budget)); overflow:hidden}
+  /* Local Scan shares the same frame; its iPad and phones are sized to sit inside it */
+  .immersive .phones{padding:2.5% 8% 0; gap:3.5%}
+  .immersive .phones .pg{width:19%}
+  .immersive .phones .pg.ipad{width:31%}
   .immersive .slide .meta{margin-top:calc(-1 * clamp(30px,6vh,64px))}
 
   /* ── three pages per app, and the motion between everything ─────────── */
@@ -420,9 +423,9 @@
 
   /* page to page: the next page sweeps across from the right while the one
      beneath settles back and softens */
-  .immersive .pg, .immersive .pg:not(:first-child){visibility:visible; clip-path:inset(0 0 0 100%); transform:scale(1.07);
+  .immersive .pg, .immersive .pg:not(:first-child){visibility:visible; clip-path:inset(0 0 0 100%); transform:none;
     transition:clip-path 1.1s cubic-bezier(.77,0,.18,1), transform 1.4s cubic-bezier(.16,1,.3,1), filter 1s ease}
-  .immersive .pg.seen{clip-path:inset(0 0 0 0); transform:scale(.95); filter:brightness(.8) blur(3px)}
+  .immersive .pg.seen{clip-path:inset(0 0 0 0); transform:none; filter:brightness(.85) blur(3px)}
   .immersive .pg.on{clip-path:inset(0 0 0 0); transform:none; filter:none}
   .immersive .frame img{transform:scale(calc(1 + var(--lp,0) * .03))}
 
