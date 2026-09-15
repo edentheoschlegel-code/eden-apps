@@ -514,7 +514,7 @@
      the popup preview on the right, so the two sections line up. */
   /* three across: the names hug the left, the popup sits in the middle, and
      the open extension's words stand beside it on the right */
-  .gidx.ext-index{grid-template-columns:max-content minmax(0,1fr); gap:clamp(28px,4vw,72px)}
+  .gidx.ext-index{grid-template-columns:max-content minmax(0,1fr); gap:clamp(28px,4vw,72px); align-items:center}
   .ext-index .gi-preview{order:2; display:flex; flex-wrap:wrap; align-items:center; gap:clamp(24px,3vw,48px); min-width:0}
   .ext-index .gi-stage{flex:0 0 auto; width:clamp(320px,36vw,540px); max-width:100%; max-height:calc(100vh - var(--hdr,76px) - 40px); aspect-ratio:500/628; overflow:hidden;
     -webkit-mask-image:linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 6%, #000 80%, transparent);
