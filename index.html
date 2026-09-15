@@ -20,7 +20,7 @@
 <meta name="twitter:title" content="Eden Apps · privacy first software for your money, documents &amp; career">
 <meta name="twitter:description" content="A growing collection of thoughtful, privacy-respecting apps by Eden. Explore each app to see how it works, how it handles your data, and what's included.">
 <meta name="twitter:image" content="https://edenapps.app/assets/og-image.jpg">
-<link rel="preload" as="image" href="assets/hero-snowball.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/showcase/snowball-light.jpg" fetchpriority="high">
 <style>
   :root{
     --bg:#ffffff; --surface:#ffffff; --ink:#14152a; --muted:#5b6472; --faint:#616c7e;
@@ -347,12 +347,12 @@
   .immersive .viewport{position:absolute; inset:0; overflow:visible; scroll-snap-type:none; padding:0; perspective:2000px}
   /* the whole set grows from a card into the full screen as the section arrives */
   .immersive .track{display:grid; height:100%; gap:0; padding:0; transform:scale(calc(.82 + var(--e,1) * .18)); transform-origin:50% 0}
-  .immersive .slide{--budget:140px; --fw:min(100%, calc((100vh - var(--hdr,76px) - var(--budget)) * 1.5648));
+  .immersive .slide{--budget:214px; --fw:min(100%, calc((100vh - var(--hdr,76px) - var(--budget)) * 1.5648));
     grid-area:1/1; min-width:0; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;
     gap:clamp(16px,2.6vh,28px); padding:clamp(8px,1.4vh,18px) clamp(20px,3.5vw,56px) clamp(46px,6.5vh,66px);
     visibility:hidden; transition:visibility 0s .8s}
   .immersive .slide.on{visibility:visible; transition:none}
-  @media (max-width:1100px){ .immersive .slide{--budget:156px} }
+  @media (max-width:1100px){ .immersive .slide{--budget:230px} }
 
   /* the screenshot tips up into place, then slowly leans in while you read */
   .immersive .slide .frame{order:0; flex:none; width:var(--fw); border-radius:18px; transform-origin:50% 100%;
@@ -362,16 +362,18 @@
   .immersive .slide.out .frame{transform:translate3d(0, calc(var(--dir,1) * -60px), 0) rotateX(calc(var(--dir,1) * -8deg)) scale(.96)}
   .immersive .frame img{transform:scale(calc(1 + var(--lp,0) * .04)); transform-origin:50% 0}
 
-  /* underneath, kept quiet: the screenshot is the star, the words just caption it */
-  .immersive .slide .meta{order:1; position:relative; z-index:1; margin-top:calc(-1 * clamp(28px,5vh,56px)); width:var(--fw); display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; column-gap:28px; row-gap:3px; padding:0 4px}
-  .immersive .meta .mhead{grid-column:1; grid-row:1; margin:0; gap:12px}
-  .immersive .meta .icon{width:36px; height:36px; border-radius:10px; box-shadow:none}
-  .immersive .meta .mhead > div{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
-  .immersive .meta .name{font-size:19px; white-space:nowrap}
-  .immersive .meta .kicker{margin:0; font-size:12.5px; white-space:nowrap}
-  .immersive .meta .desc{grid-column:1 / -1; grid-row:2; margin:0 0 0 48px; max-width:64ch; font-size:13px; line-height:1.6; color:var(--faint)}
+  /* underneath, centred like a caption in a gallery: what it is, its name,
+     one line about it, then the way in */
+  .immersive .slide .meta{order:1; position:relative; z-index:1; margin-top:calc(-1 * clamp(28px,5vh,56px)); width:var(--fw);
+    display:flex; flex-direction:column; align-items:center; text-align:center}
+  .immersive .meta .mhead{margin:0; justify-content:center}
+  .immersive .meta .icon{display:none}
+  .immersive .meta .mhead > div{display:flex; flex-direction:column-reverse; align-items:center}
+  .immersive .meta .kicker{margin:0 0 6px; font-size:11px; letter-spacing:.18em; text-transform:uppercase; white-space:nowrap}
+  .immersive .meta .name{font-size:clamp(26px,2.6vw,36px); line-height:1.15; white-space:nowrap}
+  .immersive .meta .desc{margin:10px 0 0; max-width:54ch; font-size:13.5px; line-height:1.65; color:var(--faint)}
   .immersive .meta .tags, .immersive .meta .split{display:none}
-  .immersive .meta .foot{grid-column:2; grid-row:1; margin:0; flex-wrap:nowrap; gap:18px}
+  .immersive .meta .foot{margin:16px 0 0; flex-wrap:nowrap; justify-content:center; gap:18px}
   .immersive .meta .price{font-size:13px; white-space:nowrap; color:var(--faint)}
   .immersive .meta .price b{color:var(--muted); font-weight:600}
   .immersive .meta .applinks{flex-wrap:nowrap; width:auto; gap:16px}
@@ -639,7 +641,7 @@
         <article class="slide li" id="slide-li" role="group" aria-roledescription="slide" aria-label="Local Invoice, 1 of 6">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localinvoiceapp.com</span></div>
-            <a href="https://localinvoiceapp.com" target="_blank" rel="noopener" aria-label="Open Local Invoice"><picture><img class="shot shot-light" src="assets/hero-localinvoice.jpg" alt="Local Invoice app screenshot" loading="eager" fetchpriority="high" width="1280" height="818"></picture><picture><img class="shot shot-dark" src="assets/hero-localinvoice-dark.jpg" alt="Local Invoice app screenshot" loading="lazy" width="1280" height="818"></picture></a>
+            <a href="https://localinvoiceapp.com" target="_blank" rel="noopener" aria-label="Open Local Invoice"><picture><img class="shot shot-light" src="assets/showcase/localinvoice-light.jpg" alt="Local Invoice app screenshot" loading="eager" fetchpriority="high" width="1280" height="818"></picture><picture><img class="shot shot-dark" src="assets/showcase/localinvoice-dark.jpg" alt="Local Invoice app screenshot" loading="lazy" width="1280" height="818"></picture></a>
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/localinvoice.png" alt="" width="48" height="48"><div><h3 class="name"><a href="https://localinvoiceapp.com" target="_blank" rel="noopener">Local Invoice</a></h3><p class="kicker">Invoice maker</p></div></div>
@@ -658,7 +660,7 @@
         <article class="slide lr" id="slide-lr" role="group" aria-roledescription="slide" aria-label="LocalResume, 2 of 6">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localresumeapp.com</span></div>
-            <a href="https://localresumeapp.com" target="_blank" rel="noopener" aria-label="Open LocalResume"><picture><img class="shot shot-light" src="assets/hero-localresume.jpg" alt="LocalResume app screenshot" loading="lazy" width="1280" height="818"></picture><picture><img class="shot shot-dark" src="assets/hero-localresume-dark.jpg" alt="LocalResume app screenshot" loading="lazy" width="1280" height="818"></picture></a>
+            <a href="https://localresumeapp.com" target="_blank" rel="noopener" aria-label="Open LocalResume"><picture><img class="shot shot-light" src="assets/showcase/localresume-light.jpg" alt="LocalResume app screenshot" loading="lazy" width="1280" height="818"></picture><picture><img class="shot shot-dark" src="assets/showcase/localresume-dark.jpg" alt="LocalResume app screenshot" loading="lazy" width="1280" height="818"></picture></a>
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/localresume.png" alt="" width="48" height="48"><div><h3 class="name"><a href="https://localresumeapp.com" target="_blank" rel="noopener">LocalResume</a></h3><p class="kicker">Resume builder</p></div></div>
@@ -677,7 +679,7 @@
         <article class="slide lp" id="slide-lp" role="group" aria-roledescription="slide" aria-label="Local PDF, 3 of 6">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localpdfapp.com</span></div>
-            <a href="https://localpdfapp.com" target="_blank" rel="noopener" aria-label="Open Local PDF"><picture><img class="shot shot-light" src="assets/hero-localpdf.jpg" alt="Local PDF app screenshot" loading="lazy" width="1280" height="818"></picture><picture><img class="shot shot-dark" src="assets/hero-localpdf-dark.jpg" alt="Local PDF app screenshot" loading="lazy" width="1280" height="818"></picture></a>
+            <a href="https://localpdfapp.com" target="_blank" rel="noopener" aria-label="Open Local PDF"><picture><img class="shot shot-light" src="assets/showcase/localpdf-light.jpg" alt="Local PDF app screenshot" loading="lazy" width="1280" height="818"></picture><picture><img class="shot shot-dark" src="assets/showcase/localpdf-dark.jpg" alt="Local PDF app screenshot" loading="lazy" width="1280" height="818"></picture></a>
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/localpdf.png" alt="" width="48" height="48"><div><h3 class="name"><a href="https://localpdfapp.com" target="_blank" rel="noopener">Local PDF</a></h3><p class="kicker">PDF toolkit</p></div></div>
@@ -696,7 +698,7 @@
         <article class="slide sb" id="slide-sb" role="group" aria-roledescription="slide" aria-label="My Snowball, 4 of 6">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">mysnowballapp.com</span></div>
-            <a href="https://mysnowballapp.com" target="_blank" rel="noopener" aria-label="Open My Snowball"><picture><img class="shot shot-light" src="assets/hero-snowball.jpg" alt="My Snowball app screenshot" loading="lazy" width="1280" height="818"></picture><picture><img class="shot shot-dark" src="assets/hero-snowball-dark.jpg" alt="My Snowball app screenshot" loading="lazy" width="1280" height="818"></picture></a>
+            <a href="https://mysnowballapp.com" target="_blank" rel="noopener" aria-label="Open My Snowball"><picture><img class="shot shot-light" src="assets/showcase/snowball-light.jpg" alt="My Snowball app screenshot" loading="lazy" width="1280" height="818"></picture><picture><img class="shot shot-dark" src="assets/showcase/snowball-dark.jpg" alt="My Snowball app screenshot" loading="lazy" width="1280" height="818"></picture></a>
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/snowball.png" alt="" width="48" height="48"><div><h3 class="name"><a href="https://mysnowballapp.com" target="_blank" rel="noopener">My Snowball</a></h3><p class="kicker">Debt payoff planner</p></div></div>
@@ -715,7 +717,7 @@
         <article class="slide lj" id="slide-lj" role="group" aria-roledescription="slide" aria-label="Local Journal, 5 of 6">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localjournalapp.com</span></div>
-            <a href="https://localjournalapp.com" target="_blank" rel="noopener" aria-label="Open Local Journal"><picture><img class="shot shot-light" src="assets/hero-localjournal.jpg" alt="Local Journal app screenshot" loading="lazy" width="1280" height="818"></picture><picture><img class="shot shot-dark" src="assets/hero-localjournal-dark.jpg" alt="Local Journal app screenshot" loading="lazy" width="1280" height="818"></picture></a>
+            <a href="https://localjournalapp.com" target="_blank" rel="noopener" aria-label="Open Local Journal"><picture><img class="shot shot-light" src="assets/showcase/localjournal-light.jpg" alt="Local Journal app screenshot" loading="lazy" width="1280" height="818"></picture><picture><img class="shot shot-dark" src="assets/showcase/localjournal-dark.jpg" alt="Local Journal app screenshot" loading="lazy" width="1280" height="818"></picture></a>
           </div>
           <div class="meta">
             <div class="mhead"><img class="icon" src="assets/localjournal.png" alt="" width="48" height="48"><div><h3 class="name"><a href="https://localjournalapp.com" target="_blank" rel="noopener">Local Journal</a></h3><p class="kicker">Private journal</p></div></div>
