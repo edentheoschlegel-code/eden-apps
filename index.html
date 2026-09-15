@@ -489,7 +489,8 @@
   .gi-line a:hover{color:var(--ac-tx); gap:7px}
   .gi-shot-inline{display:none}
 
-  .gi-preview{position:sticky; top:calc(var(--hdr,76px) + 16px); display:grid; aspect-ratio:1000/800}
+  .gi-preview{position:sticky; top:calc(var(--hdr,76px) + 16px)}
+  .gi-stage{display:grid; aspect-ratio:1000/800}
   .gi-shot{grid-area:1/1; width:100%; height:100%; object-fit:contain;
     -webkit-mask-image:radial-gradient(ellipse 92% 90% at 50% 50%, #000 76%, transparent 100%); mask-image:radial-gradient(ellipse 92% 90% at 50% 50%, #000 76%, transparent 100%);
     clip-path:inset(0 0 0 100%); transform:scale(1.06);
@@ -509,11 +510,19 @@
   }
   @media (prefers-reduced-motion:reduce){ .gi-shot, .gi{transition:none} }
 
-  /* ── extensions: the same index, mirrored. The popup preview sits on the
-     left and sweeps in from that side; the list runs down the right. */
-  .gidx.ext-index{grid-template-columns:minmax(0,.72fr) minmax(0,1.4fr)}
-  .ext-index .gi-preview{aspect-ratio:500/628; max-height:calc(100vh - var(--hdr,76px) - 48px)}
-  .ext-index .gi-shot{clip-path:inset(0 100% 0 0);
+  /* ── extensions: the same index as the Mac tools, names on the left and
+     the popup preview on the right, so the two sections line up. */
+  .gidx.ext-index{grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr)}
+  .ext-index .gi-preview{order:2}
+  .ext-index .gi-stage{aspect-ratio:500/628; max-height:calc(100vh - var(--hdr,76px) - 236px)}
+  /* the open extension's words live here, under the preview, and crossfade as
+     you move along the names; the list itself never shifts */
+  .gi-caption{margin:14px 4px 0; max-width:52ch; transition:opacity .16s ease, transform .55s cubic-bezier(.16,1,.3,1)}
+  .gi-caption.swap{opacity:0; transform:translate3d(0,8px,0)}
+  .gi-caption .gi-desc{margin:0 0 8px}
+  @media (min-width:861px){ .ext-index .gi-body{display:none} }
+  @media (max-width:860px){ .gi-caption{display:none} }
+  .ext-index .gi-shot{clip-path:inset(0 0 0 100%);
     -webkit-mask-image:radial-gradient(ellipse 86% 90% at 50% 50%, #000 72%, transparent 100%); mask-image:radial-gradient(ellipse 86% 90% at 50% 50%, #000 72%, transparent 100%)}
   .ext-index .gi-shot.seen, .ext-index .gi-shot.on{clip-path:inset(0 0 0 0)}
   .ext-index .gi[hidden]{display:none}
@@ -790,11 +799,14 @@
           <img class="gi-shot-inline" src="assets/mac-use-bookplate.jpg" alt="Bookplate on macOS" loading="lazy" width="1000" height="776">
         </li>
       </ol>
-      <div class="gi-preview" aria-hidden="true">
+      <div class="gi-preview">
+        <div class="gi-stage" aria-hidden="true">
         <img class="gi-shot" src="assets/mac-use-furrow.jpg" alt="" loading="lazy" width="1000" height="798">
         <img class="gi-shot" src="assets/mac-use-pagenook.jpg" alt="" loading="lazy" width="1000" height="817">
         <img class="gi-shot" src="assets/mac-use-clearleaf.jpg" alt="" loading="lazy" width="1000" height="657">
         <img class="gi-shot" src="assets/mac-use-bookplate.jpg" alt="" loading="lazy" width="1000" height="776">
+
+        </div>
       </div>
     </section>
 
@@ -812,7 +824,8 @@
       <button type="button" data-f="everyday" aria-pressed="false">Everyday browsing</button>
     </div>
     <section class="gidx ext-index" data-click aria-label="Eden Apps Chrome extensions">
-      <div class="gi-preview" aria-hidden="true">
+      <div class="gi-preview">
+        <div class="gi-stage" aria-hidden="true">
         <img class="gi-shot" src="assets/ext-use-video-summaries.jpg" alt="" loading="lazy" width="500" height="628">
         <img class="gi-shot" src="assets/ext-use-price-tracker.jpg" alt="" loading="lazy" width="500" height="628">
         <img class="gi-shot" src="assets/ext-use-tab-manager.jpg" alt="" loading="lazy" width="500" height="628">
@@ -822,6 +835,9 @@
         <img class="gi-shot" src="assets/ext-use-recipe-extractor.jpg" alt="" loading="lazy" width="500" height="628">
         <img class="gi-shot" src="assets/ext-use-form-draft-guard.jpg" alt="" loading="lazy" width="500" height="628">
         <img class="gi-shot" src="assets/ext-use-cookie-cutter.jpg" alt="" loading="lazy" width="500" height="628">
+
+        </div>
+        <div class="gi-caption" aria-live="polite"></div>
       </div>
       <ol class="gi-list">
         <li class="gi vs" data-cat="reading">
@@ -1103,17 +1119,32 @@
 (function(){
   [].slice.call(document.querySelectorAll('.gidx')).forEach(function(root){
     var items=[].slice.call(root.querySelectorAll('.gi')), shots=[].slice.call(root.querySelectorAll('.gi-shot'));
-    var cur=-1, pointing=false;
+    var cur=-1, pointing=false, cap=root.querySelector('.gi-caption'), capT=null;
     function visible(it){ return !it.hidden; }
     function show(k){
       if(k===cur || k<0) return; cur=k;
       items.forEach(function(it,i){ it.classList.toggle('on', i===k); var h=it.querySelector('.gi-head'); if(h) h.setAttribute('aria-expanded', i===k?'true':'false'); });
       shots.forEach(function(sh,i){ sh.classList.toggle('on', i===k); sh.classList.toggle('seen', i<k); });
+      if(cap){
+        var src=items[k].querySelector('.gi-body-in');
+        clearTimeout(capT);
+        cap.classList.add('swap');
+        capT=setTimeout(function(){
+          cap.innerHTML='';
+          if(src) [].slice.call(src.children).forEach(function(c){ if(!c.classList.contains('gi-shot-inline')) cap.appendChild(c.cloneNode(true)); });
+          cap.classList.remove('swap');
+        }, cap.childNodes.length ? 160 : 0);
+      }
     }
     var byClick=root.hasAttribute('data-click');
     items.forEach(function(it,i){
       var head=it.querySelector('.gi-head');
-      if(byClick){ if(head) head.addEventListener('click', function(){ show(i); }); return; }
+      if(byClick){
+        if(head) head.addEventListener('click', function(){ show(i); });
+        it.addEventListener('mouseenter', function(){ show(i); });
+        it.addEventListener('focusin', function(){ show(i); });
+        return;
+      }
       it.addEventListener('mouseenter', function(){ pointing=true; show(i); });
       it.addEventListener('mouseleave', function(){ pointing=false; });
       it.addEventListener('focusin', function(){ show(i); });
