@@ -354,13 +354,9 @@
   .immersive .slide.on{visibility:visible; transition:none}
   @media (max-width:1100px){ .immersive .slide{--budget:166px} }
 
-  /* the screenshot tips up into place, then slowly leans in while you read */
-  .immersive .slide .frame{order:0; flex:none; width:var(--fw); border-radius:18px; transform-origin:50% 100%;
-    opacity:0; transform:translate3d(0, calc(var(--dir,1) * 80px), 0) rotateX(calc(var(--dir,1) * 14deg)) scale(.94);
-    transition:opacity .5s ease, transform 1.05s cubic-bezier(.16,1,.3,1)}
-  .immersive .slide.on .frame{opacity:1; transform:none}
-  .immersive .slide.out .frame{transform:translate3d(0, calc(var(--dir,1) * -60px), 0) rotateX(calc(var(--dir,1) * -8deg)) scale(.96)}
-  .immersive .frame img{transform:scale(calc(1 + var(--lp,0) * .04)); transform-origin:50% 0}
+  /* the screenshot itself: order and sizing only — its appear/dissolve motion
+     is defined once, further down, alongside the page-to-page transition */
+  .immersive .slide .frame{order:0; flex:none; width:var(--fw); border-radius:18px}
 
   /* underneath, centred like a caption in a gallery: what it is, its name,
      one line about it, then the way in */
@@ -414,19 +410,20 @@
     box-shadow:0 30px 60px -34px rgba(20,21,42,.45), 0 0 0 1px rgba(20,21,42,.06)}
   .showcase .frame.phoneframe{border-radius:0}
 
-  /* app to app: the new screen rises and opens like a curtain lifting,
-     the old one sinks back into the page and softens */
-  .immersive .slide .frame{clip-path:inset(24% 9% 0 9% round 34px); filter:blur(8px);
-    transition:opacity .6s ease, transform 1.25s cubic-bezier(.16,1,.3,1), clip-path 1.25s cubic-bezier(.16,1,.3,1), filter .9s ease}
-  .immersive .slide.on .frame{clip-path:inset(0 0 0 0 round 18px); filter:blur(0)}
-  .immersive .slide.out .frame{clip-path:inset(0 6% 16% 6% round 34px); filter:blur(12px); transform:translate3d(0, calc(var(--dir,1) * -40px), 0) scale(.88)}
+  /* app to app: the new screen quietly materializes into place — no sweep,
+     it simply comes into focus. The old one dissolves the same way in reverse. */
+  .immersive .slide .frame{opacity:0; filter:blur(16px); transform:scale(.95);
+    transition:opacity .85s ease, filter .95s ease, transform 1.1s cubic-bezier(.16,1,.3,1)}
+  .immersive .slide.on .frame{opacity:1; filter:blur(0); transform:none}
+  .immersive .slide.out .frame{opacity:0; filter:blur(10px); transform:scale(.97)}
 
-  /* page to page: the next page sweeps across from the right while the one
-     beneath settles back and softens */
-  .immersive .pg, .immersive .pg:not(:first-child){visibility:hidden; opacity:0; clip-path:inset(0 0 0 100%); transform:none;
-    transition:opacity .5s ease, clip-path 1.1s cubic-bezier(.77,0,.18,1), filter 1s ease, visibility 0s 1.1s}
-  .immersive .pg.seen{visibility:hidden; opacity:0; clip-path:inset(0 0 0 0); filter:brightness(.85) blur(3px)}
-  .immersive .pg.on{visibility:visible; opacity:1; clip-path:inset(0 0 0 0); filter:none; transition:opacity .5s ease, clip-path 1.1s cubic-bezier(.77,0,.18,1), filter 1s ease}
+  /* page to page: each page materializes in place — fades and sharpens into
+     focus rather than sweeping across — and the one before it just as quietly
+     dissolves away */
+  .immersive .pg, .immersive .pg:not(:first-child){visibility:hidden; opacity:0; filter:blur(12px); transform:scale(1.015);
+    transition:opacity .7s ease, filter .85s ease, transform .9s cubic-bezier(.16,1,.3,1), visibility 0s .7s}
+  .immersive .pg.seen{visibility:hidden; opacity:0; filter:blur(5px); transform:none}
+  .immersive .pg.on{visibility:visible; opacity:1; filter:blur(0); transform:none; transition:opacity .7s ease, filter .85s ease, transform .9s cubic-bezier(.16,1,.3,1)}
   .immersive .frame img{transform:scale(calc(1 + var(--lp,0) * .03))}
 
   /* Local Scan: each phone steps forward in turn */
@@ -502,10 +499,10 @@
   .gi-stage{display:grid; aspect-ratio:1000/800}
   .gi-shot{grid-area:1/1; width:100%; height:100%; object-fit:contain;
     -webkit-mask-image:radial-gradient(ellipse 92% 90% at 50% 50%, #000 76%, transparent 100%); mask-image:radial-gradient(ellipse 92% 90% at 50% 50%, #000 76%, transparent 100%);
-    clip-path:inset(0 0 0 100%); transform:scale(1.06);
-    transition:clip-path 1.05s cubic-bezier(.77,0,.18,1), transform 1.3s cubic-bezier(.16,1,.3,1), filter 1s ease}
-  .gi-shot.seen{clip-path:inset(0 0 0 0); transform:scale(.95); filter:blur(3px) brightness(.9)}
-  .gi-shot.on{clip-path:inset(0 0 0 0); transform:none; filter:none}
+    opacity:0; filter:blur(10px); transform:scale(1.04);
+    transition:opacity .6s ease, filter .8s ease, transform .9s cubic-bezier(.16,1,.3,1)}
+  .gi-shot.seen{opacity:0; filter:blur(4px); transform:none}
+  .gi-shot.on{opacity:1; filter:none; transform:none}
 
   @media (min-width:861px){
     .gi{opacity:.5; transition:opacity .5s ease}
@@ -547,8 +544,7 @@
   .gi-caption .gi-line{font-size:13px}
   @media (min-width:861px){ .ext-index .gi-body{display:none} }
   @media (max-width:860px){ .gi-caption{display:none} }
-  .ext-index .gi-shot{clip-path:inset(0 0 0 100%); -webkit-mask-image:none; mask-image:none}
-  .ext-index .gi-shot.seen, .ext-index .gi-shot.on{clip-path:inset(0 0 0 0)}
+  .ext-index .gi-shot{-webkit-mask-image:none; mask-image:none}
   .ext-index .gi[hidden]{display:none}
   .gi-split{margin:-4px 0 8px; font-family:'EdenMarker',var(--font); font-size:12.5px; line-height:1.6; color:var(--faint); max-width:54ch}
   .gi-split b{color:var(--muted); font-weight:600}
