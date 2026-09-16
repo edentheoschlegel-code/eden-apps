@@ -209,11 +209,11 @@ function dropZone() {
       class: "dz-icon",
       html: `<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3c-3 4-6 6-6 10a6 6 0 0 0 12 0c0-4-3-6-6-10z"/><path d="M11 21V9"/></svg>`,
     }),
-    el("div", { class: "dz-title" }, "See and remove hidden data"),
+    el("div", { class: "dz-title" }, "Find and remove metadata"),
     el(
       "div",
       { class: "dz-sub" },
-      "Add documents, PDFs or photos. Clearleaf shows the hidden trail inside (author names, GPS, edit history) and downloads a clean copy of each one. Your originals stay as they are, and nothing leaves your device.",
+      "Add documents, PDFs or photos. Clearleaf shows the metadata inside (author names, GPS, edit history) and downloads a clean copy of each one. Your originals stay as they are, and nothing leaves your device.",
     ),
     el("button", { class: "dz-cta", onclick: openPicker }, "Choose files"),
     el("div", { class: "dz-hint" }, "Word, Excel, PowerPoint, PDF, JPEG and PNG."),

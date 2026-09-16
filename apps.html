@@ -121,7 +121,8 @@
   .atags{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0}
   .atag{font-family:'EdenRound',var(--font); font-size:12.5px; font-weight:650; color:var(--acc); background:var(--acc-soft); padding:5px 11px; border-radius:999px}
   .atag.lock{color:var(--faint); background:transparent; border:1px solid var(--line-strong)}
-  .afoot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:20px}
+  .afoot{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; row-gap:12px; margin-top:auto; padding-top:20px}
+  .afoot .aprice{flex:1 0 100%}
   .aprice{font-family:'EdenRound',var(--font); font-size:13.5px; color:var(--faint)}
   .aprice b{color:var(--ink); font-weight:750}
   .aopen{display:inline-flex; align-items:center; gap:7px; min-height:40px; font-family:'EdenRound',var(--font); font-size:14px; font-weight:700; color:var(--ink);
@@ -132,7 +133,7 @@
   /* phone: price on its own row, then Open + App Store share one full-width row */
   @media(max-width:560px){
     .afoot{flex-wrap:wrap; row-gap:12px}
-    .afoot .aprice{flex:1 0 100%; white-space:nowrap}
+    .afoot .aprice{flex:1 0 100%}
     .alinks{width:100%; flex-wrap:nowrap; justify-content:flex-start}
     .alinks .aopen{flex:1 1 0; justify-content:center; min-height:44px}
   }
@@ -171,7 +172,7 @@
       <h2>All apps</h2>
       <span class="count">6 live</span>
     </div>
-    <p class="sec-note">Explore our collection of private, local-first apps, designed to work directly on your device with no account or signup required. Additional features are available through a one-time purchase.</p>
+    <p class="sec-note">Explore our collection of private, local-first apps, designed to work directly on your device, without an account or signup. Additional features are available through a one-time purchase.</p>
 
     <div class="agrid">
 
@@ -183,7 +184,7 @@
         <p class="adesc">Create professional invoices and estimates, manage your client and payment details, and have them ready to send.</p>
         <div class="atags"><span class="atag">Business</span><span class="atag lock">On your device</span></div>
         <div class="afoot">
-          <span class="aprice">Pro <b>$12.99</b> once</span>
+          <span class="aprice">Pro: <b>$12.99</b>, one-time purchase</span>
           <span class="alinks">
             <a class="aopen" href="https://localinvoiceapp.com" target="_blank" rel="noopener" title="Opens Local Invoice on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a class="aopen" href="https://apps.apple.com/app/id6789413537" target="_blank" rel="noopener" title="Opens Local Invoice on the App Store, in a new tab">App Store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -199,7 +200,7 @@
         <p class="adesc">Build a professional resume and score it for any job description, right on your device, then see the keywords ATS filters look for.</p>
         <div class="atags"><span class="atag">Career</span><span class="atag lock">On your device</span></div>
         <div class="afoot">
-          <span class="aprice">Pro <b>$12.99</b> once</span>
+          <span class="aprice">Pro: <b>$12.99</b>, one-time purchase</span>
           <span class="alinks">
             <a class="aopen" href="https://localresumeapp.com" target="_blank" rel="noopener" title="Opens LocalResume on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a class="aopen" href="https://apps.apple.com/app/id6789641665" target="_blank" rel="noopener" title="Opens LocalResume on the App Store, in a new tab">App Store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -215,7 +216,7 @@
         <p class="adesc">Merge, split, compress, convert, sign and redact. A full set of PDF tools that runs on your device.</p>
         <div class="atags"><span class="atag">Documents</span><span class="atag lock">On your device</span></div>
         <div class="afoot">
-          <span class="aprice">Pro <b>$9.99</b> once</span>
+          <span class="aprice">Pro: <b>$9.99</b>, one-time purchase</span>
           <span class="alinks">
             <a class="aopen" href="https://localpdfapp.com" target="_blank" rel="noopener" title="Opens Local PDF on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a class="aopen" href="https://apps.apple.com/app/id6789784808" target="_blank" rel="noopener" title="Opens Local PDF on the App Store, in a new tab">App Store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -231,7 +232,7 @@
         <p class="adesc">See your debt free date and the smartest order to pay off your balances: snowball, avalanche, or your own plan.</p>
         <div class="atags"><span class="atag">Money</span><span class="atag lock">On your device</span></div>
         <div class="afoot">
-          <span class="aprice">Pro <b>$9.99</b> once</span>
+          <span class="aprice">Pro: <b>$9.99</b>, one-time purchase</span>
           <span class="alinks">
             <a class="aopen" href="https://mysnowballapp.com" target="_blank" rel="noopener" title="Opens My Snowball on its own site, in a new tab">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a class="aopen" href="https://apps.apple.com/app/id6789954920" target="_blank" rel="noopener" title="Opens My Snowball on the App Store, in a new tab">App Store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -261,7 +262,7 @@
         <p class="adesc">Capture a page with your camera, straighten and brighten it on your device, and take it away as PDF, Word, plain text or Markdown.</p>
         <div class="atags"><span class="atag">Documents</span><span class="atag lock">On your device</span></div>
         <div class="afoot">
-          <span class="aprice">Pro <b>$12.99</b> once</span>
+          <span class="aprice">Pro: <b>$12.99</b>, one-time purchase</span>
           <span class="alinks">
             <a class="aopen" href="https://apps.apple.com/app/id6799491646" target="_blank" rel="noopener" title="Opens Local Scan on the App Store, in a new tab">App Store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </span>

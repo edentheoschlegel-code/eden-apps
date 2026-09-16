@@ -191,7 +191,7 @@ export function useOnce() {
     }
     return ensureLicensed({
       title: `Enter your code to keep using ${APP_NAME}`,
-      note: `You have used the free goes on ${APP_NAME} in this browser. A licence code from your Eden Apps purchase opens it for good, and it is the same code that opens the Mac app.`,
+      note: `You have used the free goes on ${APP_NAME} in this browser. A licence code from your Eden Apps purchase unlocks it, and it is the same code that opens the Mac app.`,
     });
   });
 }

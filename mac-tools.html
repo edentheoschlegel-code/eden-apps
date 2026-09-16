@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'">
 <title>Mac tools · Eden Apps</title>
-<meta name="description" content="Native, private tools for your Mac: Furrow, Pagenook, Clearleaf and Bookplate. One clean binary each, no runtime, nothing collected. Buy once, or take all four.">
+<meta name="description" content="Native, private tools for your Mac: Furrow, Pagenook, Clearleaf and Bookplate. One clean binary each, no runtime, nothing collected. Each is a one-time purchase.">
 <link rel="canonical" href="https://edenapps.app/mac-tools.html">
 <link rel="icon" href="assets/eden-logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -120,7 +120,8 @@
   :root[data-theme="dark"] .acard.cl{--acc:#a8a8f5;--acc-soft:#17172e}
   :root[data-theme="dark"] .acard.bp{--acc:#98bcdc;--acc-soft:#14202c}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .acard.fw{--acc:#8fc7a1;--acc-soft:#16231b} :root:not([data-theme="light"]) .acard.pn{--acc:#cf9df2;--acc-soft:#241330} :root:not([data-theme="light"]) .acard.cl{--acc:#a8a8f5;--acc-soft:#17172e} :root:not([data-theme="light"]) .acard.bp{--acc:#98bcdc;--acc-soft:#14202c} }
-  .afoot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:20px}
+  .afoot{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; row-gap:12px; margin-top:auto; padding-top:20px}
+  .afoot .aprice{flex:1 0 100%}
   .aprice{font-family:'EdenRound',var(--font); font-size:13.5px; color:var(--faint); white-space:nowrap}
   .aprice b{color:var(--ink); font-weight:750}
   .soonpill{display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:650; color:var(--acc);
@@ -216,7 +217,7 @@
       <h2>All Mac tools</h2>
       <span class="count">4 · new</span>
     </div>
-    <p class="sec-note">Our local Mac tools are designed to work directly on your Mac, with no account or signup required. Additional features are available through a one-time purchase.</p>
+    <p class="sec-note">Our local Mac tools are designed to work directly on your Mac, without an account or signup. Additional features are available through a one-time purchase.</p>
 
     <div class="agrid">
 
@@ -232,7 +233,7 @@
           <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-furrow.jpg" alt="Furrow on macOS" loading="lazy" width="1000" height="798"></picture></div>
         </div>
         <div class="afoot">
-          <span class="aprice"><b>$12.99</b> · once</span>
+          <span class="aprice"><b>$12.99</b>, one-time purchase</span>
           <span class="applinks">
             <a class="weblink" href="tools/furrow/" title="Opens Furrow in your browser, free to try on your own files"><span class="dot"></span>Try in your browser</a>
             <a class="appstore" href="https://apps.apple.com/app/id6796475605" target="_blank" rel="noopener" title="Opens Furrow on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -252,7 +253,7 @@
           <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-pagenook.jpg" alt="Pagenook on macOS" loading="lazy" width="1000" height="817"></picture></div>
         </div>
         <div class="afoot">
-          <span class="aprice"><b>$12.99</b> · once</span>
+          <span class="aprice"><b>$12.99</b>, one-time purchase</span>
           <span class="applinks">
             <a class="weblink" href="tools/pagenook/" title="Opens Pagenook in your browser, free to try on your own files"><span class="dot"></span>Try in your browser</a>
             <a class="appstore" href="https://apps.apple.com/app/id6796476248" target="_blank" rel="noopener" title="Opens Pagenook on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -272,7 +273,7 @@
           <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-clearleaf.jpg" alt="Clearleaf on macOS" loading="lazy" width="1000" height="657"></picture></div>
         </div>
         <div class="afoot">
-          <span class="aprice"><b>$12.99</b> · once</span>
+          <span class="aprice"><b>$12.99</b>, one-time purchase</span>
           <span class="applinks">
             <a class="weblink" href="tools/clearleaf/" title="Opens Clearleaf in your browser, free to try on your own files"><span class="dot"></span>Try in your browser</a>
             <a class="appstore" href="https://apps.apple.com/app/id6796349717" target="_blank" rel="noopener" title="Opens Clearleaf on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -292,7 +293,7 @@
           <div class="cface-shot" aria-hidden="true"><picture><img src="assets/mac-use-bookplate.jpg" alt="Bookplate on macOS" loading="lazy" width="1000" height="776"></picture></div>
         </div>
         <div class="afoot">
-          <span class="aprice"><b>$12.99</b> · once</span>
+          <span class="aprice"><b>$12.99</b>, one-time purchase</span>
           <span class="applinks">
             <a class="weblink" href="tools/bookplate/" title="Opens Bookplate in your browser, free to try on your own files"><span class="dot"></span>Try in your browser</a>
             <a class="appstore" href="https://apps.apple.com/app/id6796476940" target="_blank" rel="noopener" title="Opens Bookplate on the Mac App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>

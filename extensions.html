@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action https://buttondown.com https://api.web3forms.com; frame-src https://buttondown.com; object-src 'none'; base-uri 'self'">
 <title>Eden Apps · Chrome extensions, private by design</title>
-<meta name="description" content="Nine focused Chrome extensions by Eden: private by design, and every Pro unlock is bought once. No accounts, no subscriptions.">
+<meta name="description" content="Nine focused Chrome extensions by Eden: private by design, with no accounts. Pro is a one-time purchase.">
 <link rel="canonical" href="https://edenapps.app/extensions.html">
 <link rel="icon" href="assets/eden-logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:title" content="Eden Apps · Chrome extensions, private by design">
-<meta property="og:description" content="Nine focused Chrome extensions: private by design, one time Pro unlock. No accounts, no subscriptions.">
+<meta property="og:description" content="Nine focused Chrome extensions: private by design, with no accounts. Pro is a one-time purchase.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://edenapps.app/extensions.html">
 <meta property="og:image" content="https://edenapps.app/assets/og-image.jpg">
@@ -18,7 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Eden Apps · Chrome extensions, private by design">
-<meta name="twitter:description" content="Nine focused Chrome extensions: private by design, one time Pro unlock.">
+<meta name="twitter:description" content="Nine focused Chrome extensions: private by design. Pro is a one-time purchase.">
 <meta name="twitter:image" content="https://edenapps.app/assets/og-image.jpg">
 <style>
   :root{
@@ -142,11 +142,11 @@
   .tag.lock{color:var(--lr-tx); border-color:transparent; background:var(--lr-soft)}
   .split{font-size:12.5px; color:var(--muted); margin:0; line-height:1.5}
   .split b{color:var(--ink); font-weight:700}
-  .foot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:2px}
-  /* phone: the price takes its own row so Add to Chrome + Privacy can't overflow the card */
+  /* the price takes its own row at every width, so the label never crowds Add to Chrome + Privacy */
+  .foot{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; row-gap:12px; margin-top:2px}
+  .foot .price{flex:1 0 100%}
+  /* phone: the buttons fill the row */
   @media(max-width:560px){
-    .foot{flex-wrap:wrap; row-gap:12px}
-    .foot .price{flex:1 0 100%; white-space:nowrap}
     .foot .open{flex:1 1 auto; justify-content:center; min-height:44px}
     .foot .plink{flex:0 0 auto; min-height:44px}
   }
@@ -256,7 +256,7 @@
       <h2>All extensions</h2>
       <span class="count">9 extensions</span>
     </div>
-    <p class="sec-note">Each extension is made with a clear purpose and designed to be useful without unnecessary complexity. Everything works locally on your device, and Pro is a one-time purchase with no subscription. Each extension is available directly from the Chrome Web Store.</p>
+    <p class="sec-note">Each extension is made with a clear purpose and designed to be useful without unnecessary complexity. Everything works locally on your device. Each extension is available directly from the Chrome Web Store.</p>
 
     <div class="ext-filter" id="extFilter" role="group" aria-label="Filter extensions">
       <button type="button" data-f="all" aria-pressed="true">All</button>
@@ -277,7 +277,7 @@
 
           <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-video-summaries.jpg" alt="Video Summaries popup in use" loading="lazy" width="500" height="628"></div>
         </div>
-        <div class="foot"><span class="price">Pro <b>$8.99</b> once</span><a class="open" href="https://chromewebstore.google.com/detail/video-summaries-for-youtu/ekhdoohngaeajhgjhmoacmcjmoagcaph" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="foot"><span class="price">Pro: <b>$8.99</b>, one-time purchase</span><a class="open" href="https://chromewebstore.google.com/detail/video-summaries-for-youtu/ekhdoohngaeajhgjhmoacmcjmoagcaph" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="plink" href="ext-privacy-video-summaries.html" title="Privacy policy for this extension"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a></div>
       </article>
 
@@ -291,7 +291,7 @@
 
           <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-price-tracker.jpg" alt="Price Tracker popup in use" loading="lazy" width="500" height="628"></div>
         </div>
-        <div class="foot"><span class="price">Pro <b>$8.99</b> once</span><a class="open" href="https://chromewebstore.google.com/detail/price-tracker-%E2%80%94-smart-pri/kambpllckipopnbanjkjgipdcinhlplh" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="foot"><span class="price">Pro: <b>$8.99</b>, one-time purchase</span><a class="open" href="https://chromewebstore.google.com/detail/price-tracker-%E2%80%94-smart-pri/kambpllckipopnbanjkjgipdcinhlplh" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="plink" href="ext-privacy-price-tracker.html" title="Privacy policy for this extension"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a></div>
       </article>
 
@@ -305,7 +305,7 @@
 
           <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-tab-manager.jpg" alt="Tab Manager popup in use" loading="lazy" width="500" height="628"></div>
         </div>
-        <div class="foot"><span class="price">Pro <b>$8.99</b> once</span><a class="open" href="https://chromewebstore.google.com/detail/tab-manager-group-tabs-sa/chlgclchldoppenblmlodeifgngoihid" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="foot"><span class="price">Pro: <b>$8.99</b>, one-time purchase</span><a class="open" href="https://chromewebstore.google.com/detail/tab-manager-group-tabs-sa/chlgclchldoppenblmlodeifgngoihid" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="plink" href="ext-privacy-tab-manager.html" title="Privacy policy for this extension"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a></div>
       </article>
 
@@ -319,7 +319,7 @@
 
           <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-focus-mode.jpg" alt="Focus Mode popup in use" loading="lazy" width="500" height="628"></div>
         </div>
-        <div class="foot"><span class="price">Pro <b>$5.99</b> once</span><a class="open" href="https://chromewebstore.google.com/detail/focus-mode-%E2%80%94-pomodoro-sit/mmojkajohniicnkkmjohcplbljhjnmkp" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="foot"><span class="price">Pro: <b>$5.99</b>, one-time purchase</span><a class="open" href="https://chromewebstore.google.com/detail/focus-mode-%E2%80%94-pomodoro-sit/mmojkajohniicnkkmjohcplbljhjnmkp" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="plink" href="ext-privacy-focus-mode.html" title="Privacy policy for this extension"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a></div>
       </article>
 
@@ -333,7 +333,7 @@
 
           <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-ai-summarizer.jpg" alt="AI Summarizer popup in use" loading="lazy" width="500" height="628"></div>
         </div>
-        <div class="foot"><span class="price">Pro <b>$5.99</b> once</span><a class="open" href="https://chromewebstore.google.com/detail/ai-summarizer-%E2%80%94-instant-p/enhflmnilfmaibpohaoapnlnjbdjbipb" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="foot"><span class="price">Pro: <b>$5.99</b>, one-time purchase</span><a class="open" href="https://chromewebstore.google.com/detail/ai-summarizer-%E2%80%94-instant-p/enhflmnilfmaibpohaoapnlnjbdjbipb" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="plink" href="ext-privacy-ai-summarizer.html" title="Privacy policy for this extension"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a></div>
       </article>
 
@@ -347,7 +347,7 @@
 
           <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-tab-snoozer.jpg" alt="Tab Snoozer popup in use" loading="lazy" width="500" height="628"></div>
         </div>
-        <div class="foot"><span class="price">Pro <b>$8.99</b> once</span><a class="open" href="https://chromewebstore.google.com/detail/tab-snoozer/ciohooaomfljpbhjecfdjcondkeadode" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="foot"><span class="price">Pro: <b>$8.99</b>, one-time purchase</span><a class="open" href="https://chromewebstore.google.com/detail/tab-snoozer/ciohooaomfljpbhjecfdjcondkeadode" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="plink" href="ext-privacy-tab-snoozer.html" title="Privacy policy for this extension"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a></div>
       </article>
 
@@ -361,7 +361,7 @@
 
           <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-recipe-extractor.jpg" alt="Recipe Extractor popup in use" loading="lazy" width="500" height="628"></div>
         </div>
-        <div class="foot"><span class="price">Pro <b>$8.99</b> once</span><a class="open" href="https://chromewebstore.google.com/detail/recipe-extractor-%E2%80%94-skip-t/fhdgipnhnlfldofapdjpbmbacmgddgmd" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="foot"><span class="price">Pro: <b>$8.99</b>, one-time purchase</span><a class="open" href="https://chromewebstore.google.com/detail/recipe-extractor-%E2%80%94-skip-t/fhdgipnhnlfldofapdjpbmbacmgddgmd" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="plink" href="ext-privacy-recipe-extractor.html" title="Privacy policy for this extension"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a></div>
       </article>
 
@@ -375,7 +375,7 @@
 
           <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-form-draft-guard.jpg" alt="Form Draft Guard popup in use" loading="lazy" width="500" height="628"></div>
         </div>
-        <div class="foot"><span class="price">Pro <b>$5.99</b> once</span><a class="open" href="https://chromewebstore.google.com/detail/form-draft-guard/ehdccipfboaojjifllomihhjcjgebnec" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="foot"><span class="price">Pro: <b>$5.99</b>, one-time purchase</span><a class="open" href="https://chromewebstore.google.com/detail/form-draft-guard/ehdccipfboaojjifllomihhjcjgebnec" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="plink" href="ext-privacy-form-draft-guard.html" title="Privacy policy for this extension"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a></div>
       </article>
 
@@ -389,7 +389,7 @@
 
           <div class="cface-shot" aria-hidden="true"><img src="assets/ext-use-cookie-cutter.jpg" alt="Cookie Cutter popup in use" loading="lazy" width="500" height="628"></div>
         </div>
-        <div class="foot"><span class="price">Pro <b>$5.99</b> once</span><a class="open" href="https://chromewebstore.google.com/detail/cookie-cutter/gijjdeegadokkaffkhfnjiekfeppcdfc" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="foot"><span class="price">Pro: <b>$5.99</b>, one-time purchase</span><a class="open" href="https://chromewebstore.google.com/detail/cookie-cutter/gijjdeegadokkaffkhfnjiekfeppcdfc" target="_blank" rel="noopener" title="Opens the Chrome Web Store listing in a new tab">Add to Chrome<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="plink" href="ext-privacy-cookie-cutter.html" title="Privacy policy for this extension"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy</a></div>
       </article>
 
