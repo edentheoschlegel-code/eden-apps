@@ -140,23 +140,24 @@
   /* Four Corners: the four hues the headline word already cycles through,
      each a soft field in its own corner of the hero — full window width,
      not the 880px text column — with the words themselves left on clear ground. */
-  .hero-wash{position:absolute; left:50%; width:100vw; margin-left:-50vw; top:0; bottom:0; z-index:0; overflow:hidden; pointer-events:none}
-  .hero-wash span{position:absolute; width:46vw; aspect-ratio:1; border-radius:50%; filter:blur(4px)}
-  .hero-wash .b1{left:-12vw; top:-14%; background:radial-gradient(circle,rgba(191,143,43,.20),transparent 70%)}
-  .hero-wash .b2{right:-12vw; top:-14%; background:radial-gradient(circle,rgba(59,91,176,.17),transparent 70%)}
-  .hero-wash .b3{left:-12vw; bottom:-18%; background:radial-gradient(circle,rgba(10,143,92,.17),transparent 70%)}
-  .hero-wash .b4{right:-12vw; bottom:-18%; background:radial-gradient(circle,rgba(225,29,72,.15),transparent 70%)}
-  :root[data-theme="dark"] .hero-wash .b1{background:radial-gradient(circle,rgba(232,192,111,.22),transparent 70%)}
-  :root[data-theme="dark"] .hero-wash .b2{background:radial-gradient(circle,rgba(143,168,240,.19),transparent 70%)}
-  :root[data-theme="dark"] .hero-wash .b3{background:radial-gradient(circle,rgba(52,211,153,.19),transparent 70%)}
-  :root[data-theme="dark"] .hero-wash .b4{background:radial-gradient(circle,rgba(251,113,133,.17),transparent 70%)}
+  .hero-wash{position:absolute; left:50%; width:100vw; margin-left:-50vw; top:0; bottom:0; z-index:0; pointer-events:none;
+    background-image:
+      radial-gradient(85% 75% at 6% -6%, rgba(191,143,43,.24), transparent 60%),
+      radial-gradient(85% 75% at 94% -6%, rgba(59,91,176,.20), transparent 60%),
+      radial-gradient(85% 80% at 6% 106%, rgba(10,143,92,.20), transparent 60%),
+      radial-gradient(85% 80% at 94% 106%, rgba(225,29,72,.17), transparent 60%)}
+  :root[data-theme="dark"] .hero-wash{background-image:
+      radial-gradient(85% 75% at 6% -6%, rgba(232,192,111,.26), transparent 60%),
+      radial-gradient(85% 75% at 94% -6%, rgba(143,168,240,.22), transparent 60%),
+      radial-gradient(85% 80% at 6% 106%, rgba(52,211,153,.22), transparent 60%),
+      radial-gradient(85% 80% at 94% 106%, rgba(251,113,133,.19), transparent 60%)}
   @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]) .hero-wash .b1{background:radial-gradient(circle,rgba(232,192,111,.22),transparent 70%)}
-    :root:not([data-theme="light"]) .hero-wash .b2{background:radial-gradient(circle,rgba(143,168,240,.19),transparent 70%)}
-    :root:not([data-theme="light"]) .hero-wash .b3{background:radial-gradient(circle,rgba(52,211,153,.19),transparent 70%)}
-    :root:not([data-theme="light"]) .hero-wash .b4{background:radial-gradient(circle,rgba(251,113,133,.17),transparent 70%)}
+    :root:not([data-theme="light"]) .hero-wash{background-image:
+      radial-gradient(85% 75% at 6% -6%, rgba(232,192,111,.26), transparent 60%),
+      radial-gradient(85% 75% at 94% -6%, rgba(143,168,240,.22), transparent 60%),
+      radial-gradient(85% 80% at 6% 106%, rgba(52,211,153,.22), transparent 60%),
+      radial-gradient(85% 80% at 94% 106%, rgba(251,113,133,.19), transparent 60%)}
   }
-  @media (max-width:760px){ .hero-wash span{width:70vw} }
 
   .eyebrow{font-size:13px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--faint); margin:0 0 clamp(24px,4vh,36px)}
   .eyebrow-logo{height:50px; width:auto; display:inline-block}
@@ -697,7 +698,7 @@
   </header>
 
   <section class="hero">
-    <div class="hero-wash" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span></div>
+    <div class="hero-wash" aria-hidden="true"></div>
     <p class="eyebrow"><img class="eyebrow-logo" src="assets/eden-logo.png" alt="" width="50" height="50"></p>
     <h1 id="heroHead">Thoughtful software<span class="for-a"> for</span><br class="h1-br"><span class="hero-l2"><span class="for-b">for </span>your <span class="g-docs">documents</span>, <span class="g-career">career</span>, <span class="g-money">money</span> and <span class="g-every">everyday</span>.</span></h1>
     <p class="lede">Tools that do one thing well and make everyday tasks simpler. Easy&nbsp;to&nbsp;use. Designed with privacy in mind.</p>
