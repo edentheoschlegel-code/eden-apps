@@ -154,15 +154,17 @@
   :root[data-theme="dark"] h1 .g-career{color:#34d399}
   :root[data-theme="dark"] h1 .g-every{color:#fb7185}
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) h1 .g-money{color:#e8c06f} :root:not([data-theme="light"]) h1 .g-docs{color:#8fa8f0} :root:not([data-theme="light"]) h1 .g-career{color:#34d399} :root:not([data-theme="light"]) h1 .g-every{color:#fb7185} }
-  /* cycling final word: slides + blurs softly between money / documents / career.
+  /* cycling final word: one word is ever on screen — the current word quietly
+     fades away, then (only once it's fully gone) the next fades into place.
+     No overlap, no blur — a clean disappear/appear, not a cross-fade.
      Only active when JS adds .cycle-on; no-JS + reduced-motion show a static list. */
   .cyc{position:relative; display:inline-block; text-align:left; vertical-align:bottom}
   .cyc .w{display:inline-block}
   .cycle-on .cyc{white-space:nowrap}
-  .cycle-on .cyc .w{position:absolute; left:0; top:0; opacity:0; filter:blur(6px);
-    transform:translateY(.32em) scale(.985); transition:opacity .55s ease, transform .55s cubic-bezier(.22,.61,.36,1), filter .55s ease}
-  .cycle-on .cyc .w.on{position:relative; opacity:1; filter:blur(0); transform:none}
-  .cycle-on .cyc .w.out{opacity:0; filter:blur(6px); transform:translateY(-.32em) scale(.985)}
+  .cycle-on .cyc .w{position:absolute; left:0; top:0; opacity:0; transform:scale(.96);
+    transition:opacity .3s ease, transform .3s ease}
+  .cycle-on .cyc .w.on{position:relative; opacity:1; transform:none; transition:opacity .4s ease, transform .45s cubic-bezier(.16,1,.3,1)}
+  .cycle-on .cyc .w.out{opacity:0; transform:scale(.96)}
   @media (prefers-reduced-motion:reduce){ .cycle-on .cyc .w{transition:none} }
   /* Mobile: the cycling word sits on its own centered line. The word-slot is
      handled since 2026-08-08 by the .hero-l2 line and per-word fit sizing.
@@ -1384,18 +1386,22 @@
   // Re-fit once web fonts have settled (widths can shift after load).
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(fit); }
   window.addEventListener('load', fit);
-  var i = 0;
+  var i = 0, mid = false;
   setInterval(function(){
+    if(mid) return;
+    mid = true;
     var cur = spans[i];
-    var next = spans[(i+1)%spans.length];
     cur.classList.remove('on');
     cur.classList.add('out');
-    next.classList.remove('out');
-    next.classList.add('on');
-    fit();
-    (function(prev){ setTimeout(function(){ prev.classList.remove('out'); }, 600); })(cur);
-    i = (i+1) % spans.length;
-  }, 2200);
+    setTimeout(function(){
+      cur.classList.remove('out');
+      var next = spans[(i+1)%spans.length];
+      next.classList.add('on');
+      fit();
+      i = (i+1) % spans.length;
+      mid = false;
+    }, 320);
+  }, 2800);
 })();
 </script>
 <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
