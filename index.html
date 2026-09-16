@@ -565,7 +565,7 @@
   /* the details beside the popup: three aligned rows with small labels */
   .gi-spec{margin:0 0 24px; font-family:'EdenMarker',var(--font); font-size:13px; line-height:1.7; color:var(--muted)}
   .gi-spec dt{display:inline; color:var(--faint); font-weight:500}
-  .gi-spec dt::after{content:" \00b7 "; color:var(--faint)}
+  .gi-spec dt::after{content:"\00a0\00b7\00a0"; color:var(--faint)}
   .gi-spec dd{display:inline; margin:0}
   .gi-spec dd::after{content:""; display:block; height:9px}
   .gi-spec dd:last-of-type::after{display:none}
@@ -593,6 +593,14 @@
   .gi-head .gi-kicker{margin-left:8px; font-size:11.5px; font-weight:500; color:var(--faint); opacity:.8; transition:color .35s ease}
   .gi-head:hover{color:var(--muted)}
   .ext-index .gi.on .gi-head{color:var(--ink); font-weight:750}
+  /* while the list plays itself, a hairline under the current name fills
+     until the next extension takes its turn */
+  .ext-index .gi-head{position:relative}
+  .ext-index .gi-head::after{content:""; position:absolute; left:34px; right:0; bottom:3px; height:1.5px; border-radius:2px;
+    background:var(--ac-tx); opacity:0; transform:scaleX(0); transform-origin:left}
+  .ext-index.playing .gi.on .gi-head.run::after{opacity:.5; animation:giFill 4.2s linear forwards}
+  @keyframes giFill{from{transform:scaleX(0)} to{transform:scaleX(1)}}
+  @media (prefers-reduced-motion:reduce){ .ext-index .gi-head::after{display:none} }
   .gi-head:hover .gi-icon, .ext-index .gi.on .gi-head .gi-icon{opacity:1; filter:none}
   .ext-index .gi.on .gi-head .gi-icon{transform:scale(1.12)}
   .ext-index .gi.on .gi-head .gi-kicker{color:var(--ac-tx)}
@@ -1238,12 +1246,29 @@
       }
     }
     var byClick=root.hasAttribute('data-click');
+    // Extensions play through on their own while the section is on screen:
+    // each one takes a turn, then the next. Pointing at a name (or reading the
+    // words beside the popup) holds it there; moving away lets it carry on.
+    var still=window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    var wideMQ=window.matchMedia && window.matchMedia('(min-width:861px)');
+    var auto=byClick && !still, timer=null, inView=false, held=false;
+    function firstVisible(){ for(var i=0;i<items.length;i++){ if(visible(items[i])) return i; } return -1; }
+    function nextVisible(from){ for(var n=1;n<=items.length;n++){ var j=(from+n)%items.length; if(visible(items[j])) return j; } return -1; }
+    function runBar(){ items.forEach(function(it){ var h=it.querySelector('.gi-head'); if(h) h.classList.remove('run'); }); if(cur<0) return; var h=items[cur].querySelector('.gi-head'); if(!h) return; void h.offsetWidth; h.classList.add('run'); }
+    function stop(){ clearInterval(timer); timer=null; root.classList.remove('playing'); }
+    function play(){
+      stop();
+      if(!auto || !inView || held || document.hidden || (wideMQ && !wideMQ.matches)) return;
+      root.classList.add('playing'); runBar();
+      timer=setInterval(function(){ var j=nextVisible(cur); if(j>=0 && j!==cur){ show(j); runBar(); } }, 4200);
+    }
     items.forEach(function(it,i){
       var head=it.querySelector('.gi-head');
       if(byClick){
-        if(head) head.addEventListener('click', function(){ show(i); });
-        it.addEventListener('mouseenter', function(){ show(i); });
-        it.addEventListener('focusin', function(){ show(i); });
+        if(head) head.addEventListener('click', function(){ show(i); play(); });
+        // only a real pointer movement counts — not a name scrolling under a still cursor
+        it.addEventListener('pointermove', function(e){ if(e.pointerType!=='mouse' || (!e.movementX && !e.movementY)) return; held=true; stop(); show(i); });
+        it.addEventListener('focusin', function(){ held=true; stop(); show(i); });
         return;
       }
       it.addEventListener('mouseenter', function(){ pointing=true; show(i); });
@@ -1260,6 +1285,25 @@
     var tick=false;
     window.addEventListener('scroll', function(){ if(!tick){ tick=true; requestAnimationFrame(function(){ tick=false; nearest(); }); } }, {passive:true});
     root.addEventListener('gidx-refresh', function(){ cur=-1; pointing=false; nearest(); });
+    if(auto){
+      var list=root.querySelector('.gi-list'), capEl=root.querySelector('.gi-caption');
+      function release(){ held=false; play(); }
+      if(list) list.addEventListener('mouseleave', release);
+      if(capEl){ capEl.addEventListener('mouseenter', function(){ held=true; stop(); }); capEl.addEventListener('mouseleave', release); }
+      root.addEventListener('focusout', function(e){ if(!root.contains(e.relatedTarget)) release(); });
+      root.addEventListener('gidx-refresh', function(){ play(); });
+      document.addEventListener('visibilitychange', function(){ if(document.hidden) stop(); else play(); });
+      if(wideMQ && wideMQ.addEventListener) wideMQ.addEventListener('change', play);
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(entries){
+          entries.forEach(function(en){
+            var was=inView; inView=en.isIntersecting;
+            if(inView && !was){ var f=firstVisible(); if(f>=0){ cur=-1; show(f); } play(); }
+            else if(!inView){ stop(); }
+          });
+        }, {rootMargin:'-22% 0px -22% 0px'}).observe(root);
+      }
+    }
     show(0); nearest();
   });
 })();
