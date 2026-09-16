@@ -423,10 +423,10 @@
 
   /* page to page: the next page sweeps across from the right while the one
      beneath settles back and softens */
-  .immersive .pg, .immersive .pg:not(:first-child){visibility:visible; clip-path:inset(0 0 0 100%); transform:none;
-    transition:clip-path 1.1s cubic-bezier(.77,0,.18,1), transform 1.4s cubic-bezier(.16,1,.3,1), filter 1s ease}
-  .immersive .pg.seen{clip-path:inset(0 0 0 0); transform:none; filter:brightness(.85) blur(3px)}
-  .immersive .pg.on{clip-path:inset(0 0 0 0); transform:none; filter:none}
+  .immersive .pg, .immersive .pg:not(:first-child){visibility:hidden; opacity:0; clip-path:inset(0 0 0 100%); transform:none;
+    transition:opacity .5s ease, clip-path 1.1s cubic-bezier(.77,0,.18,1), filter 1s ease, visibility 0s 1.1s}
+  .immersive .pg.seen{visibility:hidden; opacity:0; clip-path:inset(0 0 0 0); filter:brightness(.85) blur(3px)}
+  .immersive .pg.on{visibility:visible; opacity:1; clip-path:inset(0 0 0 0); filter:none; transition:opacity .5s ease, clip-path 1.1s cubic-bezier(.77,0,.18,1), filter 1s ease}
   .immersive .frame img{transform:scale(calc(1 + var(--lp,0) * .03))}
 
   /* Local Scan: each phone steps forward in turn */
@@ -1100,11 +1100,14 @@
   // the open app plays through its pages on its own, one sweep every few seconds
   var pageTimer=null;
   function playPages(s){
-    clearInterval(pageTimer); pageTimer=null;
+    clearInterval(pageTimer); clearTimeout(pageTimer); pageTimer=null;
     if(!s || !s._pages || s._pages.length<2) return;
     s._pi=-1; setPage(s, 0);
     if(still.matches) return;
-    pageTimer=setInterval(function(){ setPage(s, (s._pi+1) % s._pages.length); }, 2800);
+    pageTimer=setTimeout(function(){
+      setPage(s, (s._pi+1) % s._pages.length);
+      pageTimer=setInterval(function(){ setPage(s, (s._pi+1) % s._pages.length); }, 4200);
+    }, 4200);
   }
   function setPage(s, pi){
     if(!s._pages || s._pi===pi) return; s._pi=pi;
@@ -1126,7 +1129,7 @@
     });
     tabs.forEach(function(t,idx){ t.setAttribute('aria-pressed', idx===k?'true':'false'); });
     if(num) num.textContent=('0'+(k+1)).slice(-2);
-    if(immersive) playPages(slides[k]); else { clearInterval(pageTimer); pageTimer=null; }
+    if(immersive) playPages(slides[k]); else { clearInterval(pageTimer); clearTimeout(pageTimer); pageTimer=null; }
   }
   function onScroll(){
     if(!immersive) return;
@@ -1147,7 +1150,7 @@
       immersive=want;
       sc.classList.toggle('immersive', want);
       slides.forEach(function(s){ s.classList.remove('out'); s._pi=-1; setPage(s, 0); });
-      clearInterval(pageTimer); pageTimer=null;
+      clearInterval(pageTimer); clearTimeout(pageTimer); pageTimer=null;
       var keep=i<0?0:i; i=-1; select(keep, 1);
       if(!want){ vp.scrollLeft=0; document.body.classList.remove('in-showcase'); }
     }
