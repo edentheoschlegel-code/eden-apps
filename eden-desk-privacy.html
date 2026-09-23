@@ -55,7 +55,7 @@
 <main><div class="wrap">
   <p class="kick">iPhone, iPad &amp; Mac app</p>
   <h1>Privacy Policy · Eden Desk</h1>
-  <p class="updated">Last updated: 18 September 2026</p>
+  <p class="updated">Last updated: 22 September 2026</p>
   <p class="lead">The app collects nothing about you. There is no account, no analytics, no advertising, and no tracking of any kind. With Cloud off, which is how every install starts, nothing leaves your device.</p>
   <p>Information reaches us in exactly two ways, and both of them are something you choose to do. You can send one item to Eden Cloud. You can apply for Business or Enterprise. That is the whole list, and the two sections below say precisely what each one sends, where it is kept, and for how long. If you do neither, we hold nothing about you at all.</p>
   <p>The only code in the app that can reach the network at all lives in one separate module, which does nothing until you subscribe to Individual Cloud, switch Cloud on, and send one item after seeing exactly what it is. A check that runs on every build fails if any networking appears anywhere else, or if any other part of the app so much as refers to that module. Until 16 September 2026 the Mac had no permission from the system to use the network at all; Cloud replaced that wall with this smaller, checkable one, and this policy changed on the same day the code did.</p>
@@ -67,6 +67,9 @@
   <p>a folder you choose. They are yours to open with any other app, move, or delete.</p>
   <ul>
     <li><strong>Your scans and PDFs.</strong> Saved where you put them, on this device.</li>
+    <li><strong>Your voice recordings.</strong> Audio files you record in Capture, kept in the app's own folder on this device.</li>
+    <li><strong>The details you save for filling in forms</strong>, if you use the Form Assistant: things like your name, address or date of birth, written once, kept on this device, and offered only where you accept them.</li>
+    <li><strong>Your Budget.</strong> The accounts, transactions and debts you type in or import from a statement you choose. Kept on this device.</li>
     <li><strong>Your search index.</strong> A small file the app builds so it can find words</li>
   </ul>
   <p>inside your own notes and documents. It lives on this device and nowhere else, and it is kept out of device backups because the app can rebuild it.</p>
@@ -114,26 +117,26 @@
   </ul>
   <p>rules and your own Settings.</p>
   <h2>Purchases</h2>
-  <p>The one-time purchase and the free trial are handled entirely by Apple through the App Store. Eden Desk receives only whether they exist on your device. We never see your name, your payment details or your Apple Account. Apple's own privacy policy covers that transaction.</p>
+  <p>The one-time purchase and the free trial are handled entirely by Apple through the App Store. Eden Desk receives only whether Local is owned, whether the trial has been used and the day it started, and whether a purchase was later refunded. We never see your name, your payment details or your Apple Account. Apple's own privacy policy covers that transaction.</p>
   <h2>Individual Cloud</h2>
-  <p>If you send an item to Eden Cloud, as a subscriber with Cloud switched on or as one of three short tries before subscribing, that one item leaves your device: your question and the passages that matched it, or the words of one document you chose to summarise. It goes to our own server, which checks Apple's signed proof of your subscription, counts the send against the month, keeps the date and size of the request and never its content, and forwards the item to Anthropic, PBC in the United States. Each send also carries a random number the app makes for it, which our server remembers for two days so the same send is never sent or counted twice; nothing in that number comes from what you sent. Anthropic keeps what you send for up to 30 days and then deletes it, unless it is flagged under their usage policy, when they may keep it for up to two years, and does not use it to train their models. A try is counted against a random id the app made once, which says nothing about who you are. With Cloud off and no try sent, which is how every install starts, nothing leaves. Every send is written in your Paper Trail. Nothing in the Private Drawer can be sent.</p>
+  <p>If you send an item to Eden Cloud, as a subscriber with Cloud switched on or as one of three short tries before subscribing, that one item leaves your device: your question and the passages that matched it, or the words of one document you chose to summarise. It goes to our own server, which checks Apple's signed proof of your subscription, counts the send against the month, keeps the date and size of the request and never its content, and forwards the item to Anthropic, PBC in the United States. Each send also carries a random number the app makes for it, which our server remembers for two days so the same send is never sent or counted twice; nothing in that number comes from what you sent. Anthropic keeps what you send for up to 30 days and then deletes it, unless it is flagged under their usage policy, when they may keep it for up to two years, and does not use it to train their models. A try is counted against a random id the app made once, which says nothing about who you are. With Cloud off and no try sent, which is how every install starts, nothing leaves. Every answered send is written in your Paper Trail. A send that fails after the item has already reached our server, such as on a dropped connection, may not appear there even though the item left your device. Nothing in the Private Drawer can be sent.</p>
   <h2>The Business or Enterprise application</h2>
   <p>If you apply for Business or Enterprise from inside the app, the form you fill in goes to our own server when you press Send, so we can review it. This is the one place Eden Desk asks you for personal information, and it asks because an application from an organization has to come from a person at that organization.</p>
   <p><strong>What the form sends:</strong> the organization and its website, your name and your role, a work email at the organization's own domain, roughly how many people, the country or region, and a free-text description of what you need. The description is stored exactly as you typed it, so please do not put anything in it you would not want kept.</p>
-  <p><strong>Where it is kept:</strong> on our own server, which runs on Cloudflare's network. Eden reads it, to answer you. It is not used for anything else and it is not sold.</p>
+  <p><strong>Where it is kept:</strong> on our own server, which runs on Cloudflare's network. Eden reads it, to answer you. It is not used for anything else and it is not sold. We also keep the internet address the application came from, for 26 hours, only so that one address cannot apply more than five times in a day.</p>
   <p><strong>How long:</strong> it is deleted automatically six months after you send it. That timer starts when you press Send, not when we reply, so it goes whether or not the conversation went anywhere.</p>
   <p>We answer by email, and there are no calls. Nothing else on your desk goes with it.</p>
   <h2>What we never do</h2>
   <ul>
-    <li>The app asks you for nothing about yourself. The only personal information we ever hold is what you type into a Business or Enterprise application: your name, your role and your work email. Nothing in the app itself collects a name, an email, or an identity of any kind.</li>
+    <li>The app asks you for nothing about yourself. The only personal information we ever hold is what you type into a Business or Enterprise application, including its free-text description, plus the internet address that application came from, kept for 26 hours. Nothing in the app itself collects a name, an email, or an identity of any kind.</li>
     <li>With Cloud, our server sees Apple's signed proof of your subscription, which carries no name, no email and no Apple Account, and the one item you chose to send.</li>
     <li>We do not use analytics, advertising or tracking identifiers.</li>
     <li>We do not include any third party code, so nothing else is watching either.</li>
-    <li>We do not ask for your location or your contacts.</li>
+    <li>We do not ask for your location or your contacts. The one exception is the Business or Enterprise application, which asks for the organization's country or region so we know where the organization is.</li>
     <li>We do not sell data, and we do not sell an application you send us.</li>
   </ul>
   <h2>Children</h2>
-  <p>The app collects nothing from anyone, of any age. The Business or Enterprise application is the only part that asks for anything, and it is meant for someone applying on behalf of an organization they work for.</p>
+  <p>The app sends nothing about anyone, of any age. The Business or Enterprise application is the only part that sends what it asks for to us, and it is meant for someone applying on behalf of an organization they work for. The Form Assistant also asks you to save details like a name or an address so it can offer to fill a form field, but those stay on this device and are never sent.</p>
   <h2>Changes</h2>
   <p>Individual Cloud, added on 16 September 2026, is the one feature that touches the network, and this policy was updated before it shipped. It is off until you turn it on. The same rule holds for anything that follows: this policy changes before the feature does, the feature is off until you turn it on, and the date at the top changes.</p>
   <h2>Contact</h2>
