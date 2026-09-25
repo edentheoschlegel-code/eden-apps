@@ -24,6 +24,9 @@
     --lr:#047857; --lr-soft:#e5f5ee; --lr-tx:#047857;
     --lp:#e11d48; --lp-soft:#fdeaef; --lp-tx:#e11d48;
     --sb:#0e7490; --sb-soft:#e6f6fa; --sb-tx:#0e7490;
+    --hi:#46607e; --hi-soft:#eef2f6; --hi-tx:#46607e;
+    --rc:#3f6212; --rc-soft:#e9f1da; --rc-tx:#3f6212;
+    --sub:#1f3a68; --sub-soft:#e7ecf5; --sub-tx:#1f3a68;
     --radius:22px; --maxw:1080px;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
@@ -32,12 +35,16 @@
     --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
     --li-soft:#1a1840; --lr-soft:#0b2a1e; --lp-soft:#33121c; --sb-soft:#0c2a31;
     --li-tx:#8b83f0; --lr-tx:#34d399; --lp-tx:#fb7185; --sb-tx:#38bdf8;
+    --hi-soft:#1a2230; --rc-soft:#25321a; --sub-soft:#243258;
+    --hi-tx:#9db4cf; --rc-tx:#a9d86c; --sub-tx:#f5c566;
   }
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
     --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#8b93a1;
     --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
     --li-soft:#1a1840; --lr-soft:#0b2a1e; --lp-soft:#33121c; --sb-soft:#0c2a31;
     --li-tx:#8b83f0; --lr-tx:#34d399; --lp-tx:#fb7185; --sb-tx:#38bdf8;
+    --hi-soft:#1a2230; --rc-soft:#25321a; --sub-soft:#243258;
+    --hi-tx:#9db4cf; --rc-tx:#a9d86c; --sub-tx:#f5c566;
   }}
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -112,6 +119,9 @@
   .acard.lr{--acc:var(--lr-tx); --acc-soft:var(--lr-soft)}
   .acard.lp{--acc:var(--lp-tx); --acc-soft:var(--lp-soft)}
   .acard.sb{--acc:var(--sb-tx); --acc-soft:var(--sb-soft)}
+  .acard.hi{--acc:var(--hi-tx); --acc-soft:var(--hi-soft)}
+  .acard.rc{--acc:var(--rc-tx); --acc-soft:var(--rc-soft)}
+  .acard.sub{--acc:var(--sub-tx); --acc-soft:var(--sub-soft)}
   .ahead{display:flex; align-items:center; gap:14px}
   .aicon{width:52px; height:52px; border-radius:14px; flex:none; object-fit:cover; box-shadow:0 1px 0 rgba(20,21,42,.04)}
   .aname{font-family:'EdenMarker',var(--font); font-size:20px; font-weight:800; letter-spacing:-.015em; margin:0; line-height:1.1}
@@ -170,7 +180,7 @@
   <main id="main">
     <div class="sec-head">
       <h2>Local apps</h2>
-      <span class="count">6 live</span>
+      <span class="count">9 live</span>
     </div>
     <p class="sec-note">These apps work directly on your device, without an account or signup. Additional features are available through a one-time purchase.</p>
 
@@ -265,6 +275,48 @@
           <span class="aprice">Pro: <b>$12.99</b>, one-time purchase</span>
           <span class="alinks">
             <a class="aopen" href="https://apps.apple.com/app/id6799491646" target="_blank" rel="noopener" title="Opens Local Scan on the App Store, in a new tab">App Store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </span>
+        </div>
+      </article>
+      <article class="acard hi">
+        <div class="ahead">
+          <img class="aicon" src="assets/localhomeinventory.png" alt="" width="52" height="52">
+          <div><h3 class="aname">Local Home Inventory</h3><p class="akicker">Home inventory &middot; iPhone &amp; iPad app</p></div>
+        </div>
+        <p class="adesc">Remember what you own room by room with gentle prompts, find proof in your own photos on your device, and export a contents spreadsheet for your insurer.</p>
+        <div class="atags"><span class="atag">Home</span><span class="atag lock">On your device</span></div>
+        <div class="afoot">
+          <span class="aprice">Pro: <b>$5.99</b>, one-time purchase</span>
+          <span class="alinks">
+            <a class="aopen" href="https://apps.apple.com/app/id6814119502" target="_blank" rel="noopener" title="Opens Local Home Inventory on the App Store, in a new tab">App Store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </span>
+        </div>
+      </article>
+      <article class="acard rc">
+        <div class="ahead">
+          <img class="aicon" src="assets/localreceipts.png" alt="" width="52" height="52">
+          <div><h3 class="aname">Local Receipts</h3><p class="akicker">Receipt tracker &middot; iPhone &amp; iPad app</p></div>
+        </div>
+        <p class="adesc">Photograph a receipt, check the merchant, date, total and tax it reads on your device, and see what you spent each month by category.</p>
+        <div class="atags"><span class="atag">Money</span><span class="atag lock">On your device</span></div>
+        <div class="afoot">
+          <span class="aprice">Pro: <b>$12.99</b>, one-time purchase</span>
+          <span class="alinks">
+            <a class="aopen" href="https://apps.apple.com/app/id6813875113" target="_blank" rel="noopener" title="Opens Local Receipts on the App Store, in a new tab">App Store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </span>
+        </div>
+      </article>
+      <article class="acard sub">
+        <div class="ahead">
+          <img class="aicon" src="assets/localsubscriptions.png" alt="" width="52" height="52">
+          <div><h3 class="aname">Local Subscriptions</h3><p class="akicker">Subscription &amp; bill tracker &middot; iPhone &amp; iPad app</p></div>
+        </div>
+        <p class="adesc">Type in your subscriptions, bills, insurance and free trials, see what they cost each month and each year, and get a reminder before each date.</p>
+        <div class="atags"><span class="atag">Money</span><span class="atag lock">On your device</span></div>
+        <div class="afoot">
+          <span class="aprice">Pro: <b>$12.99</b>, one-time purchase</span>
+          <span class="alinks">
+            <a class="aopen" href="https://apps.apple.com/app/id6813877684" target="_blank" rel="noopener" title="Opens Local Subscriptions on the App Store, in a new tab">App Store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </span>
         </div>
       </article>

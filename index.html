@@ -31,6 +31,11 @@
     --lr:#047857; --lr-soft:#e5f5ee; --lr-tx:#047857;
     --lj:#7b3f6b; --lj-soft:#f8f1f6; --lj-tx:#7b3f6b;
     --ls:#c2410c; --ls-soft:#fdeee5; --ls-tx:#c2410c;
+    /* Each app's own brand colour: Local Home Inventory's slate, Local Receipts'
+       ink green, Local Subscriptions' ink navy. */
+    --hi:#46607e; --hi-soft:#eef2f6; --hi-tx:#46607e;
+    --rc:#3f6212; --rc-soft:#e9f1da; --rc-tx:#3f6212;
+    --sub:#1f3a68; --sub-soft:#e7ecf5; --sub-tx:#1f3a68;
     /* Signup button. Deep enough to carry a white label at 7.9:1. Kept off --li on
        purpose: that token also drives the Local Invoice accent and the filter chips. */
     --cta:#0e5585; --cta-ink:#ffffff;
@@ -42,6 +47,10 @@
       --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
       --sb-soft:#0c2a31; --lp-soft:#33121c; --li-soft:#1a1840; --lr-soft:#0b2a1e;
       --sb-tx:#38bdf8; --lp-tx:#fb7185; --li-tx:#8b83f0; --lr-tx:#34d399; --lj-tx:#d69fc4; --ls-tx:#fb923c;
+      /* text tones are each app's own dark-mode colour; the fills are lifted so the
+         outlined App Store link stays readable here (the navy alone is 1.7:1) */
+      --hi-tx:#9db4cf; --rc-tx:#a9d86c; --sub-tx:#f5c566;
+      --hi:#56708f; --rc:#4d7616; --sub:#4b6cab;
   }
   @media (prefers-color-scheme:dark){
     :root:not([data-theme="light"]){
@@ -49,6 +58,8 @@
       --line:#23252f; --line-strong:#2c2f3b; --shadow:20px 40px 80px -40px rgba(0,0,0,.7);
       --sb-soft:#0c2a31; --lp-soft:#33121c; --li-soft:#1a1840; --lr-soft:#0b2a1e;
       --sb-tx:#38bdf8; --lp-tx:#fb7185; --li-tx:#8b83f0; --lr-tx:#34d399; --lj-tx:#d69fc4; --ls-tx:#fb923c;
+      --hi-tx:#9db4cf; --rc-tx:#a9d86c; --sub-tx:#f5c566;
+      --hi:#56708f; --rc:#4d7616; --sub:#4b6cab;
     }
   }
   *{box-sizing:border-box}
@@ -265,7 +276,7 @@
   .track{display:flex; transition:transform .55s cubic-bezier(.4,0,.2,1)}
   @media (prefers-reduced-motion:reduce){ .track{transition:none} }
   .slide{min-width:100%; display:grid; grid-template-columns:1.32fr 1fr; gap:32px; align-items:center; padding:4px}
-  .slide.sb{--ac:var(--sb); --ac-tx:var(--sb-tx)} .slide.lp{--ac:var(--lp); --ac-tx:var(--lp-tx)} .slide.li{--ac:var(--li); --ac-tx:var(--li-tx)}.slide.lj{--ac:var(--lj); --ac-tx:var(--lj-tx)}.slide.ls{--ac:var(--ls); --ac-tx:var(--ls-tx)}
+  .slide.sb{--ac:var(--sb); --ac-tx:var(--sb-tx)} .slide.lp{--ac:var(--lp); --ac-tx:var(--lp-tx)} .slide.li{--ac:var(--li); --ac-tx:var(--li-tx)}.slide.lj{--ac:var(--lj); --ac-tx:var(--lj-tx)}.slide.ls{--ac:var(--ls); --ac-tx:var(--ls-tx)}.slide.hi{--ac:var(--hi); --ac-tx:var(--hi-tx)}.slide.rc{--ac:var(--rc); --ac-tx:var(--rc-tx)}.slide.sub{--ac:var(--sub); --ac-tx:var(--sub-tx)}
   .hero-l2{font-size:.85em}
   .for-a{display:none}
   .for-b{display:inline}
@@ -300,7 +311,7 @@
   @font-face{font-family:'EdenEditorial';src:url('assets/fonts/EdenEditorial-Regular.otf');font-display:swap}
   .tab{display:inline-flex; align-items:center; gap:8px; font:inherit; font-size:14px; font-weight:700; font-family:'EdenEditorial',var(--font); color:var(--muted); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:6px 15px 6px 7px; cursor:pointer; transition:color .2s, background .2s, border-color .2s}
   .tab img{width:22px; height:22px; border-radius:6px}
-  .tab.sb{--ac:var(--sb)} .tab.lp{--ac:var(--lp)} .tab.li{--ac:var(--li)}.tab.lj{--ac:var(--lj)}.tab.ls{--ac:var(--ls)} .tab.lr{--ac:var(--lr)}
+  .tab.sb{--ac:var(--sb)} .tab.lp{--ac:var(--lp)} .tab.li{--ac:var(--li)}.tab.lj{--ac:var(--lj)}.tab.ls{--ac:var(--ls)} .tab.lr{--ac:var(--lr)} .tab.hi{--ac:var(--hi)} .tab.rc{--ac:var(--rc)} .tab.sub{--ac:var(--sub)}
   .tab[aria-pressed="true"]{color:#fff; background:var(--ac); border-color:var(--ac)}
   /* Local Journal is the one app with no paid tier, so the pill says so. */
   .tab .tfree{font-size:10px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; line-height:1; padding:3px 6px; border-radius:999px; background:var(--ac); color:#fff; margin-left:1px}
@@ -372,7 +383,8 @@
   @media (max-width:760px){ .showcase .slide{min-width:88%} .showcase .track{padding:0 6%} }
 
   /* full screen (added by JS) */
-  .showcase.immersive{height:calc(100vh - var(--hdr,76px) + 6 * 64vh); margin-bottom:clamp(40px,8vh,96px)}
+  /* 64vh of scrolling per app: the multiplier is the number of slides */
+  .showcase.immersive{height:calc(100vh - var(--hdr,76px) + 9 * 64vh); margin-bottom:clamp(40px,8vh,96px)}
   .immersive .stage{position:sticky; top:var(--hdr,76px); height:calc(100vh - var(--hdr,76px)); width:100vw; margin-left:calc(50% - 50vw); background:var(--bg); overflow:hidden}
   .immersive .viewport{position:absolute; inset:0; overflow:visible; scroll-snap-type:none; padding:0; perspective:2000px}
   /* the whole set grows from a card into the full screen as the section arrives */
@@ -420,9 +432,9 @@
   body.in-showcase header{border-bottom-color:transparent!important; box-shadow:none!important}
 
   /* full screen: the screenshot spans the whole width and its lower part
-     melts into the page beneath the caption. Local Scan keeps its phones. */
+     melts into the page beneath the caption. The iPhone & iPad apps keep their phones. */
   .immersive .slide .frame{width:min(90%, 1500px); height:calc(100vh - var(--hdr,76px) - var(--budget)); overflow:hidden}
-  /* Local Scan shares the same frame; its iPad and phones are sized to sit inside it */
+  /* The iPhone & iPad apps (Local Scan and the three after it) share the same frame; their iPad and phones are sized to sit inside it */
   .immersive .phones{padding:2.5% 8% 0; gap:3.5%}
   .immersive .phones .pg{width:19%}
   .immersive .phones .pg.ipad{width:31%}
@@ -433,7 +445,7 @@
   .showcase .pg{grid-area:1/1; display:block; position:relative}
   .showcase .pg:not(:first-child){visibility:hidden}
   .showcase .pglabels{display:none}
-  /* Local Scan: three phone screens side by side */
+  /* iPhone & iPad apps: the iPad and two phone screens side by side */
   .showcase .pages.phones{display:flex; justify-content:center; align-items:flex-start; gap:3%; padding:3% 1.5% 0}
   .showcase .phones .pg.ipad{width:41%}
   .showcase .phones .pg{visibility:visible; width:25.5%; border-radius:clamp(14px,2.2vw,28px); overflow:hidden; background:#fff;
@@ -456,7 +468,7 @@
   .immersive .pg.on{visibility:visible; opacity:1; filter:blur(0); transform:none; transition:opacity .7s ease, filter .85s ease, transform .9s cubic-bezier(.16,1,.3,1)}
   .immersive .frame img{transform:scale(calc(1 + var(--lp,0) * .03))}
 
-  /* Local Scan: each phone steps forward in turn */
+  /* iPhone & iPad apps: each screen steps forward in turn */
   .immersive .phones .pg, .immersive .phones .pg.seen{clip-path:none; filter:none; opacity:.45; transform:translate3d(0,34px,0) scale(.93);
     transition:transform 1.1s cubic-bezier(.16,1,.3,1), opacity .7s ease, box-shadow .8s ease}
   .immersive .phones .pg.seen{opacity:.7; transform:translate3d(0,12px,0) scale(.96)}
@@ -719,7 +731,7 @@
   <main id="main">
     <div class="sec-head" id="apps">
       <h2>Eden Local Apps</h2>
-      <span class="count">6 live</span>
+      <span class="count">9 live</span>
     </div>
     <p class="sec-note">Private, local-first tools designed to work directly on your device, without an account or signup. Additional features are available through a one-time purchase.</p>
 
@@ -732,10 +744,13 @@
         <button class="tab sb" type="button" data-i="3" aria-pressed="false" aria-controls="slide-sb" title="My Snowball · debt payoff planner"><img src="assets/snowball.png" alt="" width="22" height="22">My Snowball</button>
         <button class="tab lj" type="button" data-i="4" aria-pressed="false" aria-controls="slide-lj" title="Local Journal · private journal · free"><img src="assets/localjournal.png" alt="" width="22" height="22">Local Journal<span class="tfree">Free</span></button>
         <button class="tab ls" type="button" data-i="5" aria-pressed="false" aria-controls="slide-ls" title="Local Scan · document scanner"><img src="assets/localscan.png" alt="" width="22" height="22">Local Scan</button>
+        <button class="tab hi" type="button" data-i="6" aria-pressed="false" aria-controls="slide-hi" title="Local Home Inventory · home inventory"><img src="assets/localhomeinventory.png" alt="" width="22" height="22">Local Home Inventory</button>
+        <button class="tab rc" type="button" data-i="7" aria-pressed="false" aria-controls="slide-rc" title="Local Receipts · receipt tracker"><img src="assets/localreceipts.png" alt="" width="22" height="22">Local Receipts</button>
+        <button class="tab sub" type="button" data-i="8" aria-pressed="false" aria-controls="slide-sub" title="Local Subscriptions · subscription &amp; bill tracker"><img src="assets/localsubscriptions.png" alt="" width="22" height="22">Local Subscriptions</button>
         </div>
         <div class="viewport">
           <div class="track" id="eaTrack">
-        <article class="slide li" id="slide-li" role="group" aria-roledescription="slide" aria-label="Local Invoice, 1 of 6">
+        <article class="slide li" id="slide-li" role="group" aria-roledescription="slide" aria-label="Local Invoice, 1 of 9">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localinvoiceapp.com</span></div>
             <a href="https://localinvoiceapp.com" target="_blank" rel="noopener" aria-label="Open Local Invoice"><span class="pages"><span class="pg" data-label="Dashboard"><img class="shot shot-light" src="assets/showcase/localinvoice-1-light.jpg" alt="Local Invoice: dashboard" loading="eager" fetchpriority="high" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localinvoice-1-dark.jpg" alt="Local Invoice: dashboard" loading="lazy" width="1440" height="920"></span><span class="pg" data-label="Invoices"><img class="shot shot-light" src="assets/showcase/localinvoice-2-light.jpg" alt="Local Invoice: invoices" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localinvoice-2-dark.jpg" alt="Local Invoice: invoices" loading="lazy" width="1440" height="920"></span><span class="pg" data-label="Estimates"><img class="shot shot-light" src="assets/showcase/localinvoice-3-light.jpg" alt="Local Invoice: estimates" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localinvoice-3-dark.jpg" alt="Local Invoice: estimates" loading="lazy" width="1440" height="920"></span><span class="pg" data-label="Clients"><img class="shot shot-light" src="assets/showcase/localinvoice-4-light.jpg" alt="Local Invoice: clients" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localinvoice-4-dark.jpg" alt="Local Invoice: clients" loading="lazy" width="1440" height="920"></span></span></a>
@@ -754,7 +769,7 @@
             </div>
           </div>
         </article>
-        <article class="slide lr" id="slide-lr" role="group" aria-roledescription="slide" aria-label="LocalResume, 2 of 6">
+        <article class="slide lr" id="slide-lr" role="group" aria-roledescription="slide" aria-label="LocalResume, 2 of 9">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localresumeapp.com</span></div>
             <a href="https://localresumeapp.com" target="_blank" rel="noopener" aria-label="Open LocalResume"><span class="pages"><span class="pg" data-label="Editor"><img class="shot shot-light" src="assets/showcase/localresume-1-light.jpg" alt="LocalResume: editor" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localresume-1-dark.jpg" alt="LocalResume: editor" loading="lazy" width="1440" height="920"></span><span class="pg" data-label="Resume score"><img class="shot shot-light" src="assets/showcase/localresume-2-light.jpg" alt="LocalResume: resume score" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localresume-2-dark.jpg" alt="LocalResume: resume score" loading="lazy" width="1440" height="920"></span><span class="pg" data-label="Job match"><img class="shot shot-light" src="assets/showcase/localresume-3-light.jpg" alt="LocalResume: job match" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localresume-3-dark.jpg" alt="LocalResume: job match" loading="lazy" width="1440" height="920"></span></span></a>
@@ -773,7 +788,7 @@
             </div>
           </div>
         </article>
-        <article class="slide lp" id="slide-lp" role="group" aria-roledescription="slide" aria-label="Local PDF, 3 of 6">
+        <article class="slide lp" id="slide-lp" role="group" aria-roledescription="slide" aria-label="Local PDF, 3 of 9">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localpdfapp.com</span></div>
             <a href="https://localpdfapp.com" target="_blank" rel="noopener" aria-label="Open Local PDF"><span class="pages"><span class="pg" data-label="All tools"><img class="shot shot-light" src="assets/showcase/localpdf-1-light.jpg" alt="Local PDF: all tools" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localpdf-1-dark.jpg" alt="Local PDF: all tools" loading="lazy" width="1440" height="920"></span><span class="pg" data-label="Organize pages"><img class="shot shot-light" src="assets/showcase/localpdf-2-light.jpg" alt="Local PDF: organize pages" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localpdf-2-dark.jpg" alt="Local PDF: organize pages" loading="lazy" width="1440" height="920"></span><span class="pg" data-label="Merge"><img class="shot shot-light" src="assets/showcase/localpdf-3-light.jpg" alt="Local PDF: merge" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localpdf-3-dark.jpg" alt="Local PDF: merge" loading="lazy" width="1440" height="920"></span></span></a>
@@ -792,7 +807,7 @@
             </div>
           </div>
         </article>
-        <article class="slide sb" id="slide-sb" role="group" aria-roledescription="slide" aria-label="My Snowball, 4 of 6">
+        <article class="slide sb" id="slide-sb" role="group" aria-roledescription="slide" aria-label="My Snowball, 4 of 9">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">mysnowballapp.com</span></div>
             <a href="https://mysnowballapp.com" target="_blank" rel="noopener" aria-label="Open My Snowball"><span class="pages"><span class="pg" data-label="Plan"><img class="shot shot-light" src="assets/showcase/snowball-1-light.jpg" alt="My Snowball: plan" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/snowball-1-dark.jpg" alt="My Snowball: plan" loading="lazy" width="1440" height="920"></span><span class="pg" data-label="Payoff plan"><img class="shot shot-light" src="assets/showcase/snowball-2-light.jpg" alt="My Snowball: payoff plan" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/snowball-2-dark.jpg" alt="My Snowball: payoff plan" loading="lazy" width="1440" height="920"></span><span class="pg" data-label="Your debts"><img class="shot shot-light" src="assets/showcase/snowball-3-light.jpg" alt="My Snowball: your debts" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/snowball-3-dark.jpg" alt="My Snowball: your debts" loading="lazy" width="1440" height="920"></span></span></a>
@@ -811,7 +826,7 @@
             </div>
           </div>
         </article>
-        <article class="slide lj" id="slide-lj" role="group" aria-roledescription="slide" aria-label="Local Journal, 5 of 6">
+        <article class="slide lj" id="slide-lj" role="group" aria-roledescription="slide" aria-label="Local Journal, 5 of 9">
           <div class="frame">
             <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">localjournalapp.com</span></div>
             <a href="https://localjournalapp.com" target="_blank" rel="noopener" aria-label="Open Local Journal"><span class="pages"><span class="pg" data-label="Entries"><img class="shot shot-light" src="assets/showcase/localjournal-1-light.jpg" alt="Local Journal: entries" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localjournal-1-dark.jpg" alt="Local Journal: entries" loading="lazy" width="1440" height="920"></span><span class="pg" data-label="Calendar"><img class="shot shot-light" src="assets/showcase/localjournal-2-light.jpg" alt="Local Journal: calendar" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localjournal-2-dark.jpg" alt="Local Journal: calendar" loading="lazy" width="1440" height="920"></span><span class="pg" data-label="Entry"><img class="shot shot-light" src="assets/showcase/localjournal-3-light.jpg" alt="Local Journal: entry" loading="lazy" width="1440" height="920"><img class="shot shot-dark" src="assets/showcase/localjournal-3-dark.jpg" alt="Local Journal: entry" loading="lazy" width="1440" height="920"></span></span></a>
@@ -830,7 +845,7 @@
             </div>
           </div>
         </article>
-        <article class="slide ls" id="slide-ls" role="group" aria-roledescription="slide" aria-label="Local Scan, 6 of 6">
+        <article class="slide ls" id="slide-ls" role="group" aria-roledescription="slide" aria-label="Local Scan, 6 of 9">
           <div class="frame phoneframe">
             <span class="pages phones"><span class="pg ipad" data-label="iPad"><img src="assets/showcase/localscan-ipad.jpg" alt="Local Scan on iPad: adjusting a scanned page" loading="lazy" width="1046" height="1398"></span><span class="pg" data-label="iPhone"><img src="assets/showcase/localscan-1.jpg" alt="Local Scan on iPhone: capture screen" loading="lazy" width="644" height="1398"></span><span class="pg" data-label="Save"><img src="assets/showcase/localscan-3.jpg" alt="Local Scan on iPhone: save your scan" loading="lazy" width="644" height="1398"></span></span>
           </div>
@@ -843,6 +858,57 @@
               <span class="price">Pro: <b>$12.99</b>, one-time purchase</span>
               <span class="applinks">
                 <a class="appstore" href="https://apps.apple.com/app/id6799491646" target="_blank" rel="noopener" title="Opens Local Scan on the App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </span>
+            </div>
+          </div>
+        </article>
+        <article class="slide hi" id="slide-hi" role="group" aria-roledescription="slide" aria-label="Local Home Inventory, 7 of 9">
+          <div class="frame phoneframe">
+            <span class="pages phones"><span class="pg ipad" data-label="iPad"><img src="assets/showcase/localhomeinventory-ipad.jpg" alt="Local Home Inventory on iPad: a list grouped by room beside an item's value and its proof photos" loading="lazy" width="1046" height="1398"></span><span class="pg" data-label="Memory walk"><img src="assets/showcase/localhomeinventory-1.jpg" alt="Local Home Inventory on iPhone: the memory walk asking gentle questions about the living room" loading="lazy" width="644" height="1398"></span><span class="pg" data-label="Find proof"><img src="assets/showcase/localhomeinventory-2.jpg" alt="Local Home Inventory on iPhone: receipts and serial labels found in your own photos" loading="lazy" width="644" height="1398"></span></span>
+          </div>
+          <div class="meta">
+            <div class="mhead"><img class="icon" src="assets/localhomeinventory.png" alt="" width="48" height="48"><div><h3 class="name">Local Home Inventory</h3><p class="kicker">Home inventory &middot; iPhone &amp; iPad app</p></div></div>
+            <p class="desc">Remember what you own room by room with gentle prompts, find proof in your own photos on your device, and export a contents spreadsheet for your insurer.</p>
+            <div class="tags"><span class="tag">Home</span><span class="tag lock">On your device</span></div>
+            <p class="split"><b>Included:</b> 25 items, one home, memory walk, photo proof, CSV spreadsheet &amp; backup &middot; <b>Pro:</b> unlimited items, more homes &amp; PDF claim packet</p>
+            <div class="foot">
+              <span class="price">Pro: <b>$5.99</b>, one-time purchase</span>
+              <span class="applinks">
+                <a class="appstore" href="https://apps.apple.com/app/id6814119502" target="_blank" rel="noopener" title="Opens Local Home Inventory on the App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </span>
+            </div>
+          </div>
+        </article>
+        <article class="slide rc" id="slide-rc" role="group" aria-roledescription="slide" aria-label="Local Receipts, 8 of 9">
+          <div class="frame phoneframe">
+            <span class="pages phones"><span class="pg ipad" data-label="iPad"><img src="assets/showcase/localreceipts-ipad.jpg" alt="Local Receipts on iPad: receipts grouped by month" loading="lazy" width="1046" height="1398"></span><span class="pg" data-label="Check details"><img src="assets/showcase/localreceipts-1.jpg" alt="Local Receipts on iPhone: checking the merchant, total and tax read from a receipt" loading="lazy" width="644" height="1398"></span><span class="pg" data-label="Totals"><img src="assets/showcase/localreceipts-2.jpg" alt="Local Receipts on iPhone: a month's totals by category" loading="lazy" width="644" height="1398"></span></span>
+          </div>
+          <div class="meta">
+            <div class="mhead"><img class="icon" src="assets/localreceipts.png" alt="" width="48" height="48"><div><h3 class="name">Local Receipts</h3><p class="kicker">Receipt tracker &middot; iPhone &amp; iPad app</p></div></div>
+            <p class="desc">Photograph a receipt, check the merchant, date, total and tax it reads on your device, and see what you spent each month by category.</p>
+            <div class="tags"><span class="tag">Money</span><span class="tag lock">On your device</span></div>
+            <p class="split"><b>Included:</b> up to 15 receipts, text reading, totals, CSV &amp; backups &middot; <b>Pro:</b> unlimited receipts &amp; PDF expense reports</p>
+            <div class="foot">
+              <span class="price">Pro: <b>$12.99</b>, one-time purchase</span>
+              <span class="applinks">
+                <a class="appstore" href="https://apps.apple.com/app/id6813875113" target="_blank" rel="noopener" title="Opens Local Receipts on the App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </span>
+            </div>
+          </div>
+        </article>
+        <article class="slide sub" id="slide-sub" role="group" aria-roledescription="slide" aria-label="Local Subscriptions, 9 of 9">
+          <div class="frame phoneframe">
+            <span class="pages phones"><span class="pg ipad" data-label="iPad"><img src="assets/showcase/localsubscriptions-ipad.jpg" alt="Local Subscriptions on iPad: your renewals, monthly and yearly totals, and what is coming up" loading="lazy" width="1046" height="1398"></span><span class="pg" data-label="iPhone"><img src="assets/showcase/localsubscriptions-1.jpg" alt="Local Subscriptions on iPhone: what you spend each month and year, and what is coming up" loading="lazy" width="644" height="1398"></span><span class="pg" data-label="Reminders"><img src="assets/showcase/localsubscriptions-2.jpg" alt="Local Subscriptions on iPhone: your renewals, with reminders set before each date" loading="lazy" width="644" height="1398"></span></span>
+          </div>
+          <div class="meta">
+            <div class="mhead"><img class="icon" src="assets/localsubscriptions.png" alt="" width="48" height="48"><div><h3 class="name">Local Subscriptions</h3><p class="kicker">Subscription &amp; bill tracker &middot; iPhone &amp; iPad app</p></div></div>
+            <p class="desc">Type in your subscriptions, bills, insurance and free trials, see what they cost each month and each year, and get a reminder before each date.</p>
+            <div class="tags"><span class="tag">Money</span><span class="tag lock">On your device</span></div>
+            <p class="split"><b>Included:</b> up to 3 renewals, totals, reminders, CSV export &amp; backups &middot; <b>Pro:</b> as many renewals as you like</p>
+            <div class="foot">
+              <span class="price">Pro: <b>$12.99</b>, one-time purchase</span>
+              <span class="applinks">
+                <a class="appstore" href="https://apps.apple.com/app/id6813877684" target="_blank" rel="noopener" title="Opens Local Subscriptions on the App Store, in a new tab">App Store<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               </span>
             </div>
           </div>
