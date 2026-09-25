@@ -26,6 +26,8 @@
     --sb:#0e7490; --sb-soft:#e6f6fa; --sb-tx:#0e7490;
     --hi:#46607e; --hi-soft:#eef2f6; --hi-tx:#46607e;
     --rc:#3f6212; --rc-soft:#e9f1da; --rc-tx:#3f6212;
+    --lj:#7b3f6b; --lj-soft:#f8f1f6; --lj-tx:#7b3f6b;
+    --ls:#c2410c; --ls-soft:#fdeee5; --ls-tx:#c2410c;
     --sub:#1f3a68; --sub-soft:#e7ecf5; --sub-tx:#1f3a68;
     --radius:22px; --maxw:1080px;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -37,6 +39,8 @@
     --li-tx:#8b83f0; --lr-tx:#34d399; --lp-tx:#fb7185; --sb-tx:#38bdf8;
     --hi-soft:#1a2230; --rc-soft:#25321a; --sub-soft:#243258;
     --hi-tx:#9db4cf; --rc-tx:#a9d86c; --sub-tx:#f5c566;
+    --lj-soft:#2a1626; --ls-soft:#34180b;
+    --lj-tx:#d69fc4; --ls-tx:#fb923c;
   }
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
     --bg:#0c0d12; --surface:#15161d; --ink:#f0f1f6; --muted:#a3abb9; --faint:#8b93a1;
@@ -45,6 +49,8 @@
     --li-tx:#8b83f0; --lr-tx:#34d399; --lp-tx:#fb7185; --sb-tx:#38bdf8;
     --hi-soft:#1a2230; --rc-soft:#25321a; --sub-soft:#243258;
     --hi-tx:#9db4cf; --rc-tx:#a9d86c; --sub-tx:#f5c566;
+    --lj-soft:#2a1626; --ls-soft:#34180b;
+    --lj-tx:#d69fc4; --ls-tx:#fb923c;
   }}
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -122,6 +128,8 @@
   .acard.hi{--acc:var(--hi-tx); --acc-soft:var(--hi-soft)}
   .acard.rc{--acc:var(--rc-tx); --acc-soft:var(--rc-soft)}
   .acard.sub{--acc:var(--sub-tx); --acc-soft:var(--sub-soft)}
+  .acard.lj{--acc:var(--lj-tx); --acc-soft:var(--lj-soft)}
+  .acard.ls{--acc:var(--ls-tx); --acc-soft:var(--ls-soft)}
   .ahead{display:flex; align-items:center; gap:14px}
   .aicon{width:52px; height:52px; border-radius:14px; flex:none; object-fit:cover; box-shadow:0 1px 0 rgba(20,21,42,.04)}
   .aname{font-family:'EdenMarker',var(--font); font-size:20px; font-weight:800; letter-spacing:-.015em; margin:0; line-height:1.1}
