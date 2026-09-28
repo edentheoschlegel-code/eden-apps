@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'">
+<title>Support · Local Stayline · Eden Apps</title>
+<meta name="description" content="Help for Local Stayline, an iPhone and iPad app by Eden Apps that counts Schengen 90/180 days and tax days per country.">
+<link rel="canonical" href="https://edenapps.app/local-stayline-support.html">
+<link rel="icon" href="assets/eden-logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+  :root{--bg:#fbfbfd;--surface:#fff;--ink:#14152a;--muted:#525b6a;--faint:#616c7e;--line:#e9eaf0;
+    --li-tx:#1B6E7A;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  :root[data-theme="dark"]{--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#58C4CF}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#58C4CF}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--li-tx);text-decoration:none}
+  .wrap{max-width:740px;margin:0 auto;padding:0 24px}
+  header{padding:24px 0;border-bottom:1px solid var(--line)}
+  .brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em;font-size:17px;color:var(--ink);text-decoration:none}
+  .logo{width:27px;height:27px;display:block;object-fit:contain}
+  main{padding:46px 0 60px}
+  .kick{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:0 0 8px}
+  h1{font-size:clamp(28px,5vw,36px);letter-spacing:-.03em;margin:0 0 8px;color:var(--ink)}
+  .updated{color:var(--faint);font-size:14px;margin:0 0 34px}
+  h2{font-size:19px;letter-spacing:-.01em;margin:34px 0 10px;color:var(--ink)}
+  p,li,td,th{color:var(--muted);font-size:16px}
+  p{margin:0 0 14px}
+  ul{margin:0 0 14px;padding-left:20px}li{margin:0 0 8px}
+  strong{color:var(--ink);font-weight:650}
+  .lead{font-size:17.5px;color:var(--ink)}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14.5px;background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+  /* The summary table is two columns of prose; it scrolls rather than squeezing
+     on a phone, which is the width most of these pages are read at. */
+  table{width:100%;border-collapse:collapse;margin:0 0 18px;display:block;overflow-x:auto}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink);font-weight:650;font-size:14px;letter-spacing:.01em}
+  tbody th{font-size:15px;min-width:9.5em}
+  footer{border-top:1px solid var(--line)}
+  .frow{display:flex;gap:18px;flex-wrap:wrap;align-items:center;padding:24px 0 48px;color:var(--faint);font-size:13.5px}
+  .frow a{color:var(--muted)}
+  .sib{display:flex;gap:16px;flex-wrap:wrap;margin:38px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:14.5px}
+  @font-face{font-family:'EdenColumn';src:url('assets/fonts/EdenColumn-Regular.otf');font-display:swap}
+  .wm{display:inline-flex;gap:.28em;font-family:'EdenColumn',var(--font)}.wm-e{color:#bf8f2b}.wm-a{color:#0a8f5c}
+  :root[data-theme="dark"] .wm-e{color:#e8c06f}:root[data-theme="dark"] .wm-a{color:#34d399}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .wm-e{color:#e8c06f}:root:not([data-theme="light"]) .wm-a{color:#34d399}}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .themebtn{display:inline-grid;place-items:center;width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer;padding:0;transition:border-color .2s,color .2s}
+  .themebtn:hover{border-color:var(--li-tx);color:var(--li-tx)}
+  .themebtn svg{width:16px;height:16px}
+  .themebtn:focus-visible,.frow a:focus-visible,.brand:focus-visible,.sib a:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
+</style>
+<script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<style id="eden-type">
+  /* Eden Apps type system, matched to the homepage (index.html): Sprinkle wordmark, Wide titles,
+     Round intro and labels, Bold section headings, Column notes. Long text stays in the system font. */
+  @font-face{font-family:'EdenSprinkle';src:url('assets/fonts/EdenSprinkle-Regular.otf');font-display:swap}
+  @font-face{font-family:'EdenWide';src:url('assets/fonts/EdenWide-Regular.otf');font-display:swap}
+  @font-face{font-family:'EdenRound';src:url('assets/fonts/EdenRound-Regular.otf');font-display:swap}
+  @font-face{font-family:'EdenBold';src:url('assets/fonts/EdenBold-Regular.otf');font-display:swap}
+  @font-face{font-family:'EdenColumn';src:url('assets/fonts/EdenColumn-Regular.otf');font-display:swap}
+  .wm{font-family:'EdenSprinkle',var(--font)}
+  h1{font-family:'EdenWide',var(--font);font-weight:800;letter-spacing:-.02em;line-height:1.2;-webkit-text-stroke:.5px currentColor}
+  .kick{font-family:'EdenRound',var(--font)}
+  .lead{font-family:'EdenRound',var(--font);line-height:1.7}
+  h2{font-family:'EdenBold',var(--font)}
+  .updated,.sib{font-family:'EdenColumn',var(--font)}
+  /* Every other text in EdenRound (the homepage's reading face); code in EdenColumn. */
+  body,p,li,td,th,a,button,footer,.frow,.frow a,.sib,.sib a,strong,em,small,summary,details,label,input,select,textarea{font-family:'EdenRound',var(--font)}
+  p,li,td,th{line-height:1.7}
+  code,kbd,samp,pre{font-family:'EdenColumn',ui-monospace,SFMono-Regular,Menlo,monospace}
+  .wm{font-family:'EdenSprinkle',var(--font)}
+  h1{font-family:'EdenWide',var(--font)}
+  h2,h3{font-family:'EdenBold',var(--font)}
+  .updated{font-family:'EdenColumn',var(--font)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html"><img class="logo" src="assets/eden-logo.png" alt="Eden Apps logo" width="27" height="27"><span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span></a><button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button></div></header>
+<main><div class="wrap">
+  <p class="kick">iPhone &amp; iPad app</p>
+  <h1>Support · Local Stayline</h1>
+  <p class="updated">Last updated: 27 September 2026</p>
+  <p class="lead">A question about Local Stayline, or something that isn't working? Write to <a href="mailto:support@edenapps.app">support@edenapps.app</a>. There is no need to include your trips or your travel dates.</p>
+
+  <h2>How the days are counted</h2>
+  <p>If you are not an EU citizen and you visit the Schengen area without a long stay visa or a residence permit, you can stay up to 90 days in any 180 day period.</p>
+  <p>For every day you are in the area, look back at that day and the 179 days before it. At most 90 of those 180 days may be days of stay. The day you arrive and the day you leave both count as full days, whatever the time. There is no fixed start date and no reset: the period moves forward one day at a time, and each day of stay drops out of it 180 days later.</p>
+  <p>A day in two Schengen countries counts once. Days outside the area do not count.</p>
+
+  <h2>Where it applies</h2>
+  <p>29 countries: Austria, Belgium, Bulgaria, Croatia, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, the Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden and Switzerland. Bulgaria and Romania have been full members since January 1, 2025.</p>
+  <p>Cyprus and Ireland are in the EU but not in the Schengen area. The United Kingdom is not in it either.</p>
+  <p>Monaco, San Marino, Vatican City and Andorra are not members, but their borders with Schengen countries are open. Local Stayline counts days there by default, which is the careful choice. You can change this in Settings.</p>
+
+  <h2>Adding your trips</h2>
+  <p>Add every trip from the last 180 days, in or out of the Schengen area, and any trips you are planning. The day you arrive and the day you leave both count. If you are away right now, turn on Still there, and the trip runs through today until you give it an end date.</p>
+
+  <h2>The Planner</h2>
+  <p>Enter the day you would arrive and the day you would leave. The Planner says whether the trip keeps to the rule, and if it does not, the day an overstay would begin. Your saved trips, past and planned, are included. If you are in the Schengen area now, the Planner counts your current trip as ending today, so for the rest of this stay use Last day you can stay on the Today tab.</p>
+
+  <h2>Tax days</h2>
+  <p>Tax Days counts the days you spent in each country in a calendar year, toward 183 or a number you set for that country. You choose whether any part of a day counts, or only the days you are there at midnight.</p>
+  <p>Rules differ by country. Some count any part of a day, some count only the nights you are there, and some use a tax year that is not the calendar year. Residency can also depend on your home, work and family. These are counts of your own records, not legal or tax advice.</p>
+
+  <h2>Trip suggestions</h2>
+  <p>Local Stayline can suggest trips from the date and place saved with your photos (Settings, Suggest Trips from Photos), and it can notice when you arrive in a new country (Settings, Suggest Trips at Borders). Border suggestions use large moves reported by iOS, so iOS asks to allow location access Always. The country is a best guess from the nearest town in a list built into the app, so near a border it can be the neighbour. Check each suggestion before you add it. Nothing becomes a trip until you do.</p>
+
+  <h2>Reminders</h2>
+  <p>While you are in the Schengen area, a reminder comes 10 days and 3 days before your last day, and on the day. With Local Stayline Pro, while a trip is going on, a reminder also comes 14 days before a country's tax day threshold, and on the day. Turn reminders on or off in Settings.</p>
+
+  <h2>The widget</h2>
+  <p>With Local Stayline Pro, add the Local Stayline widget from your Home Screen or Lock Screen to see your days left. It works the count out for each day by itself, so it stays right after midnight.</p>
+
+  <h2>Moving to a new phone</h2>
+  <p>Your trips are kept on this device. Restoring a device backup made with iCloud or a computer to the new phone brings them along. With Local Stayline Pro, you can also export your trips as a CSV file to keep a copy. The app cannot read a CSV file back in.</p>
+
+  <h2>What the app cannot know</h2>
+  <p>A short stay visa can allow fewer than 90 days, or only certain dates. Check the visa itself.</p>
+  <p>Some countries have older agreements that allow extra days in that one country for certain nationalities. Holders of ordinary Brazilian passports have a different rule. Days under a residence permit or a long stay visa do not count, so leave them out.</p>
+  <p>Local Stayline counts the dates you enter. It is not legal advice, and the border authorities make the final decision. If a date matters, check it with the embassy or consulate of the country you are visiting.</p>
+
+  <h2>Free, and Local Stayline Pro</h2>
+  <p>Free: your trips, the Schengen count with the last 180 days, and the Schengen reminders. Local Stayline Pro adds the Planner, Tax Days, trip suggestions from photos and at borders, the widget, CSV export and tax day reminders. Pro is a one-time purchase.</p>
+
+  <h2>Restoring your purchase</h2>
+  <p>In Settings, choose Restore Purchases. It is also on the Local Stayline Pro screen. Pro returns on every iPhone or iPad that uses the Apple Account you bought it with. Refunds for App Store purchases come from Apple, at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</p>
+
+  <h2>Contact</h2>
+  <p>Write to <a href="mailto:support@edenapps.app">support@edenapps.app</a> with your question.</p>
+  <p class="sib"><a href="local-stayline-privacy.html">Local Stayline privacy policy</a></p>
+</div></main>
+<footer><div class="wrap frow"><span>© 2026 Eden Apps</span><a href="index.html">Home</a><a href="apps.html">Apps</a><a href="help.html">Help</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a></div></footer>
+<script>
+(function(){var r=document.documentElement,btn=document.getElementById('themeToggle');function current(){var t=r.getAttribute('data-theme');if(t==='dark'||t==='light')return t;return (window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}if(btn)btn.addEventListener('click',function(){var n=current()==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('ea-theme',n);}catch(e){}});})();
+</script>
+</body>
+</html>
