@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'self'">
-<title>How Our Local-First Apps Work · Eden Apps</title>
-<meta name="description" content="See how our current local-first apps handle your data, where your work lives, and how on-device processing helps keep your content private.">
+<title>How It Works · Eden Apps</title>
+<meta name="description" content="See how Eden Apps products handle your information: where your work lives, what stays on your device, and when a specific function requires a network connection.">
 <link rel="canonical" href="https://edenapps.app/how-it-works.html">
 <link rel="icon" href="assets/eden-logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta property="og:title" content="How Our Local-First Apps Work · Eden Apps">
-<meta property="og:description" content="See where your work lives, how our local-first apps process your content, and what happens when an app needs a network connection.">
+<meta property="og:title" content="How It Works · Eden Apps">
+<meta property="og:description" content="See where your work lives, what stays on your device, and when a specific function requires a network connection.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://edenapps.app/how-it-works.html">
 <meta property="og:image" content="https://edenapps.app/assets/og-image.jpg">
@@ -67,24 +67,34 @@
 <header><div class="wrap"><a class="brand" href="index.html"><img class="logo" src="assets/eden-logo.png" alt="Eden Apps logo" width="27" height="27"><span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span></a><button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button></div></header>
 <main><div class="wrap">
   <h1>Privacy you can understand</h1>
-  <p class="lead">Our current local-first apps are designed to work directly on your device, keeping your content private. We clearly explain how each product handles your information, so you know what happens with your data when you use it.</p>
+  <p class="lead">Our current local-first apps are designed to do their core work directly on your device. We explain how each product handles your information, including when something stays local and when a specific function requires a network connection.</p>
+  <p>As Eden Apps grows, different products may work differently. Each product's privacy information explains how that particular app handles your data.</p>
 
   <h2>Where your work lives</h2>
-  <p>On the web, an app saves your work in your browser's own local storage: the plan you're building, the invoice you're drafting, the document you're editing. On iPhone and iPad, it lives in the app's own storage on the device. There's no account to create and nothing to sync, because there's nowhere else for it to go.</p>
+  <p>In our current web apps, the work you create is stored locally in your browser — whether that's a plan you're building, an invoice you're drafting, or a document you're editing.</p>
+  <p>On iPhone and iPad, your work is stored within the app on your device.</p>
+  <p>Our current local-first apps don't require an Eden Apps account or cloud sync for their core features.</p>
 
   <h2>Built to stay local</h2>
-  <p>Our current local-first apps process your numbers, text, and files directly on your device. Your content isn't uploaded to Eden Apps servers for processing.</p>
+  <p>Our current local-first apps process their core content — such as text, numbers, and files — directly on your device. That content isn't uploaded to Eden Apps servers.</p>
 
-  <h2>The one time an app reaches the network: Pro</h2>
-  <p>An app reaches the network in just a couple of situations: buying Pro, or checking an unlock you already have. That goes through the payment provider (RevenueCat with Stripe on the web, and Apple's App Store on iPhone and iPad) and carries only what's needed to handle a purchase, like the email for your receipt. The work you create is not part of it. Those providers may collect their own diagnostics while processing the transaction; your documents, numbers, and files are not. (One more, only in Local PDF on the web: the first time you use text recognition, it downloads its engine once from our own site, carrying none of your files.)</p>
+  <h2>When a connection is needed</h2>
+  <p>Some specific functions still require a network connection.</p>
+  <p>Purchasing Pro, restoring a purchase, or checking a Pro unlock requires communication with the services that handle payments and access. On the web, this may involve RevenueCat and Stripe. On iPhone and iPad, purchases are handled through Apple's App Store infrastructure.</p>
+  <p>The work you create in the app — your documents, numbers, and files — is not part of the purchase process. Those providers may process transaction information and diagnostics according to their own privacy practices.</p>
+  <p>Local PDF on the web has one additional exception: the first time you use text recognition, it downloads the recognition engine it needs. Your files are not included in that download.</p>
 
-  <h2>The extensions work the same way</h2>
-  <p>The Chrome extensions run in your browser. Each one asks only for the permissions its single job needs, and lists them in plain language on its own privacy page. Whatever an extension reads to do its work (a page's text, a cookie banner, a video's transcript) is handled in the moment, in your browser, and isn't sent anywhere.</p>
-  <p>Worth stating plainly, since it surprises people: the summarizing extensions build their summaries <strong>on your device</strong>, with a summarizer built into the extension. There's no AI server, and nothing is uploaded to be read.</p>
+  <h2>Extensions work locally too</h2>
+  <p>Our current Chrome extensions run in your browser and request only the permissions needed for their particular function.</p>
+  <p>When an extension needs information from the page you're using, that information is processed locally in your browser rather than being uploaded to Eden Apps.</p>
+  <p>Our local summarizing extensions also create their summaries <strong>on your device</strong>. Your source content isn't uploaded to Eden Apps to generate the summary.</p>
 
   <div class="verify">
     <h2>See for yourself</h2>
-    <p>Our local-first apps are designed to do their core work directly on your device. You can use your browser's Network tab (right click → Inspect → Network) to see network activity for yourself. Some functions, such as purchases, restoring purchases, or other clearly identified online features, may require a connection, but each app's own page explains when and why.</p>
+    <p>You can use your browser's Network panel (right click → Inspect → Network) to see when a web app communicates over the internet.</p>
+    <p>Some functions — such as purchases, restoring purchases, verifying access, or downloading a required component — may require a connection.</p>
+    <p>Whether an app works locally or uses online services, you'll find it explained in plain language.</p>
+    <p><strong>What an app does with your information shouldn't be a mystery.</strong></p>
   </div>
 
   <div class="cta">
