@@ -54,10 +54,10 @@
 <main><div class="wrap">
   <p class="kick">Chrome Extension</p>
   <h1>Privacy Policy · Cookie Cutter</h1>
-  <p class="updated">Last updated: September 16, 2026</p>
+  <p class="updated">Last updated: October 1, 2026</p>
   <p class="lead">Cookie Cutter ("the Extension") is a Chrome browser extension that automatically declines cookie consent banners on the websites you visit. This Privacy Policy explains what data the Extension handles and how.</p>
   <h2>Summary</h2>
-  <p>Cookie Cutter runs <strong>locally in your browser</strong>. It does <strong>not</strong> send your browsing data to any external server and does <strong>not</strong> require an account. The only data ever shared with a third party is the payment email for the optional Pro upgrade, handled by the payment processor (see Payments). The Extension reads the page you are on only to find and click the "decline" button of a cookie banner on your behalf.</p>
+  <p>Cookie Cutter runs <strong>locally in your browser</strong>. It does <strong>not</strong> send your browsing data to any external server and does <strong>not</strong> require an account. The one routine external contact is an anonymous plan check with ExtensionPay (ExtPay) that simply tells the Extension whether you are on the Free or Pro plan; it sends no personal information. If you choose the optional Pro upgrade, payment is handled by ExtensionPay and Stripe (see Payments below). The Extension reads the page you are on only to find and click the "decline" button of a cookie banner on your behalf.</p>
   <h2>How it works</h2>
   <p>When a page loads, the Extension looks for a cookie consent banner and clicks its "decline" / "reject all" button for you, so you do not have to. It is deliberately conservative: it never clicks "accept," "agree," or "allow." This all happens on your device, in the page you are already viewing. No information about the page leaves your browser.</p>
   <h2>What data the Extension handles</h2>
@@ -73,13 +73,15 @@
   <ul>
     <li>Does not collect your name or any account information.</li>
     <li>Does not transmit your browsing data to any server we own or operate.</li>
-    <li>Does not sell your data to anyone, and shares data with third parties only to process payments (see Payments below).</li>
+    <li>Does not sell your personal information or use it for third-party advertising.</li>
     <li>Does not use analytics or advertising services.</li>
     <li>Does not track your browsing across the web.</li>
     <li>Does not store the content of pages you visit.</li>
   </ul>
   <h2>Payments (optional Pro upgrade)</h2>
-  <p>Pro features are unlocked through a <strong>single purchase</strong>, processed by <strong>ExtensionPay</strong> (ExtPay) securely via <strong>Stripe</strong>. To confirm whether you own Pro, ExtensionPay handles your payment email address. That is the only personal data involved, and it is used solely to verify that single purchase. Cookie Cutter itself never sees your card details and stores no payment information.</p>
+  <p>Pro features are unlocked through a <strong>single purchase</strong>, currently one-time, processed by <strong>ExtensionPay</strong> (ExtPay) with checkout by <strong>Stripe</strong>.</p>
+  <p>To know whether you are on the Free or Pro plan, the Extension uses ExtensionPay (ExtPay). ExtPay stores an anonymous identifier in your browser and checks your plan status with its server (extensionpay.com). This check runs for all users, including free ones, and sends no personal information about you: no email, no card details, and nothing about the pages you visit.</p>
+  <p>If you buy Pro, ExtensionPay handles your payment email address to verify your purchase, under its own privacy policy. Cookie Cutter itself never sees your card details and stores no payment information.</p>
   <h2>Permissions explained</h2>
   <ul>
     <li><strong>storage</strong>: saves your settings, paused sites, per site rules, and the "banners handled" counter locally.</li>
