@@ -1,28 +1,40 @@
-# ⚠️ RETIRED — this folder is NOT edenapps.app anymore
+# ⚠️ Read this before editing anything in this folder
 
-**Read this before editing anything in this folder.**
+**Confirmed live on 8 October 2026 by opening real URLs, not by reading file
+trees — do the same before trusting anything below if time has passed.**
 
-The real, live site is **`../eden-apps-site`** (a Next.js app, confirmed against the
-live edenapps.app homepage and `/privacy/` page on 8 October 2026 — matching
-design: the four-color square mark, serif "EDEN APPS" wordmark, "MENU" nav,
-clean `/privacy/` and `/terms/` URLs with no `.html`).
+edenapps.app is served by **two layers that both really are live**, and they
+visually disagree with each other:
 
-This folder (`eden-apps-hub`) is the **old, static-HTML site** this one replaced.
-Its `CNAME` file still says `edenapps.app`, which is exactly the trap: that file
-does not mean this folder is live, only that it once was, or was meant to be.
-**Do not trust a CNAME file over an actual look at the live URL.**
+1. **The top-level pages** — the homepage, `/privacy/`, `/terms/`, `/apps/`,
+   `/help/` — are the new, rebranded Next.js app in **`../eden-apps-site`**
+   (the four-color square mark, serif "EDEN APPS" wordmark, "MENU" nav, clean
+   URLs with no `.html`). Editing this folder does **not** touch those pages.
+2. **Every per-app page** — `eden-fonts-privacy.html`,
+   `local-home-inventory-privacy.html`, and the rest — **is still served from
+   somewhere carrying this exact old design** (the two-tone "Eden Apps"
+   wordmark, indigo links, the `<style>` block every page here repeats).
+   Confirmed live, word for word, against `local-home-inventory-privacy.html`
+   (an already-shipped app, untouched by tonight's work) and matches this
+   folder's own copy of that file. **How these specific files actually reach
+   that URL — GitHub Pages, a Vercel rewrite, something else — is not
+   confirmed.** What's confirmed is that the content and the old design both
+   really do appear at the real URL.
 
-Editing a page in here changes nothing a real visitor, Apple's App Review, or
-an App Store Connect privacy/support URL will ever see, if that URL points at
-`edenapps.app` — because those URLs are served by `eden-apps-site` now, not
-this folder. Several apps' own tooling (for example Eden Desk's
-`Tools/build_web_legal.py`) is still wired to write its generated legal pages
-into **this dead folder** and has not been updated for the move; that is a
-real, separate problem worth fixing, not a sign this folder is current.
+So: a page here is very likely live and real, in the **old, pre-rebrand
+visual design** — not retired, not a dead copy, but also not yet reskinned to
+match the October rebrand. That mismatch is a real, confirmed, portfolio-wide
+gap (it affects already-shipped apps like Local Home Inventory right now),
+separate from and bigger than anything either of us touched tonight.
 
-If you're not sure whether something here is still true, open the live URL
-and compare, the way this warning was confirmed. Do not assume from file
-contents alone.
+**Before you believe a page here is live, dead, current, or stale: open the
+real URL and look, the way this note was confirmed. A CNAME file, a git log
+date, or a lack of a sync script are all weak evidence next to that.**
+
+Several apps' own tooling (for example Eden Desk's `Tools/build_web_legal.py`)
+writes its generated legal pages into this folder; that tooling's target is
+apparently still correct, not stale — treat that as confirmed only as far as
+the check above goes, not further.
 
 ---
 
