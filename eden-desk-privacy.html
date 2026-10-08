@@ -3,96 +3,129 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'">
 <title>Privacy Policy · Eden Desk · Eden Apps</title>
 <meta name="description" content="Privacy policy for Eden Desk, the private assistant for iPhone, iPad and Mac by Eden Apps. No account, no analytics, no tracking. Individual Cloud sends only the one item you send, after three separate yeses.">
 <link rel="canonical" href="https://edenapps.app/eden-desk-privacy.html">
-<link rel="icon" href="assets/eden-logo.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='296 147.5 661 656'%3E%3Crect x='296' y='147.5' width='320' height='320' rx='116' fill='%23DCC4B2'/%3E%3Crect x='637' y='147.5' width='320' height='320' rx='116' fill='%239DA69F'/%3E%3Crect x='296' y='483.5' width='320' height='320' rx='116' fill='%238D9177'/%3E%3Crect x='637' y='483.5' width='320' height='320' rx='116' fill='%23B799A0'/%3E%3Cpath d='M626.5,422.0 Q633.36,467.15 675.5,474.5 Q633.36,481.85 626.5,527.0 Q619.64,481.85 577.5,474.5 Q619.64,467.15 626.5,422.0Z' fill='%233A2A18'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#fbfbfd;--surface:#fff;--ink:#14152a;--muted:#525b6a;--faint:#616c7e;--line:#e9eaf0;
-    --li-tx:#4338ca;
-    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  :root[data-theme="dark"]{--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#8b83f0}
-  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0d12;--surface:#15161d;--ink:#f0f1f6;--muted:#aab2c0;--faint:#8b93a1;--line:#23252f;--li-tx:#8b83f0}}
+  /* Eden Apps -- new era tokens (2026-10-01), matched from eden-apps-site/src/app/globals.css */
+  :root{
+    --paper:#f7f2eb;--paper-deep:#efe7dc;--ink:#2f2110;--ink-soft:#5e5143;--ink-faint:#8a7d6f;--line:#e4d9cb;--star:#3a2a18;
+    --sand:#dcc4b2;--sage:#9da69f;--olive:#8d9177;--mauve:#b799a0;
+    --font-display:'Cormorant Garamond',ui-serif,Georgia,serif;
+    --font-ui:'Jost',ui-sans-serif,system-ui,sans-serif;
+  }
+  :root[data-theme="dark"]{--paper:#221b15;--paper-deep:#2b231c;--ink:#f3eadf;--ink-soft:#d2c6b8;--ink-faint:#a69a8c;--line:#3d3329;--star:#f3eadf;color-scheme:dark}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#221b15;--paper-deep:#2b231c;--ink:#f3eadf;--ink-soft:#d2c6b8;--ink-faint:#a69a8c;--line:#3d3329;--star:#f3eadf;color-scheme:dark}}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
-  a{color:var(--li-tx);text-decoration:none}
-  .wrap{max-width:740px;margin:0 auto;padding:0 24px}
-  header{padding:24px 0;border-bottom:1px solid var(--line)}
-  .brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em;font-size:17px;color:var(--ink);text-decoration:none}
-  .logo{width:27px;height:27px;display:block;object-fit:contain}
-  main{padding:46px 0 60px}
-  .kick{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:0 0 8px}
-  h1{font-size:clamp(28px,5vw,36px);letter-spacing:-.03em;margin:0 0 8px;color:var(--ink)}
-  .updated{color:var(--faint);font-size:14px;margin:0 0 34px}
-  h2{font-size:19px;letter-spacing:-.01em;margin:34px 0 10px;color:var(--ink)}
-  h3{font-size:16.5px;letter-spacing:-.01em;margin:24px 0 8px;color:var(--ink)}
-  p,li,td,th{color:var(--muted);font-size:16px}
-  p{margin:0 0 14px}
-  ul{margin:0 0 14px;padding-left:20px}li{margin:0 0 8px}
-  strong{color:var(--ink);font-weight:650}
-  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14.5px;background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
-  .lead{font-size:17.5px;color:var(--ink)}
+  html{background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+  body{margin:0;font-family:var(--font-ui);font-weight:350;line-height:1.65}
+  a{color:inherit}
+  ::selection{background:var(--sand);color:#2f2110}
+  .eyebrow{font-family:var(--font-ui);font-size:.7rem;font-weight:450;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-faint)}
+  .display{font-family:var(--font-display);font-weight:300;letter-spacing:-.01em;line-height:1.04}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+  @media(min-width:640px){.wrap{padding:0 32px}}
+  header{position:sticky;top:0;z-index:40;border-bottom:1px solid transparent;background:transparent;transition:background-color .3s,border-color .3s}
+  header.scrolled{border-bottom-color:var(--line);background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px)}
+  header .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+  .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .brand svg{width:28px;height:28px;display:block}
+  nav.primary{display:none;align-items:center;gap:28px}
+  @media(min-width:768px){nav.primary{display:flex}}
+  nav.primary a{font-size:.82rem;letter-spacing:.02em;color:var(--ink-soft);text-decoration:none;transition:color .2s}
+  nav.primary a:hover{color:var(--ink)}
+  .headerRight{display:flex;align-items:center;gap:8px}
+  @media(min-width:768px){.headerRight{gap:28px}}
+  .themebtn{display:inline-grid;place-items:center;width:40px;height:40px;border:none;background:none;color:var(--ink-soft);cursor:pointer;border-radius:999px;padding:0}
+  .themebtn:hover{color:var(--ink)}
+  .themebtn svg{width:18px;height:18px}
+  .intro{padding:48px 0 44px}
+  @media(min-width:1024px){.intro{padding:64px 0 56px}}
+  .introTop{display:flex;align-items:center;gap:16px}
+  .petal{display:inline-block;width:48px;height:48px;border-radius:36%;flex:none;background:var(--mauve)}
+  h1.display{margin:32px 0 0;max-width:20ch;font-size:2.4rem}
+  @media(min-width:640px){h1.display{font-size:3.4rem}}
+  .updated{margin-top:24px;display:block}
+  article{max-width:68ch;border-top:1px solid var(--line);padding-top:32px;padding-bottom:60px}
+  article h2{font-family:var(--font-display);font-weight:300;letter-spacing:-.01em;line-height:1.1;margin:44px 0 16px;font-size:1.6rem}
+  @media(min-width:640px){article h2{font-size:1.9rem}}
+  article h2:first-of-type{margin-top:0}
+  article h2::before{content:"";display:inline-block;width:.4em;height:.4em;border-radius:.15em;margin-right:12px;transform:translateY(-2px);vertical-align:middle;background:var(--mauve)}
+  article h3{font-family:var(--font-ui);font-weight:500;font-size:1.02rem;margin:28px 0 8px;color:var(--ink)}
+  article p{margin:0 0 18px;line-height:1.7;color:var(--ink-soft)}
+  article p.lead{color:var(--ink);font-size:1.12rem;margin-bottom:22px}
+  article strong{color:var(--ink);font-weight:500}
+  article a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+  article a:hover{text-decoration-color:var(--ink)}
+  article code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--paper-deep);border:1px solid var(--line);border-radius:5px;padding:1px 5px;color:var(--ink)}
+  article ul{margin:0 0 18px;padding:0;list-style:none}
+  article li{display:flex;gap:14px;margin-bottom:10px;line-height:1.7;color:var(--ink-soft)}
+  article li::before{content:"";margin-top:.7em;width:6px;height:6px;flex:none;border-radius:30%;background:var(--ink-faint)}
+  .sib{display:flex;gap:18px;flex-wrap:wrap;margin:36px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:.85rem}
   footer{border-top:1px solid var(--line)}
-  .frow{display:flex;gap:18px;flex-wrap:wrap;align-items:center;padding:24px 0 48px;color:var(--faint);font-size:13.5px}
-  .frow a{color:var(--muted)}
-  @font-face{font-family:'EdenColumn';src:url('assets/fonts/EdenColumn-Regular.otf');font-display:swap}
-  .wm{display:inline-flex;gap:.28em;font-family:'EdenColumn',var(--font)}.wm-e{color:#bf8f2b}.wm-a{color:#0a8f5c}
-  :root[data-theme="dark"] .wm-e{color:#e8c06f}:root[data-theme="dark"] .wm-a{color:#34d399}
-  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .wm-e{color:#e8c06f}:root:not([data-theme="light"]) .wm-a{color:#34d399}}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .themebtn{display:inline-grid;place-items:center;width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer;padding:0;transition:border-color .2s,color .2s}
-  .themebtn:hover{border-color:var(--li-tx);color:var(--li-tx)}
-  .themebtn svg{width:16px;height:16px}
-  .themebtn:focus-visible,.frow a:focus-visible,.brand:focus-visible{outline:2px solid var(--li-tx);outline-offset:3px}
-  .sib{display:flex;gap:16px;flex-wrap:wrap;margin:38px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:14.5px}
+  footer .row{display:flex;flex-direction:column;gap:14px;padding:36px 0;align-items:flex-start}
+  @media(min-width:640px){footer .row{flex-direction:row;align-items:center;justify-content:space-between}}
+  footer nav{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:.82rem;color:var(--ink-soft)}
+  footer nav a{text-decoration:none;color:inherit}
+  footer nav a:hover{color:var(--ink)}
 </style>
 <script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="index.html"><img class="logo" src="assets/eden-logo.png" alt="Eden Apps logo" width="27" height="27"><span class="wm"><span class="wm-e">Eden</span><span class="wm-a">Apps</span></span></a><button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button></div></header>
-<main><div class="wrap">
-  <p class="kick">iPhone, iPad &amp; Mac app</p>
-  <h1>Privacy Policy · Eden Desk</h1>
-  <p class="updated">Last updated: 22 September 2026</p>
-  <p class="lead">The app collects nothing about you. There is no account, no analytics, no advertising, and no tracking of any kind. With Cloud off, which is how every install starts, nothing leaves your device.</p>
+<header id="siteHeader">
+  <div class="wrap row">
+    <a class="brand" href="https://edenapps.app/" aria-label="Eden Apps home">
+      <svg viewBox="296 147.5 661 656" aria-hidden="true"><rect x="296" y="147.5" width="320" height="320" rx="116" fill="#DCC4B2"/><rect x="637" y="147.5" width="320" height="320" rx="116" fill="#9DA69F"/><rect x="296" y="483.5" width="320" height="320" rx="116" fill="#8D9177"/><rect x="637" y="483.5" width="320" height="320" rx="116" fill="#B799A0"/><path d="M626.5,422.0 Q633.36,467.15 675.5,474.5 Q633.36,481.85 626.5,527.0 Q619.64,481.85 577.5,474.5 Q619.64,467.15 626.5,422.0Z" fill="#3A2A18"/></svg>
+      <span class="eyebrow" style="font-size:.66rem;letter-spacing:.42em;color:var(--ink)">Eden Apps</span>
+    </a>
+    <div class="headerRight">
+      <nav class="primary" aria-label="Primary">
+        <a href="https://edenapps.app/#apps">Apps</a>
+        <a href="https://edenapps.app/#mac">Mac</a>
+        <a href="https://edenapps.app/#extensions">Extensions</a>
+        <a href="https://edenapps.app/how-it-works/">How it works</a>
+        <a href="https://edenapps.app/help/">Help</a>
+      </nav>
+      <button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="wrap intro">
+    <div class="introTop">
+      <span class="petal" aria-hidden="true"></span>
+      <span class="eyebrow">Privacy</span>
+    </div>
+    <h1 class="display">Privacy Policy · Eden Desk</h1>
+    <p class="eyebrow updated">Last updated: 8 October 2026</p>
+  </div>
+  <div class="wrap">
+    <article>
+  <p class="lead">Eden Desk works without an account and has no analytics, advertising or tracking. What you work on stays on this device unless you choose to send something.</p>
   <p>Information reaches us in exactly two ways, and both of them are something you choose to do. You can send one item to Eden Cloud. You can apply for Business or Enterprise. That is the whole list, and the two sections below say precisely what each one sends, where it is kept, and for how long. If you do neither, we hold nothing about you at all.</p>
-  <p>The only code in the app that can reach the network at all lives in one separate module, which does nothing until you subscribe to Individual Cloud, switch Cloud on, and send one item after seeing exactly what it is. A check that runs on every build fails if any networking appears anywhere else, or if any other part of the app so much as refers to that module. Until 16 September 2026 the Mac had no permission from the system to use the network at all; Cloud replaced that wall with this smaller, checkable one, and this policy changed on the same day the code did.</p>
+  <p>The only code in the app that can reach the network lives in one separate module. It sends something only when you press a button for it: an item you send to Eden Cloud as a subscriber with Cloud switched on, one of three short tries of Cloud before subscribing, or a Business or Enterprise application. A try and an application do not need a subscription. A check that runs on every build fails if any networking appears anywhere else, or if any other part of the app so much as refers to that module. Until 16 September 2026 the Mac had no permission from the system to use the network at all; Cloud replaced that wall with this smaller, checkable one, and this policy changed on the same day the code did.</p>
   <h2>What stays on your device</h2>
   <p>Everything you work on, and the few preferences the app remembers:</p>
   <ul>
-    <li><strong>Your notes.</strong> Plain text files you own, kept in the app's own folder or in</li>
-  </ul>
-  <p>a folder you choose. They are yours to open with any other app, move, or delete.</p>
-  <ul>
+    <li><strong>Your notes.</strong> Plain text files you own, kept in the app's own folder or in a folder you choose. They are yours to open with any other app, move, or delete.</li>
     <li><strong>Your scans and PDFs.</strong> Saved where you put them, on this device.</li>
     <li><strong>Your voice recordings.</strong> Audio files you record in Capture, kept in the app's own folder on this device.</li>
     <li><strong>The details you save for filling in forms</strong>, if you use the Form Assistant: things like your name, address or date of birth, written once, kept on this device, and offered only where you accept them.</li>
     <li><strong>Your Budget.</strong> The accounts, transactions and debts you type in or import from a statement you choose. Kept on this device.</li>
-    <li><strong>Your search index.</strong> A small file the app builds so it can find words</li>
+    <li><strong>Your search index.</strong> A small file the app builds so it can find words inside your own notes and documents. It lives on this device and nowhere else, and it is kept out of device backups because the app can rebuild it.</li>
+    <li><strong>What you asked Spotlight to see</strong>, if you turned Spotlight on. Your note titles and the first line of each note, in the system's own index rather than in the app's. Nothing deeper into a note, nothing from a folder you granted, and nothing from the Private Drawer. Turning it off removes what it added.</li>
+    <li><strong>Your collections and your desk rules</strong>, and the record of what the app has done on your behalf. Plain files in the app's own folder. Keeping exports all three in full, as the same JSON the app keeps, and can clear all three.</li>
+    <li><strong>Your calendar and reminder entries</strong>, if you use the Calendar skill. They are written to Apple's Calendar and Reminders on this device, the same as if you typed them there.</li>
+    <li><strong>Your appearance choice.</strong> Whether you prefer the light or the night look, or follow the system.</li>
+    <li><strong>Your purchase and your trial.</strong> Whether Local is owned, and the day the trial began.</li>
   </ul>
-  <p>inside your own notes and documents. It lives on this device and nowhere else, and it is kept out of device backups because the app can rebuild it.</p>
-  <ul>
-    <li><strong>What you asked Spotlight to see</strong>, if you turned Spotlight on. Your note</li>
-  </ul>
-  <p>titles and the first line of each note, in the system's own index rather than in the app's. Nothing deeper into a note, nothing from a folder you granted, and nothing from the Private Drawer. Turning it off removes what it added.</p>
-  <ul>
-    <li><strong>Your collections and your desk rules</strong>, and the record of what the app has</li>
-  </ul>
-  <p>done on your behalf. Plain files in the app's own folder. Keeping exports all three in full, as the same JSON the app keeps, and can clear all three.</p>
-  <ul>
-    <li><strong>Your calendar and reminder entries</strong>, if you use the Calendar skill. They</li>
-  </ul>
-  <p>are written to Apple's Calendar and Reminders on this device, the same as if you typed them there.</p>
-  <ul>
-    <li><strong>Your appearance choice.</strong> Whether you prefer the light or the night look,</li>
-  </ul>
-  <p>or follow the system.</p>
-  <ul>
-    <li><strong>Your purchase and your trial.</strong> Whether Local is owned, and the day the</li>
-  </ul>
-  <p>trial began.</p>
   <p>None of this is sent anywhere. Deleting the app removes the index and the app's own folder. Notes you kept in a folder you chose stay where you put them, because they are your files.</p>
   <h2>Folders you choose</h2>
   <p>When you point the app at a folder, you pick it with Apple's own file picker. The app can then read and write inside that folder and no other. It keeps your choice across launches so you do not have to pick again. You can take that access away at any time by choosing a different folder or removing the app.</p>
@@ -105,30 +138,34 @@
   <h2>Things the system may do on its own</h2>
   <p>Three honest notes, because they are true even though the app sends nothing:</p>
   <ul>
-    <li>Files you keep in iCloud Drive or another provider may not be on this device</li>
+    <li>Files you keep in iCloud Drive or another provider may not be on this device yet. Opening one makes your provider download it, possibly over cellular.</li>
+    <li>Apple's own frameworks may download model files from Apple the first time a feature needs them: the on-device model, and the language files behind on-device text understanding and dictation. That is the system fetching its tools, not your text going anywhere.</li>
+    <li>Keyboard dictation, Siri and Spotlight are Apple's features under Apple's rules and your own Settings.</li>
   </ul>
-  <p>yet. Opening one makes your provider download it, possibly over cellular.</p>
-  <ul>
-    <li>Apple's own frameworks may download model files from Apple the first time a</li>
-  </ul>
-  <p>feature needs them: the on-device model, and the language files behind on-device text understanding and dictation. That is the system fetching its tools, not your text going anywhere.</p>
-  <ul>
-    <li>Keyboard dictation, Siri and Spotlight are Apple's features under Apple's</li>
-  </ul>
-  <p>rules and your own Settings.</p>
   <h2>Purchases</h2>
   <p>The one-time purchase and the free trial are handled entirely by Apple through the App Store. Eden Desk receives only whether Local is owned, whether the trial has been used and the day it started, and whether a purchase was later refunded. We never see your name, your payment details or your Apple Account. Apple's own privacy policy covers that transaction.</p>
   <h2>Individual Cloud</h2>
-  <p>If you send an item to Eden Cloud, as a subscriber with Cloud switched on or as one of three short tries before subscribing, that one item leaves your device: your question and the passages that matched it, or the words of one document you chose to summarise. It goes to our own server, which checks Apple's signed proof of your subscription, counts the send against the month, keeps the date and size of the request and never its content, and forwards the item to Anthropic, PBC in the United States. Each send also carries a random number the app makes for it, which our server remembers for two days so the same send is never sent or counted twice; nothing in that number comes from what you sent. Anthropic keeps what you send for up to 30 days and then deletes it, unless it is flagged under their usage policy, when they may keep it for up to two years, and does not use it to train their models. A try is counted against a random id the app made once, which says nothing about who you are. With Cloud off and no try sent, which is how every install starts, nothing leaves. Every answered send is written in your Paper Trail. A send that fails after the item has already reached our server, such as on a dropped connection, may not appear there even though the item left your device. Nothing in the Private Drawer can be sent.</p>
+  <p>If you send an item to Eden Cloud, as a subscriber with Cloud switched on or as one of three short tries before subscribing, that one item leaves your device: your question and the passages that matched it, or the words of one document you chose to summarise. It goes to our own server, which checks Apple's signed proof of your subscription, counts the send against the month, keeps the date and size of the request and never its content, and forwards the item to Anthropic, PBC in the United States. Each send also carries a random number the app makes for it, which our server remembers for two days so the same send is never sent to the model or counted twice (a copy that arrives at the same moment as the first may still be measured, as below); nothing in that number comes from what you sent.</p>
+  <p>Our server first checks what it can without sending the item on: that Cloud is not paused or too busy, that your subscription is confirmed or a try carries its random id, that the item is no more than one send can carry, that it has not already arrived once, that a try is within the day's limit for tries from one internet address, and that your month or your tries still have room for this send, counted at the least it could be. A send refused at any of these checks goes no further than our server. Otherwise the item goes first to Anthropic's token counter, which measures its size and does not answer it, and only then to the model. A send can still be refused after it has been measured: when it turns out to be more than one send can carry, when at its measured size it no longer fits what is left of your month or your tries, when Eden Cloud's own spending limit has been reached, when a second copy of the same send arrives at the same moment as the first, or when the measuring fails, in which case it may or may not have reached the counter. Such a send never reaches the model and is not counted. What reaches the counter has reached Anthropic, PBC in the United States, the same as a send that is answered.</p>
+  <p>Anthropic keeps what you send for up to 30 days and then deletes it, unless it is flagged under their usage policy, when they may keep it for up to two years, and does not use it to train their models. A try is counted against a random id the app made once, which says nothing about who you are. Our server keeps that id with the number of tries it has used, so that a fourth try is refused; it has no set deletion date. It also keeps the internet address a try came from, with that day's count and nothing you sent, for 26 hours, so that one address cannot use more than the day's tries. With Cloud off and no try sent, which is how every install starts, nothing leaves. Every send is written in your Paper Trail before it leaves this device, and what came of it is added to the same line: that it was answered; that our server refused it; or that no answer came back, and then, unless our server said otherwise, that it may still have been received and counted. A send that never left this device, such as one for which no connection could be made, stays on the list, struck through and marked Not sent. If the Paper Trail cannot be saved, nothing is sent. Nothing in the Private Drawer can be sent.</p>
   <h2>The Business or Enterprise application</h2>
   <p>If you apply for Business or Enterprise from inside the app, the form you fill in goes to our own server when you press Send, so we can review it. This is the one place Eden Desk asks you for personal information, and it asks because an application from an organization has to come from a person at that organization.</p>
-  <p><strong>What the form sends:</strong> the organization and its website, your name and your role, a work email at the organization's own domain, roughly how many people, the country or region, and a free-text description of what you need. The description is stored exactly as you typed it, so please do not put anything in it you would not want kept.</p>
-  <p><strong>Where it is kept:</strong> on our own server, which runs on Cloudflare's network. Eden reads it, to answer you. It is not used for anything else and it is not sold. We also keep the internet address the application came from, for 26 hours, only so that one address cannot apply more than five times in a day.</p>
-  <p><strong>How long:</strong> it is deleted automatically six months after you send it. That timer starts when you press Send, not when we reply, so it goes whether or not the conversation went anywhere.</p>
+  <p>What the form sends: the organization and its website, your name and your role, a work email at the organization's own domain, roughly how many people, the country or region, and a free-text description of what you need. The description is stored exactly as you typed it, so please do not put anything in it you would not want kept.</p>
+  <p>Where it goes: to our own server, which runs on Cloudflare's network and keeps the application there. Our server then emails it to us at Support@edenapps.app. The email is sent through Resend and arrives in a mailbox hosted by Zoho. Eden reads it there and answers you by email. It is not used for anything else and it is not sold. We also keep the internet address the application came from, for 26 hours, only so that one address cannot apply more than five times in a day.</p>
+  <p>How long: the copy on our server is deleted automatically 183 days after you send it. That timer starts when you press Send, not when we reply. Resend deletes its copy of the email after 30 days. The email in our mailbox is kept until we delete it.</p>
   <p>We answer by email, and there are no calls. Nothing else on your desk goes with it.</p>
+  <h2>Services we use</h2>
+  <p>Our server runs on Cloudflare's network, at cloud.edenapps.app. Everything Eden Desk sends goes there first.</p>
+  <ul>
+    <li><strong>Cloudflare</strong> runs our server and the storage behind it, for Cloud sends, tries and applications.</li>
+    <li><strong>Anthropic, PBC</strong> in the United States answers Cloud sends and tries, as described above.</li>
+    <li><strong>Resend</strong> is the email service our server uses to send a Business or Enterprise application to us. Resend keeps a copy of that email for 30 days, and keeps its account data, including that copy, in the United States regardless of which region an email is sent from.</li>
+    <li><strong>Zoho</strong> hosts our mailbox, Support@edenapps.app, where applications arrive and where we reply from, on Zoho's United States data center.</li>
+    <li><strong>Apple</strong> handles purchases and subscriptions through the App Store.</li>
+  </ul>
   <h2>What we never do</h2>
   <ul>
-    <li>The app asks you for nothing about yourself. The only personal information we ever hold is what you type into a Business or Enterprise application, including its free-text description, plus the internet address that application came from, kept for 26 hours. Nothing in the app itself collects a name, an email, or an identity of any kind.</li>
+    <li>The only personal information we hold is what you type into a Business or Enterprise application, including its free-text description, and an internet address for 26 hours: the one an application came from, so that one address cannot apply more than five times in a day, or the one a try came from, so that one address cannot use more than the day's tries, kept beside a count and nothing you sent.</li>
     <li>With Cloud, our server sees Apple's signed proof of your subscription, which carries no name, no email and no Apple Account, and the one item you chose to send.</li>
     <li>We do not use analytics, advertising or tracking identifiers.</li>
     <li>We do not include any third party code, so nothing else is watching either.</li>
@@ -136,16 +173,47 @@
     <li>We do not sell data, and we do not sell an application you send us.</li>
   </ul>
   <h2>Children</h2>
-  <p>The app sends nothing about anyone, of any age. The Business or Enterprise application is the only part that sends what it asks for to us, and it is meant for someone applying on behalf of an organization they work for. The Form Assistant also asks you to save details like a name or an address so it can offer to fill a form field, but those stay on this device and are never sent.</p>
+  <p>The Business or Enterprise application is the only part of Eden Desk that asks for personal information, and it is meant for someone applying on behalf of an organization they work for. The Form Assistant also asks you to save details like a name or an address so it can offer to fill a form field, but those stay on this device and are never sent.</p>
   <h2>Changes</h2>
-  <p>Individual Cloud, added on 16 September 2026, is the one feature that touches the network, and this policy was updated before it shipped. It is off until you turn it on. The same rule holds for anything that follows: this policy changes before the feature does, the feature is off until you turn it on, and the date at the top changes.</p>
+  <p>Individual Cloud, its three tries, and the Business or Enterprise application are the features that use the network. This policy changes before a feature that sends something does, and the date at the top changes.</p>
   <h2>Contact</h2>
   <p>Questions about privacy: <a href="mailto:Support@edenapps.app">Support@edenapps.app</a></p>
-  <p class="sib"><a href="eden-desk-terms.html">Eden Desk terms and conditions</a> <a href="eden-desk-support.html">Eden Desk support</a></p>
-</div></main>
-<footer><div class="wrap frow"><span>© 2026 Eden Apps</span><a href="index.html">Home</a><a href="apps.html">Apps</a><a href="help.html">Help</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a></div></footer>
+      <p class="sib"><a href="eden-desk-terms.html">Eden Desk terms and conditions</a> <a href="eden-desk-support.html">Eden Desk support</a></p>
+    </article>
+  </div>
+</main>
+<footer>
+  <div class="wrap row">
+    <p class="eyebrow">© 2026 Eden Apps · Different tools. A brighter tomorrow.</p>
+    <nav aria-label="Footer">
+      <a href="https://edenapps.app/how-it-works/">How it works</a>
+      <a href="https://edenapps.app/privacy/">Privacy</a>
+      <a href="https://edenapps.app/terms/">Terms</a>
+      <a href="https://edenapps.app/refunds/">Refunds</a>
+      <a href="https://edenapps.app/help/">Help</a>
+      <a href="mailto:support@edenapps.app">support@edenapps.app</a>
+    </nav>
+  </div>
+</footer>
 <script>
-(function(){var r=document.documentElement,btn=document.getElementById('themeToggle');function current(){var t=r.getAttribute('data-theme');if(t==='dark'||t==='light')return t;return (window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}if(btn)btn.addEventListener('click',function(){var n=current()==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('ea-theme',n);}catch(e){}});})();
+(function(){
+  var header=document.getElementById('siteHeader');
+  function onScroll(){ if(window.scrollY>24){header.classList.add('scrolled');} else {header.classList.remove('scrolled');} }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  var btn=document.getElementById('themeToggle');
+  function current(){var t=document.documentElement.getAttribute('data-theme'); if(t==='dark'||t==='light') return t; return (window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}
+  var sun='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+  var moon='<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><line x1="12" y1="2.6" x2="12" y2="4.6"/><line x1="12" y1="2.6" x2="12" y2="4.6" transform="rotate(45 12 12)"/><line x1="12" y1="2.6" x2="12" y2="4.6" transform="rotate(90 12 12)"/><line x1="12" y1="2.6" x2="12" y2="4.6" transform="rotate(135 12 12)"/><line x1="12" y1="2.6" x2="12" y2="4.6" transform="rotate(180 12 12)"/><line x1="12" y1="2.6" x2="12" y2="4.6" transform="rotate(225 12 12)"/><line x1="12" y1="2.6" x2="12" y2="4.6" transform="rotate(270 12 12)"/><line x1="12" y1="2.6" x2="12" y2="4.6" transform="rotate(315 12 12)"/></g></svg>';
+  function paint(){ btn.innerHTML = current()==='dark' ? moon : sun; }
+  paint();
+  btn.addEventListener('click', function(){
+    var next = current()==='dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try{ localStorage.setItem('ea-theme', next); }catch(e){}
+    paint();
+  });
+})();
 </script>
 </body>
 </html>
