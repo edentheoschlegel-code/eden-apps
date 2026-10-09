@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'">
-<title>Support · Local Period Tracker · Eden Apps</title>
-<meta name="description" content="Help with Local Period Tracker for iPhone and iPad: logging a period, where the expected dates come from, what is a record and what is an estimate, the app lock, backups and Pro.">
+<title>Support · Cycle Days · Eden Apps</title>
+<meta name="description" content="Help with Cycle Days (Period &amp; Cycle Calendar on the App Store) for iPhone and iPad: logging a period, where the expected dates come from, what is a record and what is an estimate, the app lock, backups and Pro.">
 <link rel="canonical" href="https://edenapps.app/local-period-tracker-support.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='296 147.5 661 656'%3E%3Crect x='296' y='147.5' width='320' height='320' rx='116' fill='%23DCC4B2'/%3E%3Crect x='637' y='147.5' width='320' height='320' rx='116' fill='%239DA69F'/%3E%3Crect x='296' y='483.5' width='320' height='320' rx='116' fill='%238D9177'/%3E%3Crect x='637' y='483.5' width='320' height='320' rx='116' fill='%23B799A0'/%3E%3Cpath d='M626.5,422.0 Q633.36,467.15 675.5,474.5 Q633.36,481.85 626.5,527.0 Q619.64,481.85 577.5,474.5 Q619.64,467.15 626.5,422.0Z' fill='%233A2A18'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
   @media(min-width:640px){.wrap{padding:0 32px}}
   header{position:sticky;top:0;z-index:40;border-bottom:1px solid transparent;background:transparent;transition:background-color .3s,border-color .3s}
   header.scrolled{border-bottom-color:var(--line);background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px)}
-  header .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+  header .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;padding-bottom:16px}
   .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
   .brand svg{width:28px;height:28px;display:block}
   nav.primary{display:none;align-items:center;gap:28px}
@@ -43,8 +43,8 @@
   .themebtn{display:inline-grid;place-items:center;width:40px;height:40px;border:none;background:none;color:var(--ink-soft);cursor:pointer;border-radius:999px;padding:0}
   .themebtn:hover{color:var(--ink)}
   .themebtn svg{width:18px;height:18px}
-  .intro{padding:48px 0 44px}
-  @media(min-width:1024px){.intro{padding:64px 0 56px}}
+  .intro{padding-top:48px;padding-bottom:44px}
+  @media(min-width:1024px){.intro{padding-top:64px;padding-bottom:56px}}
   .introTop{display:flex;align-items:center;gap:16px}
   .petal{display:inline-block;width:48px;height:48px;border-radius:36%;flex:none;background:var(--sage)}
   h1.display{margin:32px 0 0;max-width:20ch;font-size:2.4rem}
@@ -72,11 +72,19 @@
   article tbody th{min-width:9.5em;font-weight:500}
   .sib{display:flex;gap:18px;flex-wrap:wrap;margin:36px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:.85rem}
   footer{border-top:1px solid var(--line)}
-  footer .row{display:flex;flex-direction:column;gap:14px;padding:36px 0;align-items:flex-start}
+  footer .row{display:flex;flex-direction:column;gap:14px;padding-top:36px;padding-bottom:36px;align-items:flex-start}
   @media(min-width:640px){footer .row{flex-direction:row;align-items:center;justify-content:space-between}}
   footer nav{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:.82rem;color:var(--ink-soft)}
   footer nav a{text-decoration:none;color:inherit}
   footer nav a:hover{color:var(--ink)}
+  .menubtn{display:inline-flex;align-items:center;border:none;background:none;cursor:pointer;padding:10px 0 10px 4px;color:var(--ink-soft);font-family:var(--font-ui);font-size:.7rem;font-weight:450;letter-spacing:.34em;text-transform:uppercase}
+  .menubtn:hover{color:var(--ink)}
+  @media(min-width:768px){.menubtn{display:none}}
+  .mobilemenu{display:none;position:absolute;left:0;right:0;top:100%;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .mobilemenu.open{display:block}
+  @media(min-width:768px){.mobilemenu.open{display:none}}
+  .mobilemenu a{display:block;font-family:var(--font-display);font-weight:300;font-size:1.7rem;line-height:1.2;color:var(--ink);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line)}
+  .mobilemenu a:last-child{border-bottom:none}
 </style>
 <script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
@@ -98,8 +106,18 @@
       <button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
       </button>
+      <button class="menubtn" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
     </div>
   </div>
+  <nav class="mobilemenu" id="mobileMenu" aria-label="Menu">
+    <div class="wrap">
+      <a href="https://edenapps.app/#apps">Apps</a>
+      <a href="https://edenapps.app/#mac">Mac</a>
+      <a href="https://edenapps.app/#extensions">Extensions</a>
+      <a href="https://edenapps.app/how-it-works/">How it works</a>
+      <a href="https://edenapps.app/help/">Help</a>
+    </div>
+  </nav>
 </header>
 <main>
   <div class="wrap intro">
@@ -107,15 +125,15 @@
       <span class="petal" aria-hidden="true"></span>
       <span class="eyebrow">Support</span>
     </div>
-    <h1 class="display">Support · Local Period Tracker</h1>
-    <p class="eyebrow updated">Last updated: 20 September 2026</p>
+    <h1 class="display">Support · Cycle Days</h1>
+    <p class="eyebrow updated">Last updated: 8 October 2026</p>
   </div>
   <div class="wrap">
     <article>
-  <p class="lead">A question about Local Period Tracker, or something that isn't working? Write to <a href="mailto:support@edenapps.app">support@edenapps.app</a>. There is no need to include anything about your cycles.</p>
+  <p class="lead">A question about Cycle Days (Period &amp; Cycle Calendar on the App Store), or something that isn't working? Write to <a href="mailto:support@edenapps.app">support@edenapps.app</a>. There is no need to include anything about your cycles.</p>
 
   <h2>Logging a period</h2>
-  <p>On the Cycle tab, tap Period started on the first day. Tap Period ended on the last day. If you forget, open Calendar and tap the day you meant: you can start, end, or change a period on any day, backwards or forwards. The day you tap becomes the record, not the day you tapped it on.</p>
+  <p>On the Cycle tab, tap Period started on the first day. Tap Period ended on the last day. If you forget, open Calendar and tap the day you meant: you can start, end, or change a period on any day up to today. The day you tap becomes the record, not the day you tapped it on.</p>
 
   <h2>Where the expected dates come from</h2>
   <p>The app takes the middle length of your recent recorded cycles, the median, so one unusual month does not pull the answer around. It counts that many days forward from the first day of your last recorded period, and makes the range as wide as your own cycles vary. Until there are enough cycles it uses the typical length you set, and says so. These dates are an estimate from your own records. They are not a method of birth control and not a medical service, and you should talk to a doctor before making a medical decision.</p>
@@ -129,19 +147,19 @@
   <h2>Locking the app</h2>
   <p>In More, under Privacy, switch on Lock this app. Face ID, Touch ID, or your device passcode is then checked before the app opens. If the device has nothing to check with, the app opens instead of locking you out of your own records.</p>
 
-  <h2>Free, and Local Period Tracker Pro</h2>
-  <p>Logging, the full calendar, the expected dates, the main figures, CSV export, and full backup and restore are free. Local Period Tracker Pro adds the cycle summary PDF you can hand to a doctor, symptoms you name yourself, the extra insight screens, and the detailed daily fields. It is a one-time purchase.</p>
+  <h2>Free, and Cycle Days Pro</h2>
+  <p>Logging, the full calendar, the expected dates, the main figures, CSV export, and full backup and restore are free. Cycle Days Pro adds the cycle summary PDF you can hand to a doctor, symptoms you name yourself, the extra insight screens, and the detailed daily fields. It is a one-time purchase.</p>
 
   <h2>Keeping a copy, and moving to a new phone</h2>
   <p>This app's records are left out of your device's iCloud and computer backup, so a lost or replaced phone loses them unless you have a backup file. The app reminds you when the last one is getting old.</p>
-  <p>In More, choose Back up everything. Save the file to iCloud Drive or another place you can reach from the new phone. On the new phone, install Local Period Tracker, open More, and choose Restore a backup. The backup is not locked with a password. Anyone who has the file can read your whole history, so keep it somewhere private.</p>
+  <p>In More, choose Back up everything. Save the file somewhere you can reach from the new phone. A computer or a drive of your own keeps it out of iCloud; iCloud Drive works too, but it keeps a copy with Apple. On the new phone, install Cycle Days, open More, and choose Restore a backup. Restoring swaps the history on that phone for the one in the file. The backup is not locked with a password. Anyone who has the file can read your whole history, so keep it somewhere private.</p>
 
   <h2>Restoring your purchase</h2>
   <p>In More, choose Restore Purchases. Pro returns on every iPhone or iPad that uses the same Apple Account you bought it with.</p>
 
   <h2>Contact</h2>
   <p>Write to <a href="mailto:support@edenapps.app">support@edenapps.app</a> with your question.</p>
-  <p class="sib"><a href="local-period-tracker-privacy.html">Local Period Tracker privacy policy</a></p>
+  <p class="sib"><a href="local-period-tracker-privacy.html">Cycle Days privacy policy</a></p>
     </article>
   </div>
 </main>
@@ -176,6 +194,15 @@
     try{ localStorage.setItem('ea-theme', next); }catch(e){}
     paint();
   });
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('menuToggle'), m=document.getElementById('mobileMenu');
+  if(!b||!m) return;
+  function set(open){ m.classList.toggle('open',open); b.setAttribute('aria-expanded',open?'true':'false'); b.textContent=open?'Close':'Menu'; }
+  b.addEventListener('click',function(){ set(!m.classList.contains('open')); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') set(false); });
 })();
 </script>
 </body>

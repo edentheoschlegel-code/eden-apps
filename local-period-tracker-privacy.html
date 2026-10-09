@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'">
-<title>Privacy Policy · Local Period Tracker · Eden Apps</title>
-<meta name="description" content="Privacy policy for Local Period Tracker, an iPhone and iPad app by Eden Apps. Your cycles, symptoms and notes stay on the device, with no account and no Apple Health access.">
+<title>Privacy Policy · Cycle Days · Eden Apps</title>
+<meta name="description" content="Privacy policy for Cycle Days (Period &amp; Cycle Calendar on the App Store), an iPhone and iPad app by Eden Apps. Your cycles, symptoms and notes stay on the device, with no account and no Apple Health access.">
 <link rel="canonical" href="https://edenapps.app/local-period-tracker-privacy.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='296 147.5 661 656'%3E%3Crect x='296' y='147.5' width='320' height='320' rx='116' fill='%23DCC4B2'/%3E%3Crect x='637' y='147.5' width='320' height='320' rx='116' fill='%239DA69F'/%3E%3Crect x='296' y='483.5' width='320' height='320' rx='116' fill='%238D9177'/%3E%3Crect x='637' y='483.5' width='320' height='320' rx='116' fill='%23B799A0'/%3E%3Cpath d='M626.5,422.0 Q633.36,467.15 675.5,474.5 Q633.36,481.85 626.5,527.0 Q619.64,481.85 577.5,474.5 Q619.64,467.15 626.5,422.0Z' fill='%233A2A18'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
   @media(min-width:640px){.wrap{padding:0 32px}}
   header{position:sticky;top:0;z-index:40;border-bottom:1px solid transparent;background:transparent;transition:background-color .3s,border-color .3s}
   header.scrolled{border-bottom-color:var(--line);background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px)}
-  header .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+  header .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;padding-bottom:16px}
   .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
   .brand svg{width:28px;height:28px;display:block}
   nav.primary{display:none;align-items:center;gap:28px}
@@ -43,8 +43,8 @@
   .themebtn{display:inline-grid;place-items:center;width:40px;height:40px;border:none;background:none;color:var(--ink-soft);cursor:pointer;border-radius:999px;padding:0}
   .themebtn:hover{color:var(--ink)}
   .themebtn svg{width:18px;height:18px}
-  .intro{padding:48px 0 44px}
-  @media(min-width:1024px){.intro{padding:64px 0 56px}}
+  .intro{padding-top:48px;padding-bottom:44px}
+  @media(min-width:1024px){.intro{padding-top:64px;padding-bottom:56px}}
   .introTop{display:flex;align-items:center;gap:16px}
   .petal{display:inline-block;width:48px;height:48px;border-radius:36%;flex:none;background:var(--mauve)}
   h1.display{margin:32px 0 0;max-width:20ch;font-size:2.4rem}
@@ -72,11 +72,19 @@
   article tbody th{min-width:9.5em;font-weight:500}
   .sib{display:flex;gap:18px;flex-wrap:wrap;margin:36px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:.85rem}
   footer{border-top:1px solid var(--line)}
-  footer .row{display:flex;flex-direction:column;gap:14px;padding:36px 0;align-items:flex-start}
+  footer .row{display:flex;flex-direction:column;gap:14px;padding-top:36px;padding-bottom:36px;align-items:flex-start}
   @media(min-width:640px){footer .row{flex-direction:row;align-items:center;justify-content:space-between}}
   footer nav{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:.82rem;color:var(--ink-soft)}
   footer nav a{text-decoration:none;color:inherit}
   footer nav a:hover{color:var(--ink)}
+  .menubtn{display:inline-flex;align-items:center;border:none;background:none;cursor:pointer;padding:10px 0 10px 4px;color:var(--ink-soft);font-family:var(--font-ui);font-size:.7rem;font-weight:450;letter-spacing:.34em;text-transform:uppercase}
+  .menubtn:hover{color:var(--ink)}
+  @media(min-width:768px){.menubtn{display:none}}
+  .mobilemenu{display:none;position:absolute;left:0;right:0;top:100%;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .mobilemenu.open{display:block}
+  @media(min-width:768px){.mobilemenu.open{display:none}}
+  .mobilemenu a{display:block;font-family:var(--font-display);font-weight:300;font-size:1.7rem;line-height:1.2;color:var(--ink);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line)}
+  .mobilemenu a:last-child{border-bottom:none}
 </style>
 <script>(function(){try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
@@ -98,8 +106,18 @@
       <button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
       </button>
+      <button class="menubtn" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
     </div>
   </div>
+  <nav class="mobilemenu" id="mobileMenu" aria-label="Menu">
+    <div class="wrap">
+      <a href="https://edenapps.app/#apps">Apps</a>
+      <a href="https://edenapps.app/#mac">Mac</a>
+      <a href="https://edenapps.app/#extensions">Extensions</a>
+      <a href="https://edenapps.app/how-it-works/">How it works</a>
+      <a href="https://edenapps.app/help/">Help</a>
+    </div>
+  </nav>
 </header>
 <main>
   <div class="wrap intro">
@@ -107,43 +125,43 @@
       <span class="petal" aria-hidden="true"></span>
       <span class="eyebrow">Privacy</span>
     </div>
-    <h1 class="display">Privacy Policy · Local Period Tracker</h1>
-    <p class="eyebrow updated">Last updated: 2 October 2026</p>
+    <h1 class="display">Privacy Policy · Cycle Days</h1>
+    <p class="eyebrow updated">Last updated: 8 October 2026</p>
   </div>
   <div class="wrap">
     <article>
-  <p class="lead">Local Period Tracker keeps your cycle on your own iPhone or iPad. There is no account, and nothing you record is sent anywhere.</p>
-  <p>Local Period Tracker is made by Eden Apps, a sole proprietor based in Texas, USA. The same text is inside the app, under More, Privacy.</p>
+  <p class="lead">Cycle Days keeps your cycle on your own iPhone or iPad. There is no account, and nothing you record is sent anywhere.</p>
+  <p>Cycle Days is listed on the App Store as Period &amp; Cycle Calendar. It is made by Eden Apps, a sole proprietor based in Texas, USA. A shorter version of this policy is inside the app, under More, Privacy.</p>
 
   <h2>At a glance</h2>
   <table>
-    <thead><tr><th>Question</th><th>For Local Period Tracker</th></tr></thead>
+    <thead><tr><th>Question</th><th>For Cycle Days</th></tr></thead>
     <tbody>
       <tr><th scope="row">What stays on your device</th><td>Your cycles, the days you log, your symptoms, your notes and your settings.</td></tr>
-      <tr><th scope="row">iCloud</th><td>Not used. The app marks its own records so that your iCloud and computer backups skip them.</td></tr>
-      <tr><th scope="row">What leaves it</th><td>Nothing. There is no code in the app that sends your information over the internet.</td></tr>
+      <tr><th scope="row">iCloud</th><td>No sync. The app marks its own records so that your iCloud and computer backups skip them. Your settings are kept with the phone's ordinary app settings, which a backup can include.</td></tr>
+      <tr><th scope="row">What leaves it</th><td>Nothing, unless you export a file and send it yourself. There is no code in the app that sends your information over the internet.</td></tr>
       <tr><th scope="row">Apple Health</th><td>Not used. The app asks for no health permission and reads nothing from Health.</td></tr>
       <tr><th scope="row">Who else is involved</th><td>Apple, for the Pro purchase alone. A spreadsheet, summary or backup goes only where you send it.</td></tr>
     </tbody>
   </table>
 
   <h2>The short version</h2>
-  <p>Local Period Tracker has no accounts, no analytics, and no advertising. The app contains no code that sends your information over the internet.</p>
+  <p>Cycle Days has no accounts, no analytics, and no advertising. The app contains no code that sends your information over the internet.</p>
 
   <h2>What is stored</h2>
-  <p>Your cycles, the days you log, your symptoms, your notes, and your settings live only inside Local Period Tracker, on this iPhone or iPad. There is no iCloud copy and no sync.</p>
+  <p>Your cycles, the days you log, your symptoms, and your notes live only inside Cycle Days, on this iPhone or iPad. There is no iCloud copy of them and no sync. Your settings, such as your typical cycle length, are kept with the phone's ordinary app settings, which a device backup can include.</p>
 
   <h2>Left out of your device backup</h2>
   <p>Unlike most apps, this one marks its own records so that your iCloud and computer backups skip them. The cost is real and worth knowing: a new phone starts empty unless you made a backup file yourself, so make one in More and keep it somewhere you can reach.</p>
 
   <h2>Health apps</h2>
-  <p>Local Period Tracker does not read from or write to Apple Health, and it asks for no health permission. Nothing you enter here reaches another app unless you export it and send it yourself.</p>
+  <p>Cycle Days does not read from or write to Apple Health, and it asks for no health permission. Nothing you enter here reaches another app unless you export it and send it yourself.</p>
 
   <h2>The app lock</h2>
   <p>If you switch on the lock, iOS checks Face ID, Touch ID, or your device passcode before the app opens. The check happens on the device and the app is told only yes or no. Your face and fingerprint never reach the app. If a device has nothing to check with, the app opens rather than shutting you out of your own records.</p>
 
   <h2>Files you make</h2>
-  <p>Local Period Tracker builds the spreadsheets, the cycle summary, and the backup file right here. Each one stays put until you share it or save it somewhere yourself. None of them is locked with a password, so keep them somewhere private.</p>
+  <p>Cycle Days builds the spreadsheets, the cycle summary, and the backup file in its own temporary space on this device, and clears that space the next time the app opens. A file only leaves when you share it or save it somewhere yourself. From then on it follows the rules of the place you chose: iCloud Drive keeps a copy with Apple, while a computer or a drive of your own does not. None of these files is locked with a password, so keep them somewhere private.</p>
 
   <h2>Purchases</h2>
   <p>You buy Pro from Apple, in the App Store. Apple takes care of payment, and the app confirms your purchase with Apple's StoreKit. Nothing about your cycles is part of that, and your card and payment details never reach the app.</p>
@@ -152,7 +170,7 @@
   <p>There is no analytics code and no advertising code in this app, and no tracking of any kind. Nothing about your body or your cycle is sent to us, and we never receive it. We do not sell data, and we have no data to sell. You can check this yourself: turn on Airplane Mode and everything keeps working, except buying or restoring Pro.</p>
 
   <h2>Deleting</h2>
-  <p>Deleting a cycle or a day removes it from this device. Removing the app erases everything it stored here, so save a backup beforehand if you will want your history later.</p>
+  <p>Deleting a cycle or a day removes it from this device. Removing the app erases everything it stored here, so save a backup beforehand if you will want your history later. A backup file you saved somewhere else stays there until you delete it.</p>
 
   <h2>Children</h2>
   <p>Nothing is collected about anyone using this app, at any age.</p>
@@ -162,7 +180,7 @@
 
   <h2>Contact</h2>
   <p>Write to <a href="mailto:support@edenapps.app">support@edenapps.app</a> with any privacy question.</p>
-  <p class="sib"><a href="local-period-tracker-support.html">Local Period Tracker help and support</a></p>
+  <p class="sib"><a href="local-period-tracker-support.html">Cycle Days help and support</a></p>
     </article>
   </div>
 </main>
@@ -197,6 +215,15 @@
     try{ localStorage.setItem('ea-theme', next); }catch(e){}
     paint();
   });
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('menuToggle'), m=document.getElementById('mobileMenu');
+  if(!b||!m) return;
+  function set(open){ m.classList.toggle('open',open); b.setAttribute('aria-expanded',open?'true':'false'); b.textContent=open?'Close':'Menu'; }
+  b.addEventListener('click',function(){ set(!m.classList.contains('open')); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') set(false); });
 })();
 </script>
 </body>
