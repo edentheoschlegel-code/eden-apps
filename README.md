@@ -35,6 +35,31 @@ writes its generated legal pages into this folder; that tooling's target is
 apparently still correct, not stale — treat that as confirmed only as far as
 the check above goes, not further.
 
+## The sitemap
+
+`sitemap.xml` is not written by the Next build. `tools/build_sitemap.py` writes it
+from the files in this folder: the built pages at their clean addresses, the
+extension privacy pages at their registered `.html` addresses, every per-app
+privacy / support / terms page, and the four browser tools. Redirect stubs
+(`noindex`) and `404.html` stay out. Run it after adding, changing or removing a
+page, before committing:
+
+```sh
+python3 tools/build_sitemap.py          # rewrites sitemap.xml
+python3 tools/build_sitemap.py --check  # prints it, writes nothing
+```
+
+## Deploying the Next pages
+
+The top-level pages are built in `../eden-apps-site` (`npm run build` writes
+`out/`). Copy `out/` over this folder without deleting anything that is only
+here (the per-app pages, `tools/`, the stubs); `_next/` belongs entirely to the
+build, so it is safe to replace whole. Then refresh the `.html` twins: every
+`X.html` here that has a built `X/index.html` (help.html, privacy.html, the
+extension privacy pages registered on the Chrome Web Store, and so on) is a copy
+of that file, kept so the old addresses keep working. Then regenerate the
+sitemap and commit.
+
 ## The brand check — so the old design can't ship again by accident
 
 `tools/check_brand.sh` checks every `*-privacy.html`, `*-terms.html` and

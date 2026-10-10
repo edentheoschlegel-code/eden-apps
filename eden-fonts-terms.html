@@ -14,7 +14,7 @@
 <style>
   /* Eden Apps — new era tokens (2026-10-01), matched from eden-apps-site/src/app/globals.css */
   :root{
-    --paper:#f7f2eb;--paper-deep:#efe7dc;--ink:#2f2110;--ink-soft:#5e5143;--ink-faint:#8a7d6f;--line:#e4d9cb;--star:#3a2a18;
+    --paper:#f7f2eb;--paper-deep:#efe7dc;--ink:#2f2110;--ink-soft:#5e5143;--ink-faint:#6f6355;--line:#e4d9cb;--star:#3a2a18;
     --sand:#dcc4b2;--sage:#9da69f;--olive:#8d9177;--mauve:#b799a0;
     --font-display:'Cormorant Garamond',ui-serif,Georgia,serif;
     --font-ui:'Jost',ui-sans-serif,system-ui,sans-serif;
@@ -32,7 +32,7 @@
   @media(min-width:640px){.wrap{padding:0 32px}}
   header{position:sticky;top:0;z-index:40;border-bottom:1px solid transparent;background:transparent;transition:background-color .3s,border-color .3s}
   header.scrolled{border-bottom-color:var(--line);background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px)}
-  header .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+  header .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;padding-bottom:16px}
   .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
   .brand svg{width:28px;height:28px;display:block}
   nav.primary{display:none;align-items:center;gap:28px}
@@ -44,8 +44,8 @@
   .themebtn{display:inline-grid;place-items:center;width:40px;height:40px;border:none;background:none;color:var(--ink-soft);cursor:pointer;border-radius:999px;padding:0}
   .themebtn:hover{color:var(--ink)}
   .themebtn svg{width:18px;height:18px}
-  .intro{padding:48px 0 44px}
-  @media(min-width:1024px){.intro{padding:64px 0 56px}}
+  .intro{padding-top:48px;padding-bottom:44px}
+  @media(min-width:1024px){.intro{padding-top:64px;padding-bottom:56px}}
   .introTop{display:flex;align-items:center;gap:16px}
   .petal{display:inline-block;width:48px;height:48px;border-radius:36%;flex:none;background:var(--olive)}
   h1.display{margin:32px 0 0;max-width:16ch;font-size:2.4rem}
@@ -62,7 +62,7 @@
   article a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
   article a:hover{text-decoration-color:var(--ink)}
   footer{border-top:1px solid var(--line)}
-  footer .row{display:flex;flex-direction:column;gap:14px;padding:36px 0;align-items:flex-start}
+  footer .row{display:flex;flex-direction:column;gap:14px;padding-top:36px;padding-bottom:36px;align-items:flex-start}
   @media(min-width:640px){footer .row{flex-direction:row;align-items:center;justify-content:space-between}}
   footer nav{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:.82rem;color:var(--ink-soft)}
   footer nav a{text-decoration:none;color:inherit}
