@@ -49,6 +49,17 @@ python3 tools/build_sitemap.py          # rewrites sitemap.xml
 python3 tools/build_sitemap.py --check  # prints it, writes nothing
 ```
 
+## Night is dark roast (11 October 2026)
+
+Eden chose **dark roast** for the night theme. On 11 October 2026 the night colours were swapped
+in the built pages here (every page, plus the phone's night bar colour): `#221b15` -> `#291c15`,
+`#2b231c` -> `#32241c`, `#3d3329` -> `#443429`. Nothing else changed.
+
+**Watch out when redeploying:** `../eden-apps-site` (main) still has the old values in its source.
+If you rebuild from main and copy `out/` here before the redesign ships, swap those three values
+again in the copied files. The redesign branch (`../eden-apps-site-redesign`, `redesign-10x`)
+already has dark roast in its source, and `tools/reskin_legacy.py` writes dark roast for per-app pages.
+
 ## Deploying the Next pages
 
 The top-level pages are built in `../eden-apps-site` (`npm run build` writes
