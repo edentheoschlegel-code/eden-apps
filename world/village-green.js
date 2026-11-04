@@ -1160,7 +1160,6 @@
       <p class="eyebrow kicker sc-kicker">Debt payoff <span style="white-space:nowrap">planner ·</span> <span style="white-space:nowrap">Money</span></p>
       <p class="sc-desc">See a projected debt free date and compare ways to pay off your balances: snowball, avalanche, or your own plan.</p>
       <p class="sc-terms"><span>Included: plan up to 4 debts</span><span>Pro: every debt, PDF export, refinance modeler &amp; more</span></p>
-      <p class="sc-price">$9.99, one-time purchase</p>
       <p class="sc-actions"><a class="sc-act" href="https://mysnowballapp.com" aria-labelledby="my-snowball-act-0 my-snowball-name"><span id="my-snowball-act-0">Open</span><span class="sc-arrow" aria-hidden="true">→</span></a><a class="sc-act" href="https://apps.apple.com/app/id6789954920" aria-labelledby="my-snowball-act-1 my-snowball-name"><span id="my-snowball-act-1">App Store</span><span class="sc-arrow" aria-hidden="true">→</span></a></p>
     </li>
     <li class="sc-item" id="localresume" data-slug="localresume" data-tags="local one-time web cat:career" data-q="LocalResume Resume builder Career Local One-time Web Career">
@@ -1168,7 +1167,6 @@
       <p class="eyebrow kicker sc-kicker">Resume <span style="white-space:nowrap">builder ·</span> <span style="white-space:nowrap">Career</span></p>
       <p class="sc-desc">Build a professional resume, compare it with a job description, and see the keywords ATS filters may look for.</p>
       <p class="sc-terms"><span>Included: resume, PDF export &amp; match score</span><span>Pro: Word, cover letter, tailoring &amp; versions</span></p>
-      <p class="sc-price">$12.99, one-time purchase</p>
       <p class="sc-actions"><a class="sc-act" href="https://localresumeapp.com" aria-labelledby="localresume-act-0 localresume-name"><span id="localresume-act-0">Open</span><span class="sc-arrow" aria-hidden="true">→</span></a><a class="sc-act" href="https://apps.apple.com/app/id6789641665" aria-labelledby="localresume-act-1 localresume-name"><span id="localresume-act-1">App Store</span><span class="sc-arrow" aria-hidden="true">→</span></a></p>
     </li>
     <li class="sc-item" id="local-pdf" data-slug="local-pdf" data-tags="local one-time web cat:documents" data-q="Local PDF PDF toolkit Documents Local One-time Web Documents">
@@ -1176,7 +1174,6 @@
       <p class="eyebrow kicker sc-kicker">PDF <span style="white-space:nowrap">toolkit ·</span> <span style="white-space:nowrap">Documents</span></p>
       <p class="sc-desc">Merge, split, compress, convert, sign and redact PDFs on your device.</p>
       <p class="sc-terms"><span>Included: merge, split, compress, convert, sign, redact</span><span>Pro: advanced compress, batch &amp; ZIP</span></p>
-      <p class="sc-price">$9.99, one-time purchase</p>
       <p class="sc-actions"><a class="sc-act" href="https://localpdfapp.com" aria-labelledby="local-pdf-act-0 local-pdf-name"><span id="local-pdf-act-0">Open</span><span class="sc-arrow" aria-hidden="true">→</span></a><a class="sc-act" href="https://apps.apple.com/app/id6789784808" aria-labelledby="local-pdf-act-1 local-pdf-name"><span id="local-pdf-act-1">App Store</span><span class="sc-arrow" aria-hidden="true">→</span></a></p>
     </li>
     <li class="sc-item" id="local-invoice" data-slug="local-invoice" data-tags="local one-time web cat:business" data-q="Local Invoice Invoice maker Business Local One-time Web Business">
@@ -1184,7 +1181,6 @@
       <p class="eyebrow kicker sc-kicker">Invoice <span style="white-space:nowrap">maker ·</span> <span style="white-space:nowrap">Business</span></p>
       <p class="sc-desc">Create professional invoices and estimates, manage your client and payment details, and have them ready to send.</p>
       <p class="sc-terms"><span>Included: unlimited invoices &amp; PDFs</span><span>Pro: logo &amp; branding, payment details, record payments</span></p>
-      <p class="sc-price">$12.99, one-time purchase</p>
       <p class="sc-actions"><a class="sc-act" href="https://localinvoiceapp.com" aria-labelledby="local-invoice-act-0 local-invoice-name"><span id="local-invoice-act-0">Open</span><span class="sc-arrow" aria-hidden="true">→</span></a><a class="sc-act" href="https://apps.apple.com/app/id6789413537" aria-labelledby="local-invoice-act-1 local-invoice-name"><span id="local-invoice-act-1">App Store</span><span class="sc-arrow" aria-hidden="true">→</span></a></p>
     </li>
     <li class="sc-item" id="local-scan" data-slug="local-scan" data-tags="local one-time cat:documents" data-q="Local Scan Document scanner · iPhone &amp; iPad app Documents Local One-time Documents">
@@ -1192,7 +1188,6 @@
       <p class="eyebrow kicker sc-kicker">Document <span style="white-space:nowrap">scanner ·</span> <span style="white-space:nowrap">Documents</span></p>
       <p class="sc-desc">Capture a page with your camera, straighten and brighten it on your device, and take it away as PDF, Word, plain text or Markdown.</p>
       <p class="sc-terms"><span>Included: scan, straighten &amp; brighten, PDF &amp; image export</span><span>Pro: Word, Text, Markdown &amp; searchable text</span></p>
-      <p class="sc-price">$12.99, one-time purchase</p>
       <p class="sc-actions"><a class="sc-act" href="https://apps.apple.com/app/id6799491646" aria-labelledby="local-scan-act-0 local-scan-name"><span id="local-scan-act-0">App Store</span><span class="sc-arrow" aria-hidden="true">→</span></a></p>
     </li>
     <li class="sc-item" id="local-journal" data-slug="local-journal" data-tags="local free web cat:personal" data-q="Local Journal Private journal Personal Local Free Web Personal">
@@ -1200,7 +1195,6 @@
       <p class="eyebrow kicker sc-kicker">Private <span style="white-space:nowrap">journal ·</span> <span style="white-space:nowrap">Personal</span></p>
       <p class="sc-desc">Write your days in a journal that saves as you type, with search, moods, tags and a calendar to look back on.</p>
       <p class="sc-terms"><span>Included: writing, search, calendar, exports &amp; passcode lock. There is no Pro; Local Journal is free.</span></p>
-      <p class="sc-price">Free</p>
       <p class="sc-actions"><a class="sc-act" href="https://localjournalapp.com" aria-labelledby="local-journal-act-0 local-journal-name"><span id="local-journal-act-0">Open</span><span class="sc-arrow" aria-hidden="true">→</span></a><a class="sc-act" href="https://apps.apple.com/app/id6799491464" aria-labelledby="local-journal-act-1 local-journal-name"><span id="local-journal-act-1">App Store</span><span class="sc-arrow" aria-hidden="true">→</span></a></p>
     </li>
     <li class="sc-item" id="local-receipts" data-slug="local-receipts" data-tags="local one-time cat:money" data-q="Local Receipts Receipt tracker · iPhone &amp; iPad app Money Local One-time Money">
@@ -1208,7 +1202,6 @@
       <p class="eyebrow kicker sc-kicker">Receipt <span style="white-space:nowrap">tracker ·</span> <span style="white-space:nowrap">Money</span></p>
       <p class="sc-desc">Photograph a receipt, check the merchant, date, total and tax it reads on your device, and see what you spent each month by category.</p>
       <p class="sc-terms"><span>Included: up to 15 receipts, text reading, totals, CSV &amp; backups</span><span>Pro: unlimited receipts &amp; PDF expense reports</span></p>
-      <p class="sc-price">$12.99, one-time purchase</p>
       <p class="sc-actions"><a class="sc-act" href="https://apps.apple.com/app/id6813875113" aria-labelledby="local-receipts-act-0 local-receipts-name"><span id="local-receipts-act-0">App Store</span><span class="sc-arrow" aria-hidden="true">→</span></a></p>
     </li>
     <li class="sc-item" id="local-subscriptions" data-slug="local-subscriptions" data-tags="local one-time cat:money" data-q="Local Subscriptions Subscription &amp; bill tracker · iPhone &amp; iPad app Money Local One-time Money">
@@ -1216,7 +1209,6 @@
       <p class="eyebrow kicker sc-kicker">Subscription &amp; bill <span style="white-space:nowrap">tracker ·</span> <span style="white-space:nowrap">Money</span></p>
       <p class="sc-desc">Type in your subscriptions, bills, insurance and free trials, see what they cost each month and each year, and get a reminder before each date.</p>
       <p class="sc-terms"><span>Included: up to 3 renewals, totals, reminders, CSV export &amp; backups</span><span>Pro: as many renewals as you like</span></p>
-      <p class="sc-price">$12.99, one-time purchase</p>
       <p class="sc-actions"><a class="sc-act" href="https://apps.apple.com/app/id6813877684" aria-labelledby="local-subscriptions-act-0 local-subscriptions-name"><span id="local-subscriptions-act-0">App Store</span><span class="sc-arrow" aria-hidden="true">→</span></a></p>
     </li>
     <li class="sc-item" id="local-home-inventory" data-slug="local-home-inventory" data-tags="local one-time cat:home" data-q="Local Home Inventory Home inventory · iPhone &amp; iPad app Home Local One-time Home">
@@ -1224,7 +1216,6 @@
       <p class="eyebrow kicker sc-kicker">Home <span style="white-space:nowrap">inventory ·</span> <span style="white-space:nowrap">Home</span></p>
       <p class="sc-desc">Remember what you own room by room, find proof in your own photos, and export a contents spreadsheet for your insurer.</p>
       <p class="sc-terms"><span>Included: 25 items, one home, memory walk, photo proof, CSV spreadsheet &amp; backup</span><span>Pro: unlimited items, more homes &amp; PDF claim packet</span></p>
-      <p class="sc-price">$5.99, one-time purchase</p>
       <p class="sc-actions"><a class="sc-act" href="https://apps.apple.com/app/id6814119502" aria-labelledby="local-home-inventory-act-0 local-home-inventory-name"><span id="local-home-inventory-act-0">App Store</span><span class="sc-arrow" aria-hidden="true">→</span></a></p>
     </li>
   </ol>
