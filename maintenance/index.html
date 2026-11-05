@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eden Apps · Back soon</title>
+<meta name="description" content="The Eden Apps website is resting for a little while. Your apps keep working as usual.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" type="image/png">
+<meta name="theme-color" content="#f7f2eb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#291c15" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/maintenance/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/maintenance/jost.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var t=localStorage.getItem('ea-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<style>
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:300 700;font-display:swap;src:url(/maintenance/cormorant.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-style:normal;font-weight:100 900;font-display:swap;src:url(/maintenance/jost.woff2) format("woff2")}
+:root{
+  --paper:#f7f2eb;--paper-deep:#efe7dc;--ink:#2f2110;--ink-soft:#524537;--ink-faint:#6a5d4f;
+  --line:#e4d9cb;--line-strong:#cfc0ad;--focus:#5f6649;--star:#3a2a18;
+  --sand:#dcc4b2;--sage:#9da69f;--olive:#8d9177;--mauve:#b799a0;
+  --w-body:380;--w-eyebrow:500;--w-display:300;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme=light]){
+    --paper:#291c15;--paper-deep:#32241c;--ink:#f3eadf;--ink-soft:#dccfc1;--ink-faint:#b3a697;
+    --line:#4b392d;--line-strong:#634d3e;--focus:#b9bf9c;--star:#f3eadf;
+    --w-body:360;--w-eyebrow:480;color-scheme:dark;
+  }
+}
+:root[data-theme=dark]{
+  --paper:#291c15;--paper-deep:#32241c;--ink:#f3eadf;--ink-soft:#dccfc1;--ink-faint:#b3a697;
+  --line:#4b392d;--line-strong:#634d3e;--focus:#b9bf9c;--star:#f3eadf;
+  --w-body:360;--w-eyebrow:480;color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  min-height:100vh;min-height:100svh;display:flex;flex-direction:column;
+  background:var(--paper);
+  background-image:radial-gradient(120% 70% at 50% 0%,var(--paper) 40%,var(--paper-deep) 100%);
+  color:var(--ink);
+  font-family:"Jost","Jost Fallback",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-weight:var(--w-body);font-size:1.0625rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:72px 16px 48px}
+.mark{width:96px;height:96px;margin-bottom:36px;overflow:visible}
+.eyebrow{font-size:.75rem;font-weight:var(--w-eyebrow);letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint)}
+h1{font-family:"Cormorant Garamond","Cormorant Garamond Fallback",Georgia,serif;
+  font-weight:var(--w-display);font-size:clamp(2.5rem,1.9rem + 2.4vw,3.5rem);
+  line-height:1.05;letter-spacing:-.01em;margin:18px 0 22px;text-wrap:balance}
+.lead{max-width:30rem;color:var(--ink-soft);text-wrap:pretty}
+.lead + .lead{margin-top:12px}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px;text-decoration-color:var(--line-strong)}
+a:hover{text-decoration-color:currentColor}
+a:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:4px}
+footer{padding:0 16px 40px;display:flex;flex-direction:column;align-items:center;gap:18px}
+nav ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 8px}
+nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;
+  font-size:.875rem;letter-spacing:.025em;color:var(--ink-soft);text-decoration:none;
+  border:1px solid var(--line);border-radius:999px;transition:border-color .15s,color .15s}
+nav a:hover{color:var(--ink);border-color:var(--line-strong)}
+.small{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint)}
+@media (max-width:480px){.mark{width:80px;height:80px;margin-bottom:28px}}
+</style>
+</head>
+<body>
+<main>
+  <svg class="mark" viewBox="-90 -90 841 836" role="img" aria-label="Eden Apps">
+    <rect x="0" y="0" width="320" height="320" rx="116" fill="var(--sand)"/>
+    <rect x="341" y="0" width="320" height="320" rx="116" fill="var(--sage)"/>
+    <rect x="0" y="336" width="320" height="320" rx="116" fill="var(--olive)"/>
+    <rect x="341" y="336" width="320" height="320" rx="116" fill="var(--mauve)"/>
+    <path d="M330.5,274.5 Q337.36,319.65 379.5,327 Q337.36,334.35 330.5,379.5 Q323.64,334.35 281.5,327 Q323.64,319.65 330.5,274.5Z" fill="var(--star)"/>
+  </svg>
+  <p class="eyebrow">Eden Apps</p>
+  <h1>We’ll be back soon</h1>
+  <p class="lead">Our website is resting for a little while as we work on what comes next. Your apps and extensions keep working as usual.</p>
+  <p class="lead">If you need anything in the meantime, we’re at <a href="mailto:support@edenapps.app">support@edenapps.app</a>.</p>
+</main>
+<footer>
+  <nav aria-label="Policies and help">
+    <ul>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/terms/">Terms</a></li>
+      <li><a href="/help/">Help</a></li>
+    </ul>
+  </nav>
+  <p class="small">Thank you for your patience</p>
+</footer>
+</body>
+</html>
